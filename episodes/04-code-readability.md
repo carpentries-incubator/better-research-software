@@ -25,11 +25,9 @@ After completing this episode, participants should be able to:
 In this episode, we will introduce the concept of readable code and consider how it can help create reusable 
 scientific software and empower collaboration between researchers.
 
-When someone writes code, they do so based on requirements that are likely to change in the future.
-Requirements change because software interacts with the real world, which is dynamic.
-When these requirements change, the developer (who is not necessarily the same person who wrote the original code) 
-must implement the new requirements.
-They do this by reading the original code to understand the different abstractions, and identify what needs to change.
+While all developers hope their code will be stable long term, software often has to change due to changes in the real world.
+As requirements change, so must the relevant code.
+When code needs to be changed, the developer that created it or a more likely a different developer needs to understand the previous code to implement the new requirments.
 Readable code facilitates the reading and understanding of the abstraction phases and, as a result, facilitates the 
 evolution of the codebase.
 Readable code saves future developers' time and effort.
@@ -39,7 +37,7 @@ year, will I be able to understand what I have done and why?"
 Or even better: "If a new person who just joined the project reads my software, will they be able to understand 
 what I have written here?"
 
-We will now learn about a few software best practices we can follow to help create more readable code. 
+In this episode, we will learn a few specific software best practices we can follow to help create more readable code. 
 
 ::: spoiler
 
@@ -68,7 +66,7 @@ https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-read
 Let's have a look our code again - the first thing we may notice is that our script currently places import statements 
 throughout the code.
 Conventionally, all import statements are placed at the top of the script so that dependent libraries
-are clearly visible and not buried inside the code (even though there are standard ways of describing dependencies -
+are clearly visible and not buried inside the code (there are also standard ways of describing dependencies -
 e.g. using `requirements.txt` file).
 This will help readability (accessibility) and reusability of our code.
 
@@ -208,89 +206,92 @@ g_earth = 9.81
 
 Let's apply this to `eva_data_analysis.py`.
 
-a. Edit the code as follows to use descriptive variable names:
+a. Edit the code as follows to use descriptive (and consistent) variable names:
 
-    - Change data_f to input_file
-    - Change data_t to output_file
-    - Change g_file to graph_file
-    
+    - Change `data_f` to `input_file`
+    - Change `data_t` to `output_file`
+    - Change `g_file` to `graph_file`
+
+    *Be sure to change all the occurrences of each variable name.*
 b. What other variable names in our code would benefit from renaming? 
 c. Commit your changes to your repository. Remember to use an informative commit message.
 
 
 ::: solution
 
-Updated code:
-```python
-import json
-import csv
-import datetime as dt
-import matplotlib.pyplot as plt
-
-# https://data.nasa.gov/resource/eva.json (with modifications)
-input_file = open('./eva-data.json', 'r', encoding='ascii')
-output_file = open('./eva-data.csv', 'w', encoding='utf-8')
-graph_file = './cumulative_eva_graph.png'
-
-
-fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
-
-data=[]
-
-for i in range(374):
-    line=input_file.readline()
-    print(line)
-    data.append(json.loads(line[1:-1]))
-#data.pop(0)
-## Comment out this bit if you don't want the spreadsheet
-
-w=csv.writer(output_file)
-
-time = []
-date =[]
-
-j=0
-for i in data:
-    print(data[j])
-    # and this bit
-    w.writerow(data[j].values())
-    if 'duration' in data[j].keys():
-        tt=data[j]['duration']
-        if tt == '':
-            pass
-        else:
-            t=dt.datetime.strptime(tt,'%H:%M')
-            ttt = dt.timedelta(hours=t.hour, minutes=t.minute, seconds=t.second).total_seconds()/(60*60)
-            print(t,ttt)
-            time.append(ttt)
-            if 'date' in data[j].keys():
-                date.append(dt.datetime.strptime(data[j]['date'][0:10], '%Y-%m-%d'))
-                #date.append(data[j]['date'][0:10])
-
+a.
+    Updated code:
+    ```python
+    import json
+    import csv
+    import datetime as dt
+    import matplotlib.pyplot as plt
+    
+    # https://data.nasa.gov/resource/eva.json (with modifications)
+    input_file = open('./eva-data.json', 'r', encoding='ascii')
+    output_file = open('./eva-data.csv', 'w', encoding='utf-8')
+    graph_file = './cumulative_eva_graph.png'
+    
+    
+    fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
+    
+    data=[]
+    
+    for i in range(374):
+        line=input_file.readline()
+        print(line)
+        data.append(json.loads(line[1:-1]))
+    #data.pop(0)
+    ## Comment out this bit if you don't want the spreadsheet
+    
+    w=csv.writer(output_file)
+    
+    time = []
+    date =[]
+    
+    j=0
+    for i in data:
+        print(data[j])
+        # and this bit
+        w.writerow(data[j].values())
+        if 'duration' in data[j].keys():
+            tt=data[j]['duration']
+            if tt == '':
+                pass
             else:
-                time.pop(0)
-    j+=1
-
-t=[0]
-for i in time:
-    t.append(t[-1]+i)
-
-date,time = zip(*sorted(zip(date, time)))
-
-plt.plot(date,t[1:], 'ko-')
-plt.xlabel('Year')
-plt.ylabel('Total time spent in space to date (hours)')
-plt.tight_layout()
-plt.savefig(graph_file)
-plt.show()
-```
-We should also rename variables `w`, `t`, `tt` and `ttt` to be more descriptive.
-
-Commit changes:
-```bash
-(venv_spacewalks) $ git add eva_data_analysis.py
-(venv_spacewalks) $ git commit -m "Use descriptive variable names"
-```
+                t=dt.datetime.strptime(tt,'%H:%M')
+                ttt = dt.timedelta(hours=t.hour, minutes=t.minute, seconds=t.second).total_seconds()/(60*60)
+                print(t,ttt)
+                time.append(ttt)
+                if 'date' in data[j].keys():
+                    date.append(dt.datetime.strptime(data[j]['date'][0:10], '%Y-%m-%d'))
+                    #date.append(data[j]['date'][0:10])
+    
+                else:
+                    time.pop(0)
+        j+=1
+    
+    t=[0]
+    for i in time:
+        t.append(t[-1]+i)
+    
+    date,time = zip(*sorted(zip(date, time)))
+    
+    plt.plot(date,t[1:], 'ko-')
+    plt.xlabel('Year')
+    plt.ylabel('Total time spent in space to date (hours)')
+    plt.tight_layout()
+    plt.savefig(graph_file)
+    plt.show()
+    ```
+b. 
+    Variables `w`, `t`, `ttt` could also be renamed to be more descriptive. Though, we won't do so now.
+c. 
+    Commit changes:
+    ```bash
+    (venv_spacewalks) $ git add eva_data_analysis.py
+    (venv_spacewalks) $ git commit -m "Use descriptive variable names"
+    ```
 
 :::
 ::::::
@@ -307,7 +308,7 @@ making them especially tricky to detect and fix. Over time, this makes the codeb
 
 ### Remove an unused variable
 
-Find and remove an unused variable in our code.
+Find and remove an unused variable in our code. Then, commit the updated code to the git repo.
 
 ::: solution
 
@@ -322,8 +323,8 @@ import datetime as dt
 import matplotlib.pyplot as plt
 
 # https://data.nasa.gov/resource/eva.json (with modifications)
-input_file = open('./eva-data.json', 'r')
-output_file = open('./eva-data.csv', 'w')
+input_file = open('./eva-data.json', 'r', encoding='ascii')
+output_file = open('./eva-data.csv', 'w', encoding='utf-8')
 graph_file = './cumulative_eva_graph.png'
 
 
@@ -395,7 +396,7 @@ to store data in our case.
 By choosing custom code over standard and well-tested libraries, we are making our code less readable and understandable
 and more error-prone.
 
-The main functionality of our code can be rewritten as follows using the `Pandas` library to load and manipulate the 
+The main functionality of our code can be rewritten as follows using the `pandas` library to load and manipulate the 
 data in data frames.
 
 First, we need to install this dependency into our virtual environment (which should be active at this point).
@@ -403,6 +404,8 @@ First, we need to install this dependency into our virtual environment (which sh
 ```bash
 (venv_spacewalks) $ python3 -m pip install pandas
 ```
+
+Then we will edit the code to use pandas. For the sake of time in the workshop, we will give you the updated code.
 The code should now look like:
 
 ```python
@@ -432,7 +435,7 @@ plt.show()
 
 ```
 
-We should replace the existing code in our Python script `eva_data_analysis.py` with the above code and commit the
+Once we have replaced the  code in our Python script `eva_data_analysis.py` with the above code, we need to commit the
 changes. Remember to use an informative commit message.
 
 ```bash
@@ -449,6 +452,8 @@ Make sure to capture the changes to your virtual development environment too.
 (venv_spacewalks) $ git push origin main
 ```
 
+Note, in practice we may have wanted to commit the code and the environment changes together since they are linked changes.
+
 ## Use comments to explain functionality
 
 Commenting is a very useful practice to help convey the context of the code.
@@ -462,12 +467,17 @@ Typically, it comes after the code statement and finishes when the line ends and
 is useful when you want to explain the code line in short. 
 Inline comments in Python should be separated by at least two spaces from the statement; they start with a # followed
 by a single space, and have no end delimiter.
+- A **single-line comment** or **prologue comment** is a comment that comes the line before a block of code to explain it.
 - A **multi-line** or **block comment** can span multiple lines and has a start and end sequence.
 To comment out a block of code in Python, you can either add a # at the beginning of each line of the block or 
 surround the entire block with three single (`'''`) or double quotes (`"""`).
 
 ``` python
 x = 5  # In Python, inline comments begin with the `#` symbol and a single space.
+
+# this is a single-line comment
+y = x + 10
+z = y*2 + x
 
 '''
 This is a multiline
@@ -669,7 +679,7 @@ similarly structured files and process them in the same way.
 ## Use docstrings to document functions
 
 Now that we have written some functions, it is time to document them so that we can quickly recall 
-(and others looking at our code in the future can understand) what the functions doe without having to read
+(and others looking at our code in the future can understand) what the functions do without having to read
 the code.
 
 *Docstrings* are a specific type of documentation that are provided within functions and [Python classes][python-classes].
@@ -770,8 +780,8 @@ Write a docstring for the function `write_dataframe_to_csv` we introduced earlie
 Our `write_dataframe_to_csv` function fully described by a docstring may look like:
 ```python
 def write_dataframe_to_csv(df, output_file):
-"""
-Write the dataframe to a CSV file.
+    """
+    Write the dataframe to a CSV file.
 
     Args:
         df (pd.DataFrame): The input dataframe.
