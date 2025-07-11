@@ -14,7 +14,7 @@ carpentry: 'incubator'
 title: 'Building Better Research Software' 
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 2023-10-03
+created: 2023-10-03 # FIXME
 
 # Comma-separated list of keywords for the lesson
 keywords: 'research software, good practices, FAIR, reproducibility, sustainability, open, research, lesson, The Carpentries' 
@@ -27,13 +27,13 @@ life_cycle: 'beta'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/carpentries-incubator/better-research-software'
+source: 'https://github.com/softwaresaved/fair-research-software' # FIXME
 
 # Default branch of your lesson
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'a.nenadic@software.ac.uk'
+contact: 'a.nenadic@software.ac.uk' # FIXME
 
 # Navigation ------------------------------------------------
 #

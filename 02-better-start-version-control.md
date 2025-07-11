@@ -159,7 +159,7 @@ and the most common commands used to work with one.
 Open up VS Code, and launch a **Git Bash** terminal.
 Call out how your prompt looks,
 and make sure that Windows users are not accidentally using PowerShell.
-[Refer back to the setup section on configuring VS Code if anyone needs help.](https://carpentries-incubator.github.io/better-reseach-software/instructor/installation-instructions.html#visual-studio-code)
+[Refer back to the setup section on configuring VS Code if anyone needs help.](https://carpentries-incubator.github.io/fair-research-software/instructor/installation-instructions.html#visual-studio-code)
 
 :::
 
