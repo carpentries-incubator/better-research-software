@@ -6,9 +6,9 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- What are the FAIR research principles?
-- How do FAIR principles apply to software?
--  What are the wider Research Software Development Principles and where does FAIR fit into them?
+- What are the FAIR principles? 
+- How can FAIR principles help us develop better research software?
+- What are the wider research software development principles in the context of you team, peers and the world?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -18,7 +18,7 @@ After completing this episode, participants should be able to:
 
 - Explain the FAIR research principles in the context of research software
 - Explain why these principles are of value in the research community 
-- Reflect on the Research Software Development Principles and their relevance to own research.
+- Reflect on the wider research software development principles and their relevance to research
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -27,7 +27,7 @@ The [final branch](https://github.com/carpentries-incubator/bbrs-software-projec
 Some may require time and perseverance to implement and embed in your routine. 
 Others are small changes you can start practicing today.
 
-![An image of a Chinese proverb "The best time to plant a tree was 20 years ago. The second best time is now" by CCNULL, used under a CC-BY 2.0 licence](episodes/fig/plant-a-tree.jpg){alt='An image of a Chinese proverb "The best time to plant a tree was 20 years ago. The second best time is now'}
+![Image by CCNULL, used under a CC-BY 2.0 licence](episodes/fig/plant-a-tree.jpg){alt="Chinese proverb 'The best time to plant a tree was 20 years ago. The second best time is now'"}
 
 ## FAIR Research Software
 One framework that can help you evaluate the alignment of a piece of research software with best practices in reproducibility are the _FAIR Principles for Research Software_.
@@ -152,23 +152,23 @@ Here are some tools that can check your software and provide an assessment of it
 ::::::::::::::::::::::::::::::
 
 
-## Research software development principles
+## Wider research software development principles
 
 Software and people who develop it have significance within the research environment and a broader impact on society and the planet.
-FAIR research software principles cover some aspects and operate within the wider [**Research Software Development Principles**](https://rsecon24.society-rse.org/about/research-software-development-principles/) - recommended by Software Sustainability Institute's Director Neil Chue Hong during his [keynote at RSECon23](https://rsecon24.society-rse.org/about/research-software-development-principles/#neil-chue-hong-rse23-keynote).
+FAIR research software principles cover some aspects and operate within the wider [**research software development principles**](https://rsecon24.society-rse.org/about/research-software-development-principles/) - recommended by the Software Sustainability Institute's Director Neil Chue Hong during his [keynote at RSECon23](https://rsecon24.society-rse.org/about/research-software-development-principles/#neil-chue-hong-rse23-keynote).
 These principles can help us explore and reflect on our own work and guide us on a path to better research.
 
 ### Helping your team
 
-![Helping your team, image from RSECon2024, used under CC BY 4.0](episodes/fig/help-the-team.png){alt='Help the team principles of writing FAIR, secure and maintainable code'}
+![Helping your team, image from RSECon2024, used under CC BY 4.0](episodes/fig/help-the-team.png){alt="Three 'help your team' principles: write FAIR, secure and maintainable code"}
 
 ### Helping you peers
 
-![Helping your peers, image from RSECon2024, used under CC BY 4.0](episodes/fig/help-the-peers.png){alt='Help the peers principles of making your work reproducible, inclusive and credit everyone involved'}
+![Helping your peers, image from RSECon2024, used under CC BY 4.0](episodes/fig/help-the-peers.png){alt="Three 'help your peers' principles: make your work reproducible, inclusive and credit everyone involved in it"}
 
 ### Helping the world
 
-![Helping the world, image from RSECon2024, used under CC BY 4.0](episodes/fig/help-the-world.png){alt='Help the world principles of being responsible, open and global, and humanist when developing research software'}
+![Helping the world, image from RSECon2024, used under CC BY 4.0](episodes/fig/help-the-world.png){alt="Three 'help the world principles': when developing research software be responsible, open and global, and humanist"}
 
 ## Further reading
 
@@ -187,13 +187,12 @@ We recommend the following resources for some additional reading on FAIR Researc
 registries (by country, organisation, domain and programming language) where research software can be registered 
 to help promote its discovery
 
-Please check out [the following resources](learners/reference.md#litref) for some additional reading 
-on the topic of this course and the full reference set.
+Also check out [the full reference set for this course](learners/reference.md#litref).
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- FAIR data and software is Findable, Accessible, Interoperable, Reusable.
-- These principles support research and researchers by saving time, reducing barriers to discovery, and increasing impact of the research output.
+- FAIR software and data is Findable, Accessible, Interoperable, Reusable and provide one framework for improving software and data practices in research.
+- FAIR and other good research software principles, practices and tools support research and researchers by saving time, reducing barriers to discovery, and increasing impact of the research output.
 - When developing software for your research, think about how it will help you and your team, your peers and domain/community and 
 the world.
 
