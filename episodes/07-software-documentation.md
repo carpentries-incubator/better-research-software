@@ -4,7 +4,7 @@ teaching: 60
 exercises: 30
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How should we document our code?
 - Why are documentation and repository metadata important and how they support FAIR software?
@@ -24,15 +24,15 @@ After completing this episode, participants should be able to:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 We have seen how writing inline comments and docstrings within our code can help with improving its readability. 
 The purpose of software documentation is to communicate other important information 
 about our software (its purpose, dependencies, how to install and run it, etc.) to the people who need it – 
-both users and developers.   
+both users and developers.
 
 ::: spoiler
 
 ### Activate your virtual environment
+
 If it is not already active, make sure to activate your virtual environment from the root of
 the software project directory:
 
@@ -48,7 +48,7 @@ the software project directory:
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation>
 
 ::::::
 
@@ -90,8 +90,7 @@ Software-level technical documentation encompasses:
 - Reference - a lookup manual to help users find relevant information about the software e.g. functions and their parameters.
 - Explanation - conceptual discussion of the code to help users understand implementation decisions 
 
-
-## Project-level documentation 
+## Project-level documentation
 
 Project-level documentation includes various information and metadata about software 
 that help to discover it, explain the legal terms of reusing it, describe its functionality on a high level 
@@ -114,7 +113,6 @@ Some common examples of repository metadata files and their role are explained b
 | CITATION        | Provides instructions on how to cite the code                                                                                                                                                       |
 | AUTHORS         | Provides information on who authored the code (can also be included in CITATION)                                                                                                                    |
 
-
 ::: callout
 ### Just enough documentation
 
@@ -125,9 +123,9 @@ CITATION.
 Let’s look at each of these files in turn.
 
 ### README file
-A README file acts as a “landing page” for your code repository on GitHub and should provide sufficient information for users to and developers to get started using your code.   
+A README file acts as a “landing page” for your code repository on GitHub and should provide sufficient information for users to and developers to get started using your code.
 
-::::::::::::::::::::::::::::::::::::: challenge 
+::::::::::::::::::::::::::::::::::::: challenge
 
 ### README and the FAIR principles
 
@@ -137,19 +135,19 @@ discuss them with other participants.
 Here are some of the major sections you might find in a typical README. 
 Which are **essential** to support the FAIR principles? Which are optional?
 
-+ Purpose of the code
-+ Audience (who the code is intended for)
-+ Installation instructions
-+ Contribution guide
-+ How to get help
-+ License
-+ Software citation
-+ Usage example
-+ Dependencies and their versions
-+ FAQs
-+ Code of Conduct
+- Purpose of the code
+- Audience (who the code is intended for)
+- Installation instructions
+- Contribution guide
+- How to get help
+- License
+- Software citation
+- Usage example
+- Dependencies and their versions
+- FAQs
+- Code of Conduct
 
-:::::::::::::::::::::::: solution 
+:::::::::::::::::::::::: solution
 
 To support the FAIR principles (Findability, Accessibility, Interoperability, and Reusability), 
 certain sections in a README file are more important than others. 
@@ -233,7 +231,7 @@ copying and pasting the text, make sure you unescape them).
 ```text
 ## Installation instructions
 
-+ Clone the Spacewalks repository to your local machine using Git.
+- Clone the Spacewalks repository to your local machine using Git.
 If you don't have Git installed, you can download it from the official Git website.
 
 \`\`\`
@@ -241,12 +239,12 @@ git clone https://github.com/your-repository-url/spacewalks.git
 cd spacewalks
 \`\`\`
 
-+ Install the necessary dependencies:
+- Install the necessary dependencies:
 \`\`\`
 python3 -m pip install pandas==2.2.2 matplotlib==3.8.4 numpy==2.0.0 pytest==7.4.2
 \`\`\`
 
-+ To ensure everything is working correctly, run the tests using pytest.
+- To ensure everything is working correctly, run the tests using pytest.
 
 \`\`\`
 python3 -m pytest
@@ -296,6 +294,7 @@ code repository (as there is likely not going to be enough time to spend on diff
 ::::::
 
 :::::: callout
+
 #### Tools to help you choose a licence
 
 - A [short intro](../learners/licensing.md) on different open source software licences included as extra content to this course. 
@@ -305,7 +304,6 @@ appropriate for your needs, and can even automate adding the LICENSE file to you
 
 :::::::
 
-
 ::::::  challenge
 
 ### Select a licence
@@ -314,7 +312,6 @@ Choose a license for your code.
 Discuss with your neighbour or the group your choice of license and reason for choosing it.
 
 ::::::
-
 
 :::::: challenge
 
@@ -337,11 +334,9 @@ one source code file (e.g. `eva_data_analysis.py`)
 After completing the above, check the "About" section of your repository's GitHub landing webpage and see
 if there is now a license listed.
 
-
 :::
 
 ::::::
-
 
 ### CITATION file
 
@@ -437,7 +432,6 @@ GitHub's "Cite this repository" button can be used to generate a citation in var
 
 ::: callout
 
-###
 Further information is available from the [Turing Way's guide to software citation][turing-way-citation].
 
 :::
@@ -483,6 +477,7 @@ Let's creates a new MkDocs project in the current directory:
 # In ~/Desktop/spacewalks
 mkdocs new .    
 ```
+
 ```output
 INFO    -  Writing config file: ./mkdocs.yml
 INFO    -  Writing initial docs: ./docs/index.md
@@ -556,6 +551,7 @@ Finally, let's build our documentation.
 ```bash
 (venv_spacewalks) $ mkdocs build
 ```
+
 ```output
 INFO    -  Cleaning site directory
 INFO    -  Building documentation to directory: /Users/AnnResearcher/Desktop/Spacewalks/site
@@ -564,6 +560,7 @@ WARNING -  griffe: eva_data_analysis.py:84: No type or annotation for returned v
 WARNING -  griffe: eva_data_analysis.py:33: No type or annotation for returned value 1
 INFO    -  Documentation built in 0.31 seconds
 ```
+
 Once the build step is completed, our documentation site is saved to 
 a `site` folder in the root of our project folder.
 These files will be distributed with our code. We can either direct users
@@ -576,6 +573,7 @@ ensures that the documentation site is generated with URLs that are easy to navi
 locally on a user's device.
 
 ::: challenge
+
 ### Explore your documentation
 
 Explore documentation in `site/` folder built with MkDocs for your project, starting from the `index.html` file.
@@ -613,6 +611,7 @@ documentation to a hosting service.
 ### Some options for hosting documentation
 
 ### GitHub Pages
+
 As our repository is hosted in GitHub, we can use GitHub Pages - a service that
 allows GitHub users to host websites directly from their GitHub repositories.
 
@@ -639,6 +638,7 @@ within the project repository. To deploy our documentation:
 (venv_spacewalks) $ git commit -m "Add project-level documentation"
 (venv_spacewalks) $ git push origin main
 ```
+
 2. Once we are on the main branch and all our changes are up to date, run the following command from the command line 
 termindal to deploy our documentation to GitHub.
 
@@ -648,6 +648,7 @@ termindal to deploy our documentation to GitHub.
 # - It will ALSO include uncommitted changes and untracked files (read the warning above!!) <- VERY IMPORTANT!!
 (venv_spacewalks) $ mkdocs gh-deploy
 ```
+
 ```output
 INFO    -  Cleaning site directory
 INFO    -  Building documentation to directory: /Users/AnnResearch/Desktop/Spacewalks/site
@@ -673,17 +674,21 @@ To https://github.com/kkh451/spacewalks-dev.git
  * [new branch]      gh-pages -> gh-pages
 INFO    -  Your documentation should shortly be available at: https://kkh451.github.io/spacewalks/
 ```
+
 This command will build our documentation with MkDocs, then commit and push the files to the `gh-pages` branch using 
 the GitHub `ghp-import` tool which is installed as a dependency of MkDocs.
 
 For more options, use:
+
 ```bash
 mkdocs gh-deploy --help
 ```
+
 Notice that the deploy command did not allow us to preview the site before it was pushed to GitHub; so, it is a good 
 idea to check changes locally with the build commands before deploying.
 
 ### Other options
+
 You can find out about other deployment options including free documentation hosting service ReadTheDocs on the 
 [MkDocs deployment pages][mkdocs-deploy].
 
@@ -711,14 +716,15 @@ in your documentation folder to show users how to change the destination filenam
 CSV dataset generated by the Spacewalks software.
 
 ::: spoiler
+
 ### Discussion hints & solution
 
 An effective how-to guide should:
 
-+ be goal oriented and focus on action.
-+ avoid teaching or explanation
-+ use appropriate language e.g. conditional imperatives
-+ have an informative title
+- be goal oriented and focus on action.
+- avoid teaching or explanation
+- use appropriate language e.g. conditional imperatives
+- have an informative title
 
 An example how-to guide for our project to the file `docs/how-to-guides.md`:
 
@@ -825,9 +831,9 @@ You should see `eva-data-clean.csv` file listed in the `data/clean` folder.
 
 #### Exercise: custom output path
 
-+ Create a new directory named `output/data` in your working directory.
-+ Run the Spacewalk script to save the cleaned dataset in the newly created `output/data` directory with the filename `cleaned-eva-data.csv`.
-+ Verify that the dataset has been saved correctly.
+- Create a new directory named `output/data` in your working directory.
+- Run the Spacewalk script to save the cleaned dataset in the newly created `output/data` directory with the filename `cleaned-eva-data.csv`.
+- Verify that the dataset has been saved correctly.
 
 ##### Solution
 
@@ -860,6 +866,7 @@ Now that we have seen examples of both a how-to guide and a tutorial, let's comp
 How does the content and language of our example tutorial differ from our example how-to guide?
 
 :::::::::::::::::::::::: spoiler
+
 ### Discussion hints
 
 #### Content
@@ -899,7 +906,7 @@ structuring documentation effectively.
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration>
 
 ::::::
 
@@ -916,7 +923,6 @@ We recommend the following resources for some additional reading on the topic of
   
 Also check the [full reference set](learners/reference.md#litref) for the course.
 
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - Documentation allows users to run and understand software without having to work things out for themselves 
@@ -931,5 +937,3 @@ a repository Wiki and static webpages.
 quality documentation.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

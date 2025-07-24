@@ -9,7 +9,7 @@ exercises: 30
 - How can we best structure code?
 - What is a common code structure (pattern) for creating software that can read input from command line?
 - What are conventional places to store data, code, results, tests, auxiliary information and metadata 
-within our software or research project? 
+within our software or research project?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -31,6 +31,7 @@ reusability of our code, and will expand these practices on our (research or cod
 ::: spoiler
 
 ### Activate your virtual environment
+
 If it is not already active, make sure to activate your virtual environment from the root of
 the software project directory:
 
@@ -39,6 +40,7 @@ $ source venv_spacewalks/bin/activate # Mac or Linux
 $ source venv_spacewalks/Scripts/activate # Windows
 (venv_spacewalks) $
 ```
+
 :::
 
 :::::: spoiler
@@ -46,7 +48,7 @@ $ source venv_spacewalks/Scripts/activate # Windows
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure>
 
 ::::::
 
@@ -77,16 +79,14 @@ eva_data = read_json_to_dataframe(input_file)
 write_dataframe_to_csv(eva_data, output_file)
 plot_cumulative_time_in_space(eva_data, graph_file)
 ...
-
 ```
+
 Remember to add docstrings and comments to the new functions to explain their functionalities. 
 
 Our new code (with the three new functions `plot_cumulative_time_in_space`, `text_to_duration` and 
 `add_duration_hours_variable`) may look like the following.
 
 ```python
-
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -198,8 +198,6 @@ write_dataframe_to_csv(eva_data, output_file)
 plot_cumulative_time_in_space(eva_data, graph_file)
 
 print("--END--")
-
-
 ```
 
 As you may notice, the main part of our code has now been majorly simplified and is much easier to follow.
@@ -437,10 +435,10 @@ ensuring easy navigation, collaboration and reproducibility.
 
 Below are some good practices for setting up and maintaining a research project directory structure.
 
-1. Top-level directory
+1. **Top-level directory**
     - Put all files related to a project into a single directory
     - Choose a meaningful name that reflects the project’s purpose or topic.
-2. Subdirectories - organise the project into clear, well-labeled sub-directories based on the type of content. 
+2. **Subdirectories** - organise the project into clear, well-labeled sub-directories based on the type of content. 
 Common categories include:
     - Data - store raw, intermediate, and processed data in separate sub-directories to maintain clarity and avoid overwriting and losing your raw data
     - Code/scripts/src - for storing your source code
@@ -448,15 +446,14 @@ Common categories include:
     - Documentation - include a detailed project description and documentation on how the project is organised, methodologies, and file dependencies.
     - Figures/Plots - store all visualisations like charts, graphs, and figures generated from the analysis (these can also go in the results directory).
     - References - a folder for research papers, articles, or any other literature cited or referenced in the project.
-3. Naming conventions
+3. **Naming conventions**
     - Avoid special characters or spaces (they can cause errors when read by computers); use underscores (_) or hyphens (-) instead 
     - Name files to reflect their contents, version, or date (or use version control to track different versions).
-4. Use version control
+4. **Use version control**
    - Code and data should be version controlled; you can also version control manuscripts, results, etc. 
    - If data files are too large (or contain sensitive information) to track by version control, untrack them using `.gitignore` 
    - Use tags/releases to mark specific versions of results (a version submitted to a journal, dissertation version, poster version, etc.)
    so as to avoid using version numbers in file names and proliferation of different files.
-
 
 ```output
 project_name/
@@ -626,7 +623,6 @@ if __name__ == "__main__":
 
     graph_file = 'results/cumulative_eva_graph.png'
     main(input_file, output_file, graph_file)
-
 ```
 
 You can now run the code as:
@@ -659,10 +655,9 @@ as new contributors can more easily find what they need, and it enables smoother
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correcteness.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correcteness>
 
 ::::::
-
 
 ## Further reading
 

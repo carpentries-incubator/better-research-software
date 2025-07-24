@@ -50,10 +50,9 @@ $ source venv_spacewalks/Scripts/activate # Windows
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration>
 
 ::::::
-
 
 ## Sharing code to encourage collaboration
 
@@ -152,18 +151,14 @@ Here is the badge for this repository and the corresponding Markdown:
 
 ### Archive your repository to Zenodo (Sandbox)
 
-Note: for this exercise, as demonstrated earlier, you should use the [Sandbox Zenodo](https://sandbox.zenodo.org/) (a version of 
-Zenodo for testing and playing with before minting a real DOI).
+Note: for this exercise, as demonstrated earlier, you should use the [Sandbox Zenodo](https://sandbox.zenodo.org/) (a version of Zenodo for testing and playing with before minting a real DOI).
 For real software releases, you should use Zenodo.
 
- * Create an account on Zenodo Sandbox that is linked to your GitHub account.
- * Use Zenodo Sandbox to create a release for your repository and obtain a DOI for it.
- * Get the link to the DOI badge for your repository and add a link to this image to your README file in 
-Markdown format. Check that this is the DOI for the latest version and not the DOI for a specific version, 
-if not you will be updating this every time you make a release.
+- Create an account on Zenodo Sandbox that is linked to your GitHub account.
+- Use Zenodo Sandbox to create a release for your repository and obtain a DOI for it.
+- Get the link to the DOI badge for your repository and add a link to this image to your README file in Markdown format. Check that this is the DOI for the latest version and not the DOI for a specific version, if not you will be updating this every time you make a release.
 
 :::::::::::::::::::::::::::::::::::::::::::::::
-
 
 ::: callout
 
@@ -180,10 +175,9 @@ If this happens try disabling the extra privacy features/extensions or using ano
 ### Adding a DOI and ORCID to the citation file
 
 Now that we have our DOI it is good practice to include this information
-in our citation file. 
+in our citation file.
 Earlier we created a `CITATION.cff` file with information about how to cite our code.
-There are a few fields we can add now which are related to the DOI; one of these is the `version` file which covers 
-the version number of the software.
+There are a few fields we can add now which are related to the DOI; one of these is the `version` file which covers the version number of the software.
 We can add a DOI to the file in the `identifiers` section with a type of `doi` and `value` of the Zenodo URL.
 Optionally we can also add a `date-released` field indicating the date we released this software.
 Here is an updated version of our `CITATION.cff` from the previous episode with a version number, DOI and release date added.
@@ -231,19 +225,16 @@ now remove it as using the DOI field is better for this job.
 
 :::::::::::::::::::::::::::::::::::::::::::::::
 
-
 ::: callout
 
 ### Going further with publishing code
 
-We now have our code published online, licensed as open source, archived with Zenodo, accessible via a DOI and with a citation file to encourage people to cite it. 
+We now have our code published online, licensed as open source, archived with Zenodo, accessible via a DOI and with a citation file to encourage people to cite it.
 What else might we want to do in order to improve how findable, accessible or reusable it is?
 One further step we could take is to publish the code with a peer reviewed journal. Some traditional journals will accept software submissions, although these are usually
 as a supplementary material for a paper. There also journals which specialise in research software such as the [Journal of Open Research Software](https://openresearchsoftware.metajnl.com/),
-[The Journal of Open Source Software](https://joss.theoj.org/) or [SoftwareX](https://www.sciencedirect.com/journal/softwarex). With these venues, the submission will be the software
-itself and not a paper, although a short abstract or description of the software is often required.
+[The Journal of Open Source Software](https://joss.theoj.org/) or [SoftwareX](https://www.sciencedirect.com/journal/softwarex). With these venues, the submission will be the software itself and not a paper, although a short abstract or description of the software is often required.
 :::
-
 
 ## Working with collaborators
 
@@ -486,7 +477,6 @@ inside our forked repository.
 GitHub will track that a fork has been made displays a "Contribute" button to create a pull request back to the original repository. Using this we can
 request that the changes on our fork are incorporated by the upstream project.
 
-
 :::  challenge
 
 ### Practice pull requests
@@ -525,7 +515,7 @@ reinforcing transparency, inclusivity, and community-driven development.
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/final
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/final>
 
 ::::::
 
@@ -554,4 +544,3 @@ Also check the [full reference set](learners/reference.md#litref) for the course
 their changes before they are merged.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-

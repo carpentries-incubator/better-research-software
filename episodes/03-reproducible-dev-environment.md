@@ -25,7 +25,7 @@ to enable others to see and contribute to it. We now want to start developing th
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment>
 
 ::::::
 
@@ -35,7 +35,7 @@ Some learners may encounter various issues when creating and managing virtual de
 
 To assist with troubleshooting during workshops, we have compiled a list of common issues that instructors have observed in the past.
 
-- learners sometimes forget to activate the virtual environment - instructors should remind the learners about this at the start of each episode and also check for this during episodes, e.g. each time a new command line terminal window is started. 
+- learners sometimes forget to activate the virtual environment - instructors should remind the learners about this at the start of each episode and also check for this during episodes, e.g. each time a new command line terminal window is started.
 - adding a Python installation to the beginning of the environment variable PATH, causes it to override Python from the virtual environment - always check for this with `which python3` and `python3 --version`.
 - some learners have other environment variables set that can influence the Python interpreter and modules being loaded and used - e.g. `PYTHONHOME` (changes the location of the standard Python libraries), `PYTHONPATH` (augments the default search path for Python module files) or `PYTHONSTARTUP` (points to a Python script that is run before starting Python interactive mode for various enhancements like preloading modules, setting colors, etc.). Make sure they are unset before activating the environment, e.g. with:
 
@@ -48,7 +48,7 @@ If you run into problems not mentioned here, please open an [issue in the lesson
 
 :::
 
-## Software dependencies 
+## Software dependencies
 
 If we have a look at our script, we may notice a few `import` lines such as: `import json`, `import csv`, 
 `import datetime as dt` and `import matplotlib.pyplot as plt` throughout the code.
@@ -90,7 +90,8 @@ affecting other projects - you can use different Python versions and different v
 dependency by different projects on your machine independently from one another.
 
 We can visualise the use of virtual environments for different Python projects on the same machine as follows:
-![Diagram to depict different Python environments containing different packages on the same machine](episodes/fig/ep05_virtual-env.png){alt='Diagram to depict different Python environments containing different packages on the same machine'}
+
+![Diagram to depict different Python environments containing different packages on the same machine](fig/virtual-env.png){alt='Diagram to depict different Python environments containing different packages on the same machine'}
 
 Another big motivator for using virtual environments is that they make sharing your code with others much easier -
 as we will see shortly you can record your virtual environment in a special file and share it with your collaborators
@@ -167,6 +168,7 @@ drwxr-xr-x   2 alex  staff   64  5 Oct 11:47 include
 drwxr-xr-x   3 alex  staff   96  5 Oct 11:47 lib
 -rw-r--r--   1 alex  staff   90  5 Oct 11:47 pyvenv.cfg
 ```
+
 So, running the `python3 -m venv venv_spacewalks` command created the target directory called "venv_spacewalks"
 containing:
 
@@ -285,6 +287,7 @@ To display information about a particular installed package do:
 ```bash
 (venv_spacewalks) $ python3 -m pip show matplotlib
 ```
+
 ```output
 Name: matplotlib
 Version: 3.9.0
@@ -305,6 +308,7 @@ To list all packages installed with `pip` (in your current virtual environment):
 ```bash
 (venv_spacewalks) $ python3 -m pip list
 ```
+
 ```output
 Package         Version
 --------------- -----------
@@ -345,6 +349,7 @@ A common convention is to put this list in a `requirements.txt` file in your pro
 (venv_spacewalks) $ python3 -m pip freeze > requirements.txt
 (venv_spacewalks) $ cat requirements.txt
 ```
+
 ```output
 contourpy==1.2.1
 cycler==0.12.1
@@ -449,7 +454,7 @@ You should get a pop up window with a graph.
 However, some (but not all) Windows users will not.
 You might instead see an error like:
 
-```
+```bash
 Traceback (most recent call last):
   File "C:\Users\Toaster\Desktop\spacewalks\eva_data_analysis.py", line 30, in <module>
     w.writerow(data[j].values())
@@ -461,7 +466,7 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\x92' in position 10
 ```
 
 This is not what we were expecting!
-The problem is *character encoding*.
+The problem is _character encoding_.
 'Standard' Latin characters are encoded using ASCII,
 but the expanded Unicode character set covers many more.
 In this case, the data contains Unicode characters that are represented in the ASCII input file with shortcuts (`Â` as `\u00c2` and `’` as `\u0092`).
@@ -487,6 +492,7 @@ data_f = open('./eva-data.json', 'r', encoding='ascii')
 data_t = open('./eva-data.csv','w', encoding='utf-8')
 ...
 ```
+
 Remember to commit these latest changes.
 
 ```bash
@@ -494,12 +500,12 @@ Remember to commit these latest changes.
 (venv_spacewalks) $ git commit -m "Specify data encoding"
 (venv_spacewalks) $ git push origin main
 ```
-Do not foget to commit any files that have been changed.
 
+Do not foget to commit any files that have been changed.
 
 ## Summary
 
-We have our code running in its own virtual environment. 
+We have our code running in its own virtual environment.
 
 Virtual development environments provide significant benefits for software development by allowing developers to isolate 
 project dependencies and configurations, preventing conflicts between projects.
@@ -510,13 +516,12 @@ They promote a "cleaner" way of working and avoid polluting the global system en
 
 In the next episode we will inspect our software in more detail and see how we can improve it further.
 
-
 :::::: spoiler
 
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability>
 
 ::::::
 
@@ -528,11 +533,12 @@ We recommend the following resources for some additional reading on the topic of
 
 Also check the [full reference set](learners/reference.md#litref) for the course.
 
-
 :::::: keypoints
+
 - Virtual environments keep Python versions and dependencies required by different projects separate.
 - A Python virtual environment is itself a directory structure.
 - You can use `venv` to create and manage Python virtual environments, and `pip` to install and manage external dependencies your code relies on.
 - By convention, you can save and export your Python virtual environment in `requirements.txt` file in your project's root
 directory, which can then be shared with collaborators/users and used to replicate your virtual environment elsewhere.
+
 ::::::
