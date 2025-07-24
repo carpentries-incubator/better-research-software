@@ -242,9 +242,7 @@ We recommend the following resources for some additional reading on the topic of
 - [Ethics Issues in Custom Software and App-Based Research Experiments and Data Collection][ethics-ucl]
 - [Ethical Considerations in Software Development][ethics-software]
 
-
 Also check the [full reference set](learners/reference.md#litref) for the course.
-
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -254,4 +252,3 @@ offer viable ways to make more transparent, reliable and accountable science tha
 scientific knowledge but also respects and protects the rights and well-being of all users.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-

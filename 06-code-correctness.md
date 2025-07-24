@@ -6,10 +6,10 @@ exercises: 30
 
 ::: questions
 
--   How can we verify that our code is correct?
--   How can we automate our software tests?
--   What makes a "good" test?
--   Which parts of our code should we prioritise for testing?
+- How can we verify that our code is correct?
+- How can we automate our software tests?
+- What makes a "good" test?
+- Which parts of our code should we prioritise for testing?
 
 :::
 
@@ -17,13 +17,13 @@ exercises: 30
 
 After completing this episode, participants should be able to:
 
--   Explain why code testing is important and how this supports FAIR software.
--   Describe the different types of software tests (unit tests, integration tests, regression tests).
--   Implement unit tests to verify that function behave as expected using the Python testing framework `pytest`.
--   Interpret the output from `pytest` to identify which functions are not behaving as expected.
--   Write tests using typical values, edge cases and invalid inputs to ensure that the code can handle extreme 
+- Explain why code testing is important and how this supports FAIR software.
+- Describe the different types of software tests (unit tests, integration tests, regression tests).
+- Implement unit tests to verify that function behave as expected using the Python testing framework `pytest`.
+- Interpret the output from `pytest` to identify which functions are not behaving as expected.
+- Write tests using typical values, edge cases and invalid inputs to ensure that the code can handle extreme 
 values and invalid inputs appropriately.
--   Evaluate code coverage to identify how much of the codebase is being tested and identify areas that need further 
+- Evaluate code coverage to identify how much of the codebase is being tested and identify areas that need further 
 tests.
 
 :::
@@ -36,6 +36,7 @@ produced by a piece of code meet our expectations, i.e. are correct.
 ::: spoiler
 
 ### Activate your virtual environment
+
 If it is not already active, make sure to activate your virtual environment from the root of
 the software project directory:
 
@@ -44,6 +45,7 @@ $ source venv_spacewalks/bin/activate # Mac or Linux
 $ source venv_spacewalks/Scripts/activate # Windows
 (venv_spacewalks) $
 ```
+
 :::
 
 :::::: spoiler
@@ -51,7 +53,7 @@ $ source venv_spacewalks/Scripts/activate # Windows
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correcteness.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correcteness>
 
 ::::::
 
@@ -74,26 +76,25 @@ Including testing in our research workflow helps us to produce **better software
   step-by-step approach that we can apply to verify that our code is
   correct.
 
-
 ## Types of software tests
 
 There are many different types of software tests, including:
 
--   **Unit tests** focus on testing individual functions in
+- **Unit tests** focus on testing individual functions in
     isolation. They ensure that each small part of the software performs
     as intended. By verifying the correctness of these individual units,
     we can catch errors early in the development process.
 
--   **Integration tests** check how different parts
+- **Integration tests** check how different parts
     of the code e.g. functions work together.
 
--   **Regression tests** are used to ensure that new
+- **Regression tests** are used to ensure that new
     changes or updates to the codebase do not adversely affect the
     existing functionality. They involve checking whether a program or
     part of a program still generates the same results after changes
     have been made.
 
--   **End-to-end** tests are a special type of integration testing which
+- **End-to-end** tests are a special type of integration testing which
     checks that a program as a whole behaves as expected.
 
 In this course, our primary focus will be on unit testing. However, the
@@ -101,43 +102,40 @@ concepts and techniques we cover will provide a solid foundation
 applicable to other types of testing.
 
 ::: challenge
+
 ### Types of software tests
 
 Fill in the blanks in the sentences below:
 
--   \_\_\_\_\_\_\_\_\_\_ tests compare the \_\_\_\_\_\_ output of a
+- \_\_\_\_\_\_\_\_\_\_ tests compare the \_\_\_\_\_\_ output of a
     program to its \_\_\_\_\_\_\_\_ output to demonstrate correctness.
--   Unit tests compare the actual output of a \_\_\_\_\_\_
+- Unit tests compare the actual output of a \_\_\_\_\_\_
     \_\_\_\_\_\_\_\_ to the expected output to demonstrate correctness.
--   \_\_\_\_\_\_\_\_\_\_ tests check that results have not changed since
+- \_\_\_\_\_\_\_\_\_\_ tests check that results have not changed since
     the previous test run.
--   \_\_\_\_\_\_\_\_\_\_ tests check that two or more parts of a program
+- \_\_\_\_\_\_\_\_\_\_ tests check that two or more parts of a program
     are working together correctly.
 
 ::: solution
--   End-to-end tests compare the actual output of a program to the
-    expected output to demonstrate correctness.
--   Unit tests compare the actual output of a single function to the
-    expected output to demonstrate correctness.
--   Regression tests check that results have not changed since the
+
+- End-to-end tests compare the actual output of a program to the expected output to demonstrate correctness.
+- Unit tests compare the actual output of a single function to the expected output to demonstrate correctness.
+- Regression tests check that results have not changed since the
     previous test run.
--   Integration tests check that two or more parts of a program are
+- Integration tests check that two or more parts of a program are
     working together correctly.
 :::
 :::
 
 ## Informal testing
 
-How should we test our code? One approach is to copy/paste the code or a function into a Python terminal - *different from a command line terminal* - 
-which allows you to interact with the Python interpreter more directly. From the Python terminal we can then run one 
-function or a piece of code at a time and check that they behave as expected. 
-As input to our code/function we are testing, we typically use some input values for which we know what the correct 
-return value should be.
+How should we test our code? One approach is to copy/paste the code or a function into a Python terminal - *different from a command line terminal* - which allows you to interact with the Python interpreter more directly.
+From the Python terminal we can then run one function or a piece of code at a time and check that they behave as expected.
+As input to our code/function we are testing, we typically use some input values for which we know what the correct return value should be.
 
 Let's do this for our `text_to_duration` function.
 Recall that the `text_to_duration` function converts a spacewalk duration stored as a string
-in format "HH:MM" to a duration in hours - e.g. duration `01:15` (1 hour and 15 minutes) should return a numerical 
-value of `1.25`.
+in format "HH:MM" to a duration in hours - e.g. duration `01:15` (1 hour and 15 minutes) should return a numerical value of `1.25`.
 
 ```python
 def text_to_duration(duration):
@@ -172,8 +170,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Once inside the Python terminal, you can start typing Python code.
 The Python terminal will interactively run your code and return and print results.
-We could copy and paste the code of our `text_to_duration` function, but it is much simpler and more elegant 
-to import and then invoke it.
+We could copy and paste the code of our `text_to_duration` function, but it is much simpler and more elegant to import and then invoke it.
 
 ```python
 >>> from eva_data_analysis import text_to_duration
@@ -193,8 +190,7 @@ We can then further explore the behaviour of our function by running:
 This all seems correct so far.
 
 Testing code in this "informal" way in an important process to go through as we draft our code for the first time.
-Another tool that can help here is the [Jupyter Notebook](https://jupyter.org/) - like the Python terminal, 
-the Jupyter Notebook is an interactive environment for writing and running code. 
+Another tool that can help here is the [Jupyter Notebook](https://jupyter.org/) - like the Python terminal, the Jupyter Notebook is an interactive environment for writing and running code.
 It is a GUI tool which supports all kinds of interactive outputs, including many interactive visualisation libraries.
 
 However, there are some serious drawbacks to this approach if used as our only form of testing.
@@ -207,12 +203,11 @@ Think about the questions below. Your instructors may ask you to share
 your answers in a shared notes document and/or discuss them with other
 participants.
 
--   Why might we choose to test our code informally?
--   What are the limitations of relying solely on informal tests to
-    verify that a piece of code is behaving as expected?
+- Why might we choose to test our code informally?
+- What are the limitations of relying solely on informal tests to
+  verify that a piece of code is behaving as expected?
 
 ::: solution
-### 
 
 It can be tempting to test our code informally because this approach:
 
@@ -237,10 +232,10 @@ We can overcome some of these limitations by formalising our testing process.
 A formal approach to testing our code is to write dedicated test functions to check it. 
 These test functions:
 
--   Run the function we want to test - the target function with known inputs
--   Compare the output to known, valid results
--   Raise an error if the function’s actual output does not match the expected output
--   Are recorded in a test script that can be re-run on demand.
+- Run the function we want to test - the target function with known inputs
+- Compare the output to known, valid results
+- Raise an error if the function’s actual output does not match the expected output
+- Are recorded in a test script that can be re-run on demand.
 
 Let’s explore this process by writing some formal tests for our `text_to_duration` function. 
 
@@ -250,7 +245,6 @@ Like before in the Python terminal, we need to import `text_to_duration` into ou
 Then, we add our first test function:
 
 ``` python
-
 from eva_data_analysis import text_to_duration
 
 def test_text_to_duration_integer():
@@ -327,9 +321,9 @@ AssertionError
 
 Notice that this time, our test `test_text_to_duration_float` fails.
 Our assert statement has raised an `AssertionError` - a clear signal that there is a problem in our code that we
-need to fix. 
+need to fix.
 
-We know that duration `10:15` should be converted to number `10.25`. 
+We know that duration `10:15` should be converted to number `10.25`.
 What is wrong with our code?
 If we look at our `text_to_duration` function, we may identify the following line of our code as problematic:
 
@@ -385,13 +379,14 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError
 ```
+
 Our test is failing again - what is wrong now?
 
 On computer systems, representation of irrational numbers is typically not exact as they do not have an exact binary 
 representation.
 For this reason, we cannot use a simple double equals sign (`==`) to compare the equality of floating point numbers. 
 Instead, we check that our floating point numbers are equal within a very small tolerance (e.g. 1e-5).
-Hence, our code should look like: 
+Hence, our code should look like:
 
 ``` python
 ...
@@ -402,7 +397,7 @@ def test_text_to_duration_float():
 
 You may have noticed that we have to repeat a lot of code to add each individual test for each test case. 
 You may also have noticed that our test script stopped after the first test failure and none of the tests after that 
-were run. 
+were run.
 To run our remaining tests we would have to manually comment out our failing test and re-run the test script. 
 As our code base grows, testing in this way becomes cumbersome and error-prone. 
 These limitations can be overcome by automating our tests using a **testing framework**.
@@ -739,9 +734,9 @@ that it might encounter.
 It is helpful to consider each argument of a function in turn and identify the range of typical values it can take.
 Once we have identified this typical range or ranges (where a function takes more than one argument), we should:
 
--   Test all values at the edge of the range
--   Test at least one interior point
--   Test invalid values
+- Test all values at the edge of the range
+- Test at least one interior point
+- Test invalid values
 
 Let's have a look at the `calculate_crew_size` function from our colleague's new code and write some tests for it.
 
@@ -753,7 +748,8 @@ Implement unit tests for the `calculate_crew_size` function.
 Cover typical cases and edge cases.
 
 Hint - use the following template when writing tests:
-```         
+
+```python
 def test_MYFUNCTION (): # FIXME
     """
     Test that ...   #FIXME
@@ -820,9 +816,7 @@ Let's run out tests:
 
 ### Parameterising tests
 
-Looking at out new test functions, we may notice that they do not follow the 
-[“Don't Repeat Yourself (DRY) principle”][dry-principle] which prevents software - including testing code - 
-from becoming repetitive and too long. 
+Looking at out new test functions, we may notice that they do not follow the [“Don't Repeat Yourself (DRY) principle”][dry-principle] which prevents software - including testing code - from becoming repetitive and too long.
 In our test code, a small block of code is repeated twice with different input values:
 
 ``` python
@@ -883,7 +877,6 @@ This decorator takes two main arguments:
 :::
 
 As you can see, the parameterised version of our test function is shorter, more readable and easier to maintain.
-
 
 ### Just enough tests
 
@@ -1019,7 +1012,6 @@ know if we break any existing functionality.
 In other words, software testing supports the FAIR software principles by making our code more **accessible** and
 **reusable**.
 
-
 :::::: spoiler
 
 ### Code state
@@ -1028,7 +1020,6 @@ At this point, the code in your local software project's directory should be as 
 https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation.
 
 ::::::
-
 
 ## Further reading
 
@@ -1066,4 +1057,5 @@ the course.
     ensure your code performs correctly under a variety of conditions.
 5.  Test coverage can help you to identify parts of your code that
     require additional testing.
+
 :::

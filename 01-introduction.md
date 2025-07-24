@@ -4,7 +4,7 @@ teaching: 10
 exercises: 10
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - What is open and reproducible research?
 - Why are these practices important, in particular in the context of software used to support such research?
@@ -19,7 +19,7 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-Software is [fundamental to modern research][ssi-survey-2014] - some of it would even be impossible without software. 
+Software is [fundamental to modern research][ssi-survey-2014] - some of it would even be impossible without software.
 From short, thrown-together temporary scripts written to help with day-to-day research tasks, through an abundance of complex data analysis spreadsheets, to the hundreds of software engineers and millions of lines of code behind international efforts such as the Large Hadron Collider, there are few areas of research where software does not have a fundamental role.
 
 This course teaches good practices and reproducible working methods that are agnostic of a programming language (although we will use Python code in our examples).
@@ -29,26 +29,25 @@ Although the discussion will often focus on software developed in the context of
 The lesson is particularly focused on one aspect of good (scientific) software development practice: improving software to enhance reproducibility.
 That is, enabling others to run our code and obtain the same results we did.
 
-
 :::::::::::::::::::::: callout
 
 ## Why should I care about reproducibility?
 
-Scientific transparency and rigor are key factors in research. 
+Scientific transparency and rigor are key factors in research.
 Scientific methodology and results need to be published openly and replicated and confirmed by several independent parties.
 However, research papers often lack the full details required for independent reproduction or replication. 
 Many attempts at reproducing or replicating the results of scientific studies have failed in a variety of disciplines ranging from psychology ([The Open Science Collaboration (2015)][replication-crisis-osc]) to cancer sciences ([Errington et al (2021)][replication-crisis-errington]).
 These are called [**the reproducibility and replicability crises**][reproducibility-crisis] - ongoing methodological crises in which the results of many scientific studies are difficult or impossible to repeat.
 
-Reproducible research is a practice that ensures that researchers can repeat the same analysis multiple times with the same results. 
+Reproducible research is a practice that ensures that researchers can repeat the same analysis multiple times with the same results.
 It offers many benefits to those who practice it:
 
-* Reproducible research helps researchers remember how and why they performed specific tasks and analyses; this enables easier explanation of work to collaborators and reviewers. 
-* Reproducible research enables researchers to quickly modify analyses and figures - this is often required at all stages of research and automating this process saves loads of time. 
-* Reproducible research enables reusability of previously conducted tasks so that new projects that require the same or similar tasks become much easier and efficient by reusing or reconfiguring previous work. 
+* Reproducible research helps researchers remember how and why they performed specific tasks and analyses; this enables easier explanation of work to collaborators and reviewers.
+* Reproducible research enables researchers to quickly modify analyses and figures - this is often required at all stages of research and automating this process saves loads of time.
+* Reproducible research enables reusability of previously conducted tasks so that new projects that require the same or similar tasks become much easier and efficient by reusing or reconfiguring previous work.
 * Reproducible research supports researchers' career development by facilitating the reuse and citation of all research outputs - including both code and data.
-* Reproducible research is a strong indicator of rigor, trustworthiness, and transparency in scientific research. 
-  This can increase the quality and speed of peer review, because reviewers can directly access the analytical process described in a manuscript. 
+* Reproducible research is a strong indicator of rigor, trustworthiness, and transparency in scientific research.
+  This can increase the quality and speed of peer review, because reviewers can directly access the analytical process described in a manuscript.
   It increases the probability that errors are caught early on - by collaborators or during the peer-review process, helping alleviate the reproducibility crisis.  
 
 However, reproducible research often requires that researchers implement new practices and learn new tools.
@@ -75,7 +74,7 @@ The practices we will cover for building better research software fall into thre
 ### 3. Things you can do to make the software easier for other people to use
 
 * Using version control and collaboration platforms like [GitHub](https://github.com), [GitLab](https://gitlab.com), and [CodeBerg](https://codeberg.org/) makes it easier to share code and work on it together.
-* Fostering a community around your software and promoting collaboration helps to grow a user base for your software and contributes to its long-term sustainability. 
+* Fostering a community around your software and promoting collaboration helps to grow a user base for your software and contributes to its long-term sustainability.
 * Providing clear and comprehensive documentation, including code comments, API specifications, setup guides, and usage instructions, ensures your software is easy to understand, use, and extend (by you and others).
 * Accompanying your software with clear information about its licensing terms and how it should be cited ensures that others can reuse and adapt your code with confidence and that you receive credit when they do so.
 
@@ -113,10 +112,10 @@ You may notice that the software project contains:
 1. A JSON file called `data.json` - a snippet of which is shown below - with data on extra-vehicular activities 
 (EVAs, i.e. spacewalks) undertaken by astronauts and cosmonauts from 1965 to 2013 (data provided by NASA via its [Open Data Portal](https://data.nasa.gov/Raw-Data/Extra-vehicular-Activity-EVA-US-and-Russia/9kcy-zwvn/about_data)).
 
-   ![JSON data file snippet showing EVA/spacewalk data including EVA id, country, crew members, vehicle type, date of the spacewalk, duration, and purpose)](episodes/fig/astronaut-data-json-snippet.png){alt='JSON data file snippet showing EVA/spacewalk data including EVA id, country, crew members, vehicle type, date of the spacewalk, duration, and purpose'}
+   ![JSON data file snippet showing EVA/spacewalk data including EVA ID, country, crew members, vehicle type, date of the spacewalk, duration, and purpose](fig/astronaut-data-json-snippet.png){alt='JSON data file snippet showing EVA/spacewalk data including EVA ID, country, crew members, vehicle type, date of the spacewalk, duration, and purpose'}
 2. A Python script called `my code v2.py` containing some analysis code.
 
-   ![A first few lines of a Python script](episodes/fig/astronaut-analysis-bad-code-screenshot.png){alt='A first few lines of a Python script used as example code for the episode'}
+   ![A first few lines of a Python script](fig/astronaut-analysis-bad-code-screenshot.png){alt='A first few lines of a Python script used as example code for the episode'}
 
    The code in the Python script does some common research tasks:
 
@@ -125,11 +124,11 @@ You may notice that the software project contains:
   * Performs some calculations to generate summary statistics about the data
   * Makes a plot to visualise the data
 
-:::::: challenge 
+:::::: challenge
 
 ### Read and understand data and code
 
-Individually inspect the code and try and see if you can understand what the code is doing and how it is organised. 
+Individually inspect the code and try and see if you can understand what the code is doing and how it is organised.
 
 In the shared document, write down anything that you think is not "quite right", not clear, is missing, or could be done better.
 

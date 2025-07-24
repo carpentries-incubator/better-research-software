@@ -6,9 +6,9 @@ exercises: 30
 
 ::: questions
 
--   Why does code readability matter?
--   How can I organise my code to be more readable?
--   What types of documentation can I include to improve the readability of my code?
+- Why does code readability matter?
+- How can I organise my code to be more readable?
+- What types of documentation can I include to improve the readability of my code?
 
 :::
 
@@ -16,9 +16,9 @@ exercises: 30
 
 After completing this episode, participants should be able to:
 
--   Organise code into reusable functions that achieve a singular purpose
--   Choose function and variable names that help explain the purpose of the function or variable
--   Write informative comments and docstrings to provide more detail about what the code is doing
+- Organise code into reusable functions that achieve a singular purpose
+- Choose function and variable names that help explain the purpose of the function or variable
+- Write informative comments and docstrings to provide more detail about what the code is doing
 
 :::
 
@@ -42,6 +42,7 @@ In this episode, we will learn a few specific software best practices we can fol
 ::: spoiler
 
 ### Activate your virtual environment
+
 If it is not already active, make sure to activate your virtual environment from the root of
 the software project directory:
 
@@ -50,6 +51,7 @@ $ source venv_spacewalks/bin/activate # Mac or Linux
 $ source venv_spacewalks/Scripts/activate # Windows
 (venv_spacewalks) $
 ```
+
 :::
 
 :::::: spoiler
@@ -57,7 +59,7 @@ $ source venv_spacewalks/Scripts/activate # Windows
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability>
 
 :::
 
@@ -187,6 +189,7 @@ var = 9.81
 ```
 
 ::: solution
+
 ### Solution
 
 $$ 9.81 m/s^2 $$ is the [gravitational force exerted by the Earth](https://en.wikipedia.org/wiki/Gravity_of_Earth).
@@ -196,9 +199,9 @@ A more descriptive name for this variable therefore might be:
 ``` python
 g_earth = 9.81
 ```
+
 :::
 ::::::
-
 
 :::::: challenge
 
@@ -221,6 +224,7 @@ c. Commit your changes to your repository. Remember to use an informative commit
 
 a.
     Updated code:
+
     ```python
     import json
     import csv
@@ -288,6 +292,7 @@ b.
     Variables `w`, `t`, `ttt` could also be renamed to be more descriptive. Though, we won't do so now.
 c. 
     Commit changes:
+
     ```bash
     (venv_spacewalks) $ git add eva_data_analysis.py
     (venv_spacewalks) $ git commit -m "Use descriptive variable names"
@@ -295,7 +300,6 @@ c.
 
 :::
 ::::::
-
 
 ## Remove unused variables and imports
 
@@ -312,7 +316,7 @@ Find and remove an unused variable in our code. Then, commit the updated code to
 
 ::: solution
 
-Variable `fieldnames` (containing column names for CSV data file) is defined but never used in the code - it should be deleted. 
+Variable `fieldnames` (containing column names for CSV data file) is defined but never used in the code - it should be deleted.
 
 Updated code:
 
@@ -379,6 +383,7 @@ plt.show()
 ```
 
 Commit changes:
+
 ```bash
 (venv_spacewalks) $ git add eva_data_analysis.py
 (venv_spacewalks) $ git commit -m "Remove unused variable fieldname"
@@ -460,7 +465,7 @@ Commenting is a very useful practice to help convey the context of the code.
 It can be helpful as a reminder for your future self or your collaborators as to why code is written in a certain way, 
 how it is achieving a specific task, or the real-world implications of your code.
 
-There are several ways to add comments to code: 
+There are several ways to add comments to code:
 
 - An **inline comment** is a comment on the same line as a code statement. 
 Typically, it comes after the code statement and finishes when the line ends and 
@@ -534,7 +539,6 @@ b. Commit your changes to your repository. Remember to use an informative commit
 Some good comments may look like the example below.
 
 ``` python
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -568,10 +572,10 @@ plt.tight_layout()
 plt.savefig(graph_file)
 plt.show()
 print("--END--")
-
 ```
 
 Commit changes:
+
 ```bash
 (venv_spacewalks) $ git add eva_data_analysis.py
 (venv_spacewalks) $ git commit -m "Add inline comments to the code"
@@ -618,8 +622,7 @@ contain the complexity of each of these two steps. We will continue to work on s
 
 After the initial refactoring, our code may look something like the following.
 
-``` python
-
+```python
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -666,7 +669,6 @@ plt.savefig(graph_file)
 plt.show()
 
 print("--END--")
-
 ```
 
 We have chosen to create functions for reading in and writing out data files since this is a very common task within 
@@ -743,7 +745,7 @@ Remember, questions we want to answer when writing the docstring include:
 - What output will the function produce?
 - What exceptions/errors, if any, it can produce?
 
-Our `read_json_to_dataframe` function fully described by a docstring may look like: 
+Our `read_json_to_dataframe` function fully described by a docstring may look like:
 
 ```python
 def read_json_to_dataframe(input_file):
@@ -775,9 +777,10 @@ Write a docstring for the function `write_dataframe_to_csv` we introduced earlie
 
 ::: solution
 
-### Solution 
+### Solution
 
 Our `write_dataframe_to_csv` function fully described by a docstring may look like:
+
 ```python
 def write_dataframe_to_csv(df, output_file):
     """
@@ -794,6 +797,7 @@ def write_dataframe_to_csv(df, output_file):
     # Save dataframe to CSV file for later analysis
     df.to_csv(output_file, index=False)
 ```
+
 :::
 
 ::::::
@@ -801,7 +805,6 @@ def write_dataframe_to_csv(df, output_file):
 Finally, our code may look something like the following:
 
 ``` python
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -869,7 +872,6 @@ plt.savefig(graph_file)
 plt.show()
 
 print("--END--")
-
 ```
 
 Do not forget to commit any uncommitted changes you may have and then push your work to GitHub.
@@ -892,7 +894,7 @@ sustainability, as clear code is more adaptable and easier to extend or refactor
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure>
 
 :::
 
@@ -910,10 +912,12 @@ We recommend the following resources for some additional reading on the topic of
 Also check the [full reference set](learners/reference.md#litref) for the course.
 
 ::: keypoints
+
 - Readable code is easier to understand, maintain, debug and extend (reuse) - saving time and effort.
 - Choosing descriptive variable and function names will communicate their purpose more effectively.
 - Using comments and docstrings to describe parts of the code will help transmit understanding and context.
 - Use libraries or packages for common functionality to avoid duplication.
-- Creating functions from the smallest, reusable units of code will make the code more readable and help. 
+- Creating functions from the smallest, reusable units of code will make the code more readable and help.
 compartmentalise which parts of the code are doing what actions and isolate specific code sections for reuse.
+
 :::

@@ -32,7 +32,7 @@ produces can be trusted and others can build upon it with confidence.
 Let's begin by creating a new software project from our existing code,
 and start tracking changes to it with version control.
 
-## From script to software project 
+## From script to software project
 
 In the previous episode you have unzipped `spacewalks.zip` into a directory `spacewalks` in your home directory.
 If you have not opened the software directory in VS Code already – go to **File -> Open Folder** and find `spacewalks`.
@@ -76,7 +76,7 @@ both for safe-keeping and to make them easier to share with others. In later epi
 makes it easier for multiple collaborators to work together on the same project at the same time and combine 
 their contributions.
 
-:::::: callout 
+:::::: callout
 
 ### Version control refresher
 
@@ -116,13 +116,13 @@ work on GitHub allowing other people to see and contribute to our work.
 
 :::::: callout
 
-### Git refresher 
+### Git refresher
 
 Git stores files in **repositories** - directories where changes to the files can be tracked.
 The diagram below shows the different parts of a Git repository,
 and the most common commands used to work with one.
 
-![Software development lifecycle with Git](fig/ep02_fig05-git-lifecycle.svg){alt='Software development lifecycle with Git showing Git commands and flow of data between components of a Git system, including working directory, staging area, local and remote repository'}
+![Software development lifecycle with Git](fig/ep02_fig05-git-lifecycle.svg){alt='Software development lifecycle with Git diagram showing Git commands and flow of data between components of a Git system, including working directory, staging area, local and remote repository'}
 
 - **Working directory** - a local directory (including any subdirectories) where your project files live,
   and where you are currently working.
@@ -426,7 +426,6 @@ git commit -m "Implement informative file names"
 
 ::::::::::::::::::::::::::::::::::::::
 
-
 ## Interacting with a remote Git server
 
 Git is distributed version control system and lets us synchronise work between multiple copies of the same repository - 
@@ -438,7 +437,7 @@ if we lost our machine then we would lose all our code along with it,
 Fortunately, we can easily upload our **local repository**, with all our code and the history of our development,
 to a remote server so that it can be backed-up and recovered in future.
 
-![Git - distributed version control system, image from W3Docs (freely available)](fig/git-distributed.png){alt='2 Git repositories belonging to 2 different developers linked to a central repository and one another showing two way flow of information in each link'}
+![Git - distributed version control system, image from W3Docs (freely available)](fig/git-distributed.png){alt='Diagram of 2 Git repositories belonging to 2 different developers linked to a central repository and one another. It shows a two way flow of information in each of the 3 links between the repositories.'}
 
 [GitHub][github] is an online software development platform that can act as a central remote server.
 It uses Git, and provides facilities for storing, tracking, and collaborating on software projects.
@@ -455,20 +454,20 @@ Let's push our **local repository** to [GitHub](https://github.com) and share it
    there is a menu labelled "+" with a dropdown.
    Click the dropdown and select "New repository" from the options:
 
-   ![*Creating a new GitHub repository*](fig/ep02_fig01-create_new_repo.png){alt="Selecting the 'New repository' option from GitHub's dropdown menu" .image-with-shadow }
+   ![*Creating a new GitHub repository*](fig/ep02_fig01-create_new_repo.png){alt="Selecting the 'New repository' option from GitHub's dropdown menu labelled '+'" .image-with-shadow }
 
 3. You will be presented with some options to fill in or select while creating your repository.
    In the "Repository Name" field, type "spacewalks".
    This is the name of your project and matches the name of your local folder.
 
-   ![*Naming the GitHub repository*](fig/ep02_fig02-repository_name.png){alt="Setting the name of the repository on GitHub" .image-with-shadow }
+   ![*Naming the GitHub repository*](fig/ep02_fig02-repository_name.png){alt="Setting the name of the repository on GitHub through the 'Repository Name' text field" .image-with-shadow }
 
    Ensure the visibility of the repository is "Public" and leave all other options blank.
    Since this repository will be connected to a local repository,
    it needs to be empty which is why we chose not to initialise with a README or add a license or `.gitignore` file.
    Click "Create repository" at the bottom of the page:
 
-   ![*Complete GitHub repository creation*](fig/ep02_fig03-create_repository.png){alt="Completing the creation of the GitHub repository" .image-with-shadow }
+   ![*Complete GitHub repository creation*](fig/ep02_fig03-create_repository.png){alt="Completing the creation of the GitHub repository by clicking on the 'Create repository' button" .image-with-shadow }
 
 4. Now we have a  **remote repository** on GitHub's servers,
    you need to send it the files and history from your **local repository**.
@@ -490,7 +489,7 @@ Let's push our **local repository** to [GitHub](https://github.com) and share it
    You can copy these commands using the button that looks like two overlapping squares to the right-hand side of the commands.
    Paste them into your terminal and run them.
 
-  ![*Copy the commands to sync the local and remote repositories*](fig/ep02_fig04-copy_commands.png){alt="Copying the commands to sync the local and remote repositories" .image-with-shadow }
+  ![*Copy the commands to sync the local and remote repositories*](fig/ep02_fig04-copy_commands.png){alt="Copying the commands to sync the local and remote repositories from the remote repository's home page on GitHub" .image-with-shadow }
 
 5. If you refresh your browser window,
    you should now see the two files `eva_data_analysis.py` and `eva-data.json` visible in the GitHub repository,
@@ -528,7 +527,6 @@ This command tells Git to update the "main" branch on the "origin" remote.
 The `-u` flag (short for `--set-upstream`) sets the 'tracking reference' for the current branch,
 so that in future `git push` will default to sending to `origin main`.
 
-
 ## Summary
 
 We have created a new software project and used version control system Git to track changes to it. 
@@ -550,10 +548,9 @@ software (and this includes ourselves on a different machine or operating system
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment.
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment>
 
 :::
-
 
 ## Further reading
 
