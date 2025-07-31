@@ -7,9 +7,9 @@ exercises: 30
 ::::::::::::::::::::::::::::::::::::: objectives
 After completing this episode, participants should be able to:
 
-- Understand how to archive code to Zenodo and create a digital object identifier (DOI) for a software project (and include that info in CITATION.cff).
-- Understand how to track issues with code in GitHub.
-- Understand how to use Git branches for working on code in parallel and how to merge code back using pull requests.
+- Archive code to Zenodo and create a digital object identifier (DOI) for a software project (and include that info in CITATION.cff).
+- Track issues with code in GitHub.
+- Use Git branches to work on code in parallel and merge code back using pull requests.
 - Apply issue tracking, branching and pull requests together to fix bugs while allowing other developers to work on the same code.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -104,6 +104,15 @@ It will also not create real DOIs for a number of test repositories we use for t
 (remember that a DOI, once created, is meant to exist forever).
 :::
 
+::::::::::: instructor
+
+#### Optional Challenge
+
+You can choose to do the following as an exercise or by live coding based on what you think the learners would prefer.
+You can copy the the detailed instructions below to give them it as an exercise.
+
+::::::::::::::::::::::
+
 We can archive our GitHub repository to Zenodo (Sandbox) by doing the following:
 
  1. Go to the [Zenodo Sandbox login page](https://sandbox.zenodo.org/login) and choose to login with GitHub.
@@ -147,20 +156,7 @@ Here is the badge for this repository and the corresponding Markdown:
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11869450.svg)](https://doi.org/10.5281/zenodo.11869450)
 ```
 
-:::  challenge
-
-### Archive your repository to Zenodo (Sandbox)
-
-Note: for this exercise, as demonstrated earlier, you should use the [Sandbox Zenodo](https://sandbox.zenodo.org/) (a version of Zenodo for testing and playing with before minting a real DOI).
-For real software releases, you should use Zenodo.
-
-- Create an account on Zenodo Sandbox that is linked to your GitHub account.
-- Use Zenodo Sandbox to create a release for your repository and obtain a DOI for it.
-- Get the link to the DOI badge for your repository and add a link to this image to your README file in Markdown format. Check that this is the DOI for the latest version and not the DOI for a specific version, if not you will be updating this every time you make a release.
-
-:::::::::::::::::::::::::::::::::::::::::::::::
-
-::: callout
+::: spoiler
 
 ## Problems with GitHub and Zenodo integration
 
@@ -178,8 +174,18 @@ Now that we have our DOI it is good practice to include this information
 in our citation file.
 Earlier we created a `CITATION.cff` file with information about how to cite our code.
 There are a few fields we can add now which are related to the DOI; one of these is the `version` file which covers the version number of the software.
-We can add a DOI to the file in the `identifiers` section with a type of `doi` and `value` of the Zenodo URL.
-Optionally we can also add a `date-released` field indicating the date we released this software.
+
+::::::::::: instructor
+
+#### Optional Challenge
+
+You can choose to do the following as an exercise or by live coding based on what you think the learners would prefer.
+You can copy the the detailed instructions below to give them it as an exercise.
+
+::::::::::::::::::::::
+
+We can add a DOI to the file by creating an `identifiers` section that includes the variables of `doi` and `value` of the Zenodo URL as a bulleted entry.
+Optionally, we can also add a `date-released` field indicating the date we released this software as a new variable.
 Here is an updated version of our `CITATION.cff` from the previous episode with a version number, DOI and release date added.
 
 ```yaml
@@ -213,17 +219,6 @@ identifiers:
     value: 10.5281/zenodo.1234
 date-released: 2024-06-01
 ```
-
-:::  challenge
-
-### Add a DOI to your citation file
-
-Add the DOI you were allocated in the previous exercise to your `CITATION.cff` file and then commit and 
-push the updated version to your GitHub repository. 
-If you used the `commit` field in your `CITATION.cff` file before to point to a given version of the code - you can 
-now remove it as using the DOI field is better for this job.
-
-:::::::::::::::::::::::::::::::::::::::::::::::
 
 ::: callout
 
