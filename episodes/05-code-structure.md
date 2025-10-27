@@ -267,7 +267,7 @@ there are a number of situations in which you would want to do this:
   and run special test functions which then call the `main` function directly;
 - where you want to not only be able to run your script from the command-line,
   but also provide a programmer-friendly application programming interface (API) for advanced users.
-
+After creating the main function, your code may look like the following:
 
 ```python
 import matplotlib.pyplot as plt
