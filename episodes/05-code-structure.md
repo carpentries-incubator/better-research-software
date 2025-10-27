@@ -205,7 +205,7 @@ As you may notice, the main part of our code has now been majorly simplified and
 ## Creating a main function
 
 Now we also want to move the main funtionality into a main function.
-There is a common code structure (pattern) for writing code with a command-line interface in Python:
+There is a common code structure (pattern) for writing a main function in Python:
 
 ```python
 # import modules
