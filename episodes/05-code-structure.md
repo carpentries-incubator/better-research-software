@@ -23,6 +23,7 @@ readability, accessibility and reproducibility.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+
 In the previous episode we have seen some tools and practices that can help up improve readability of our code - 
 including breaking our code into small, reusable functions that perform one specific task.
 We are going to explore a bit more how using common code structures can improve readability, accessibility and 
@@ -52,6 +53,10 @@ $ source venv_spacewalks/Scripts/activate # Windows
 
 :::
 
+::: instructor
+There will be a lot of code changes in this episode.  We recommend sharing the code with the learners for copying and pasting rather than typing everything out.  Look for the comment `#NEW` in code chunks for the elements of the code that have just been added.
+:::
+
 ## Functions for modular and reusable code 
 
 As we have already seen in the previous episode - functions play a key role in creating modular and reusable code.
@@ -70,23 +75,33 @@ calculations (into a separate function `text_to_duration`) and
 the code to add this numerical data as a new column in our dataset (into a separate function 
 `add_duration_hours_variable`).
 
-The main part of our code then becomes much simpler and more readable, only 
-containing the invocation of the following three functions:
+The main part of our code then becomes much simpler and more readable:
 
 ```python
 ...
+# Main code
+
+print("--START--")
+
+input_file = open('./eva-data.json', 'r')
+output_file = open('./eva-data.csv', 'w')
+graph_file = './cumulative_eva_graph.png'
+
 eva_data = read_json_to_dataframe(input_file)
+
 write_dataframe_to_csv(eva_data, output_file)
+
 plot_cumulative_time_in_space(eva_data, graph_file)
+
+print("--END--")
 ...
 ```
 
-Remember to add docstrings and comments to the new functions to explain their functionalities. 
-
 Our new code (with the three new functions `plot_cumulative_time_in_space`, `text_to_duration` and 
-`add_duration_hours_variable`) may look like the following.
+`add_duration_hours_variable`) may look like the following:
 
 ```python
+
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -124,7 +139,8 @@ def write_dataframe_to_csv(df, output_file):
     print(f'Saving to CSV file {output_file}')
     df.to_csv(output_file, index=False)
 
-def text_to_duration(duration):
+#NEW
+def text_to_duration(duration): 
     """
     Convert a text format duration "HH:MM" to duration in hours
 
@@ -138,8 +154,8 @@ def text_to_duration(duration):
     duration_hours = int(hours) + int(minutes)/6  # there is an intentional bug on this line (should divide by 60 not 6)
     return duration_hours
 
-
-def add_duration_hours_variable(df):
+# NEW
+def add_duration_hours_variable(df): 
     """
     Add duration in hours (duration_hours) variable to the dataset
 
@@ -155,8 +171,8 @@ def add_duration_hours_variable(df):
     )
     return df_copy
 
-
-def plot_cumulative_time_in_space(df, graph_file):
+#NEW
+def plot_cumulative_time_in_space(df, graph_file): 
     """
     Plot the cumulative time spent in space over years
 
@@ -183,6 +199,7 @@ def plot_cumulative_time_in_space(df, graph_file):
     plt.show()
 
 
+# NEW 
 # Main code
 
 print("--START--")
@@ -288,6 +305,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 
+#NEW
 def main(input_file, output_file, graph_file):
     print("--START--")
 
@@ -391,6 +409,7 @@ def plot_cumulative_time_in_space(df, graph_file):
     plt.show()
 
 
+#NEW
 if __name__ == "__main__":
 
     if len(sys.argv) < 3:
@@ -610,6 +629,7 @@ def plot_cumulative_time_in_space(df, graph_file):
     plt.show()
 
 
+#NEW
 if __name__ == "__main__":
 
     if len(sys.argv) < 3:
