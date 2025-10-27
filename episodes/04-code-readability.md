@@ -216,7 +216,7 @@ a. Edit the code as follows to use descriptive (and consistent) variable names:
     - Change `g_file` to `graph_file`
 
     *Be sure to change all the occurrences of each variable name.*
-b. What other variable names in our code would benefit from renaming? 
+b. What other variable names in our code would benefit from renaming? Rename these too.
 c. Commit your changes to your repository. Remember to use an informative commit message.
 
 
@@ -289,7 +289,80 @@ a.
     plt.show()
     ```
 b. 
-    Variables `w`, `t`, `ttt` could also be renamed to be more descriptive. Though, we won't do so now.
+    Variables `w`, `t`, `tt` and `ttt` could also be renamed to be more descriptive. We could, for example: 
+      
+    - **Change `w` to `csv_writer`**: Makes it clear this variable is a CSV writer object. Using "w" alone would more likely be interpreted as "width" or "weight".
+    - **Change `tt` to `duration_str`**: Represents a string form of the duration, indicated by "_str".
+    - **Change `t` to `duration_dt`**: A datetime object parsed from the string, indicated by "_dt".
+    - **Change `ttt` to `duration_hours`**: The duration converted into hours.
+    
+    The updated code would be:
+      
+    ```python
+    import json
+    import csv
+    import datetime as dt
+    import matplotlib.pyplot as plt
+    
+    # https://data.nasa.gov/resource/eva.json (with modifications)
+    input_file = open('./eva-data.json', 'r', encoding='ascii')
+    output_file = open('./eva-data.csv', 'w', encoding='utf-8')
+    graph_file = './cumulative_eva_graph.png'
+    
+    
+    fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
+    
+    data=[]
+    
+    for i in range(374):
+        line=input_file.readline()
+        print(line)
+        data.append(json.loads(line[1:-1]))
+    #data.pop(0)
+    ## Comment out this bit if you don't want the spreadsheet
+    
+    csv_writer=csv.writer(output_file)
+    
+    time = []
+    date =[]
+    
+    j=0
+    for i in data:
+        print(data[j])
+        # and this bit
+        csv_writer.writerow(data[j].values())
+        if 'duration' in data[j].keys():
+            duration_str=data[j]['duration']
+            if duration_str == '':
+                pass
+            else:
+                duration_dt=dt.datetime.strptime(duration_str,'%H:%M')
+                duration_hours = dt.timedelta(hours=duration_dt.hour, minutes=duration_dt.minute, seconds=duration_dt.second).total_seconds()/(60*60)
+                print(duration_dt,duration_hours)
+                time.append(duration_hours)
+                if 'date' in data[j].keys():
+                    date.append(dt.datetime.strptime(data[j]['date'][0:10], '%Y-%m-%d'))
+                    #date.append(data[j]['date'][0:10])
+    
+                else:
+                    time.pop(0)
+        j+=1
+    
+    duration_dt=[0]
+    for i in time:
+        duration_dt.append(duration_dt[-1]+i)
+    
+    date,time = zip(*sorted(zip(date, time)))
+    
+    plt.plot(date,duration_dt[1:], 'ko-')
+    plt.xlabel('Year')
+    plt.ylabel('Total time spent in space to date (hours)')
+    plt.tight_layout()
+    plt.savefig(graph_file)
+    plt.show()
+    ```
+    
+
 c. 
     Commit changes:
 
@@ -301,7 +374,7 @@ c.
 :::
 ::::::
 
-Imagine that we've now updated all the variable names to be more descriptive, we can now go and close the issue on GitHub we created earlier.
+As we have now updated all the variable names to be more descriptive, we can now go and close the issue on GitHub we created earlier.
 To do so, we open our repository in GitHub, switch to the Issues tab, find the issue to "improve variable names" we created earlier.
 There are more automated ways to close issues based on a commit/pull request that we will learn later, for now we will click the "Close issue" button at the bottom of the discussion.
 
@@ -345,7 +418,7 @@ for i in range(374):
 #data.pop(0)
 ## Comment out this bit if you don't want the spreadsheet
 
-w=csv.writer(output_file)
+csv_writer=csv.writer(output_file)
 
 time = []
 date =[]
@@ -354,16 +427,16 @@ j=0
 for i in data:
     print(data[j])
     # and this bit
-    w.writerow(data[j].values())
+    csv_writer.writerow(data[j].values())
     if 'duration' in data[j].keys():
-        tt=data[j]['duration']
-        if tt == '':
+        duration_str=data[j]['duration']
+        if duration_str == '':
             pass
         else:
-            t=dt.datetime.strptime(tt,'%H:%M')
-            ttt = dt.timedelta(hours=t.hour, minutes=t.minute, seconds=t.second).total_seconds()/(60*60)
-            print(t,ttt)
-            time.append(ttt)
+            duration_dt=dt.datetime.strptime(duration_str,'%H:%M')
+            duration_hours = dt.timedelta(hours=duration_dt.hour, minutes=duration_dt.minute, seconds=duration_dt.second).total_seconds()/(60*60)
+            print(duration_dt,duration_hours)
+            time.append(duration_hours)
             if 'date' in data[j].keys():
                 date.append(dt.datetime.strptime(data[j]['date'][0:10], '%Y-%m-%d'))
                 #date.append(data[j]['date'][0:10])
@@ -372,18 +445,19 @@ for i in data:
                 time.pop(0)
     j+=1
 
-t=[0]
+duration_dt=[0]
 for i in time:
-    t.append(t[-1]+i)
+    duration_dt.append(duration_dt[-1]+i)
 
 date,time = zip(*sorted(zip(date, time)))
 
-plt.plot(date,t[1:], 'ko-')
+plt.plot(date,duration_dt[1:], 'ko-')
 plt.xlabel('Year')
 plt.ylabel('Total time spent in space to date (hours)')
 plt.tight_layout()
 plt.savefig(graph_file)
 plt.show()
+
 ```
 
 Commit changes:
