@@ -294,7 +294,7 @@ b.
     - **Change `w` to `csv_writer`**: Makes it clear this variable is a CSV writer object. Using "w" alone would more likely be interpreted as "width" or "weight".
     - **Change `tt` to `duration_str`**: Represents a string form of the duration, indicated by "_str".
     - **Change `t` to `duration_dt`**: A datetime object parsed from the string, indicated by "_dt".
-    - **Change `ttt` to `duration_hours`**: The duration converted into hours.
+    - **Change `ttt` to `duration_hours`**: The duration converted into (decimal) hours.
     
     The updated code would be:
       
