@@ -32,8 +32,15 @@ Please also make sure you have [all the required software](./index.md#setup) ins
 
 After attending this training, you **will be able** to:
 
-- List challenges typically faced by researchers developing software and managing data for modern computational, reproducible research, including those commensurate with the FAIR (Findable, Accessible, Interoperable, Reusable) principles.
-- Build on top of your existing knowledge of Python, Git and command line computing to enhance your research software development workflow with some good open and reproducible research software practices around structuring, writing, documenting, testing, sharing and reusing code (including software licensing and citation).
+- Describe the principles of open and repoducible research and apply those principles to make a software development project more reproducible.
+- Version control your software project with git and manage an open source project in GitHub
+- Create and use reproducible python virtual environments for software development projects
+- Write or edit code based on coding best practices - using functions, informative variable names, existing packages, docstrings, etc.
+- Refector code into functions, including a main function, to create more modular and re-usable code
+- Write code to take arguments from the command line for improved flexiblity and reuse
+- Write and run tests using a testing suite library
+- Create automated documentation for code to enable use by others
+- Manage an open source or other collaborative software project (including publishing and licensing)
 
 ## Acknowledgements
 
