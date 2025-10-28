@@ -339,7 +339,7 @@ You can also change the default command line terminal from the same drop down me
 
 You could also install the following VS Code extensions (from `View > Extensions` top-level menu) to make your Git experience in VS Code better:
 
-- GitLense - Git Supercharged (adds a few nice additions to Git support in VS Code)
+- GitLens - Git Supercharged (adds a few nice additions to Git support in VS Code)
 - Git Graph (provides nice graphs and visualisations of a Git repository in VS Code)
 
 ![*GitLens and Git Graph extensions for VS Code*](fig/vscode-git-extensions.png){alt="Screenshot of Extension Marketplace View in VS Code showing the GitLens and Git Graph 
