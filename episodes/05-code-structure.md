@@ -83,6 +83,13 @@ plot_cumulative_time_in_space(eva_data, graph_file)
 
 Remember to add docstrings and comments to the new functions to explain their functionalities. 
 
+
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
+
 Our new code (with the three new functions `plot_cumulative_time_in_space`, `text_to_duration` and 
 `add_duration_hours_variable`) may look like the following.
 
@@ -215,6 +222,12 @@ Another use case would be invoking our script in a loop to automatically analyse
 that to running the script manually over hundreds or thousands of files - which is slow, error-prone and requires manual
 intervention).
 
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
+
 There is a common code structure (pattern) for writing code with a command-line interface in Python:
 
 ```python
@@ -280,6 +293,12 @@ there are a number of situations in which you would want to do this:
 
 We will use the `sys` library to read the command line arguments passed to our script and make them available in our
 code as a list - remember to import this library first.
+
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
 
 Our modified code will now look as follows.
 
