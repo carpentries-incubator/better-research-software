@@ -16,7 +16,6 @@ within our software or research project?
 ::::::::::::::::::::::::::::::::::::: objectives
 After completing this episode, participants should be able to:
 
-- Organise code into reusable functions that achieve a singular purpose
 - Structure code into smaller, reusable components with a single responsibility/functionality.
 - Use the common code pattern for creating software that can read input from command line
 - Follow best practices for organising software/research project directories for improved 
