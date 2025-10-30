@@ -16,8 +16,9 @@ exercises: 30
 
 After completing this episode, participants should be able to:
 
-- Organise code into reusable functions that achieve a singular purpose
+- Import third-party libraries at the top of a script
 - Choose function and variable names that help explain the purpose of the function or variable
+- Organise code into reusable functions that achieve a singular purpose
 - Write informative comments and docstrings to provide more detail about what the code is doing
 
 :::
