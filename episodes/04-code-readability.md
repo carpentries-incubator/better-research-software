@@ -624,6 +624,12 @@ Let's name those functions `read_json_to_dataframe` and `write_dataframe_to_csv`
 The main part of the script should then be simplified to invoke these new functions, while the functions themselves 
 contain the complexity of each of these two steps. We will continue to work on steps 3. and 4. above later on.
 
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
+
 After the initial refactoring, our code may look something like the following.
 
 ```python

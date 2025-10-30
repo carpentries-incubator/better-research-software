@@ -83,6 +83,12 @@ plot_cumulative_time_in_space(eva_data, graph_file)
 
 Remember to add docstrings and comments to the new functions to explain their functionalities. 
 
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
+
 Our new code (with the three new functions `plot_cumulative_time_in_space`, `text_to_duration` and 
 `add_duration_hours_variable`) may look like the following.
 
@@ -267,6 +273,13 @@ there are a number of situations in which you would want to do this:
   and run special test functions which then call the `main` function directly;
 - where you want to not only be able to run your script from the command-line,
   but also provide a programmer-friendly application programming interface (API) for advanced users.
+
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
+
 After creating the main function, your code may look like the following:
 
 ```python
@@ -402,6 +415,12 @@ intervention).
 
 We will use the `sys` library to read the command line arguments passed to our script and make them available in our
 code as a list - remember to import this library first.
+
+:::::::::: instructor
+
+You will need to share the code below with the learners via copy-and-paste either in shared notes or chat in a virtual training. Then you can highlight and describe the changes.
+
+:::::::::::::::::::::
 
 Our modified code will now look as follows.
 
