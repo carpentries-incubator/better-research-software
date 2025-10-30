@@ -238,7 +238,7 @@ The expected out put of each command is:
 10. You should have `user.name`, `user.email` and `core.editor` set in your Git configuration. Check that the editor listed is one you know how to use.
 11. This checks if you have set up your connection to GitHub correctly. If is says `permission denied` you may need to look at the instructions for setting up SSH keys again on the Setup page.
 12. This should open VS Code in your current working directory. macOS users may need to first open VS Code and [add it to the PATH](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
-13. You should have the extensions GitLens, Git Graph, Python, JSON and Excel Viewer installed to use in this course.
+13. If you installed the [VS Code extensions during setup](./installation-instructions#vs-code-extensions-for-python), you should see the extensions GitLens, Git Graph, Python, JSON and Excel Viewer in the output list.
 
 :::
 
