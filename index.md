@@ -34,7 +34,7 @@ After attending this training, you **will be able** to:
 
 - Describe the principles of open and repoducible research and apply those principles to make a software development project more reproducible.
 - Version control your software project with git and manage an open source project in GitHub
-- Create and use reproducible python virtual environments for software development projects
+- Create and use reproducible virtual environments for software development projects
 - Write or edit code based on coding best practices - using functions, informative variable names, existing packages, docstrings, etc.
 - Refector code into functions, including a main function, to create more modular and re-usable code
 - Write code to take arguments from the command line for improved flexiblity and reuse
