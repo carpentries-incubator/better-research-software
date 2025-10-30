@@ -40,7 +40,7 @@ After attending this training, you **will be able** to:
 - Write code to take arguments from the command line for improved flexiblity and reuse
 - Write and run tests using a testing suite library
 - Create automated documentation for code to enable use by others
-- Manage an open source or other collaborative software project (including publishing and licensing)
+- Manage an open source or other collaborative software projects (including publishing and licensing)
 
 ## Acknowledgements
 
