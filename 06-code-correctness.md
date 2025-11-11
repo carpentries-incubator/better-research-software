@@ -641,7 +641,7 @@ e.  Why did "test_mean_duration" fail?
 
 ::: solution
 a.  9 tests were detected in the test suite
-b.  s - stands for "skipped",
+b.  s - stands for "skipped". Sometimes a test will be skipped based on a condition, for example when testing on a particular operating system.
 c.  2 tests failed: the first and second tests in test file
     `test_analyse.py`
 d.  `test_total_duration` failed because the calculated total duration
