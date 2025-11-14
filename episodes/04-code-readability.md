@@ -29,8 +29,7 @@ scientific software and empower collaboration between researchers.
 While all developers hope their code will be stable long term, software often has to change due to changes in the real world.
 As requirements change, so must the relevant code.
 When code needs to be changed, the developer that created it or more likely a different developer needs to understand that code before they can implement the new requirements.
-Readable code facilitates the reading and understanding of the abstraction phases and, as a result, facilitates the 
-evolution of the codebase.
+Readable code facilitates the reading and understanding of the abstraction phases and, as a result, facilitates the evolution of the codebase.
 Readable code saves future developers' time and effort.
 
 In order to develop readable code, we should ask ourselves: "If I re-read this piece of code in fifteen days or one 

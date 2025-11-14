@@ -347,14 +347,10 @@ The [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#runni
 
 ### Sharing virtual environments
 
-You are collaborating on a project with a team so, naturally,
-you will want to share your environment with your collaborators
-so they can easily 'clone' your software project with all of its dependencies
-and everyone can replicate equivalent virtual environments on their machines.
+You are collaborating on a project with a team so, naturally, you will want to share your environment with your collaborators so they can easily 'clone' your software project with all of its dependencies and everyone can replicate equivalent virtual environments on their machines.
 `pip` has a handy way of exporting, saving and sharing virtual environments.
 
-To export your active environment -
-use `python3 -m pip freeze` command to produce a list of packages installed in the virtual environment.
+To export your active environment - use `python3 -m pip freeze` command to produce a list of packages installed in the virtual environment.
 A common convention is to put this list in a `requirements.txt` file in your project's root directory:
 
 ```bash
