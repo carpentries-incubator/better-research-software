@@ -102,6 +102,8 @@ As part of the [setup for this course](./installation-instructions.html#spacewal
 If not, you can [download it](./installation-instructions.html#spacewalks) now.
 Save the `spacewalks.zip` archive to your home directory and extract it - you should get a directory called `spacewalks`.
 
+### Inspecting the project
+
 The first thing you may want to do is inspect the content of the code and data you received to learn more about what it does. 
 We will use VS Code for browsing, inspecting, modifying files and running our code.
 
@@ -214,61 +216,32 @@ This is a (non-exhaustive) list of things that could be fixed/improved with our 
 As you have seen from the previous exercise - there are quite a few things that can be improved with this code.
 We will try to make this research software project a "bit better" for future use.
 
-Let's check your setup now to make sure you are ready for the rest of this course.
+### Running the code
 
-::::::  challenge
+Let's try to run the code and see if we reproduce the results.
 
-### Check your setup (5 min)
+Open the terminal in VS Code (unless you have already done it) and type the following command.
 
-From a command line terminal on your operating system or within VS Code run the following commands to check you have 
-installed all the tools listed in [the Setup page](./installation-instructions.html) and that are functioning correctly.
+```bash
+$ python3 my\ code\ v2.py
+```
 
-Checking the command line terminal:
+You will get an error that looks something like the following:
 
-1. `$ date`
-2. `$ echo $SHELL`
-3. `$ pwd`
-4. `$ whoami`
+```output
+Traceback (most recent call last):
+  File "/Users/USERNAME/Downloads/spacewalks/my code v2.py", line 2, in <module>
+    data_f = open('/home/sarah/Projects/astronaut-analysis/data.json', 'r')
+FileNotFoundError: [Errno 2] No such file or directory: '/home/sarah/Projects/astronaut-analysis/data.json'
+```
 
-Checking Python:
+We get this error because the paths to the data files have been hard coded as absolute paths for the original developer's machine.
+Hard-coding paths is not very reproducible, as it means the paths need to be changed whenever the code is run on a new computer.
+We will soon fix the code to use the relative paths within the project structure and eventually we will change the code to take in arguments from the command line when it is run too.
 
-5. `$ python --version`
-6. `$ python3 --version`
-7. `$ which python`
-8. `$ which python3`
-
-Checking Git and GitHub:
-
-9. `$ git --help`
-10. `$ git config --list`
-11. `$ ssh -T git@github.com`
-
-Checking VS Code:
-
-12. `$ code`
-13. `$ code --list-extensions`
-
-::: solution
-
-The expected out put of each command is:
-
-1. Today's date
-2. `bash` or `zsh` - this tells you what shell language you are using. In this course we show examples in Bash.
-3. Your "present working directory" or the folder where your shell is running
-4. Your username
-5. In this course we are using Python 3. If `python --version` gives you Python 2.x you may have two versions of Python installed on your computer and need to be careful which one you are using.
-6. Use this command to be certain you are using Python version 3, not 2, if you have both installed.
-7. The file path to where the Python version you are calling is installed.
-8. If you have more than one version these should be different paths, if both 5. and 6. gave the same result then 7. and 8. should match as well.
-9. The help message explaining how to use the `git` command.
-10. You should have `user.name`, `user.email` and `core.editor` set in your Git configuration. Check that the editor listed is one you know how to use.
-11. This checks if you have set up your connection to GitHub correctly. If is says `permission denied` you may need to look at the instructions for setting up SSH keys again on the Setup page.
-12. This should open VS Code in your current working directory. macOS users may need to first open VS Code and [add it to the PATH](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
-13. If you installed the [VS Code extensions during setup](./installation-instructions#vs-code-extensions-for-python), you should see the extensions GitLens, Git Graph, Python, JSON and Excel Viewer in the output list.
-
-:::
-
-::::::
+So, we cannot even run the code on our machines.
+There is also a number of issues we identified with the software project that could do with improving.
+For the rest of this lesson, we will work on fixing these issues and applying some good software engineering practices.
 
 ## Further reading
 
