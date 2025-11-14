@@ -358,7 +358,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Better start with a software project</h1>
-        <p>Last updated on 2025-09-04 |
+        <p>Last updated on 2025-11-14 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/02-better-start-version-control.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -433,12 +433,13 @@ terminal you can navigate to it and list its contents with:</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">cd</span> ~/spacewalks</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">total</span> 272</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="ex">drwx------@</span>   5 mbassan2  staff     160 26 Jun 11:35 .</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="ex">drwx------@</span> 489 mbassan2  staff   15648 26 Jun 11:41 ..</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="ex">drwxrwxr-x@</span>   4 mbassan2  staff     128  4 Apr 10:48 astronaut-data-analysis-old</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="ex">-rw-rw-r--@</span>   1 mbassan2  staff  132981  4 Apr 10:48 data.json</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="ex">-rw-rw-r--@</span>   1 mbassan2  staff    1518  4 Apr 10:48 my code v2.py</span></code></pre>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">total</span> 288</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="ex">drwx------@</span>  6 mbassan2  staff     192 30 Jul 10:56 .</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="ex">drwxr-x---+</span> 55 mbassan2  staff    1760 14 Nov 14:34 ..</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="ex">-rw-r--r--@</span>  1 mbassan2  staff    6148 30 Jul 10:54 .DS_Store</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="ex">drwxrwxr-x@</span>  4 mbassan2  staff     128  4 Apr  2025 astronaut-data-analysis-old</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="ex">-rw-rw-r--@</span>  1 mbassan2  staff  132981  4 Apr  2025 data.json</span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="ex">-rw-rw-r--@</span>  1 mbassan2  staff    1514 30 Jul 10:56 my code v2.py</span></code></pre>
 </div>
 <p>Over the rest of the course, we will transform a collection of these
 files into a well-structured software project that follows established
@@ -447,7 +448,7 @@ good practices in research software engineering.</p>
 folder <code>astronaut-data-analysis-old</code> which presumably tries
 to keep track of older versions of the code. There is a better way to do
 that using version control tool, such as Git, and we can delete this
-folder so it does not cause confusion:</p>
+folder so it does not cause confusion.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -457,12 +458,12 @@ folder so it does not cause confusion:</p>
 <hr class="half-width"><p>Before we do any further changes to our software, we want to make
 sure we can keep a history of what changes we have done since we
 inherited the code from our colleague.</p>
-<p>We can track changes with version control. Later on, we will store
-those changes on a remote server too – both for safe-keeping and to make
-them easier to share with others. In later episodes, we will also see
-how version control makes it easier for multiple collaborators to work
-together on the same project at the same time and combine their
-contributions.</p>
+<p>We can track changes with a version control system (we will use Git).
+Later on, we will store those changes on a remote server too – both for
+safe-keeping and to make them easier to share with others. In later
+episodes, we will also see how version control makes it easier for
+multiple collaborators to work together on the same project at the same
+time and combine their contributions.</p>
 <div id="version-control-refresher" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -509,8 +510,8 @@ by researchers worldwide, and the one we’ll be using. Git is used mostly
 for managing code when developing software, but it can track
 <em>any</em> files – and is particularly effective with text-based files
 (e.g. source code like <code>.py</code>, <code>.c</code>,
-<code>.r</code>, but also <code>.csv</code>, <code>.tex</code> and
-more).</p>
+<code>.r</code>, but also <code>.csv</code>, <code>.yml</code>,
+<code>.json</code> and more).</p>
 <p>Git helps multiple people work on the same project (even the same
 file) at the same time. Initially, we will use Git to start tracking
 changes to files on our local machines; later on we will start sharing
@@ -577,47 +578,22 @@ any latest changes before you push your own.</li>
 </div>
 <div class="section level3">
 <h3 id="start-tracking-changes-with-git">Start tracking changes with Git<a class="anchor" aria-label="anchor" href="#start-tracking-changes-with-git"></a></h3>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
-</button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
-<div class="accordion-body">
-<p>Open up VS Code, and launch a <strong>Git Bash</strong> terminal.
-Call out how your prompt looks, and make sure that Windows users are not
-accidentally using PowerShell. <a href="https://carpentries-incubator.github.io/better-research-software/instructor/installation-instructions.html#visual-studio-code" class="external-link">Refer
-back to the setup section on configuring VS Code if anyone needs
-help.</a></p>
-</div>
-</div>
-</div>
-</div>
-<p>Before we start, if you forgot to do it during setup, tell Git to use
-<code>main</code> as the default branch. More modern versions of Git use
-<code>main</code>, but older ones still use <code>master</code> as their
-main branch. They work the same, but we want to keep things consistent
-for clarity.</p>
+<p>Open up VS Code and launch a terminal. By default, it will locate you
+in your <code>spacewalks</code> directory. We want to tell Git to make
+<code>spacewalks</code> a repository – a directory where Git can track
+changes to our files. We can do that with the <code>git init</code>
+command:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> init.defaultBranch main</span></code></pre>
-</div>
-<p>At this point, we should be located in our <code>spacewalks</code>
-directory. We want to tell Git to make <code>spacewalks</code> a
-repository – a directory where Git can track changes to our files. We do
-that with:</p>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> git init</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> git init</span></code></pre>
 </div>
 <p>We can check everything is set up correctly by asking Git to tell us
 the status of our project:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -628,58 +604,40 @@ No commits yet
 
 Untracked files:
   (use "git add &lt;file&gt;..." to include in what will be committed)
+	.DS_Store
 	data.json
 	my code v2.py
 
 nothing added to commit but untracked files present (use "git add" to track)</code></pre>
 </div>
-<p>This tells us that Git has noticed two files in our directory, but
+<p>This tells us that Git has noticed three files in our directory, but
 unlike Dropbox or OneDrive, it does not <em>automatically</em> track
 them. We need to tell Git explicitly which files we want it to track.
-This is not a handicap, but rather helpful, since scientific code can
-have vast inputs or outputs we might not want Git to track and store
-(GBs to TBs of space telescope data) or require sensitive information we
-cannot share (for example, medical records).</p>
-<p>Before we commit this initial version, we should try to run it. This
-is often the first thing you might do upon receiving someone’s code.</p>
+This is not a handicap, but rather helpful, since software projects can
+have vast input or output files we might not want Git to track and store
+(e.g. think of GBs to TBs of space telescope data) or require sensitive
+information we cannot share (for example, medical records). Or indeed
+contain hidden files that have nothing to do with the software project
+itself (e.g. <code>.DS_Store</code>) that we do not want to track or
+share.</p>
+<p>Let’s still commit our files (even though we know the code is broken)
+- we will note that the code is broken in our commit message. This is a
+best practice if you decide to commit broken code.</p>
+</div>
+<div class="section level3">
+<h3 id="adding-files-to-a-repository">Adding files to a repository<a class="anchor" aria-label="anchor" href="#adding-files-to-a-repository"></a></h3>
+<p>We can tell Git to track a file using <code>git add</code>:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> git add my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="ex">$</span> git add data.json</span></code></pre>
+</div>
+<p>and then check the right thing happened:</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> python3 my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py</span></code></pre>
-</div>
-<p>You will get an error that looks something like the following:</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Traceback (most recent call last):
-  File "/Users/USERNAME/Downloads/spacewalks/my code v2.py", line 2, in &lt;module&gt;
-    data_f = open('/home/sarah/Projects/astronaut-analysis/data.json', 'r')
-FileNotFoundError: [Errno 2] No such file or directory: '/home/sarah/Projects/astronaut-analysis/data.json'</code></pre>
-</div>
-<p>We get this error because the paths to the data files have been hard
-coded as absolute paths for the original developer’s machine.
-Hard-coding paths is not very reproducible, as it means the paths need
-to be changed whenever the code is run on a new computer. Instead, we
-will soon change the code to use the relative paths within the project
-structure and eventually we will change the code to take in arguments
-from the command line when it is run. When we commit the files, we will
-note that the code is broken in our commit message. This is a best
-practice if you decide to commit broken code.</p>
-</div>
-<div class="section level3">
-<h3 id="add-files-into-repository">Add files into repository<a class="anchor" aria-label="anchor" href="#add-files-into-repository"></a></h3>
-<p>We can tell Git to track a file using <code>git add</code>:</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> git add my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="ex">$</span> git add data.json</span></code></pre>
-</div>
-<p>and then check the right thing happened:</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -691,7 +649,11 @@ No commits yet
 Changes to be committed:
   (use "git rm --cached &lt;file&gt;..." to unstage)
 	new file:   data.json
-	new file:   my code v2.py</code></pre>
+	new file:   my code v2.py
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	.DS_Store</code></pre>
 </div>
 <p>Git now knows that should track the changes to
 <code>my code v2.py</code> and <code>data.json</code>, but it has not
@@ -699,12 +661,12 @@ Changes to be committed:
 how your tracked files have changed at a stage in time. To create a
 commit that records we added two new files, we need to run one more
 command:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add the initial spacewalks data and code</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="st">BREAKING CHANGE: Path to data is hard coded and needs to be fixed"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add the initial spacewalks data and code</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="st">BREAKING CHANGE: Path to data is hard coded and needs to be fixed"</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -714,14 +676,10 @@ command:</p>
  create mode 100644 data.json
  create mode 100644 my code v2.py</code></pre>
 </div>
-<p>At this point, Git has taken everything we have told it to save with
-the <code>git add</code> command and stored a copy (snapshot) of the
-files in a special, hidden <code>.git</code> directory. This is called a
-commit (or revision).</p>
 <p>The <code>-m</code> option means message, and records a short,
 descriptive, and specific comment that will help us remember later on
 what we did and why. If we run <code>git commit</code> <em>without</em>
-<code>-m</code> , Git will still expect a message – and will launch a
+<code>-m</code>, Git will still expect a message and and will launch a
 text editor so that we can write a longer one.</p>
 <p>Remember, good commit messages start with a brief (&lt;50 characters)
 statement about the changes made in the commit. Generally, the message
@@ -729,12 +687,12 @@ should complete the sentence “If applied, this commit will…”. If you
 want to go into more detail, add a blank line between the summary line
 and your additional notes. Use this additional space to explain why you
 made changes and/or what their impact will be.</p>
-<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
-  <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Choose how you teach version control steps from here </h3>
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Choose how you teach version control steps from here </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>At this point in the lesson, you may choose to demonstrate how the
 same steps of staging and committing changes can also be achieved with
@@ -751,18 +709,27 @@ version control steps with the command line interface only.</p>
 </div>
 </div>
 <p>If we run <code>git status</code> now, we see:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>On branch main
-nothing to commit, working tree clean</code></pre>
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	.DS_Store
+
+nothing added to commit but untracked files present (use "git add" to track)</code></pre>
 </div>
 <p>This tells us that everything is up to date.</p>
+<p>At this point, Git has taken everything we have told it to save with
+the <code>git add</code> command and stored a copy (snapshot) of the
+files in a special, hidden <code>.git</code> directory. This is called a
+commit (or revision). You can check the existence of this special
+directory in VS Code’s File Explorer.</p>
 <div id="where-are-my-changes" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -772,16 +739,16 @@ nothing to commit, working tree clean</code></pre>
 <h3 class="callout-title">Where are my changes?</h3>
 <div class="callout-content">
 <p>If we run <code>ls</code> at this point, we’ll still only see two
-files – our script, and our dataset. Git saves information about our
+files – our script and our dataset. Git saves information about our
 files’ history in the special <code>.git</code> directory mentioned
 earlier. This both stops our folders being cluttered with old versions,
 and <em>also</em> stops us accidentally deleting them!</p>
 <p>You can see the hidden Git directory using the <code>-a</code> flag
 to show all files and folders:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-a</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -791,8 +758,8 @@ to show all files and folders:</p>
 <span><span class="va">.git</span></span></code></pre>
 </div>
 <p>If you delete it, your directory will stop being a repository, and it
-will lose your history of changes. You never need to look into
-<code>.git</code> yourself – Git adds useful commands to do that, which
+will lose your history of changes. You never need to look into or modify
+<code>.git</code> yourself – Git has useful commands to do that, which
 are covered later on.</p>
 </div>
 </div>
@@ -811,20 +778,20 @@ filenames. The simplest fix is to replace the spaces with underscores
 <code>_</code> instead.</p>
 <p>To rename the files using git you can use the <code>git mv</code>
 command:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> git mv my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py my_code_v2.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> git mv my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py my_code_v2.py</span></code></pre>
 </div>
 <p>If you run <code>git status</code> again, you’ll see Git has noticed
 the change in the filename. Note, <code>git mv</code> handles the name
 change directly, instead of seeing a deleted file and a new file as
 would be the case if we’d used <code>mv</code> and then
 <code>git add</code>. It also stages the changes to be committed.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> git status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -832,12 +799,16 @@ would be the case if we’d used <code>mv</code> and then
 <pre class="output" tabindex="0"><code>On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	renamed:    my code v2.py -&gt; my_code_v2.py</code></pre>
+	renamed:    my code v2.py -&gt; my_code_v2.py
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+	.DS_Store</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"removed spaces from filename"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Remove spaces from filename"</span></span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -845,11 +816,11 @@ Changes to be committed:
 <p>Now that we know how to rename files in Git, we can use it to make
 our files and code a bit easier to understand.</p>
 <p>We may want to:</p>
-<ol style="list-style-type: decimal"><li>Give our script and input data file more meaningful names, e.g
-<code>eva_data_analysis.py</code> and <code>eva-data.json</code>. This
-change also uses removes version tracking from the script name as we are
-using Git for version control any more as Git will keep track of that
-for us.</li>
+<ol style="list-style-type: decimal"><li>Give our script and input data file more meaningful names,
+e.g. <code>eva_data_analysis.py</code> and <code>eva-data.json</code>.
+This change also uses removes version tracking from the script name as
+we are using Git for version control any more as Git will keep track of
+that for us.</li>
 <li>Choose informative file names for our output data file
 (e.g. <code>eva-data.csv</code>) and plot
 (<code>cumulative_eva_graph.png</code>).</li>
@@ -859,13 +830,13 @@ absolute paths
 the files (which were hardcoded to the path on our colleagues machine
 and would not work on ours).</li>
 <li>Update the Python script with these changes.</li>
-</ol><div id="update-the-filenames-in-the-repo" class="callout challenge">
+</ol><div id="update-the-filenames-10-min" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="update-the-filenames-in-the-repo" class="callout-inner">
-<h3 class="callout-title">Update the filenames in the repo</h3>
+<div id="update-the-filenames-10-min" class="callout-inner">
+<h3 class="callout-title">Update the filenames (10 min)</h3>
 <div class="callout-content">
 <p>Try to make these changes yourself.</p>
 <ol style="list-style-type: decimal"><li>Give our Python script and input data file informative names -
@@ -887,21 +858,21 @@ plot(<code>cumulative_eva_graph.png</code>).</li>
 <div class="accordion-body">
 <p>Firstly, let’s update the file names in our Python script from VS
 Code:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>data_f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.json'</span>, <span class="st">'r'</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>data_t <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.csv'</span>,<span class="st">'w'</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>g_file <span class="op">=</span> <span class="st">'./cumulative_eva_graph.png'</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>data_f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.json'</span>, <span class="st">'r'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>data_t <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.csv'</span>,<span class="st">'w'</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>g_file <span class="op">=</span> <span class="st">'./cumulative_eva_graph.png'</span></span></code></pre>
 </div>
 <p>Next, we need to rename the files on the file system using Git:</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">git</span> mv data.json eva-data.json</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="fu">git</span> mv my_code_v2.py eva_data_analysis.py</span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="fu">git</span> add eva_data_analysis.py</span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">git</span> mv data.json eva-data.json</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">git</span> mv my_code_v2.py eva_data_analysis.py</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a><span class="fu">git</span> add eva_data_analysis.py</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -913,15 +884,43 @@ Changes to be committed:
 	renamed:    my_code_v2.py -&gt; eva_data_analysis.py</code></pre>
 </div>
 <p>Finally, we can commit our changes:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Implement informative file names"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Implement informative file names"</span></span></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
+<p>Let’s try to run our code again, see where we get to.</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> python3 my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py</span></code></pre>
+</div>
+<p>At this point you may something like the following.</p>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">...</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">{</span><span class="st">'eva'</span><span class="ex">:</span> <span class="st">'370'</span>, <span class="st">'country'</span>: <span class="st">'Russia'</span>, <span class="st">'crew'</span>: <span class="st">'Fyodor Yurchikhin;Alexander Misurkin;'</span>, <span class="st">'vehicle'</span>: <span class="st">'ISS Incr-36'</span>, <span class="st">'date'</span>: <span class="st">'2013-08-16T00:00:00.000'</span>, <span class="st">'duration'</span>: <span class="st">'7:29'</span>, <span class="st">'purpose'</span>: <span class="st">'Â\x95 Installed VINOSLIVOST experiment on MRM2, 2 MLMÂ\x96USOS power cables, FGB Â\x96 MRM2 gap spanners, MLM-USOS ETHERNET cable\nÂ\x95 Installation of gap spanners SM Â\x96 MRM2 (if time allows)\nÂ\x95 Retracted &amp; stowed Strela-1 on DC1'</span>}</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="ex">1900-01-01</span> 07:29:00 7.483333333333333</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"/Users/user/spacewalks/eva_data_analysis.py"</span>, line 54, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>    <span class="ex">import</span> matplotlib.pyplot as plt</span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="ex">ModuleNotFoundError:</span> No module named <span class="st">'matplotlib'</span></span></code></pre>
+</div>
+<p>You should get the <code>eva-data.csv</code> file which contains the
+EVA data converted from JSON to CSV format. Depending on your system and
+whether you have <code>matplotlib</code> library installed - you may get
+the result graph file <code>cumulative_eva_graph.png</code>. If not -
+you may get the
+<code>ModuleNotFoundError: No module named 'matplotlib'</code>
+error.</p>
+<p>We will look into these issues in a moment. But let’s first set up
+our software project as a repository on GitHub so we can back up our
+work and share with others.</p>
 </div>
 </section><section><h2 class="section-heading" id="interacting-with-a-remote-git-server">Interacting with a remote Git server<a class="anchor" aria-label="anchor" href="#interacting-with-a-remote-git-server"></a></h2>
 <hr class="half-width"><p>Git is distributed version control system and lets us synchronise
@@ -975,12 +974,12 @@ how to do that for different scenarios. Change the toggle on the right
 side from “HTTPS” to “SSH”, then look at the heading “…or push an
 existing repository from the command line”. You should see instructions
 that look like this:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com/<span class="op">&lt;</span>YOUR_GITHUB_HANDLE<span class="op">&gt;</span>/spacewalks.git</span>
-<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
-<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com/<span class="op">&lt;</span>YOUR_GITHUB_HANDLE<span class="op">&gt;</span>/spacewalks.git</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre>
 </div>
 <p><strong>It is very important you make sure you switch from “HTTPS” to
 “SSH”.</strong> In the setup, we configured our GitHub account and our
@@ -998,10 +997,10 @@ in the GitHub repository, matching what you have locally on your
 machine.</li>
 </ol><p>If you were wondering about what those commands did, here is the
 explanation.</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com/<span class="op">&lt;</span>YOUR_GITHUB_HANDLE<span class="op">&gt;</span>/spacewalks.git</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">git</span> remote add origin git@github.com/<span class="op">&lt;</span>YOUR_GITHUB_HANDLE<span class="op">&gt;</span>/spacewalks.git</span></code></pre>
 </div>
 <p>This command tells Git to create a <code>remote</code> called
 “origin” and link it to the URL of your GitHub repository. A
@@ -1012,20 +1011,20 @@ the remote repository. It could be called anything, but “origin” is a
 common convention for Git since it shows which is considered the “source
 of truth”. This is particularly useful when many people are
 collaborating on the same repository.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span></code></pre>
 </div>
 <p><code>git branch</code> is a command used to manage branches. We’ll
 discuss branches later on in the course. We saw this command during
 setup and earlier in this episode - it ensures the branch we are working
 on is called “main”. This will be the default branch of the project for
 everyone working on it.</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre>
 </div>
 <p>The <code>git push</code> command is used to update a remote
 repository with changes from your local repository. This command tells
@@ -1239,7 +1238,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/02-better-start-version-control.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/02-better-start-version-control.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-09-04",
+  "dateModified": "2025-11-14",
   "datePublished": "2025-11-14"
 }
 

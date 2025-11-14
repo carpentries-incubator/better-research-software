@@ -342,7 +342,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Installation instructions</h1>
-        <p>Last updated on 2025-10-30 |
+        <p>Last updated on 2025-11-14 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/learners/installation-instructions.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -810,6 +810,85 @@ script to analyse and plot this data.</p>
 <p>Save the <code>spacewalks.zip</code> archive to your home directory
 and extract it - you should get a directory called
 <code>spacewalks</code>.</p>
+</section><section><h2 class="section-heading" id="setup-check-all-in-one">Setup check (all in one)<a class="anchor" aria-label="anchor" href="#setup-check-all-in-one"></a></h2>
+<hr class="half-width"><p>Let’s check your setup now to make sure you are ready for the rest of
+this course.</p>
+<div id="check-your-setup-5-min" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="check-your-setup-5-min" class="callout-inner">
+<h3 class="callout-title">Check your setup (5 min)</h3>
+<div class="callout-content">
+<p>From a command line terminal on your operating system or within VS
+Code run the following commands to check you have installed all the
+tools listed in <a href="./installation-instructions.html">the Setup
+page</a> and that are functioning correctly.</p>
+<p>Checking the command line terminal:</p>
+<ol style="list-style-type: decimal"><li><code>$ date</code></li>
+<li><code>$ echo $SHELL</code></li>
+<li><code>$ pwd</code></li>
+<li><code>$ whoami</code></li>
+</ol><p>Checking Python:</p>
+<ol start="5" style="list-style-type: decimal"><li><code>$ python --version</code></li>
+<li><code>$ python3 --version</code></li>
+<li><code>$ which python</code></li>
+<li><code>$ which python3</code></li>
+</ol><p>Checking Git and GitHub:</p>
+<ol start="9" style="list-style-type: decimal"><li><code>$ git --help</code></li>
+<li><code>$ git config --list</code></li>
+<li><code>$ ssh -T git@github.com</code></li>
+</ol><p>Checking VS Code:</p>
+<ol start="12" style="list-style-type: decimal"><li><code>$ code</code></li>
+<li><code>$ code --list-extensions</code></li>
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>The expected out put of each command is:</p>
+<ol style="list-style-type: decimal"><li>Today’s date</li>
+<li>
+<code>bash</code> or <code>zsh</code> - this tells you what shell
+language you are using. In this course we show examples in Bash.</li>
+<li>Your “present working directory” or the folder where your shell is
+running</li>
+<li>Your username</li>
+<li>In this course we are using Python 3. If
+<code>python --version</code> gives you Python 2.x you may have two
+versions of Python installed on your computer and need to be careful
+which one you are using.</li>
+<li>Use this command to be certain you are using Python version 3, not
+2, if you have both installed.</li>
+<li>The file path to where the Python version you are calling is
+installed.</li>
+<li>If you have more than one version these should be different paths,
+if both 5. and 6. gave the same result then 7. and 8. should match as
+well.</li>
+<li>The help message explaining how to use the <code>git</code>
+command.</li>
+<li>You should have <code>user.name</code>, <code>user.email</code> and
+<code>core.editor</code> set in your Git configuration. Check that the
+editor listed is one you know how to use.</li>
+<li>This checks if you have set up your connection to GitHub correctly.
+If is says <code>permission denied</code> you may need to look at the
+instructions for setting up SSH keys again on the Setup page.</li>
+<li>This should open VS Code in your current working directory. macOS
+users may need to first open VS Code and <a href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line" class="external-link">add
+it to the PATH</a>.</li>
+<li>If you installed the <a href="./installation-instructions#vs-code-extensions-for-python">VS Code
+extensions during setup</a>, you should see the extensions GitLens, Git
+Graph, Python, JSON and Excel Viewer in the output list.</li>
+</ol></div>
+</div>
+</div>
+</div>
 <!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
@@ -872,7 +951,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/installation-instructions.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/installation-instructions.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-10-30",
+  "dateModified": "2025-11-14",
   "datePublished": "2025-11-14"
 }
 
