@@ -59,18 +59,12 @@ If you are using some much older Python distributions for any reason, they may n
 
 Python applications also use external libraries that do not come as part of the standard Python distribution - such as `matplotlib` or `pandas`.
 This means that you will have to use a **package manager** tool to install them on your system.
-Applications will also sometimes need a
-specific version of an external library
-(e.g. because they were written to work with feature, class,
-or function that may have been updated in more recent versions),
-or a specific version of Python interpreter.
-This means that each Python application you work with may require a different setup
-and a set of dependencies so it is useful to be able to keep these configurations
-separate to avoid confusion between projects.
-The solution for this problem is to create a self-contained
-**virtual environment** per project,
-which contains a particular version of Python installation
-plus a number of additional external libraries.
+Applications will also sometimes need a specific version of an external library (e.g. because they were written to work with feature, class, or function that may have been updated in more recent versions), or a specific version of Python interpreter.
+This means that each Python application you work with may require a different setup and a set of dependencies so it is useful to be able to keep these configurations separate to avoid confusion between projects.
+
+The solution for this problem is to create a self-contained **virtual environment** per project, which contains a particular version of Python installation plus a number of additional external libraries.
+This is also the reason why we did not want to solve the `ModuleNotFoundError: No module named 'matplotlib'` (in the case you had it) from the previous episode there and then as it would mean installing `matplotlib` system-wide (i.e. globally on your machine).
+It is much better to install libraries in virtual environments only for projects that need them.
 
 ## What are virtual software environments?
 
@@ -145,12 +139,6 @@ conventionally within your software project so they are co-located.
 This will create the target directory for the virtual environment.
 
 For our project let's create a virtual environment called "venv_spacewalks" from our project's root directory.
-
-Firstly, ensure you are located within the project's root directory:
-
-```bash
-$ cd /path/to/spacewalks
-```
 
 ```bash
 $ python3 -m venv venv_spacewalks
@@ -366,30 +354,34 @@ zope.interface==7.0.1
 ```
 
 The first of the above commands will create a `requirements.txt` file in your current directory.
-Yours may look a little different,
-depending on the version of the packages you have installed,
-as well as any differences in the packages that they themselves use.
+Yours may look a little different, depending on the version of the packages you have installed, as well as any differences in the packages that they themselves use.
 
-The `requirements.txt` file can then be committed to a version control system
-(we will see how to do this using Git in a moment)
-and get shipped as part of your software and shared with collaborators and/or users.
+The `requirements.txt` file can then be committed to a version control system (we will see how to do this using Git in a moment) and get shipped as part of your software and shared with collaborators and/or users.
 
-Note that you only need to share the small `requirements.txt` file with your collaborators - and not the entire
-`venv_spacewalks` directory with packages contained in your virtual environment.
-We need to tell Git to ignore that directory, so it is not tracked and shared - we do this by creating a file
-`.gitignore` in the root directory of our project and adding a line `venv_spacewalks` to it.
+Note that you only need to share the small `requirements.txt` file with your collaborators - and not the entire `venv_spacewalks` directory with packages contained in your virtual environment.
+We need to tell Git to ignore that directory, so it is not tracked and shared - we do this by creating a file `.gitignore` in the root directory of our project and adding a line `venv_spacewalks` to it.
 
 ```bash
 (venv_spacewalks) $ echo "venv_spacewalks/" >> .gitignore
+```
+Remember the `.DS_Store` hidden file which is also not necessary to share with our project?
+We can tell Git to ignore it by adding it on a new line in `.gitignore` as pattern `**/.DS_Store` (so it will be ignored in any sub-folder of our project).
+That way it can safely reside in local projects of macOS users and can be ignored by the rest.
+
+Let's add and commit `.gitignore` to our repository (this file we do want to track and share).
+
+```bash
 (venv_spacewalks) $ git add .gitignore
-(venv_spacewalks) $ git commit -m "ignoring venv folder"
+(venv_spacewalks) $ git commit -m "Ignore venv folder and DS_Store file"
 ```
 
-Let's now put `requirements.txt` under version control and share it along with our code.
+The same method can be applied to ignore various other files that you do not want Git to track.
+
+Let's now put `requirements.txt` under version control too and share it along with our code.
 
 ```bash
 (venv_spacewalks) $ git add requirements.txt
-(venv_spacewalks) $ git commit -m "Initial commit of requirements.txt."
+(venv_spacewalks) $ git commit -m "Initial commit of requirements.txt"
 (venv_spacewalks) $ git push origin main
 ```
 
@@ -410,7 +402,7 @@ To recreate a virtual environment from `requirements.txt`, from the project root
 For people (including your future self) to be able to reproduce software environments described in this way, the listed dependencies need to remain available to download and possible to install on the user's system.
 These are reasonably safe assumptions for widely-used, actively maintained tools on commonly-used operating systems in the short- to medium-term.
 However, it becomes less likely that we will be able to recreate such environments as system architectures evolve over time and maintainers stop supporting older versions of software.
-To achieve this kind of long-term reproducibility, you will need to explore options to provide the actual environment -- with dependencies already included -- alongside your software e.g. via a [containerised environment](https://carpentries-incubator.github.io/docker-introduction/).
+To achieve this kind of long-term reproducibility, you will need to explore options to provide the actual environment -- with dependencies already included -- alongside your software, e.g. via a [containerised environment](https://carpentries-incubator.github.io/docker-introduction/).
 
 ::::::::::::::::::::::::::::::
 
@@ -503,12 +495,10 @@ Do not forget to commit any files that have been changed.
 
 ## Summary
 
-We have our code running in its own virtual environment.
+We now have our code running in its own virtual environment.
 
-Virtual development environments provide significant benefits for software development by allowing developers to isolate 
-project dependencies and configurations, preventing conflicts between projects.
-They support reproducibility, making it much easier to recreate the same setup across different machines or for other
-team members, which helps with collaboration and consistency.
+Virtual development environments provide significant benefits for software development by allowing developers to isolate project dependencies and configurations, preventing conflicts between projects.
+They support reproducibility, making it much easier to recreate the same setup across different machines or for other team members, which helps with collaboration and consistency.
 They allow us to share or deploy our environment setup easily, often as a single configuration file.
 They promote a "cleaner" way of working and avoid polluting the global system environment with project-specific tools and packages.
 
