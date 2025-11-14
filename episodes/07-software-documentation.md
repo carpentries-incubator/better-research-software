@@ -128,21 +128,18 @@ A README file acts as a “landing page” for your code repository on GitHub an
 
 ### README and the FAIR principles
 
-Think about the question below. Your instructors may ask you to share your answer in a shared notes document and/or 
-discuss them with other participants.
-
-Here are some of the major sections you might find in a typical README. 
+The following lists some of the major sections you may find in a typical README file. 
 Which are **essential** to support the FAIR [software][fair-principles-research-software] and [data][fair-data-principles] principles? Which are optional?
 
-- Purpose of the code
+- Description and purpose of the code
 - Audience (who the code is intended for)
 - Installation instructions
+- Pointers to dependencies and their versions (e.g. `requirements.txt` or `pyproject.toml`)
 - Contribution guide
 - How to get help
 - License
 - Software citation
-- Usage example
-- Dependencies and their versions
+- Usage examples
 - FAQs
 - Code of Conduct
 
