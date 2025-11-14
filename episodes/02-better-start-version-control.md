@@ -47,20 +47,20 @@ contents with:
 ```bash
 cd ~/spacewalks
 ls -la
-total 272
-drwx------@   5 mbassan2  staff     160 26 Jun 11:35 .
-drwx------@ 489 mbassan2  staff   15648 26 Jun 11:41 ..
-drwxrwxr-x@   4 mbassan2  staff     128  4 Apr 10:48 astronaut-data-analysis-old
--rw-rw-r--@   1 mbassan2  staff  132981  4 Apr 10:48 data.json
--rw-rw-r--@   1 mbassan2  staff    1518  4 Apr 10:48 my code v2.py
+total 288
+drwx------@  6 mbassan2  staff     192 30 Jul 10:56 .
+drwxr-x---+ 55 mbassan2  staff    1760 14 Nov 14:34 ..
+-rw-r--r--@  1 mbassan2  staff    6148 30 Jul 10:54 .DS_Store
+drwxrwxr-x@  4 mbassan2  staff     128  4 Apr  2025 astronaut-data-analysis-old
+-rw-rw-r--@  1 mbassan2  staff  132981  4 Apr  2025 data.json
+-rw-rw-r--@  1 mbassan2  staff    1514 30 Jul 10:56 my code v2.py
 ```
 
 Over the rest of the course, we will transform a collection of these files into a well-structured software project that 
 follows established good practices in research software engineering.
 
 The first thing you may notice that our software project contains folder `astronaut-data-analysis-old` which presumably tries to keep track
-of older versions of the code. There is a better way to do that using version control tool, such as Git, and we can delete 
-this folder so it does not cause confusion:
+of older versions of the code. There is a better way to do that using version control tool, such as Git, and we can delete this folder so it does not cause confusion.
 
 ```bash
 rm -r astronaut-data-analysis-old
@@ -71,10 +71,9 @@ rm -r astronaut-data-analysis-old
 Before we do any further changes to our software, we want to make sure we can keep a history of what changes we have done since 
 we inherited the code from our colleague.
 
-We can track changes with version control. Later on, we will store those changes on a remote server too --
-both for safe-keeping and to make them easier to share with others. In later episodes, we will also see how version control 
-makes it easier for multiple collaborators to work together on the same project at the same time and combine 
-their contributions.
+We can track changes with a version control system (we will use Git). 
+Later on, we will store those changes on a remote server too -- both for safe-keeping and to make them easier to share with others. 
+In later episodes, we will also see how version control makes it easier for multiple collaborators to work together on the same project at the same time and combine their contributions.
 
 :::::: callout
 
@@ -108,7 +107,7 @@ accessible over time (especially if made available in shared version controlled 
 
 **Git** is the most popular version control system used by researchers worldwide, and the one we'll be using.
 Git is used mostly for managing code when developing software, but it can track *any* files --
-and is particularly effective with text-based files (e.g. source code like `.py`, `.c`, `.r`, but also `.csv`, `.tex` and more).
+and is particularly effective with text-based files (e.g. source code like `.py`, `.c`, `.r`, but also `.csv`, `.yml`, `.json` and more).
 
 Git helps multiple people work on the same project (even the same file) at the same time.
 Initially, we will use Git to start tracking changes to files on our local machines; later on we will start sharing our
@@ -163,8 +162,7 @@ and make sure that Windows users are not accidentally using PowerShell.
 
 :::
 
-Before we start, if you forgot to do it during setup,
-tell Git to use `main` as the default branch.
+Before we start, we want to tell Git to use `main` as the default branch.
 More modern versions of Git use `main`, but older ones still use `master` as their main branch.
 They work the same, but we want to keep things consistent for clarity.
 
@@ -172,8 +170,11 @@ They work the same, but we want to keep things consistent for clarity.
 $ git config --global init.defaultBranch main
 ```
 
-At this point, we should be located in our `spacewalks` directory. We want to tell Git to make `spacewalks` a repository --
-a directory where Git can track changes to our files. We do that with:
+The above command sets Git's global (system-wide) setting `init.defaultBranch` and you can be located in any directory of your file system when running it.
+
+But from now on, we should be located in our `spacewalks` directory.
+We want to tell Git to make `spacewalks` a repository -- a directory where Git can track changes to our files. 
+We do that with:
 
 ```bash
 $ git init
@@ -192,19 +193,20 @@ No commits yet
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
+	.DS_Store
 	data.json
 	my code v2.py
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-This tells us that Git has noticed two files in our directory, but unlike Dropbox or OneDrive,
-it does not *automatically* track them. We need to tell Git explicitly which files we want it to track.
-This is not a handicap, but rather helpful, since scientific code can have vast inputs or outputs we might not want 
-Git to track and store (GBs to TBs of space telescope data) or require sensitive information we cannot share
-(for example, medical records).
+This tells us that Git has noticed three files in our directory, but unlike Dropbox or OneDrive, it does not *automatically* track them. 
+We need to tell Git explicitly which files we want it to track.
+This is not a handicap, but rather helpful, since software projects can have vast input or output files we might not want Git to track and store (e.g. think of GBs to TBs of space telescope data) or require sensitive information we cannot share (for example, medical records).
+Or indeed contain hidden files that have nothing to do with the software project itself (e.g. `.DS_Store`) that we do not want to track or share.
 
-Before we commit this initial version, we should try to run it. This is often the first thing you might do upon receiving someone's code.
+Before we commit and save this initial version of the code we received, let's try to run it. 
+This is often the first thing you might do upon receiving someone's code.
 
 ```bash
 $ python3 my\ code\ v2.py
@@ -221,8 +223,9 @@ FileNotFoundError: [Errno 2] No such file or directory: '/home/sarah/Projects/as
 
 We get this error because the paths to the data files have been hard coded as absolute paths for the original developer's machine.
 Hard-coding paths is not very reproducible, as it means the paths need to be changed whenever the code is run on a new computer.
-Instead, we will soon change the code to use the relative paths within the project structure and eventually we will change the code to take in arguments from the command line when it is run.
-When we commit the files, we will note that the code is broken in our commit message.
+We will soon fix the code to use the relative paths within the project structure and eventually we will change the code to take in arguments from the command line when it is run.
+
+Let's still commit our files (even though we know the code is broken) - we will note that the code is broken in our commit message.
 This is a best practice if you decide to commit broken code.
 
 ### Add files into repository
@@ -248,10 +251,13 @@ Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 	new file:   data.json
 	new file:   my code v2.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.DS_Store
 ```
 
-Git now knows that should track the changes to `my code v2.py` and `data.json`,
-but it has not 'committed' those changes to the record yet.
+Git now knows that should track the changes to `my code v2.py` and `data.json`, but it has not 'committed' those changes to the record yet.
 A commit is a snapshot of how your tracked files have changed at a stage in time.
 To create a commit that records we added two new files, we need to run one more command:
 
@@ -268,13 +274,8 @@ BREAKING CHANGE: Path to data is hard coded and needs to be fixed"
  create mode 100644 my code v2.py
 ```
 
-At this point, Git has taken everything we have told it to save with the `git add` command and stored a copy (snapshot) of the files in a special, hidden `.git` directory.
-This is called a commit (or revision).
-
 The `-m` option means message, and records a short, descriptive, and specific comment that will help us remember later on what we did and why.
-If we run `git commit` *without* `-m` ,
-Git will still expect a message -- 
-and will launch a text editor so that we can write a longer one.
+If we run `git commit` *without* `-m`, Git will still expect a message and and will launch a text editor so that we can write a longer one.
 
 Remember, good commit messages start with a brief (<50 characters) statement about the changes made in the commit.
 Generally, the message should complete the sentence "If applied, this commit will...".
@@ -302,20 +303,26 @@ $ git status
 
 ```output
 On branch main
-nothing to commit, working tree clean
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.DS_Store
+
+nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 This tells us that everything is up to date.
+
+At this point, Git has taken everything we have told it to save with the `git add` command and stored a copy (snapshot) of the files in a special, hidden `.git` directory.
+This is called a commit (or revision).
+You can check the existence of this special directory in VS Code's File Explorer.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Where are my changes?
 
-If we run `ls` at this point, we'll still only see two files
--- our script, and our dataset.
+If we run `ls` at this point, we'll still only see two files -- our script and our dataset.
 Git saves information about our files' history in the special `.git` directory mentioned earlier.
-This both stops our folders being cluttered with old versions,
-and *also* stops us accidentally deleting them!
+This both stops our folders being cluttered with old versions, and *also* stops us accidentally deleting them!
 
 You can see the hidden Git directory using the `-a` flag to show all files and folders:
 
@@ -329,10 +336,8 @@ $ ls -a
 .git
 ```
 
-If you delete it, your directory will stop being a repository,
-and it will lose your history of changes.
-You never need to look into `.git` yourself --
-Git adds useful commands to do that, which are covered later on.
+If you delete it, your directory will stop being a repository, and it will lose your history of changes.
+You never need to look into or modify `.git` yourself -- Git has useful commands to do that, which are covered later on.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -366,20 +371,23 @@ On branch main
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
 	renamed:    my code v2.py -> my_code_v2.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.DS_Store
 ```
 
 ```bash
-$ git commit -m "removed spaces from filename"
+$ git commit -m "Remove spaces from filename"
 ```
 
 ### Rename our data and output files
 
-Now that we know how to rename files in Git,
-we can use it to make our files and code a bit easier to understand.
+Now that we know how to rename files in Git, we can use it to make our files and code a bit easier to understand.
 
 We may want to:
 
-1. Give our script and input data file more meaningful names, e.g `eva_data_analysis.py` and `eva-data.json`. This change also uses removes version tracking from the script name as we are using Git for version control
+1. Give our script and input data file more meaningful names, e.g. `eva_data_analysis.py` and `eva-data.json`. This change also uses removes version tracking from the script name as we are using Git for version control
 any more as Git will keep track of that for us.
 2. Choose informative file names for our output data file (e.g. `eva-data.csv`) and plot (`cumulative_eva_graph.png`).
 3. Use relative paths (e.g. `./eva-data.json`) instead of absolute paths (e.g. `home/sarah/Projects/astronaut-analysis/data.csv`) to the files (which were hardcoded to the path on our colleagues machine and would not work on ours).
@@ -387,7 +395,7 @@ any more as Git will keep track of that for us.
 
 :::::::::::::::::::::::::::: challenge
 
-#### Update the filenames in the repo
+#### Update the filenames (5 min)
 
 Try to make these changes yourself.
 
