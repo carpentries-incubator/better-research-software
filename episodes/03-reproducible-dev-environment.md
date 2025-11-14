@@ -159,16 +159,11 @@ drwxr-xr-x   3 alex  staff   96  5 Oct 11:47 lib
 -rw-r--r--   1 alex  staff   90  5 Oct 11:47 pyvenv.cfg
 ```
 
-So, running the `python3 -m venv venv_spacewalks` command created the target directory called "venv_spacewalks"
-containing:
+So, running the `python3 -m venv venv_spacewalks` command created the target directory called "venv_spacewalks" containing:
 
-- `pyvenv.cfg` configuration file
-  with a home key pointing to the Python installation from which the command was run,
-- `bin` subdirectory (called `Scripts` on Windows)
-  containing a symlink of the Python interpreter binary used to create the environment
-  and the standard Python library,
-- `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows)
-  to contain its own independent set of installed Python packages isolated from other projects, and
+- `pyvenv.cfg` configuration file with a home key pointing to the Python installation from which the command was run,
+- `bin` subdirectory (called `Scripts` on Windows) containing a symlink of the Python interpreter binary used to create the environment and the standard Python library,
+- `lib/pythonX.Y/site-packages` subdirectory (called `Lib\site-packages` on Windows) to contain its own independent set of installed Python packages isolated from other projects, and
 - various other configuration and supporting files and subdirectories.
 
 Once you’ve created a virtual environment, you will need to activate it.
@@ -180,22 +175,17 @@ $ source venv_spacewalks/bin/activate
 (venv_spacewalks) $
 ```
 
-On Windows, recall that we have `Scripts` directory instead of `bin`
-and activating a virtual environment is done as:
+On Windows, recall that we have `Scripts` directory instead of `bin` and activating a virtual environment is done as:
 
 ```bash
 $ source venv_spacewalks/Scripts/activate
 (venv_spacewalks) $
 ```
 
-Activating the virtual environment will change your command line’s prompt
-to show what virtual environment you are currently using
-(indicated by its name in round brackets at the start of the prompt),
-and modify the environment so that running Python will get you
-the particular version of Python configured in your virtual environment.
+Activating the virtual environment will change your command line’s prompt to show what virtual environment you are currently using (indicated by its name in round brackets at the start of the prompt).
+It will also modify the environment so that running Python will get you the particular version of Python configured in your virtual environment.
 
-You can verify you are using your virtual environment's version of Python
-by checking the path using the command `which`:
+You can verify you are using your virtual environment's version of Python by checking the path using the command `which`:
 
 ```bash
 (venv_spacewalks) $ which python3
@@ -215,23 +205,44 @@ $ python3 -m venv ./venv_spacewalks
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+### Naming Virtual Environments
+
+What is a good name to use for a virtual environment?
+
+Using `venv` or `.venv` as the name for an environment and storing it within the project's directory seems to be the standard practice - this way when you come across such a subdirectory within a software project, by convention you know it contains its virtual environment details.
+A slight downside to this is that all different virtual environments on your machine will use the same name and the current one is determined by the context of the path you are currently located in.
+Note that `.venv` is also a hidden directory and that may not be what you want to do.
+
+We used `venv_spacewalks` - this deviates a from the convention of calling them `venv` or `.venv`, but does give a clear project-specific prompt of `(venv_spacewalks)` and indicates clearly it is a virtual environment.
+
+Note that you can also set the command line prompt for the virtual environment:
+
+```bash
+python -m venv --prompt spacewalks venv
+```
+This will create a virtual environment in `venv` folder with `(spacewalks)` on the command line prompt.
+It gives a shorter, meaningful prompt and sticks to convention at the same time.
+
+In the future, you will decide what naming convention works best for you.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 When you’re done working on your project, you can exit the environment with:
 
 ```bash
 (venv_spacewalks) $ deactivate
 ```
 
-If you've just done the `deactivate`,
-ensure you reactivate the environment ready for the next part:
+If you've just done the `deactivate`, ensure you reactivate the environment ready for the next part:
 
 ```bash
 $ source venv_spacewalks/bin/activate
 (venv_spacewalks) $
 ```
 
-Note that, since our software project is being tracked by Git,
-the newly created virtual environment will show up in version control -
-we will see how to handle it using Git in one of the subsequent episodes.
+Note that, since our software project is being tracked by Git, the newly created virtual environment will show up in version control - we will see how to handle it using Git in one of the subsequent episodes.
 
 ### Installing external packages
 
