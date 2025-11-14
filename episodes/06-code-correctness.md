@@ -133,7 +133,7 @@ As input to our code/function we are testing, we typically use some input values
 
 Let's do this for our `text_to_duration` function.
 Recall that the `text_to_duration` function converts a spacewalk duration stored as a string
-in format "HH:MM" to a duration in hours - e.g. duration `01:15` (1 hour and 15 minutes) should return a numerical value of `1.25`.
+in format "HH:MM" to a duration in decimal hours - e.g. duration `01:15` (1 hour and 15 minutes) should return a numerical decimal value of `1.25`.
 
 ```python
 def text_to_duration(duration):
