@@ -153,28 +153,10 @@ and the most common commands used to work with one.
 
 ### Start tracking changes with Git
 
-::: instructor
-
-Open up VS Code, and launch a **Git Bash** terminal.
-Call out how your prompt looks,
-and make sure that Windows users are not accidentally using PowerShell.
-[Refer back to the setup section on configuring VS Code if anyone needs help.](https://carpentries-incubator.github.io/better-research-software/instructor/installation-instructions.html#visual-studio-code)
-
-:::
-
-Before we start, we want to tell Git to use `main` as the default branch.
-More modern versions of Git use `main`, but older ones still use `master` as their main branch.
-They work the same, but we want to keep things consistent for clarity.
-
-```bash
-$ git config --global init.defaultBranch main
-```
-
-The above command sets Git's global (system-wide) setting `init.defaultBranch` and you can be located in any directory of your file system when running it.
-
-But from now on, we should be located in our `spacewalks` directory.
+Open up VS Code and launch a terminal.
+By default, it will locate you in your `spacewalks` directory.
 We want to tell Git to make `spacewalks` a repository -- a directory where Git can track changes to our files. 
-We do that with:
+We can do that with the `git init` command:
 
 ```bash
 $ git init
@@ -205,30 +187,10 @@ We need to tell Git explicitly which files we want it to track.
 This is not a handicap, but rather helpful, since software projects can have vast input or output files we might not want Git to track and store (e.g. think of GBs to TBs of space telescope data) or require sensitive information we cannot share (for example, medical records).
 Or indeed contain hidden files that have nothing to do with the software project itself (e.g. `.DS_Store`) that we do not want to track or share.
 
-Before we commit and save this initial version of the code we received, let's try to run it. 
-This is often the first thing you might do upon receiving someone's code.
-
-```bash
-$ python3 my\ code\ v2.py
-```
-
-You will get an error that looks something like the following:
-
-```output
-Traceback (most recent call last):
-  File "/Users/USERNAME/Downloads/spacewalks/my code v2.py", line 2, in <module>
-    data_f = open('/home/sarah/Projects/astronaut-analysis/data.json', 'r')
-FileNotFoundError: [Errno 2] No such file or directory: '/home/sarah/Projects/astronaut-analysis/data.json'
-```
-
-We get this error because the paths to the data files have been hard coded as absolute paths for the original developer's machine.
-Hard-coding paths is not very reproducible, as it means the paths need to be changed whenever the code is run on a new computer.
-We will soon fix the code to use the relative paths within the project structure and eventually we will change the code to take in arguments from the command line when it is run.
-
 Let's still commit our files (even though we know the code is broken) - we will note that the code is broken in our commit message.
 This is a best practice if you decide to commit broken code.
 
-### Add files into repository
+### Adding files to a repository
 
 We can tell Git to track a file using `git add`:
 

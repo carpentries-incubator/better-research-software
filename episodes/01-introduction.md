@@ -241,7 +241,7 @@ We will soon fix the code to use the relative paths within the project structure
 
 So, we cannot even run the code on our machines.
 There is also a number of issues we identified with the software project that could do with improving.
-For the rest of this lesson, we will work on fixing these issues and applying some good software engineering practices.
+For the rest of this course, we will work on fixing these issues and applying some good software engineering practices.
 
 ## Further reading
 
