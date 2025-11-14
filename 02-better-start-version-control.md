@@ -406,10 +406,9 @@ Let's try to run our code again, see where we get to.
 $ python3 my\ code\ v2.py
 ```
 
-At this point you may something like the following.
+At this point you may get the following error if you do not have `matplotlib` installed on your system.
 
 ```bash
-...
 {'eva': '370', 'country': 'Russia', 'crew': 'Fyodor Yurchikhin;Alexander Misurkin;', 'vehicle': 'ISS Incr-36', 'date': '2013-08-16T00:00:00.000', 'duration': '7:29', 'purpose': 'Â\x95 Installed VINOSLIVOST experiment on MRM2, 2 MLMÂ\x96USOS power cables, FGB Â\x96 MRM2 gap spanners, MLM-USOS ETHERNET cable\nÂ\x95 Installation of gap spanners SM Â\x96 MRM2 (if time allows)\nÂ\x95 Retracted & stowed Strela-1 on DC1'}
 1900-01-01 07:29:00 7.483333333333333
 Traceback (most recent call last):
@@ -418,11 +417,11 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'matplotlib'
 ```
 
-You should get the `eva-data.csv` file which contains the EVA data converted from JSON to CSV format.
-Depending on your system and whether you have `matplotlib` library installed - you may get the result graph file `cumulative_eva_graph.png`.
-If not - you may get the `ModuleNotFoundError: No module named 'matplotlib'` error.
+If you did not get the above error - you should now have the result graph file `cumulative_eva_graph.png` in your project root.
+Note that we do not know if the plotted result file is correct or not.
+You should also have the `eva-data.csv` file which contains the EVA data converted from JSON to CSV format.
 
-We will look into these issues in a moment.
+We will look into the `matplotlib` issue in a moment.
 But let's first set up our software project as a repository on GitHub so we can back up our work and share with others.
 
 ## Interacting with a remote Git server
