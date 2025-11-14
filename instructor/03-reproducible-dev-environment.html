@@ -635,8 +635,8 @@ as:</p>
 </div>
 <p>Activating the virtual environment will change your command line’s
 prompt to show what virtual environment you are currently using
-(indicated by its name in round brackets at the start of the prompt),
-and modify the environment so that running Python will get you the
+(indicated by its name in round brackets at the start of the prompt). It
+will also modify the environment so that running Python will get you the
 particular version of Python configured in your virtual environment.</p>
 <p>You can verify you are using your virtual environment’s version of
 Python by checking the path using the command <code>which</code>:</p>
@@ -668,20 +668,59 @@ virtual environment for the project:</p>
 </div>
 </div>
 </div>
-<p>When you’re done working on your project, you can exit the
-environment with:</p>
+<div id="naming-virtual-environments" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="naming-virtual-environments" class="callout-inner">
+<h3 class="callout-title">Naming Virtual Environments</h3>
+<div class="callout-content">
+<p>What is a good name to use for a virtual environment?</p>
+<p>Using <code>venv</code> or <code>.venv</code> as the name for an
+environment and storing it within the project’s directory seems to be
+the standard practice - this way when you come across such a
+subdirectory within a software project, by convention you know it
+contains its virtual environment details. A slight downside to this is
+that all different virtual environments on your machine will use the
+same name and the current one is determined by the context of the path
+you are currently located in. Note that <code>.venv</code> is also a
+hidden directory and that may not be what you want to do.</p>
+<p>We used <code>venv_spacewalks</code> - this deviates a from the
+convention of calling them <code>venv</code> or <code>.venv</code>, but
+does give a clear project-specific prompt of
+<code>(venv_spacewalks)</code> and indicates clearly it is a virtual
+environment.</p>
+<p>Note that you can also set the command line prompt for the virtual
+environment:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> deactivate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv <span class="at">--prompt</span> spacewalks venv</span></code></pre>
 </div>
-<p>If you’ve just done the <code>deactivate</code>, ensure you
-reactivate the environment ready for the next part:</p>
+<p>This will create a virtual environment in <code>venv</code> folder
+with <code>(spacewalks)</code> on the command line prompt. It gives a
+shorter, meaningful prompt and sticks to convention at the same
+time.</p>
+<p>In the future, you will decide what naming convention works best for
+you.</p>
+</div>
+</div>
+</div>
+<p>When you’re done working on your project, you can exit the
+environment with:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> source venv_spacewalks/bin/activate</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> deactivate</span></code></pre>
+</div>
+<p>If you’ve just done the <code>deactivate</code>, ensure you
+reactivate the environment ready for the next part:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="ex">$</span> source venv_spacewalks/bin/activate</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span></span></code></pre>
 </div>
 <p>Note that, since our software project is being tracked by Git, the
 newly created virtual environment will show up in version control - we
@@ -702,17 +741,17 @@ as standard with Python distribution.</p>
 <p>To install the latest version of <code>matplotlib</code> package with
 <code>pip</code> you use pip’s <code>install</code> command and specify
 the package’s name, e.g.:</p>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip install matplotlib</span></code></pre>
-</div>
-<p>You can install multiple packages at once by listing them all,
-e.g.:</p>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip install matplotlib pandas</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip install matplotlib</span></code></pre>
+</div>
+<p>You can install multiple packages at once by listing them all,
+e.g.:</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip install matplotlib pandas</span></code></pre>
 </div>
 <p>The above command has installed package <code>matplotlib</code> in
 our currently active <code>venv_spacewalks</code> environment and will
@@ -728,10 +767,10 @@ e.g. <code>python3 -m pip install matplotlib==3.5.3</code>.</p>
 <p>To upgrade a package to the latest version,
 e.g. <code>python3 -m pip install --upgrade matplotlib</code>.</p>
 <p>To display information about a particular installed package do:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip show matplotlib</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip show matplotlib</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -751,10 +790,10 @@ Required-by:</code></pre>
 </div>
 <p>To list all packages installed with <code>pip</code> (in your current
 virtual environment):</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip list</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip list</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -795,11 +834,11 @@ sharing virtual environments.</p>
 installed in the virtual environment. A common convention is to put this
 list in a <code>requirements.txt</code> file in your project’s root
 directory:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> cat requirements.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> cat requirements.txt</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -835,10 +874,10 @@ your virtual environment. We need to tell Git to ignore that directory,
 so it is not tracked and shared - we do this by creating a file
 <code>.gitignore</code> in the root directory of our project and adding
 a line <code>venv_spacewalks</code> to it.</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> echo <span class="st">"venv_spacewalks/"</span> <span class="op">&gt;&gt;</span> .gitignore</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> echo <span class="st">"venv_spacewalks/"</span> <span class="op">&gt;&gt;</span> .gitignore</span></code></pre>
 </div>
 <p>Remember the <code>.DS_Store</code> hidden file which is also not
 necessary to share with our project? We can tell Git to ignore it by
@@ -848,22 +887,22 @@ our project). That way it can safely reside in local projects of macOS
 users and can be ignored by the rest.</p>
 <p>Let’s add and commit <code>.gitignore</code> to our repository (this
 file we do want to track and share).</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add .gitignore</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Ignore venv folder and DS_Store file"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add .gitignore</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Ignore venv folder and DS_Store file"</span></span></code></pre>
 </div>
 <p>The same method can be applied to ignore various other files that you
 do not want Git to track.</p>
 <p>Let’s now put <code>requirements.txt</code> under version control too
 and share it along with our code.</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add requirements.txt</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial commit of requirements.txt"</span></span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add requirements.txt</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Initial commit of requirements.txt"</span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <p>Your collaborators or users of your software can now download your
 software’s source code and replicate the same virtual software
@@ -872,10 +911,10 @@ environment for running your code on their machines using
 packages.</p>
 <p>To recreate a virtual environment from <code>requirements.txt</code>,
 from the project root one can do the following:</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip install <span class="at">-r</span> requirements.txt</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip install <span class="at">-r</span> requirements.txt</span></code></pre>
 </div>
 <div id="another-challenge-in-long-term-reproducibility" class="callout">
 <div class="callout-square">
@@ -948,24 +987,24 @@ you well to troubleshoot problems if and when they arise.</p>
 </section><section><h2 class="section-heading" id="running-the-code-and-reproducing-results">Running the code and reproducing results<a class="anchor" aria-label="anchor" href="#running-the-code-and-reproducing-results"></a></h2>
 <hr class="half-width"><p>We are now setup to run our code from the newly created virtual
 environment:</p>
-<div class="codewrapper sourceCode" id="cb24">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 eva_data_analysis.py</span></code></pre>
-</div>
-<p>You should get a pop up window with a graph. However, some (but not
-all) Windows users will not. You might instead see an error like:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"C:\Users\Toaster\Desktop\spacewalks\eva_data_analysis.py"</span>, line 30, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>    <span class="ex">w.writerow</span><span class="er">(</span><span class="va">data</span><span class="op">[</span>j<span class="op">]</span><span class="fu">.values()</span><span class="kw">)</span></span>
-<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py"</span>, line 19, in encode</span>
-<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="ex">codecs.charmap_encode</span><span class="er">(</span><span class="ex">input,self.errors,encoding_table</span><span class="kw">)</span><span class="ex">[0]</span></span>
-<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a>           <span class="ex">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></span>
-<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="ex">UnicodeEncodeError:</span> <span class="st">'charmap'</span> codec can<span class="st">'t encode character '</span><span class="dt">\x</span>92<span class="st">' in position 101: character maps to &lt;undefined&gt;</span></span>
-<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a><span class="st">(spacewalks) (spacewalks)</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 eva_data_analysis.py</span></code></pre>
+</div>
+<p>You should get a pop up window with a graph. However, some (but not
+all) Windows users will not. You might instead see an error like:</p>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"C:\Users\Toaster\Desktop\spacewalks\eva_data_analysis.py"</span>, line 30, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>    <span class="ex">w.writerow</span><span class="er">(</span><span class="va">data</span><span class="op">[</span>j<span class="op">]</span><span class="fu">.values()</span><span class="kw">)</span></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py"</span>, line 19, in encode</span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="ex">codecs.charmap_encode</span><span class="er">(</span><span class="ex">input,self.errors,encoding_table</span><span class="kw">)</span><span class="ex">[0]</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>           <span class="ex">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a><span class="ex">UnicodeEncodeError:</span> <span class="st">'charmap'</span> codec can<span class="st">'t encode character '</span><span class="dt">\x</span>92<span class="st">' in position 101: character maps to &lt;undefined&gt;</span></span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a><span class="st">(spacewalks) (spacewalks)</span></span></code></pre>
 </div>
 <p>This is not what we were expecting! The problem is <em>character
 encoding</em>. ‘Standard’ Latin characters are encoded using ASCII, but
@@ -987,21 +1026,21 @@ when reading and writing our files (and you should do this even if you
 have not had the encoding error when running the code - it is good
 practice and otherwise it may catch you the next time you run the code
 on a different platform):</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>...</span>
-<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>data_f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.json'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>data_t <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.csv'</span>,<span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>...</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>...</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>data_f <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.json'</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>data_t <span class="op">=</span> <span class="bu">open</span>(<span class="st">'./eva-data.csv'</span>,<span class="st">'w'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>...</span></code></pre>
 </div>
 <p>Remember to commit these latest changes.</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py</span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Specify data encoding"</span></span>
-<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Specify data encoding"</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
 </div>
 <p>Do not forget to commit any files that have been changed.</p>
 </section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a></h2>
