@@ -225,7 +225,7 @@ python -m venv --prompt spacewalks venv
 This will create a virtual environment in `venv` folder with `(spacewalks)` on the command line prompt.
 It gives a shorter, meaningful prompt and sticks to convention at the same time.
 
-In the future, you will decide what naming convention works best for you.
+In the future, you and your team decide what naming convention works best for you.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -267,15 +267,11 @@ You can install multiple packages at once by listing them all, e.g.:
 
 The above command has installed package `matplotlib` in our currently active `venv_spacewalks` environment and will not affect any other Python projects we may have on our machines.
 
-If you run the `python3 -m pip install` command on a package that is already installed,
-`pip` will notice this and do nothing.
+If you run the `python3 -m pip install` command on a package that is already installed, `pip` will notice this and do nothing.
 
-To install a specific version of a Python package
-give the package name followed by `==` and the version number,
-e.g. `python3 -m pip install matplotlib==3.5.3`.
+To install a specific version of a Python package give the package name followed by `==` and the version number, e.g. `python3 -m pip install matplotlib==3.5.3`.
 
-To specify a minimum version of a Python package,
-you can do `python3 -m pip install matplotlib>=3.5.1`.
+To specify a minimum version of a Python package, you can do `python3 -m pip install matplotlib>=3.5.1`.
 
 To upgrade a package to the latest version, e.g. `python3 -m pip install --upgrade matplotlib`.
 
@@ -329,6 +325,25 @@ zope.interface  7.0.1
 
 To uninstall a package installed in the virtual environment do: `python3 -m pip uninstall <package-name>`.
 You can also supply a list of packages to uninstall at the same time.
+
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+### Why not use `pip3 install <package-name>`?
+
+You may have seen or used the `pip3 install <package-name>` command in the past, which is shorter and perhaps more intuitive than `python3 -m pip install <package-name>`. 
+
+What is the difference?
+`python3 -m pip install` uses Python to run the Pip module that comes with the Python distribution using the Python interpreter.
+So `/usr/bin/python3.12 -m pip` means you are executing Pip for your Python interpreter located at `/usr/bin/python3.12`.
+
+`pip3 install` runs the Pip module as an executable program with the same name - it may pick up whatever pip3 your PATH settings tell it to. 
+And it may not be for the same Python version your expect - especially if you have several Python distributions (and Pips) installed (which is very common).
+There are [edge cases](https://snarky.ca/why-you-should-use-python-m-pip/) when the two commands may produce different results, so be warned.
+
+The [official Pip documentation](https://pip.pypa.io/en/stable/user_guide/#running-pip) recommends `python3 -m pip install` and that is what we will be using too.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Sharing virtual environments
 
