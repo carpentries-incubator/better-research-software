@@ -405,7 +405,7 @@ contribute to it. We now want to start developing the code further.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment</a></p>
@@ -418,7 +418,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Some learners may encounter various issues when creating and managing
 virtual development environments or configuring the Python interpreter
@@ -702,8 +702,8 @@ environment:</p>
 with <code>(spacewalks)</code> on the command line prompt. It gives a
 shorter, meaningful prompt and sticks to convention at the same
 time.</p>
-<p>In the future, you will decide what naming convention works best for
-you.</p>
+<p>In the future, you and your team decide what naming convention works
+best for you.</p>
 </div>
 </div>
 </div>
@@ -820,6 +820,36 @@ zope.interface  7.0.1</code></pre>
 <p>To uninstall a package installed in the virtual environment do:
 <code>python3 -m pip uninstall &lt;package-name&gt;</code>. You can also
 supply a list of packages to uninstall at the same time.</p>
+<div id="why-not-use-pip3-install-package-name" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="why-not-use-pip3-install-package-name" class="callout-inner">
+<h3 class="callout-title">Why not use
+<code>pip3 install &lt;package-name&gt;</code>?</h3>
+<div class="callout-content">
+<p>You may have seen or used the
+<code>pip3 install &lt;package-name&gt;</code> command in the past,
+which is shorter and perhaps more intuitive than
+<code>python3 -m pip install &lt;package-name&gt;</code>.</p>
+<p>What is the difference? <code>python3 -m pip install</code> uses
+Python to run the Pip module that comes with the Python distribution
+using the Python interpreter. So <code>/usr/bin/python3.12 -m pip</code>
+means you are executing Pip for your Python interpreter located at
+<code>/usr/bin/python3.12</code>.</p>
+<p><code>pip3 install</code> runs the Pip module as an executable
+program with the same name - it may pick up whatever pip3 your PATH
+settings tell it to. And it may not be for the same Python version your
+expect - especially if you have several Python distributions (and Pips)
+installed (which is very common). There are <a href="https://snarky.ca/why-you-should-use-python-m-pip/" class="external-link">edge cases</a>
+when the two commands may produce different results, so be warned.</p>
+<p>The <a href="https://pip.pypa.io/en/stable/user_guide/#running-pip" class="external-link">official
+Pip documentation</a> recommends <code>python3 -m pip install</code> and
+that is what we will be using too.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="sharing-virtual-environments">Sharing virtual environments<a class="anchor" aria-label="anchor" href="#sharing-virtual-environments"></a></h3>
@@ -1061,7 +1091,7 @@ see how we can improve it further.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability</a></p>
