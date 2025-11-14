@@ -105,7 +105,7 @@ Some common examples of repository metadata files and their role are explained b
 
 | File            | Description                                                                                                                                                                                         |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| README          | Provides an overview of the project, including installation, usage instructions, dependencies and links to other metadata files and technical documentation (tutorial/how-to/explanation/reference) |
+| README          | Provides an overview of the project. It can either include inline information or pointers to separate installation instructions and dependencies, usage instructions for running the code or example use cases, links to other metadata files (LICENSE, CITATION, CONTRIBUTING, AUTHORS, etc.) and technical documentation (tutorials / how-tos / references) |
 | CONTRIBUTING    | Explains to developers how to contribute code to the project including processes and standards that should be followed                                                                              |
 | CODE_OF_CONDUCT | Defines expected standards of conduct when engaging  in a software project                                                                                                                          |
 | LICENSE         | Defines the (legal) terms of using, modifying and distributing the code                                                                                                                             |
@@ -128,21 +128,18 @@ A README file acts as a “landing page” for your code repository on GitHub an
 
 ### README and the FAIR principles
 
-Think about the question below. Your instructors may ask you to share your answer in a shared notes document and/or 
-discuss them with other participants.
-
-Here are some of the major sections you might find in a typical README. 
+The following lists some of the major sections you may find in a typical README file. 
 Which are **essential** to support the FAIR [software][fair-principles-research-software] and [data][fair-data-principles] principles? Which are optional?
 
-- Purpose of the code
+- Description and purpose of the code
 - Audience (who the code is intended for)
 - Installation instructions
+- Pointers to dependencies and their versions (e.g. `requirements.txt` or `pyproject.toml`)
 - Contribution guide
 - How to get help
 - License
 - Software citation
-- Usage example
-- Dependencies and their versions
+- Usage examples
 - FAQs
 - Code of Conduct
 
