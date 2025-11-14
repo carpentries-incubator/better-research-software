@@ -380,3 +380,62 @@ The archive contains [NASA's open data on spacewalks](https://data.nasa.gov/Raw-
 (i.e. extravehicular activities - EVAs) undertaken by astronauts and cosmonauts from 1965 to 2013 and a Python script to analyse and plot this data.
 
 Save the `spacewalks.zip` archive to your home directory and extract it - you should get a directory called `spacewalks`.
+
+
+## Setup check (all in one)
+
+Let's check your setup now to make sure you are ready for the rest of this course.
+
+::::::  challenge
+
+### Check your setup (5 min)
+
+From a command line terminal on your operating system or within VS Code run the following commands to check you have
+installed all the tools listed in [the Setup page](./installation-instructions.html) and that are functioning correctly.
+
+Checking the command line terminal:
+
+1. `$ date`
+2. `$ echo $SHELL`
+3. `$ pwd`
+4. `$ whoami`
+
+Checking Python:
+
+5. `$ python --version`
+6. `$ python3 --version`
+7. `$ which python`
+8. `$ which python3`
+
+Checking Git and GitHub:
+
+9. `$ git --help`
+10. `$ git config --list`
+11. `$ ssh -T git@github.com`
+
+Checking VS Code:
+
+12. `$ code`
+13. `$ code --list-extensions`
+
+::: solution
+
+The expected out put of each command is:
+
+1. Today's date
+2. `bash` or `zsh` - this tells you what shell language you are using. In this course we show examples in Bash.
+3. Your "present working directory" or the folder where your shell is running
+4. Your username
+5. In this course we are using Python 3. If `python --version` gives you Python 2.x you may have two versions of Python installed on your computer and need to be careful which one you are using.
+6. Use this command to be certain you are using Python version 3, not 2, if you have both installed.
+7. The file path to where the Python version you are calling is installed.
+8. If you have more than one version these should be different paths, if both 5. and 6. gave the same result then 7. and 8. should match as well.
+9. The help message explaining how to use the `git` command.
+10. You should have `user.name`, `user.email` and `core.editor` set in your Git configuration. Check that the editor listed is one you know how to use.
+11. This checks if you have set up your connection to GitHub correctly. If is says `permission denied` you may need to look at the instructions for setting up SSH keys again on the Setup page.
+12. This should open VS Code in your current working directory. macOS users may need to first open VS Code and [add it to the PATH](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
+13. If you installed the [VS Code extensions during setup](./installation-instructions#vs-code-extensions-for-python), you should see the extensions GitLens, Git Graph, Python, JSON and Excel Viewer in the output list.
+
+:::
+
+::::::
