@@ -175,27 +175,22 @@ you will need to open a free [GitHub](https://github.com/) account unless you do
 
 ### Configuring GitHub account
 
-In order to access GitHub using Git from your machine securely,
-you need to set up a way of authenticating yourself with GitHub through Git.
-The recommended way to do that for this course is to set up
-[**SSH authentication**](https://www.ssh.com/academy/ssh/public-key-authentication) which requires a pair of keys -
-one public that you upload to your GitHub account, and one private that remains on your machine.
+In order to access GitHub using Git from your machine securely, you need to set up a way of authenticating yourself with GitHub through Git.
+The recommended way to do that for this course is to set up [**SSH authentication**](https://www.ssh.com/academy/ssh/public-key-authentication) which requires a pair of keys - one public that you upload to your GitHub account, and one private that remains on your machine.
 
 GitHub provides full documentation and guides on how to:
 
 - [generate an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and
 - [add an SSH key to a GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
+If you have already configured your SSH key with GitHub - you can skip this step (but make sure to test your setup by running `ssh -T git@github.com` command from the terminal).
+
 A short summary of the commands you need to perform is shown below.
 
-To generate an SSH key pair, you will need to run the `ssh-keygen` command line tool (included with your command line
-terminal) and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub)
-via the `-C` parameter as shown below.
+To generate an SSH key pair, you will need to run the `ssh-keygen` command line tool (included with your command line terminal) and provide **your identity for the key pair** (e.g. the email address you used to register with GitHub) via the `-C` parameter as shown below.
 
-You will then be prompted to answer a few questions -
-e.g. where to save the keys on your machine and a passphrase to use to protect your private key.
-Pressing 'Enter' on these prompts will get `ssh-keygen` to use the default key location (within
-`.ssh` folder in your home directory) and set the passphrase to empty.
+You will then be prompted to answer a few questions - e.g. where to save the keys on your machine and a passphrase to use to protect your private key.
+Pressing 'Enter' on these prompts will get `ssh-keygen` to use the default key location (within `.ssh` folder in your home directory) and set the passphrase to empty.
 
 ```bash
 $ ssh-keygen -t ed25519 -C "your-github-email@example.com"
