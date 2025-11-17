@@ -358,7 +358,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Better start with a software project</h1>
-        <p>Last updated on 2025-11-14 |
+        <p>Last updated on 2025-11-17 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/02-better-start-version-control.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -899,28 +899,26 @@ Changes to be committed:
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="ex">$</span> python3 my<span class="dt">\ </span>code<span class="dt">\ </span>v2.py</span></code></pre>
 </div>
-<p>At this point you may something like the following.</p>
+<p>At this point you may get the following error if you do not have
+<code>matplotlib</code> installed on your system.</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">...</span></span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">{</span><span class="st">'eva'</span><span class="ex">:</span> <span class="st">'370'</span>, <span class="st">'country'</span>: <span class="st">'Russia'</span>, <span class="st">'crew'</span>: <span class="st">'Fyodor Yurchikhin;Alexander Misurkin;'</span>, <span class="st">'vehicle'</span>: <span class="st">'ISS Incr-36'</span>, <span class="st">'date'</span>: <span class="st">'2013-08-16T00:00:00.000'</span>, <span class="st">'duration'</span>: <span class="st">'7:29'</span>, <span class="st">'purpose'</span>: <span class="st">'Â\x95 Installed VINOSLIVOST experiment on MRM2, 2 MLMÂ\x96USOS power cables, FGB Â\x96 MRM2 gap spanners, MLM-USOS ETHERNET cable\nÂ\x95 Installation of gap spanners SM Â\x96 MRM2 (if time allows)\nÂ\x95 Retracted &amp; stowed Strela-1 on DC1'</span>}</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="ex">1900-01-01</span> 07:29:00 7.483333333333333</span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"/Users/user/spacewalks/eva_data_analysis.py"</span>, line 54, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>    <span class="ex">import</span> matplotlib.pyplot as plt</span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="ex">ModuleNotFoundError:</span> No module named <span class="st">'matplotlib'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="ex">{</span><span class="st">'eva'</span><span class="ex">:</span> <span class="st">'370'</span>, <span class="st">'country'</span>: <span class="st">'Russia'</span>, <span class="st">'crew'</span>: <span class="st">'Fyodor Yurchikhin;Alexander Misurkin;'</span>, <span class="st">'vehicle'</span>: <span class="st">'ISS Incr-36'</span>, <span class="st">'date'</span>: <span class="st">'2013-08-16T00:00:00.000'</span>, <span class="st">'duration'</span>: <span class="st">'7:29'</span>, <span class="st">'purpose'</span>: <span class="st">'Â\x95 Installed VINOSLIVOST experiment on MRM2, 2 MLMÂ\x96USOS power cables, FGB Â\x96 MRM2 gap spanners, MLM-USOS ETHERNET cable\nÂ\x95 Installation of gap spanners SM Â\x96 MRM2 (if time allows)\nÂ\x95 Retracted &amp; stowed Strela-1 on DC1'</span>}</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">1900-01-01</span> 07:29:00 7.483333333333333</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="ex">Traceback</span> <span class="er">(</span><span class="ex">most</span> recent call last<span class="kw">)</span><span class="bu">:</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="ex">File</span> <span class="st">"/Users/user/spacewalks/eva_data_analysis.py"</span>, line 54, in <span class="op">&lt;</span>module<span class="op">&gt;</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>    <span class="ex">import</span> matplotlib.pyplot as plt</span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="ex">ModuleNotFoundError:</span> No module named <span class="st">'matplotlib'</span></span></code></pre>
 </div>
-<p>You should get the <code>eva-data.csv</code> file which contains the
-EVA data converted from JSON to CSV format. Depending on your system and
-whether you have <code>matplotlib</code> library installed - you may get
-the result graph file <code>cumulative_eva_graph.png</code>. If not -
-you may get the
-<code>ModuleNotFoundError: No module named 'matplotlib'</code>
-error.</p>
-<p>We will look into these issues in a moment. But let’s first set up
-our software project as a repository on GitHub so we can back up our
-work and share with others.</p>
+<p>If you did not get the above error - you should now have the result
+graph file <code>cumulative_eva_graph.png</code> in your project root.
+Note that we do not know if the plotted result file is correct or not.
+You should also have the <code>eva-data.csv</code> file which contains
+the EVA data converted from JSON to CSV format.</p>
+<p>We will look into the <code>matplotlib</code> issue in a moment. But
+let’s first set up our software project as a repository on GitHub so we
+can back up our work and share with others.</p>
 </div>
 </section><section><h2 class="section-heading" id="interacting-with-a-remote-git-server">Interacting with a remote Git server<a class="anchor" aria-label="anchor" href="#interacting-with-a-remote-git-server"></a></h2>
 <hr class="half-width"><p>Git is distributed version control system and lets us synchronise
@@ -1238,8 +1236,8 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/02-better-start-version-control.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/02-better-start-version-control.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-14",
-  "datePublished": "2025-11-14"
+  "dateModified": "2025-11-17",
+  "datePublished": "2025-11-17"
 }
 
   </script><script>
