@@ -197,7 +197,7 @@ This is a (non-exhaustive) list of things that could be fixed/improved with our 
 
 #### Code content and correctness
 
-- fixing the loop to 374 data entries is not reusable on other data files and would likely break if the data file changed
+- fixing the loop to 375 data entries is not reusable on other data files and would likely break if the data file changed
 - running the code twice causes the program to fail as the result file from the previous run will exist (which the code does not check for) and the script will refuse to overwrite it
 - the code does not specify the encoding when reading the data in, and we are also not sure what encoding the data was saved in originally
 - how can we be confident the data analysis and plot that is produced as a result are correct?
