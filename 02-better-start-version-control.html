@@ -358,7 +358,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Better start with a software project</h1>
-        <p>Last updated on 2025-11-17 |
+        <p>Last updated on 2025-11-18 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/02-better-start-version-control.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -832,7 +832,7 @@ plot(<code>cumulative_eva_graph.png</code>).</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Firstly, let’s update the file names in our Python script from VS
 Code:</p>
@@ -858,8 +858,12 @@ Code:</p>
 <pre class="output" tabindex="0"><code>On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	renamed:    data.json -&gt; eva-data.json
-	renamed:    my_code_v2.py -&gt; eva_data_analysis.py</code></pre>
+        renamed:    data.json -&gt; eva-data.json
+        renamed:    my_code_v2.py -&gt; eva_data_analysis.py
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        .DS_Store</code></pre>
 </div>
 <p>Finally, we can commit our changes:</p>
 <div class="codewrapper sourceCode" id="cb22">
@@ -1105,7 +1109,7 @@ includes ourselves on a different machine or operating system).</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment</a></p>
@@ -1214,7 +1218,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/02-better-start-version-control.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/02-better-start-version-control.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-17",
+  "dateModified": "2025-11-18",
   "datePublished": "2025-11-18"
 }
 
