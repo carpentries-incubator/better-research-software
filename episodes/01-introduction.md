@@ -102,14 +102,19 @@ As part of the [setup for this course](./installation-instructions.html#spacewal
 If not, you can [download it](https://github.com/carpentries-incubator/better-research-software/raw/refs/heads/main/learners/spacewalks.zip) now.
 Save the `spacewalks.zip` archive to your home directory and extract it - you should get a directory called `spacewalks`.
 
+### Opening the project
+
+We will use VS Code IDE (Integrated Development Environment) for software development in this lesson.
+
+IDEs are graphical application that provide a comprehensive workspace for writing, editing, testing, and debugging code—-all in one place. 
+At the core of an IDE is a code editor, and it combines several tools that developers need into a single interface to streamline the code development process. 
+IDEs are extremely useful and modern software development would be very hard without them.
+
+To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
+
 ### Inspecting the project
 
 The first thing you may want to do is inspect the content of the code and data you received to learn more about what it does. 
-We will use VS Code for browsing, inspecting, modifying files and running our code.
-
-VS Code is a very handy tool for software development and is used by many researchers worldwide. 
-It "understands" the syntax of many different file types - for example Python, JSON, CSV, etc. - 
-either natively or via extensions that can be installed. To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
 
 You may notice that the software project contains:
 
