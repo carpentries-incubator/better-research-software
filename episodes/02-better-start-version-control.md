@@ -407,7 +407,7 @@ git commit -m "Implement informative file names"
 Let's try to run our code again, see where we get to.
 
 ```bash
-$ python3 my\ code\ v2.py
+$ python3 eva_data_analysis.py
 ```
 
 At this point you may get the following error if you do not have `matplotlib` installed on your system.
