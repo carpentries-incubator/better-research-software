@@ -101,7 +101,7 @@ applicable to other types of testing.
 
 ::: challenge
 
-### Types of software tests
+### Types of software tests (3 min)
 
 Fill in the blanks in the sentences below:
 
@@ -147,7 +147,7 @@ def text_to_duration(duration):
         duration_hours (float): The duration in hours
     """
     hours, minutes = duration.split(":")
-    duration_hours = int(hours) + int(minutes)/6
+    duration_hours = int(hours) + int(minutes)/6  # there is an intentional bug on this line (should divide by 60 not 6)
     return duration_hours
 ```
 
@@ -161,7 +161,7 @@ project in a command line terminal.
 This will open an interactive Python terminal for you, which may look like this:
 
 ```python
-Python 3.11.7 (main, Dec  4 2023, 18:10:11) [Clang 15.0.0 (clang-1500.1.0.2.5)] on darwin
+Python 3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.0.13.3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
@@ -195,7 +195,7 @@ However, there are some serious drawbacks to this approach if used as our only f
 
 :::::: challenge
 
-### What are the limitations of informally testing code? (5 minutes)
+### What are the limitations of informally testing code? (5 min)
 
 Think about the questions below. Your instructors may ask you to share
 your answers in a shared notes document and/or discuss them with other
@@ -259,17 +259,18 @@ We can run this code from the command line terminal as:
 (venv_spacewalks)$ python3 test_code.py 
 ```
 
-This test checks that when we apply `text_to_duration` to input value `10:00`, the output matches the expected value
-of `10`.
+We should get the following output:
 
-In this example, we use a print statement to report whether the actual output from `text_to_duration` meets our 
-expectations.
+```output
+text_to_duration('10:00') == 10? True
+```
+This test checks that when we apply `text_to_duration` to input value `10:00`, the output matches the expected value of `10`.
 
-However, this does not meet our requirement to “Raise an error if the function’s output does not match the expected 
-output” and means that we must carefully read our test function’s output to identify whether it has failed.
+In this example, we use a print statement to report whether the actual output from `text_to_duration` meets our expectations.
 
-To ensure that our code raises an error if the function’s output does not match the expected output, we use Python's 
-`assert` statement. 
+However, this does not meet our requirement to “Raise an error if the function’s output does not match the expected output” and means that we must carefully read our test function’s output to identify whether it has failed.
+
+To ensure that our code raises an error if the function’s output does not match the expected output, we use Python's `assert` statement. 
 The `assert statement` in Python checks whether a condition is `True` or `False`. 
 If the statement is `True`, `assert` does not return a value and the code continues to run. 
 However, if the statement is `False`, `assert` raises an `AssertError`.
@@ -286,12 +287,10 @@ def test_text_to_duration_integer():
 test_text_to_duration_integer()
 ```
 
-Notice that when we run `test_text_to_duration_integer()`, nothing
-happens - there is no output. That is because our function is working
-correctly and returning the expected value of 10.
+Notice that when we run `test_text_to_duration_integer()`, nothing happens - there is no output. 
+That is because our function is working correctly and returning the expected value of 10.
 
-Let's add another test to check what happens when duration is not an integer number and if our function can handle 
-durations with a non-zero minute component, and rerun our test code.
+Let's add another test to check what happens when duration is not an integer number and if our function can handle durations with a non-zero minute component, and rerun our test code.
 
 ```python
 from eva_data_analysis import text_to_duration
@@ -318,10 +317,9 @@ AssertionError
 ```
 
 Notice that this time, our test `test_text_to_duration_float` fails.
-Our assert statement has raised an `AssertionError` - a clear signal that there is a problem in our code that we
-need to fix.
+Our assert statement has raised an `AssertionError` - a clear signal that there is a problem in our code that we need to fix.
 
-We know that duration `10:15` should be converted to number `10.25`.
+We know that duration `10:15` (10 hours and 15 minutes) should be converted to a decimal number `10.25`.
 What is wrong with our code?
 If we look at our `text_to_duration` function, we may identify the following line of our code as problematic:
 
@@ -334,11 +332,10 @@ def text_to_duration(duration):
 
 You may notice that we have introduced a bug in one of the earlier episodes when we refactored the code - the minutes component should have been divided by 60 and not 6.
 
-This is quite *critical* - our code was running (seemingly) OK (i.e. it did not fail) and was producing the graph which we 
-could not tell was wrong just by looking at it as this was a subtle bug.
+This is quite *critical* - our code was running (seemingly) OK (i.e. it did not fail) and was producing the graph which we could not tell was wrong just by looking at it as this was a subtle bug.
 We were only able to uncover this bug **by properly testing our code**.
 
-Let's fix the problematic line and rerun out tests. 
+Let's fix the problematic line in `eva_data_analysis.py` and rerun out tests. 
 
 ```python
 ...
@@ -415,9 +412,9 @@ To install these libraries into our virtual environment, from the command line t
 Let’s make sure that our tests are ready to work with `pytest`.
 
 -   `pytest` automatically discovers tests based on specific naming
-    patterns. It looks for files that start with "test\_" or end with
-    "\_test.py". Then, within these files, `pytest` looks for functions
-    that start with "test_".
+    patterns. It looks for files that start with `test_` or end with
+    `_test.py`. Then, within these files, `pytest` looks for functions
+    that start with `test_`.
     Our test file already meets these requirements, so there is nothing
     to do here. However, our script does contain lines to run each of
     our test functions. These are no-longer required as `pytest` will run
@@ -569,10 +566,9 @@ This time, all out tests passed.
 
 ::: challenge
 
-### Interpreting pytest output
+### Interpreting pytest output (15 min)
 
-A colleague has asked you to conduct a pre-publication review of their code which analyses time spent in 
-space by various individual astronauts.
+A colleague has asked you to conduct a pre-publication review of their code which analyses time spent in space by various individual astronauts.
 
 You tested their code using `pytest`, and got the following output.
 Inspect it and answer the questions below.
@@ -633,25 +629,19 @@ FAILED tests/test_analyse.py::test_mean_duration - NameError: name 'length' is n
 ```
 
 a.  How many tests has our colleague included in the test suite?
-b.  The first test in test_prepare.py has a status of s; what does this
-    mean?
+b.  The first test in `test_prepare.py` has a status of `s`; what does this mean (search online to find out)?
 c.  How many tests failed?
-d.  Why did "test_total_duration" fail?
-e.  Why did "test_mean_duration" fail?
+d.  Why did `test_total_duration` fail?
+e.  Why did `test_mean_duration` fail?
 
 ::: solution
-a.  9 tests were detected in the test suite
-b.  s - stands for "skipped". Sometimes a test will be skipped based on a condition, for example when testing on a particular operating system.
-c.  2 tests failed: the first and second tests in test file
-    `test_analyse.py`
-d.  `test_total_duration` failed because the calculated total duration
-    differs from the expected value by a factor of 10 i.e. the assertion
-    `actual == pytest.approx(expected)` evaluated to `False`
-e.  `test_mean_duration` failed because there is a syntax error in
-    `calculate_mean_duration`. Our colleague has used the command
-    `length` (not a python command) instead of `len`. As a result,
-    running the function returns a `NameError` rather than a calculated
-    value and the test assertion evaluates to `False`.
+a.  Nine tests were detected in the test suite
+b.  `s` - stands for "skipped". Sometimes a test will be skipped based on a condition, for example when testing on a particular operating system.
+c.  Two tests failed: the first and second test in the test file `test_analyse.py`
+d.  `test_total_duration` failed because the calculated total duration differs from the expected value by a factor of 10 i.e. the assertion `actual == pytest.approx(expected)` evaluated to `False`
+e.  `test_mean_duration` failed because there is a syntax error in `calculate_mean_duration`. 
+Our colleague has used the command `length` (not a python command) instead of `len`. 
+As a result, running the function returns a `NameError` rather than a calculated value and the test assertion evaluates to `False`.
 :::
 :::
 
@@ -740,7 +730,7 @@ Let's have a look at the `calculate_crew_size` function from our colleague's new
 
 :::::: challenge
 
-### Unit tests for calculate_crew_size
+### Unit tests for calculate_crew_size (10 min)
 
 Implement unit tests for the `calculate_crew_size` function. 
 Cover typical cases and edge cases.
@@ -893,28 +883,36 @@ We can calculate our test coverage using the `pytest-cov` library as follows.
 ```
 
 ``` output
-========================================================== test session starts 
-platform darwin -- Python 3.12.3, pytest-8.2.2, pluggy-1.5.0
-rootdir: /Users/AnnResearcher/Desktop/Spacewalks
-plugins: cov-5.0.0
-collected 4 items                                                                                                                        
+platform darwin -- Python 3.14.0, pytest-9.0.1, pluggy-1.6.0
+rootdir: /Users/user/Desktop/spacewalks
+plugins: cov-7.0.0
+collected 5 items                                                                                                              
 
-tests/test_eva_data_analysis.py ....                                                                                               [100%]
+tests/test_eva_analysis.py .....                                                                                         [100%]
 
----------- coverage: platform darwin, python 3.12.3-final-0 ----------
-Name                              Stmts   Miss  Cover
------------------------------------------------------
-eva_data_analysis.py                 56     38    32%
-tests/test_eva_data_analysis.py      20      0   100%
------------------------------------------------------
-TOTAL                                76     38    50%
+====================================================== 5 passed in 0.93s =======================================================
+(venv_spacewalks) mbassan2@Mac spacewalks % python3 -m pytest --cov 
+===================================================== test session starts ======================================================
+platform darwin -- Python 3.14.0, pytest-9.0.1, pluggy-1.6.0
+rootdir: /Users/user/Desktop/spacewalks
+plugins: cov-7.0.0
+collected 5 items                                                                                                              
 
+tests/test_eva_analysis.py .....                                                                                         [100%]
 
-=========================================================== 4 passed in 1.04s
+======================================================== tests coverage ========================================================
+_______________________________________ coverage: platform darwin, python 3.14.0-final-0 _______________________________________
+
+Name                         Stmts   Miss  Cover
+------------------------------------------------
+eva_data_analysis.py            57     38    33%
+tests/test_eva_analysis.py      17      0   100%
+------------------------------------------------
+TOTAL                           74     38    49%
+====================================================== 5 passed in 0.84s =======================================================
 ```
 
-To get an in-depth report about which parts of our code are tested and
-which are not, we can add the option `--cov-report=html`.
+To get an in-depth report about which parts of our code are tested and which are not, we can add the option `--cov-report=html`.
 
 ``` bash
 (venv_spacewalks) $ python3 -m pytest --cov --cov-report=html 
@@ -944,11 +942,11 @@ Test coverage of 100% does not mean that our code is bug-free.
 
 ::: challenge
 
-### Evaluating code coverage
+### Evaluating code coverage (10 min)
 
 Generate the code coverage report for your software using the `python3 -m pytest --cov --cov-report=html` command.
 
-Inspect the `htmlcov` folder created by the above command in the root directory of your propject, then open the 
+Inspect the `htmlcov` folder created by the above command in the root directory of your project, then open the 
 `htmlcov/index.html` file in a Web browser and extract the following information:
 
 a.  What proportion of the code base is currently "not" exercised by the test suite?
