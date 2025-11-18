@@ -469,11 +469,11 @@ input_file = open('./eva-data.json', 'r', encoding='ascii')
 output_file = open('./eva-data.csv', 'w', encoding='utf-8')
 graph_file = './cumulative_eva_graph.png'
 
-eva_df = pd.read_json(input_file, convert_dates=['date'])
+eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
 eva_df['eva'] = eva_df['eva'].astype(float)
 eva_df.dropna(axis=0, subset=['duration'], inplace=True)
 
-eva_df.to_csv(output_file, index=False)
+eva_df.to_csv(output_file, index=False, encoding='utf-8')
 
 eva_df.sort_values('date', inplace=True)
 
@@ -596,14 +596,14 @@ graph_file = './cumulative_eva_graph.png'
 print("--START--")
 print(f'Reading JSON file {input_file}')
 # Read the data from a JSON file into a Pandas dataframe
-eva_df = pd.read_json(input_file, convert_dates=['date'])
+eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
 eva_df['eva'] = eva_df['eva'].astype(float)
 # Clean the data by removing any rows where duration value is missing
 eva_df.dropna(axis=0, subset=['duration'], inplace=True)
 
 print(f'Saving to CSV file {output_file}')
 # Save dataframe to CSV file for later analysis
-eva_df.to_csv(output_file, index=False)
+eva_df.to_csv(output_file, index=False, encoding='utf-8')
 
 # Sort dataframe by date ready to be plotted (date values are on x-axis)
 eva_df.sort_values('date', inplace=True)
@@ -684,7 +684,7 @@ import pandas as pd
 def read_json_to_dataframe(input_file):
     print(f'Reading JSON file {input_file}')
     # Read the data from a JSON file into a Pandas dataframe
-    eva_df = pd.read_json(input_file, convert_dates=['date'])
+    eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration value is missing
     eva_df.dropna(axis=0, subset=['duration'], inplace=True)
@@ -694,7 +694,7 @@ def read_json_to_dataframe(input_file):
 def write_dataframe_to_csv(df, output_file):
     print(f'Saving to CSV file {output_file}')
     # Save dataframe to CSV file for later analysis
-    df.to_csv(output_file, index=False)
+    df.to_csv(output_file, index=False, encoding='utf-8')
 
 
 # Main code
@@ -738,7 +738,7 @@ Let's do that as an exercise.
 ### Extract functionality into a function (15 min)
 
 Extract the code to plot a graph into a separate function `plot_cumulative_time_in_space(df, graph_file)`.
-The function should take a dataframe and a file path string where to save the plot as arguments.
+The function should take a dataframe and a file object where to save the plot as arguments.
 
 ::: solution
 
@@ -751,7 +751,7 @@ import pandas as pd
 def read_json_to_dataframe(input_file):
     print(f'Reading JSON file {input_file}')
     # Read the data from a JSON file into a Pandas dataframe
-    eva_df = pd.read_json(input_file, convert_dates=['date'])
+    eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration value is missing
     eva_df.dropna(axis=0, subset=['duration'], inplace=True)
@@ -761,7 +761,7 @@ def read_json_to_dataframe(input_file):
 def write_dataframe_to_csv(df, output_file):
     print(f'Saving to CSV file {output_file}')
     # Save dataframe to CSV file for later analysis
-    df.to_csv(output_file, index=False)
+    df.to_csv(output_file, index=False, encoding='utf-8')
 
 
 def plot_cumulative_time_in_space(df, graph_file):
@@ -855,9 +855,7 @@ for code style.
 
 As your code grows and becomes more complex, the docstrings can form the content of a reference guide allowing 
 developers to quickly look up how to use the APIs, functions, and classes defined in your codebase.
-Hence, it is common to find tools that will automatically extract docstrings from your code and generate a 
-website where people can learn about your code without downloading/installing and reading the code files - 
-such as [MkDocs][mkdocs-org].
+Hence, it is common to find tools that will automatically extract docstrings from your code and generate a website where people can learn about your code without downloading/installing and reading the code files - such as [MkDocs][mkdocs-org].
 
 Let's write a docstring for the function `read_json_to_dataframe` we introduced in the previous exercise using the 
 [Google Style Python Docstrings Convention][google-doc-string]. 
@@ -877,14 +875,14 @@ def read_json_to_dataframe(input_file):
     Clean the data by removing any incomplete rows.
 
     Args:
-        input_file (str): The path to the JSON file.
+        input_file (file or str): The file object or path to the JSON file.
 
     Returns:
          eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure
     """
     print(f'Reading JSON file {input_file}')
     # Read the data from a JSON file into a Pandas dataframe
-    eva_df = pd.read_json(input_file, convert_dates=['date'])
+    eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration value is missing
     eva_df.dropna(axis=0, subset=['duration'], inplace=True)
@@ -910,14 +908,14 @@ def write_dataframe_to_csv(df, output_file):
 
     Args:
         df (pd.DataFrame): The input dataframe.
-        output_file (str): The path to the output CSV file.
+        output_file (file or str): The file object or path to the output CSV file.
 
     Returns:
         None
     """
     print(f'Saving to CSV file {output_file}')
     # Save dataframe to CSV file for later analysis
-    df.to_csv(output_file, index=False)
+    df.to_csv(output_file, index=False, encoding='utf-8')
 ```
 
 Our `plot_cumulative_time_in_space` function fully described by a docstring may look like:
@@ -934,7 +932,7 @@ def plot_cumulative_time_in_space(df, graph_file):
 
     Args:
         df (pd.DataFrame): The input dataframe.
-        graph_file (str): The path to the output graph file.
+        graph_file (file or str): The file object or path to the output graph file.
 
     Returns:
         None
@@ -965,14 +963,14 @@ def read_json_to_dataframe(input_file):
     Clean the data by removing any incomplete rows and sort by date
 
     Args:
-        input_file (str): The path to the JSON file.
+        input_file (file or str): The file object or path to the JSON file.
 
     Returns:
          eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure
     """
     print(f'Reading JSON file {input_file}')
     # Read the data from a JSON file into a Pandas dataframe
-    eva_df = pd.read_json(input_file, convert_dates=['date'])
+    eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any incomplete rows
     eva_df.dropna(axis=0, inplace=True)
@@ -985,14 +983,14 @@ def write_dataframe_to_csv(df, output_file):
 
     Args:
         df (pd.DataFrame): The input dataframe.
-        output_file (str): The path to the output CSV file.
+        output_file (file or str): The file object or path to the output CSV file.
 
     Returns:
         None
     """
     print(f'Saving to CSV file {output_file}')
     # Save dataframe to CSV file for later analysis
-    df.to_csv(output_file, index=False)
+    df.to_csv(output_file, index=False, encoding='utf-8')
 
 def plot_cumulative_time_in_space(df, graph_file):
     """
@@ -1005,7 +1003,7 @@ def plot_cumulative_time_in_space(df, graph_file):
 
     Args:
         df (pd.DataFrame): The input dataframe.
-        graph_file (str): The path to the output graph file.
+        graph_file (file or str): The file object or path to the output graph file.
 
     Returns:
         None
