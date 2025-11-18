@@ -387,8 +387,12 @@ git status
 On branch main
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
-	renamed:    data.json -> eva-data.json
-	renamed:    my_code_v2.py -> eva_data_analysis.py
+        renamed:    data.json -> eva-data.json
+        renamed:    my_code_v2.py -> eva_data_analysis.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .DS_Store
 ```
 
 Finally, we can commit our changes:
