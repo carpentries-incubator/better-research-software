@@ -104,11 +104,16 @@ Save the `spacewalks.zip` archive to your home directory and extract it - you sh
 
 ### Opening the project
 
-We will use VS Code IDE (Integrated Development Environment) for software development in this lesson.
+We will use VS Code IDE (Integrated Development Environment) for software development.
 
 IDEs are graphical application that provide a comprehensive workspace for writing, editing, testing, and debugging code—-all in one place. 
 At the core of an IDE is a code editor, and it combines several tools that developers need into a single interface to streamline the code development process. 
 IDEs are extremely useful and modern software development would be very hard without them.
+Some of IDEs also provide graphical interface to a version control system which typically contains a subset of all available version control commands.
+
+VS Code integrates many of these tools and functionalities (e.g. running code in terminal, viewing different file types, running a testing framework or a debugger, version control system, etc.) either natively or via a large number of extensions.
+It is a popular choice among many researchers, but it is not the only one.
+Outside of this course, you will make a choice which IDE or code editor to use based on your and your team's preferences.
 
 To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
 

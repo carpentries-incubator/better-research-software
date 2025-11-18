@@ -259,11 +259,7 @@ To install the latest version of `matplotlib` package with `pip` you use pip's `
 (venv_spacewalks) $ python3 -m pip install matplotlib
 ```
 
-You can install multiple packages at once by listing them all, e.g.:
-
-```bash
-(venv_spacewalks) $ python3 -m pip install matplotlib pandas
-```
+You can install multiple packages at once by listing them all at once.
 
 The above command has installed package `matplotlib` in our currently active `venv_spacewalks` environment and will not affect any other Python projects we may have on our machines.
 
