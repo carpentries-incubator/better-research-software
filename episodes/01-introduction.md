@@ -181,6 +181,14 @@ These are not the only criteria on which you could evaluate the code and you may
 
 ### Solution
 
+What the code does:
+
+- reads data in JSON format line by line and manually parses data from each line
+- appends the parsed data to a list
+- exports the list with data to a CSV file
+- reads all spacewalks durations and adds a cumulative sum for all spacewalk durations up to that point in time
+- plots the cumulative durations on a graph where x-axes are dates of spacewalks, and y-axis is the cumulative time spent in space up till then
+
 This is a (non-exhaustive) list of things that could be fixed/improved with our code and data:
 
 #### File and variable naming
@@ -203,6 +211,7 @@ This is a (non-exhaustive) list of things that could be fixed/improved with our 
 #### Code content and correctness
 
 - fixing the loop to 375 data entries is not reusable on other data files and would likely break if the data file changed
+- reading the JSON file line by line and extracting the data portions from each line (by removing ",", "[", "]" characters that form part of JSON syntax) is fragile and will break if JSON file is to be reformatted
 - running the code twice causes the program to fail as the result file from the previous run will exist (which the code does not check for) and the script will refuse to overwrite it
 - the code does not specify the encoding when reading the data in, and we are also not sure what encoding the data was saved in originally
 - how can we be confident the data analysis and plot that is produced as a result are correct?
