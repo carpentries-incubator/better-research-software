@@ -636,7 +636,7 @@ understand what the code is doing and how it is organised.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>Below are some suggested questions to help you assess the code. These
 are not the only criteria on which you could evaluate the code and you
@@ -665,9 +665,19 @@ different statistic, or run the analysis on a different input file?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<p>This is a (non-exhaustive) list of things that could be
+<p>What the code does:</p>
+<ul><li>reads data in JSON format line by line and manually parses data from
+each line</li>
+<li>appends the parsed data to a list</li>
+<li>exports the list with data to a CSV file</li>
+<li>reads all spacewalks durations and adds a cumulative sum for all
+spacewalk durations up to that point in time</li>
+<li>plots the cumulative durations on a graph where x-axes are dates of
+spacewalks, and y-axis is the cumulative time spent in space up till
+then</li>
+</ul><p>This is a (non-exhaustive) list of things that could be
 fixed/improved with our code and data:</p>
 <div class="section level4">
 <h4 id="file-and-variable-naming">File and variable naming<a class="anchor" aria-label="anchor" href="#file-and-variable-naming"></a></h4>
@@ -705,6 +715,10 @@ when reading the data in</li>
 <h4 id="code-content-and-correctness">Code content and correctness<a class="anchor" aria-label="anchor" href="#code-content-and-correctness"></a></h4>
 <ul><li>fixing the loop to 375 data entries is not reusable on other data
 files and would likely break if the data file changed</li>
+<li>reading the JSON file line by line and extracting the data portions
+from each line (by removing “,”, “[”, ”]” characters that form part of
+JSON syntax) is fragile and will break if JSON file is to be
+reformatted</li>
 <li>running the code twice causes the program to fail as the result file
 from the previous run will exist (which the code does not check for) and
 the script will refuse to overwrite it</li>
