@@ -378,6 +378,8 @@ Yours may look a little different, depending on the version of the packages you 
 
 The `requirements.txt` file can then be committed to a version control system (we will see how to do this using Git in a moment) and get shipped as part of your software and shared with collaborators and/or users.
 
+### Ignoring files
+
 Note that you only need to share the small `requirements.txt` file with your collaborators - and not the entire `venv_spacewalks` directory with packages contained in your virtual environment.
 We need to tell Git to ignore that directory, so it is not tracked and shared - we do this by creating a file `.gitignore` in the root directory of our project and adding a line `venv_spacewalks` to it.
 
