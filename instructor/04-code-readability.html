@@ -361,7 +361,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Code readability</h1>
-        <p>Last updated on 2025-11-18 |
+        <p>Last updated on 2025-11-19 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/04-code-readability.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -430,7 +430,7 @@ we can follow to help create more readable code.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability</a></p>
@@ -443,7 +443,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Activate your virtual environment </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -620,7 +620,7 @@ informative commit message.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha"><li>Updated code after renaming <code>data_f</code>, <code>data_t</code>
 and <code>g_file</code>:</li>
@@ -800,13 +800,13 @@ syntax errors - but they can potentially lead to subtle program logic
 errors, unexpected behavior, wrong results and issues later on - making
 them especially tricky to detect and fix. Over time, this makes the
 codebase more fragile and harder to maintain and extend.</p>
-<div id="remove-an-unused-variable-5-min" class="callout challenge">
+<div id="remove-an-unused-variable-2-min" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="remove-an-unused-variable-5-min" class="callout-inner">
-<h3 class="callout-title">Remove an unused variable (5 min)</h3>
+<div id="remove-an-unused-variable-2-min" class="callout-inner">
+<h3 class="callout-title">Remove an unused variable (2 min)</h3>
 <div class="callout-content">
 <p>Find and remove an unused variable in our code. Then, commit the
 updated code to the git repo.</p>
@@ -818,7 +818,7 @@ updated code to the git repo.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Variable <code>fieldnames</code> (containing column names for CSV
 data file) is defined but never used in the code - it should be
@@ -1064,7 +1064,7 @@ informative commit message.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Some good comments may look like the example below.</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -1084,7 +1084,7 @@ informative commit message.</li>
 <span id="cb16-12"><a href="#cb16-12" tabindex="-1"></a><span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
 <span id="cb16-13"><a href="#cb16-13" tabindex="-1"></a>eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb16-14"><a href="#cb16-14" tabindex="-1"></a>eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="co"># Clean the data by removing any rows where duration value is missing</span></span>
+<span id="cb16-15"><a href="#cb16-15" tabindex="-1"></a><span class="co"># Clean the data by removing any rows where duration is missing</span></span>
 <span id="cb16-16"><a href="#cb16-16" tabindex="-1"></a>eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb16-17"><a href="#cb16-17" tabindex="-1"></a></span>
 <span id="cb16-18"><a href="#cb16-18" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Saving to CSV file </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">'</span>)</span>
@@ -1170,7 +1170,7 @@ steps. We will continue to work on steps 3 and 4 above later on.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>You will need to share the code below with the learners via
 copy-and-paste either in shared notes or chat in a virtual training.
@@ -1192,7 +1192,7 @@ following.</p>
 <span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a>    <span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
 <span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration value is missing</span></span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
 <span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
 <span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a></span>
@@ -1244,19 +1244,22 @@ the same way.</p>
 code to plot a graph into a separate function
 <code>plot_cumulative_time_in_space</code>. Let’s do that as an
 exercise.</p>
-<div id="extract-functionality-into-a-function-15-min" class="callout challenge">
+<div id="extract-functionality-into-a-function-5-min" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="extract-functionality-into-a-function-15-min" class="callout-inner">
-<h3 class="callout-title">Extract functionality into a function (15
+<div id="extract-functionality-into-a-function-5-min" class="callout-inner">
+<h3 class="callout-title">Extract functionality into a function (5
 min)</h3>
 <div class="callout-content">
 <p>Extract the code to plot a graph into a separate function
 <code>plot_cumulative_time_in_space(df, graph_file)</code>. The function
-should take a dataframe and a file object where to save the plot as
-arguments.</p>
+should take the following two arguments:</p>
+<ol style="list-style-type: decimal"><li>a dataframe <code>df</code>, and</li>
+<li>a file object or a file path string <code>graph_file</code> where to
+save the plot.</li>
+</ol><p>Make sure to commit and push your changes.</p>
 </div>
 </div>
 </div>
@@ -1265,7 +1268,7 @@ arguments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>After extracting the code to plot a graph into a separate function,
 our code may look something like the following:</p>
@@ -1280,7 +1283,7 @@ our code may look something like the following:</p>
 <span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>    <span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
 <span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration value is missing</span></span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
 <span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
 <span id="cb19-12"><a href="#cb19-12" tabindex="-1"></a></span>
@@ -1410,7 +1413,7 @@ docstring may look like:</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">def</span> read_json_to_dataframe(input_file):</span>
 <span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co">    Read the data from a JSON file into a Pandas dataframe.</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">    Clean the data by removing any incomplete rows.</span></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a><span class="co">    Clean the data by removing any rows where the 'duration' value is missing.</span></span>
 <span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="co">    Args:</span></span>
 <span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="co">        input_file (file or str): The file object or path to the JSON file.</span></span>
@@ -1422,7 +1425,7 @@ docstring may look like:</p>
 <span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>    <span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
 <span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration value is missing</span></span>
+<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
 <span id="cb22-17"><a href="#cb22-17" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb22-18"><a href="#cb22-18" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span></code></pre>
 </div>
@@ -1445,7 +1448,7 @@ docstring may look like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Our <code>write_dataframe_to_csv</code> function fully described by a
 docstring may look like:</p>
@@ -1511,7 +1514,7 @@ described by a docstring may look like:</p>
 <span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="kw">def</span> read_json_to_dataframe(input_file):</span>
 <span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a><span class="co">    Read the data from a JSON file into a Pandas dataframe.</span></span>
-<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="co">    Clean the data by removing any incomplete rows and sort by date</span></span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="co">    Clean the data by removing any rows where the 'duration' value is missing.</span></span>
 <span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a></span>
 <span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a><span class="co">    Args:</span></span>
 <span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="co">        input_file (file or str): The file object or path to the JSON file.</span></span>
@@ -1523,7 +1526,7 @@ described by a docstring may look like:</p>
 <span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a>    <span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
 <span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a>    <span class="co"># Clean the data by removing any incomplete rows</span></span>
+<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
 <span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb25-21"><a href="#cb25-21" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
 <span id="cb25-22"><a href="#cb25-22" tabindex="-1"></a></span>
@@ -1614,7 +1617,7 @@ refactor over time.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure</a></p>
@@ -1723,8 +1726,8 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/04-code-readability.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/04-code-readability.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-18",
-  "datePublished": "2025-11-18"
+  "dateModified": "2025-11-19",
+  "datePublished": "2025-11-19"
 }
 
   </script><script>

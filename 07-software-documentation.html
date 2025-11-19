@@ -359,7 +359,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Software documentation</h1>
-        <p>Last updated on 2025-11-14 |
+        <p>Last updated on 2025-11-19 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/07-software-documentation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -415,7 +415,7 @@ the people who need it – both users and developers.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation</a></p>
@@ -428,7 +428,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Activate your virtual environment </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -447,9 +447,8 @@ environment from the root of the software project directory:</p>
 <hr class="half-width"><p>Software documentation is often perceived as a thankless and
 time-consuming task with few tangible benefits and is often neglected in
 research projects. However, like software testing, documenting our
-software can help us and others conduct <strong>better research</strong>
-and produce <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link"><strong>FAIR
-software</strong></a>:</p>
+software help us produce <strong>better software</strong> and conduct
+(more) <strong>reproducible</strong> research:</p>
 <ul><li>Good documentation captures important methodological details ready
 for when we come to publish our research</li>
 <li>Good documentation can help us return to a project seamlessly after
@@ -494,12 +493,12 @@ reusing it, describe its functionality on a high level and how to
 install, run and contribute to it.</p>
 <div class="section level3">
 <h3 id="repository-metadata-files">Repository metadata files<a class="anchor" aria-label="anchor" href="#repository-metadata-files"></a></h3>
-<p>A common way to to provide project-level documentation is to include
+<p>A common way to provide project-level documentation is to include
 various metadata files in the software repository together with code.
 Many of these files can be described as “social documentation”,
 i.e. they indicate how users should “behave” in relation to our software
 project. Some common examples of repository metadata files and their
-role are explained below:</p>
+role are explained in the table below.</p>
 <table class="table"><colgroup><col width="7%"><col width="92%"></colgroup><thead><tr class="header"><th>File</th>
 <th>Description</th>
 </tr></thead><tbody><tr class="odd"><td>README</td>
@@ -543,40 +542,33 @@ documentation may be sufficient: README, LICENSE and CITATION.</p>
 <p>A README file acts as a “landing page” for your code repository on
 GitHub and should provide sufficient information for users to and
 developers to get started using your code.</p>
-<div id="readme-and-the-fair-principles" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
+<p>::::::::::::::::::::::::::::::::::::: challenge (10 min)</p>
 </div>
-<span class="callout-header">Challenge</span>
-<div id="readme-and-the-fair-principles" class="callout-inner">
-<h3 class="callout-title">README and the FAIR principles</h3>
-<div class="callout-content">
+<div class="section level3">
+<h3 id="readme-and-the-fair-principles">README and the FAIR principles<a class="anchor" aria-label="anchor" href="#readme-and-the-fair-principles"></a></h3>
 <p>The following lists some of the major sections you may find in a
 typical README file. Which are <strong>essential</strong> to support the
-FAIR <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">software</a>
-and <a href="https://www.nature.com/articles/sdata201618" class="external-link">data</a>
-principles? Which are optional?</p>
+<a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">FAIR
+software</a> (Findable, Accessible, Interoperable, Reusable) principles
+and which are good to have but <strong>optional</strong>?</p>
 <ul><li>Description and purpose of the code</li>
 <li>Audience (who the code is intended for)</li>
 <li>Installation instructions</li>
 <li>Pointers to dependencies and their versions
 (e.g. <code>requirements.txt</code> or <code>pyproject.toml</code>)</li>
-<li>Contribution guide</li>
+<li>Contribution guidelines</li>
 <li>How to get help</li>
 <li>License</li>
 <li>Software citation</li>
 <li>Usage examples</li>
 <li>FAQs</li>
 <li>Code of Conduct</li>
-</ul></div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+</ul><div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>To support the FAIR principles (Findability, Accessibility,
 Interoperability, and Reusability), certain sections in a README file
@@ -632,6 +624,7 @@ accessibility.</li>
 </div>
 </div>
 </div>
+<p>::::::::::::::::::::::::::::::::::::::::::::::::</p>
 <p>Let’s create a simple README for our repository - from VS Code or
 command line terminal create file <code>README.md</code> (in Markdown
 format) or <code>README.txt</code> (in plain text format).</p>
@@ -662,13 +655,13 @@ installed. You will also need the following libraries (minimum versions in brack
 - [Matplotlib](https://matplotlib.org/stable/index.html) &gt;=3.0.0  - Spacewalks uses Matplotlib to make plots
 - [pytest](https://docs.pytest.org/en/8.2.x/#) &gt;=8.2.0  - Spacewalks uses pytest for testing
 - [pandas](https://pandas.pydata.org/) &gt;= 2.2.0 - Spacewalks uses pandas for data frame manipulation </code></pre>
-<div id="spacewalks-readme" class="callout challenge">
+<div id="spacewalks-readme-10-min" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="spacewalks-readme" class="callout-inner">
-<h3 class="callout-title">Spacewalks README</h3>
+<div id="spacewalks-readme-10-min" class="callout-inner">
+<h3 class="callout-title">Spacewalks README (10 min)</h3>
 <div class="callout-content">
 <p>Extend the README for Spacewalks by adding:</p>
 <ol style="list-style-type: decimal"><li>Installation instructions</li>
@@ -681,7 +674,7 @@ installed. You will also need the following libraries (minimum versions in brack
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Installation instructions:</p>
 <p>NB: In the solution below the back ticks of each code block have been
@@ -692,31 +685,22 @@ text, make sure you unescape them).</p>
 - Clone the Spacewalks repository to your local machine using Git.
 If you don't have Git installed, you can download it from the official Git website.
 
-\`\`\`
 git clone https://github.com/your-repository-url/spacewalks.git
 cd spacewalks
-\`\`\`
+
 
 - Install the necessary dependencies:
-\`\`\`
 python3 -m pip install pandas==2.2.2 matplotlib==3.8.4 numpy==2.0.0 pytest==7.4.2
-\`\`\`
 
 - To ensure everything is working correctly, run the tests using pytest.
-
-\`\`\`
-python3 -m pytest
-\`\`\`</code></pre>
+python3 -m pytest</code></pre>
 <p>Usage instructions:</p>
 <pre class="text"><code>## Usage Example
 
 To run an analysis using the eva_data_analysis.py script from the command line terminal,
 launch the script using Python as follows:
 
-\`\`\`
-# Usage Examples
 python3 eva_data_analysis.py eva-data.json eva-data.csv
-\`\`\`
 
 The first argument is path to the JSON data file.
 The second argument is the path the CSV output file.</code></pre>
@@ -767,26 +751,26 @@ file to your GitHub code repository.</li>
 </ul></div>
 </div>
 </div>
-<div id="select-a-licence" class="callout discussion">
+<div id="select-a-licence-10-min" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="select-a-licence" class="callout-inner">
-<h3 class="callout-title">Select a licence</h3>
+<div id="select-a-licence-10-min" class="callout-inner">
+<h3 class="callout-title">Select a licence (10 min)</h3>
 <div class="callout-content">
 <p>Choose a license for your code. Discuss with your neighbour or the
 group your choice of license and reason for choosing it.</p>
 </div>
 </div>
 </div>
-<div id="add-a-license-to-your-code" class="callout challenge">
+<div id="add-a-license-to-your-code-5-min" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="add-a-license-to-your-code" class="callout-inner">
-<h3 class="callout-title">Add a license to your code</h3>
+<div id="add-a-license-to-your-code-5-min" class="callout-inner">
+<h3 class="callout-title">Add a license to your code (5 min)</h3>
 <div class="callout-content">
 <p>Add a LICENSE file containing the full text of your chosen license to
 your code repository.</p>
@@ -798,7 +782,7 @@ your code repository.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>Licence can be done in either of the following two ways:
 <ol style="list-style-type: lower-alpha"><li>Create a LICENSE file in the root of your software repository on
@@ -935,13 +919,13 @@ Way’s guide to software citation</a>.</p>
 </div>
 </div>
 </div>
-<div id="spacewalks-software-citation" class="callout discussion">
+<div id="spacewalks-software-citation-5-min" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="spacewalks-software-citation" class="callout-inner">
-<h3 class="callout-title">Spacewalks software citation</h3>
+<div id="spacewalks-software-citation-5-min" class="callout-inner">
+<h3 class="callout-title">Spacewalks software citation (5 min)</h3>
 <div class="callout-content">
 <p>Add the citation file for our Spacewalks software to the root folder
 of our repository on GitHub. You can either do it directly on GitHub or
@@ -976,12 +960,12 @@ docstrings we have added to our code.</p>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install <span class="st">"mkdocstrings[python]"</span></span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> pip install mkdocs-material</span></code></pre>
 </div>
-<p>Let’s creates a new MkDocs project in the current directory:</p>
+<p>Let’s creates a new MkDocs project in the root of the spacewalks
+directory:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># In ~/Desktop/spacewalks</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="ex">mkdocs</span> new .    </span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">mkdocs</span> new .    </span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1082,13 +1066,13 @@ navigate to.</p>
 in the <code>mkdocs.yml</code> file. This setting ensures that the
 documentation site is generated with URLs that are easy to navigate
 locally on a user’s device.</p>
-<div id="explore-your-documentation" class="callout discussion">
+<div id="explore-your-documentation-5-min" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <span class="callout-header">Discussion</span>
-<div id="explore-your-documentation" class="callout-inner">
-<h3 class="callout-title">Explore your documentation</h3>
+<div id="explore-your-documentation-5-min" class="callout-inner">
+<h3 class="callout-title">Explore your documentation (5 min)</h3>
 <div class="callout-content">
 <p>Explore documentation in <code>site/</code> folder built with MkDocs
 for your project, starting from the <code>index.html</code> file.</p>
@@ -1100,7 +1084,7 @@ your functions are provided here as a reference manual.</p>
 </div>
 </div>
 <p>Finally, let us commit our documentation to the main branch of our
-git repository and push the changes to GitHub.</p>
+Git repository and push the changes to GitHub.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1122,7 +1106,7 @@ git repository and push the changes to GitHub.</p>
 <h3 class="callout-title">Hosting documentation</h3>
 <div class="callout-content">
 <p>We saw how MkDocs documentation can be distributed with our
-repository and viewed “offline” using a browser.</p>
+repository and viewed “offline” using a Web browser.</p>
 <p>We can also make our documentation available as a live website by
 deploying our documentation to a hosting service.</p>
 <div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
@@ -1130,7 +1114,7 @@ deploying our documentation to a hosting service.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Some options for hosting documentation </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="github-pages">GitHub Pages<a class="anchor" aria-label="anchor" href="#github-pages"></a></h3>
@@ -1237,13 +1221,13 @@ the content and style of our documentation matches its purpose.</p>
 the <a href="https://diataxis.fr/" class="external-link">Diataxis framework</a> provide a
 range of resources including documentation templates to help to help us
 do this.</p>
-<div id="spacewalks-how-to-guide" class="callout discussion">
+<div id="spacewalks-how-to-guide-15-min" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
-<div id="spacewalks-how-to-guide" class="callout-inner">
-<h3 class="callout-title">Spacewalks how-to guide</h3>
+<span class="callout-header">Challenge</span>
+<div id="spacewalks-how-to-guide-15-min" class="callout-inner">
+<h3 class="callout-title">Spacewalks how-to guide (15 min)</h3>
 <div class="callout-content">
 <ol style="list-style-type: lower-alpha"><li><p>Review the Diataxis guidance page on writing a How-to guide.
 Identify three features of an effective how-to guide.</p></li>
@@ -1251,37 +1235,36 @@ Identify three features of an effective how-to guide.</p></li>
 <code>docs/how-to-guides.md</code> file in your documentation folder to
 show users how to change the destination filename for the output CSV
 dataset generated by the Spacewalks software.</p></li>
-</ol><div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
+</ol></div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
-  <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Discussion hints &amp; solution </h3>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>An effective how-to guide should:</p>
-<ul><li>be goal oriented and focus on action.</li>
+<ul><li>be goal oriented and focus on action</li>
 <li>avoid teaching or explanation</li>
-<li>use appropriate language e.g. conditional imperatives</li>
-<li>have an informative title</li>
-</ul><p>An example how-to guide for our project to the file
-<code>docs/how-to-guides.md</code>:</p>
-<pre><code># How to change the file path of Spacewalk's output dataset
+<li>use appropriate language, e.g. conditional imperatives</li>
+<li>have an informative title.</li>
+</ul><p>An example how-to guide for our project in the file
+<code>docs/how-to-guides.md</code> could like:</p>
+<pre><code>## How to change the file path of Spacewalk's output dataset
 
-This guide shows you how to set the file path for Spacewalk's output
-data set to a location of your choice.
+This guide shows you how to set the file path for Spacewalk's output data set to a location of your choice.
 
-By default, the cleaned data set in CSV format, generated by the Spacewalk software, is saved to the `results/`
-folder within the working directory with file name `eva-data.csv`.
+By default, the cleaned data set in CSV format, generated by the Spacewalk software, is saved to the `results/` folder within the working directory with file name `eva-data.csv`.
 
-If you would like to modify the name or location of the output dataset, set the
-second command line argument to your chosen file path.
-For example, if you want to save the output data set to the subfolder `data/clean/` you can
-invoke the script as:
+If you would like to modify the name or location of the output dataset, set the second command line argument to your chosen file path.
+For example, if you want to save the output data set to the subfolder `data/clean/` you can invoke the script as:
 
-`(venv_spacewalks) $ python3 eva_data_analysis.py eva-data.json data/clean/eva-data-clean.csv`
+python3 eva_data_analysis.py eva-data.json data/clean/eva-data-clean.csv
 
 The specified destination folder `data/clean/` must exist before running spacewalks analysis script.</code></pre>
-<p>Remember to rebuild your documentation:</p>
+<p>Remember to rebuild your documentation after the above change:</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1291,60 +1274,55 @@ The specified destination folder `data/clean/` must exist before running spacewa
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
 <p>The Diataxis framework provides guidance for developing technical
 documentation for different purposes. Tutorials differ in purpose and
 scope to how-to guides, and as a result, differ in content and
 style.</p>
-<div id="spacewalks-tutorial" class="callout discussion">
+<div id="spacewalks-tutorial-10-min" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
-<div id="spacewalks-tutorial" class="callout-inner">
-<h3 class="callout-title">Spacewalks tutorial</h3>
+<span class="callout-header">Challenge</span>
+<div id="spacewalks-tutorial-10-min" class="callout-inner">
+<h3 class="callout-title">Spacewalks tutorial (10 min)</h3>
 <div class="callout-content">
 <p>Let’s adapt the how-to guide from the previous challenge into a
 tutorial that explains how to change the file path for the output
 dataset when running the analysis script.</p>
-<div id="accordionSpoiler5" class="accordion spoiler-accordion accordion-flush">
+</div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler5" aria-expanded="false" aria-controls="collapseSpoiler5">
-  <h3 class="accordion-header" id="headingSpoiler5">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Solution </h3>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Here is what an example tutorial may look like.</p>
-<div class="section level4">
-<h4 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h4>
-<p>In this tutorial, we will learn how to change the file path for the
-output dataset generated by the Spacewalk software. By the end of this
-tutorial, you will be able to specify a custom file path for the cleaned
-dataset.</p>
-</div>
-<div class="section level4">
-<h4 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a></h4>
-<p>Before you start, ensure you have the following:</p>
-<ul><li>Python installed on your system</li>
-<li>The Spacewalk script (<code>eva_data_analysis.py</code>)</li>
-<li>An input dataset (<code>eva-data.json</code>)</li>
-</ul></div>
-<div class="section level4">
-<h4 id="prepare-the-destination-directory">Prepare the destination directory<a class="anchor" aria-label="anchor" href="#prepare-the-destination-directory"></a></h4>
-<p>First, let us decide where we want to save the cleaned dataset and
-make sure the directory exists.</p>
-<p>For this tutorial, we will use <code>data/clean/</code> as the
-destination folder.</p>
-<p>Let’s create the directory if it does not exist - e.g. from the
-command line do:</p>
-<div class="codewrapper sourceCode" id="cb25">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> mkdir <span class="at">-p</span> data/clean</span></code></pre>
-</div>
-</div>
+<pre><code>## Introduction
+
+In this tutorial, we will learn how to change the file path for the output dataset generated by the Spacewalk software.
+By the end of this tutorial, you will be able to specify a custom file path for the cleaned dataset.
+
+## Prerequisites
+
+Before you start, ensure you have the following:
+
+- Python installed on your system
+- The Spacewalk script (`eva_data_analysis.py`)
+- An input dataset (`eva-data.json`)
+
+## Prepare the destination directory
+
+First, let us decide where we want to save the cleaned dataset and make sure the directory exists.
+
+For this tutorial, we will use `data/clean/` as the destination folder.
+
+Let's create the directory if it does not exist - e.g. from the command line do:
+
+mkdir -p data/clean
+</code></pre>
 <div class="section level4">
 <h4 id="run-the-analysis-script-with-a-custom-path">Run the analysis script with a custom path<a class="anchor" aria-label="anchor" href="#run-the-analysis-script-with-a-custom-path"></a></h4>
 <p>Next, execute the Spacewalk script and specify the custom file path
@@ -1394,7 +1372,7 @@ created <code>output/data</code> directory with the filename
 <code>cleaned-eva-data.csv</code>.</li>
 <li>Verify that the dataset has been saved correctly.</li>
 </ul><div class="section level5">
-<h5 id="solution-1">Solution<a class="anchor" aria-label="anchor" href="#solution-1"></a></h5>
+<h5 id="solution">Solution<a class="anchor" aria-label="anchor" href="#solution"></a></h5>
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1419,47 +1397,41 @@ according to your needs.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
 <p>Now that we have seen examples of both a how-to guide and a tutorial,
 let’s compare the two.</p>
-<div id="tutorial-vs.-how-to-guide" class="callout discussion">
+<div id="tutorial-vs.-how-to-guide---discussion-5-min" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
-<span class="callout-header">Discussion</span>
-<div id="tutorial-vs.-how-to-guide" class="callout-inner">
-<h3 class="callout-title">Tutorial vs. how-to guide</h3>
+<span class="callout-header">Challenge</span>
+<div id="tutorial-vs.-how-to-guide---discussion-5-min" class="callout-inner">
+<h3 class="callout-title">Tutorial vs. how-to guide - discussion (5
+min)</h3>
 <div class="callout-content">
 <p>How does the content and language of our example tutorial differ from
 our example how-to guide?</p>
-<div id="accordionSpoiler6" class="accordion spoiler-accordion accordion-flush">
+</div>
+</div>
+</div>
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler6" aria-expanded="false" aria-controls="collapseSpoiler6">
-  <h3 class="accordion-header" id="headingSpoiler6">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Discussion hints </h3>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSpoiler6" class="accordion-collapse collapse" aria-labelledby="headingSpoiler6" data-bs-parent="#accordionSpoiler6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
-<div class="section level4">
-<h4 id="content">Content<a class="anchor" aria-label="anchor" href="#content"></a></h4>
+<p>In terms of content:</p>
 <ul><li>The tutorial clearly signposts what will be covered</li>
 <li>The tutorial includes a narrative of each step and the expected
 output</li>
 <li>The tutorial highlights important behaviour the learner should
 notice</li>
 <li>The tutorial includes an exercise to practice skills</li>
-</ul></div>
-<div class="section level4">
-<h4 id="language">Language<a class="anchor" aria-label="anchor" href="#language"></a></h4>
+</ul><p>In terms of language:</p>
 <ul><li>The tutorial uses the “we” language</li>
 <li>The tutorial uses imperative to provide clear instructions,
-e.g. “First do x, then do y”</li>
+e.g. “First do x, then do y.”</li>
 </ul></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1480,12 +1452,12 @@ making research code understandable, reusable, and reproducible.</p>
 how-to guides, and reference materials - like Markdown files, Wikis, and
 static site generators (e.g. MkDocs) - and highlighted the Diátaxis
 framework for structuring documentation effectively.</p>
-<div id="accordionSpoiler7" class="accordion spoiler-accordion accordion-flush">
+<div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler7" aria-expanded="false" aria-controls="collapseSpoiler7">
-  <h3 class="accordion-header" id="headingSpoiler7">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
+  <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler7" class="accordion-collapse collapse" aria-labelledby="headingSpoiler7" data-bs-parent="#accordionSpoiler7">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration</a></p>
@@ -1601,8 +1573,8 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/07-software-documentation.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/07-software-documentation.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-14",
-  "datePublished": "2025-11-18"
+  "dateModified": "2025-11-19",
+  "datePublished": "2025-11-19"
 }
 
   </script><script>
