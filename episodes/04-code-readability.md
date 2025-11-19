@@ -358,7 +358,7 @@ making them especially tricky to detect and fix. Over time, this makes the codeb
 
 :::::: challenge
 
-### Remove an unused variable (5 min)
+### Remove an unused variable (2 min)
 
 Find and remove an unused variable in our code. Then, commit the updated code to the git repo.
 
@@ -598,7 +598,7 @@ print(f'Reading JSON file {input_file}')
 # Read the data from a JSON file into a Pandas dataframe
 eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
 eva_df['eva'] = eva_df['eva'].astype(float)
-# Clean the data by removing any rows where duration value is missing
+# Clean the data by removing any rows where duration is missing
 eva_df.dropna(axis=0, subset=['duration'], inplace=True)
 
 print(f'Saving to CSV file {output_file}')
@@ -686,7 +686,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any rows where duration value is missing
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, subset=['duration'], inplace=True)
     return eva_df
 
@@ -735,10 +735,15 @@ Let's do that as an exercise.
 
 ::: challenge
 
-### Extract functionality into a function (15 min)
+### Extract functionality into a function (5 min)
 
 Extract the code to plot a graph into a separate function `plot_cumulative_time_in_space(df, graph_file)`.
-The function should take a dataframe and a file object where to save the plot as arguments.
+The function should take the following two arguments: 
+
+1. a dataframe `df`, and 
+2. a file object or a file path string `graph_file` where to save the plot.
+
+Make sure to commit and push your changes.
 
 ::: solution
 
@@ -753,7 +758,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any rows where duration value is missing
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, subset=['duration'], inplace=True)
     return eva_df
 
@@ -872,7 +877,7 @@ Our `read_json_to_dataframe` function fully described by a docstring may look li
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    Clean the data by removing any incomplete rows.
+    Clean the data by removing any rows where the 'duration' value is missing.
 
     Args:
         input_file (file or str): The file object or path to the JSON file.
@@ -884,7 +889,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any rows where duration value is missing
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, subset=['duration'], inplace=True)
     return eva_df
 ```
@@ -960,7 +965,7 @@ import pandas as pd
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    Clean the data by removing any incomplete rows and sort by date
+    Clean the data by removing any rows where the 'duration' value is missing.
 
     Args:
         input_file (file or str): The file object or path to the JSON file.
@@ -972,7 +977,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any incomplete rows
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, inplace=True)
     return eva_df
 

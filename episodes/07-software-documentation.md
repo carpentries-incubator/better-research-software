@@ -54,29 +54,22 @@ the software project directory:
 
 ## Why document our software?
 
-Software documentation is often perceived as a thankless and time-consuming task with few tangible benefits and 
-is often neglected in research projects. 
-However, like software testing, documenting our software can help us and others
-conduct **better research** and produce [**FAIR software**][fair-principles-research-software]:
+Software documentation is often perceived as a thankless and time-consuming task with few tangible benefits and is often neglected in research projects. 
+However, like software testing, documenting our software help us produce **better software** and conduct (more) **reproducible** research:
 
 - Good documentation captures important methodological details ready for when we come to publish our research 
 - Good documentation can help us return to a project seamlessly after time away 
 - Documentation can facilitate collaborations by helping us onboard new project members quickly and more easily
 - Good documentation can save us time by answering frequently asked questions (FAQs) about our code for us
 - Software documentation supports the [FAIR research software principles][fair-principles-research-software] by improving the re-usability of our code. 
-  - Good documentation can make our software more understandable and reusable by others, and can bring us some citations
-    and credit
+  - Good documentation can make our software more understandable and reusable by others, and can bring us some citations and credit
   - How-to guides and tutorials ensure that users can install our software independently and make use of its basic features
-  - Reference guides and background information can help developers understand our code sufficiently to 
-  modify/extend/repurpose it.
+  - Reference guides and background information can help developers understand our code sufficiently to modify/extend/repurpose it.
 
 ## Code-level documentation
 
-In previous episodes we encountered several different forms of in-code documentation aspects, 
-including in-line comments and docstrings. 
-These are an excellent way to improve the readability of our code, but by themselves 
-are insufficient to ensure that our code is easy to use, understand and modify - 
-this requires additional software-level documentation.
+In previous episodes we encountered several different forms of in-code documentation aspects, including in-line comments and docstrings. 
+These are an excellent way to improve the readability of our code, but by themselves are insufficient to ensure that our code is easy to use, understand and modify - this requires additional software-level documentation.
 
 There are many different types of software-level documentation.
 
@@ -91,17 +84,13 @@ Software-level technical documentation encompasses:
 
 ## Project-level documentation
 
-Project-level documentation includes various information and metadata about software 
-that help to discover it, explain the legal terms of reusing it, describe its functionality on a high level 
-and how to install, run and contribute to it.
+Project-level documentation includes various information and metadata about software that help to discover it, explain the legal terms of reusing it, describe its functionality on a high level and how to install, run and contribute to it.
 
 ### Repository metadata files
 
-A common way to to provide project-level documentation is to include various metadata files in the software 
-repository together with code.
-Many of these files can be described as "social documentation", i.e. they indicate how users should “behave” in relation 
-to our software project. 
-Some common examples of repository metadata files and their role are explained below:
+A common way to provide project-level documentation is to include various metadata files in the software repository together with code.
+Many of these files can be described as "social documentation", i.e. they indicate how users should “behave” in relation to our software project. 
+Some common examples of repository metadata files and their role are explained in the table below.
 
 | File            | Description                                                                                                                                                                                         |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,18 +113,18 @@ Let’s look at each of these files in turn.
 ### README file
 A README file acts as a “landing page” for your code repository on GitHub and should provide sufficient information for users to and developers to get started using your code.
 
-::::::::::::::::::::::::::::::::::::: challenge
+::::::::::::::::::::::::::::::::::::: challenge (10 min)
 
 ### README and the FAIR principles
 
 The following lists some of the major sections you may find in a typical README file. 
-Which are **essential** to support the FAIR [software][fair-principles-research-software] and [data][fair-data-principles] principles? Which are optional?
+Which are **essential** to support the [FAIR software][fair-principles-research-software] (Findable, Accessible, Interoperable, Reusable) principles and which are good to have but **optional**?
 
 - Description and purpose of the code
 - Audience (who the code is intended for)
 - Installation instructions
 - Pointers to dependencies and their versions (e.g. `requirements.txt` or `pyproject.toml`)
-- Contribution guide
+- Contribution guidelines
 - How to get help
 - License
 - Software citation
@@ -214,7 +203,7 @@ installed. You will also need the following libraries (minimum versions in brack
 
 :::  challenge
 
-### Spacewalks README
+### Spacewalks README (10 min)
 
 Extend the README for Spacewalks by adding:
 
@@ -234,21 +223,15 @@ copying and pasting the text, make sure you unescape them).
 - Clone the Spacewalks repository to your local machine using Git.
 If you don't have Git installed, you can download it from the official Git website.
 
-\`\`\`
 git clone https://github.com/your-repository-url/spacewalks.git
 cd spacewalks
-\`\`\`
+
 
 - Install the necessary dependencies:
-\`\`\`
 python3 -m pip install pandas==2.2.2 matplotlib==3.8.4 numpy==2.0.0 pytest==7.4.2
-\`\`\`
 
 - To ensure everything is working correctly, run the tests using pytest.
-
-\`\`\`
 python3 -m pytest
-\`\`\`
 ```
 
 Usage instructions:
@@ -259,10 +242,7 @@ Usage instructions:
 To run an analysis using the eva_data_analysis.py script from the command line terminal,
 launch the script using Python as follows:
 
-\`\`\`
-# Usage Examples
 python3 eva_data_analysis.py eva-data.json eva-data.csv
-\`\`\`
 
 The first argument is path to the JSON data file.
 The second argument is the path the CSV output file.
@@ -273,24 +253,19 @@ The second argument is the path the CSV output file.
 
 ### LICENSE file
 
-Copyright allows a creator of work (such as written text, photographs, films, music, software code) to state that 
-they own the work they have created. Copyright is automatically implied - even if the creator does not explicitly 
-assert it, copyright of the work exists from the moment of creation. A licence is a legal document which sets down 
-the terms under which the creator is releasing what they have created for others to use, modify, extend or exploit.
+Copyright allows a creator of work (such as written text, photographs, films, music, software code) to state that they own the work they have created. 
+Copyright is automatically implied - even if the creator does not explicitly assert it, copyright of the work exists from the moment of creation. 
+A licence is a legal document which sets down the terms under which the creator is releasing what they have created for others to use, modify, extend or exploit.
 
-Because any creative work is copyrighted the moment it is created, even without any kind of licence agreement, 
-it is important to state the terms under which software can be reused. 
-The lack of a licence for your software implies that no one can reuse the software at all - hence it is imperative 
-you declare it. A common way to declare your copyright of a piece of software and the license you are 
-distributing it under is to include a file called LICENSE in the root directory of your code repository.
+Because any creative work is copyrighted the moment it is created, even without any kind of licence agreement, it is important to state the terms under which software can be reused. 
+The lack of a licence for your software implies that no one can reuse the software at all - hence it is imperative you declare it. 
+A common way to declare your copyright of a piece of software and the license you are distributing it under is to include a file called LICENSE in the root directory of your code repository.
 
-There is an optional extra [episode in this course on different open source software licences](../learners/licensing.md) 
-that you can choose for your code and that we recommend for further reading. 
+There is an optional extra [episode in this course on different open source software licences](../learners/licensing.md) that you can choose for your code and that we recommend for further reading. 
 
 :::::: instructor
-Make sure to mention the [extra content on different open source software licences](../learners/licensing.md), 
-briefly cover it if there is time, then focus on the technicalities of adding a license file to a 
-code repository (as there is likely not going to be enough time to spend on different license types).
+Make sure to mention the [extra content on different open source software licences](../learners/licensing.md), briefly cover it if there is time.
+Then focus on the technicalities of adding a license file to a code repository (as there is likely not going to be enough time to spend on different license types).
 ::::::
 
 :::::: callout
@@ -299,14 +274,13 @@ code repository (as there is likely not going to be enough time to spend on diff
 
 - A [short intro](../learners/licensing.md) on different open source software licences included as extra content to this course. 
 - [The open source guide][opensource-licence-guide] on applying, changing and editing licenses.
-- [choosealicense.com][choosealicense] online tool has some great resources to help you choose a license that is
-appropriate for your needs, and can even automate adding the LICENSE file to your GitHub code repository.
+- [choosealicense.com][choosealicense] online tool has some great resources to help you choose a license that is appropriate for your needs, and can even automate adding the LICENSE file to your GitHub code repository.
 
 :::::::
 
 ::::::  challenge
 
-### Select a licence
+### Select a licence (10 min)
 
 Choose a license for your code. 
 Discuss with your neighbour or the group your choice of license and reason for choosing it.
@@ -315,7 +289,7 @@ Discuss with your neighbour or the group your choice of license and reason for c
 
 :::::: challenge
 
-### Add a license to your code
+### Add a license to your code (5 min)
 
 Add a LICENSE file containing the full text of your chosen license to your code repository.
 
@@ -438,7 +412,7 @@ Further information is available from the [Turing Way's guide to software citati
 
 :::::  challenge
 
-### Spacewalks software citation
+### Spacewalks software citation (5 min)
 
 Add the citation file for our Spacewalks software to the root folder of our repository on GitHub.
 You can either do it directly on GitHub or creating the file locally and the committing and pushing to GitHub from the 
@@ -471,10 +445,9 @@ python3 -m pip install "mkdocstrings[python]"
 python3 -m pip install mkdocs-material
 ```
 
-Let's creates a new MkDocs project in the current directory:
+Let's creates a new MkDocs project in the root of the spacewalks directory:
 
 ```bash
-# In ~/Desktop/spacewalks
 mkdocs new .    
 ```
 
@@ -574,17 +547,17 @@ locally on a user's device.
 
 ::: challenge
 
-### Explore your documentation
+### Explore your documentation (5 min)
 
 Explore documentation in `site/` folder built with MkDocs for your project, starting from the `index.html` file.
 
 Open `index.html` file in a Web browser to see how it renders. 
 
-Check `site/reference.html` to see how docstrings from your functions are 
-provided here as a reference manual.
+Check `site/reference.html` to see how docstrings from your functions are provided here as a reference manual.
+
 :::
 
-Finally, let us commit our documentation to the main branch of our git repository and push the changes to GitHub.
+Finally, let us commit our documentation to the main branch of our Git repository and push the changes to GitHub.
 
 ```bash
 (venv_spacewalks) $ git add mkdocs.yml 
@@ -598,13 +571,12 @@ Finally, let us commit our documentation to the main branch of our git repositor
 ```
 
 ::::::::::::::::::::::::::::::::::::: callout
+
 ### Hosting documentation
 
-We saw how MkDocs documentation can be distributed with our
-repository and viewed "offline"  using a browser.
+We saw how MkDocs documentation can be distributed with our repository and viewed "offline" using a Web browser.
 
-We can also make our documentation available as a live website by deploying our
-documentation to a hosting service.
+We can also make our documentation available as a live website by deploying our documentation to a hosting service.
 
 :::::: spoiler
 
@@ -704,50 +676,42 @@ our documentation matches its purpose.
 Documentation guides such as [Write the Docs][write-the-docs], [The Good Docs Project][the-good-docs-project] and the [Diataxis framework][diataxis-framework]
 provide a range of resources including documentation templates to help to help us do this.
 
-:::::: discussion
+:::::: challenge
 
-### Spacewalks how-to guide
+### Spacewalks how-to guide (15 min)
 
-a. Review the Diataxis guidance page on writing a How-to guide. Identify
-three features of an effective how-to guide.
+a. Review the Diataxis guidance page on writing a How-to guide. 
+Identify three features of an effective how-to guide.
 
-b. Following the Diataxis guidelines, add a how-to guide to the `docs/how-to-guides.md` file
-in your documentation folder to show users how to change the destination filename for the output 
-CSV dataset generated by the Spacewalks software.
+b. Following the Diataxis guidelines, add a how-to guide to the `docs/how-to-guides.md` file in your documentation folder to show users how to change the destination filename for the output CSV dataset generated by the Spacewalks software.
 
-::: spoiler
-
-### Discussion hints & solution
+::: solution
 
 An effective how-to guide should:
 
-- be goal oriented and focus on action.
+- be goal oriented and focus on action
 - avoid teaching or explanation
-- use appropriate language e.g. conditional imperatives
-- have an informative title
+- use appropriate language, e.g. conditional imperatives
+- have an informative title.
 
-An example how-to guide for our project to the file `docs/how-to-guides.md`:
+An example how-to guide for our project in the file `docs/how-to-guides.md` could like:
 
 ```
-# How to change the file path of Spacewalk's output dataset
+## How to change the file path of Spacewalk's output dataset
 
-This guide shows you how to set the file path for Spacewalk's output
-data set to a location of your choice.
+This guide shows you how to set the file path for Spacewalk's output data set to a location of your choice.
 
-By default, the cleaned data set in CSV format, generated by the Spacewalk software, is saved to the `results/`
-folder within the working directory with file name `eva-data.csv`.
+By default, the cleaned data set in CSV format, generated by the Spacewalk software, is saved to the `results/` folder within the working directory with file name `eva-data.csv`.
 
-If you would like to modify the name or location of the output dataset, set the
-second command line argument to your chosen file path. 
-For example, if you want to save the output data set to the subfolder `data/clean/` you can 
-invoke the script as:
+If you would like to modify the name or location of the output dataset, set the second command line argument to your chosen file path. 
+For example, if you want to save the output data set to the subfolder `data/clean/` you can invoke the script as:
 
-`(venv_spacewalks) $ python3 eva_data_analysis.py eva-data.json data/clean/eva-data-clean.csv`
+python3 eva_data_analysis.py eva-data.json data/clean/eva-data-clean.csv
 
 The specified destination folder `data/clean/` must exist before running spacewalks analysis script.
 ```
 
-Remember to rebuild your documentation:
+Remember to rebuild your documentation after the above change:
 
 ```bash
 (venv_spacewalks) $ mkdocs build
@@ -756,26 +720,27 @@ Remember to rebuild your documentation:
 
 ::::::
 
-The Diataxis framework provides guidance for developing technical documentation
-for different purposes. Tutorials differ in purpose and scope to how-to guides, and as a result,
-differ in content and style.
+The Diataxis framework provides guidance for developing technical documentation for different purposes. 
+Tutorials differ in purpose and scope to how-to guides, and as a result, differ in content and style.
 
-::::: discussion
-### Spacewalks tutorial
+::::: challenge
+
+### Spacewalks tutorial (10 min)
+
 Let's adapt the how-to guide from the previous challenge into a tutorial that explains 
 how to change the file path for the output dataset when running the analysis script.
 
-::: spoiler 
-### Solution
+::: solution 
 
 Here is what an example tutorial may look like. 
 
-#### Introduction
+```
+## Introduction
 
 In this tutorial, we will learn how to change the file path for the output dataset generated by the Spacewalk software.
 By the end of this tutorial, you will be able to specify a custom file path for the cleaned dataset.
 
-#### Prerequisites
+## Prerequisites
 
 Before you start, ensure you have the following:
 
@@ -783,7 +748,7 @@ Before you start, ensure you have the following:
 - The Spacewalk script (`eva_data_analysis.py`)
 - An input dataset (`eva-data.json`)
 
-####  Prepare the destination directory
+## Prepare the destination directory
 
 First, let us decide where we want to save the cleaned dataset and make sure the directory exists.
 
@@ -791,10 +756,9 @@ For this tutorial, we will use `data/clean/` as the destination folder.
 
 Let's create the directory if it does not exist - e.g. from the command line do:
 
-```bash
-(venv_spacewalks) $ mkdir -p data/clean
-```
+mkdir -p data/clean
 
+```
 #### Run the analysis script with a custom path
 
 Next, execute the Spacewalk script and specify the custom file path for the output dataset:
@@ -859,27 +823,26 @@ and filename according to your needs.
 
 Now that we have seen examples of both a how-to guide and a tutorial, let's compare the two.
 
-::::::::::::::::::::::::::::::::::::: discussion
+::::::::::::::::::::::::::::::::::::: challenge
 
-### Tutorial vs. how-to guide
+### Tutorial vs. how-to guide - discussion (5 min)
 
 How does the content and language of our example tutorial differ from our example how-to guide?
 
-:::::::::::::::::::::::: spoiler
+:::::::::::::::::::::::: solution
 
-### Discussion hints
 
-#### Content
+In terms of content:
 
 - The tutorial clearly signposts what will be covered
 - The tutorial includes a narrative of each step and the expected output
 - The tutorial highlights important behaviour the learner should notice
 - The tutorial includes an exercise to practice skills
 
-#### Language
+In terms of language:
 
 - The tutorial uses the "we" language
-- The tutorial uses imperative to provide clear instructions, e.g. "First do x, then do y"
+- The tutorial uses imperative to provide clear instructions, e.g. "First do x, then do y."
 
 :::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::
