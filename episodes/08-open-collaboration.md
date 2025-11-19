@@ -95,7 +95,7 @@ It will also not create real DOIs for a number of test repositories we use for t
 
 ::::::::::: instructor
 
-#### Optional challenge: archive our GitHub repository to Zenodo
+#### Optional challenge: archive our GitHub repository to Zenodo (5 min)
 
 You can choose to do the following as an exercise or by live coding based on what you think the learners would prefer.
 You can copy the detailed instructions below to give them it as an exercise.
@@ -158,7 +158,7 @@ There are a few fields we can add now which are related to the DOI; one of these
 
 ::::::::::: instructor
 
-#### Optional challenge: add a DOI and ORCID to the citation file
+#### Optional challenge: add a DOI and ORCID to the citation file (5 min)
 
 You can choose to do the following as an exercise or by live coding based on what you think the learners would prefer.
 You can copy the the detailed instructions below to give them it as an exercise.
@@ -478,7 +478,7 @@ Using this we can request that the changes on our fork are incorporated by the u
 
 :::  challenge
 
-### Practice with Issues and PRs (Pull Requests)
+### Practice with Issues and PRs (20 min)
 
 We have a bug in our code!  If we look at the results in `results/duration_by_astronaut.csv`, the crew column has groups of crew and we wanted to calculate this per astronaut. 
 
@@ -495,10 +495,10 @@ We might also reference the previous issue in the description, to provide even m
 
 2. Create a pull request fix the code. You can try to create the code yourself or copy the test code below.
     - Hint: Do not forget to make a new branch from the `main` branch, not your `02-sum-by-astro-feat` branch.
-3. (optional) Have a partner review your pull request.
+3. (Optionally) Have a partner review your pull request.
 3. Merge your pull request
 4. Switch your local computer back to the `main` branch and pull the latest changes from the remote/origin `main` branch.
-5. (Bonus/Optional) Delete your merged branches from your local computer and in GitHub.
+5. (Bonus/optional) Delete your merged branches from your local computer and in GitHub.
 
 :::::: spoiler
 

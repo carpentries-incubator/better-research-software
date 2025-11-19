@@ -94,7 +94,7 @@ import pandas as pd
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    Clean the data by removing any incomplete rows and sort by date
+    Clean the data by removing any rows where the 'duration' value is missing.
 
     Args:
         input_file (file or str): The file object or path to the JSON file.
@@ -106,7 +106,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any incomplete rows
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, inplace=True)
     return eva_df
 
@@ -306,7 +306,7 @@ def main(input_file, output_file, graph_file):
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    Clean the data by removing any incomplete rows and sort by date
+    Clean the data by removing any rows where the 'duration' value is missing.
 
     Args:
         input_file (file or str): The file object or path to the JSON file.
@@ -318,7 +318,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any incomplete rows
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, inplace=True)
     return eva_df
 
@@ -455,7 +455,7 @@ def main(input_file, output_file, graph_file):
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    Clean the data by removing any incomplete rows and sort by date
+    Clean the data by removing any rows where the 'duration' value is missing.
 
     Args:
         input_file (file or str): The file object or path to the JSON file.
@@ -467,7 +467,7 @@ def read_json_to_dataframe(input_file):
     # Read the data from a JSON file into a Pandas dataframe
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any incomplete rows
+    # Clean the data by removing any rows where duration is missing
     eva_df.dropna(axis=0, inplace=True)
     return eva_df
 
@@ -675,7 +675,7 @@ def main(input_file, output_file, graph_file):
 def read_json_to_dataframe(input_file):
     """
     Read the data from a JSON file into a Pandas dataframe.
-    Clean the data by removing any incomplete rows and sort by date
+    Clean the data by removing any rows where the 'duration' value is missing.
 
     Args:
         input_file (str): The path to the JSON file.
