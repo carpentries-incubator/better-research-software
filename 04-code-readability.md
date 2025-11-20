@@ -442,6 +442,16 @@ Commit changes:
 :::
 ::::::
 
+:::::::::::::::::::::::::::::::: callout
+
+A [linter](https://glosario.carpentries.org/en/#linter) can be very helpful with tasks like this.
+The linter will identify unused variables and unused imports among other useful tasks for formatting and making your code readable.
+
+Some common linters in Python include PyLint, Black, Ruff and Flake8.
+
+::::::::::::::::::::::::::::::::::::::::
+
+
 ## Use third-party libraries
 
 Our script currently reads the data line-by-line from the JSON data file and uses custom code to manipulate the data.
