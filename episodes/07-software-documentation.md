@@ -113,11 +113,11 @@ Let’s look at each of these files in turn.
 ### README file
 A README file acts as a “landing page” for your code repository on GitHub and should provide sufficient information for users to and developers to get started using your code.
 
-::::::::::::::::::::::::::::::::::::: challenge (10 min)
+::: challenge
 
-### README and the FAIR principles
+### README and the FAIR principles  (10 min)
 
-The following lists some of the major sections you may find in a typical README file. 
+The following lists some of the major sections you may find in a typical README file.
 Which are **essential** to support the [FAIR software][fair-principles-research-software] (Findable, Accessible, Interoperable, Reusable) principles and which are good to have but **optional**?
 
 - Description and purpose of the code
@@ -134,9 +134,8 @@ Which are **essential** to support the [FAIR software][fair-principles-research-
 
 :::::::::::::::::::::::: solution
 
-To support the FAIR principles (Findability, Accessibility, Interoperability, and Reusability), 
-certain sections in a README file are more important than others. 
-Below is a breakdown of the sections that are *essential* or *optional* in a README to align with these principles. 
+To support the FAIR principles (Findability, Accessibility, Interoperability, and Reusability), certain sections in a README file are more important than others.
+Below is a breakdown of the sections that are *essential* or *optional* in a README to align with these principles.
 
 #### Essential
 
@@ -155,8 +154,10 @@ Below is a breakdown of the sections that are *essential* or *optional* in a REA
 - **FAQs** - provide answers to common questions, aiding in troubleshooting and improving accessibility.
 - **Code of Conduct** - sets expectations for behaviour in the community, fostering a welcoming environment and enhancing accessibility.
 
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::
+
+:::
+
 
 Let's create a simple README for our repository - from VS Code or command line terminal create file `README.md` (in 
 Markdown format) or `README.txt` (in plain text format).
@@ -167,7 +168,7 @@ We can start by adding a one-liner that explains the purpose of our code and who
 You may want to share the following README excerpts directly in chat or the shared notes document with learners to copy-paste.
 ::::::::::::::::::::::
 
-``` code
+```text
 # Spacewalks
 
 ## Overview
@@ -177,7 +178,7 @@ and statistical summaries of NASA's extravehicular activity datasets.
 
 Now let's add a list of Spacewalks' key features:
 
-``` code
+```text
 ## Features
 Key features of Spacewalks:
 
@@ -187,7 +188,7 @@ Key features of Spacewalks:
 
 Now let's tell users about any pre-requisites required to run the software:
 
-``` code
+```text
 ## Pre-requisites
 
 Spacewalks was developed using Python version 3.12
