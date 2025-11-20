@@ -356,7 +356,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Open software management &amp; collaboration</h1>
-        <p>Last updated on 2025-11-19 |
+        <p>Last updated on 2025-11-20 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/08-open-collaboration.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -377,7 +377,9 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>How do I ensure my code is citable?</li>
+<ul><li>How do can we create unique identifiers for our code so others can
+cite it?</li>
+<li>How do we archive our code for future preservation?</li>
 <li>How do we track issues with code in GitHub?</li>
 <li>How can we ensure that multiple developers can work on the same
 files simultaneously?</li>
@@ -389,13 +391,14 @@ files simultaneously?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <p>After completing this episode, participants should be able to:</p>
-<ul><li>Archive code to Zenodo and create a digital object identifier (DOI)
-for a software project (and include that info in CITATION.cff).</li>
-<li>Track issues with code in GitHub.</li>
-<li>Use Git branches to work on code in parallel and merge code back
-using pull requests.</li>
-<li>Apply issue tracking, branching and pull requests together to fix
-bugs while allowing other developers to work on the same code.</li>
+<ul><li>Create a digital object identifier (DOI) for a software project and
+archive it on Zenodo.</li>
+<li>Track the work needed to be done on code (such as bugs and new
+features) using issues in GitHub.</li>
+<li>Use Git branches to work on code in parallel with other team
+members.</li>
+<li>Merge code changes from separate development branches into the main
+branch using pull requests.</li>
 </ul></div>
 </div>
 </div>
@@ -454,10 +457,11 @@ environment from the root of the software project directory:</p>
 <hr class="half-width"><div class="section level3">
 <h3 id="making-the-code-public">Making the code public<a class="anchor" aria-label="anchor" href="#making-the-code-public"></a></h3>
 <p>By default repositories created on GitHub are private and only their
-creator can see them. Since we added an open source license to our
-repository we probably want to make sure people can actually access
-it.</p>
-<p>To make your repository public, if it is not public already:</p>
+creator can see them. This prevents sensitive information from being
+unintentionally made public. In our case - we added an open source
+license to our repository and want to make sure people can actually
+access and use it.</p>
+<p>To make your repository public (if it is not public already):</p>
 <ol style="list-style-type: decimal"><li>Go to your repository on GitHub and click on the
 <code>Settings</code> link near the top right corner.</li>
 <li>Scroll down to the bottom of the page and the “Danger Zone”
@@ -472,28 +476,47 @@ your GitHub password.</li>
 </ol></div>
 <div class="section level3">
 <h3 id="transferring-to-an-organisation">Transferring to an organisation<a class="anchor" aria-label="anchor" href="#transferring-to-an-organisation"></a></h3>
-<p>Currently our repository is under the GitHub “namespace” of our
-individual user. This is OK for individual projects where we are the
-sole or at least the main code author, but for bigger and more complex
-projects it is common to use a GitHub organisation named after our
-project. If we are a member of an organisation and have the appropriate
+<p>At the moment, our repository sits under an individual GitHub user
+account. This is fine for smaller projects where one person is the main
+contributor. However, larger or more complex projects are typically
+hosted under a dedicated GitHub organisation. A GitHub organisation can
+group multiple repositories, manage contributor access through GitHub
+teams, and keep all project-related work in one place. You can create a
+GitHub organisation to centrally manage all repositories for a single
+organisation or a multi-institution project.”</p>
+<p>If we are a member of a GitHub organisation and have the appropriate
 permissions then we can transfer a repository from our personal
 namespace to the organisation’s. This can be done with another option in
-the “Danger Zone” settings, the “Transfer ownership” button. Pressing
+the “Danger Zone” settings - the “Transfer ownership” button. Pressing
 this will then prompt us as to which organisation we want to transfer
-the repository to.</p>
+the repository to (if we have access to multiple GitHub
+organisations).</p>
 </div>
 <div class="section level3">
-<h3 id="archiving-code-to-zenodo-and-obtaining-a-doi">Archiving code to Zenodo and obtaining a DOI<a class="anchor" aria-label="anchor" href="#archiving-code-to-zenodo-and-obtaining-a-doi"></a></h3>
-<p><a href="https://zenodo.org/" class="external-link">Zenodo</a> is a data archive run by
-CERN. Anybody can upload datasets up to 50GB to it and receive a Digital
-Object Identifier (DOI). Zenodo’s definition of a dataset is quite broad
-and can include code - which gives us a way to obtain a DOI for our
+<h3 id="getting-an-identifier-and-archiving-code">Getting an identifier and archiving code<a class="anchor" aria-label="anchor" href="#getting-an-identifier-and-archiving-code"></a></h3>
+<p>Putting code on GitHub or GitLab (or any similar code hosting
+service) is good practice for code sharing, versioning and even code
+packaging, it is not enough for long-term software archiving. This is
+because these are commercial services - if they change their policies,
+remove repositories (e.g. for inactivity, or security reasons), or even
+shut down (which has happened to code sharing platforms in the past),
+your code could disappear. Archival means long-term preservation
+independent of any one platform.</p>
+<p>Several archival solutions for research software are emerging. <a href="https://zenodo.org/" class="external-link">Zenodo</a> is a data archive run by CERN
+which allows anyone to upload data up to 50GB for free and receive a
+Digital Object Identifier (DOI). Zenodo’s definition of “data” is quite
+broad and can include code - so it also supports DOI-backed software
+archiving linked to publications, ensuring persistent citation and
+access.</p>
+<p>DOIs provide globally unique, citable references for a data or a
+software artefact (both software as a whole and its different releases)
+that integrates with various academic and research systems. Archival of
+and unique identifiers for software are important as they aid
+reproducibility, proper citation, and long-term accessibility of
 software.</p>
-<p>Let us now look into how we can archive a GitHub repository to
-Zenodo. Note that, instead of using the real Zenodo website, we will
-practice using <a href="https://sandbox.zenodo.org/" class="external-link">Zenodo
-Sandbox</a>.</p>
+<p>Let us now look into how we can archive a GitHub repository to Zenodo
+and get a DOI for our software project at the same time. Note that,
+instead of using the real Zenodo website, we will practice using <a href="https://sandbox.zenodo.org/" class="external-link">Zenodo Sandbox</a>.</p>
 <div id="zenodo-sandbox" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -569,11 +592,11 @@ our software on Zenodo. Zenodo will allow people to download the entire
 repository (more accurately, its state at the time it was tagged for
 release) as a single <code>zip</code> file.</p>
 <p>Zenodo will have actually created two DOIs for you. One represents
-the latest version of the software and will always link to the latest
-(most recent) release if you make more releases. The other is specific
-to the release you made and will always point to that version. We can
-see both of these by clicking on the DOI link in the Zenodo page for the
-repository.</p>
+the identifier for your software as a whole and will always link to the
+latest (most recent) release if you make more releases. The other is
+specific to the release you made and will always point to that version.
+We can see both of these by clicking on the DOI link in the Zenodo page
+for the repository.</p>
 <p>One of the things which is displayed on this page is a badge image
 that you can copy the link for and add to the README file in your GitHub
 repository so that people can find the Zenodo version of the repository.
@@ -606,26 +629,29 @@ using another browser such as Chrome.</p>
 </div>
 </div>
 <div class="section level3">
-<h3 id="adding-a-doi-and-orcid-to-the-citation-file">Adding a DOI and ORCID to the citation file<a class="anchor" aria-label="anchor" href="#adding-a-doi-and-orcid-to-the-citation-file"></a></h3>
+<h3 id="adding-a-doi-to-the-citation-file">Adding a DOI to the citation file<a class="anchor" aria-label="anchor" href="#adding-a-doi-to-the-citation-file"></a></h3>
 <p>Now that we have our DOI it is good practice to include this
-information in our citation file. Earlier we created a
+information in our software’s citation file. Earlier we created a
 <code>CITATION.cff</code> file with information about how to cite our
-code. There are a few fields we can add now which are related to the
-DOI; one of these is the <code>version</code> file which covers the
-version number of the software.</p>
+software. A DOI can be added to the <code>CITATION.cff</code> file using
+the dedicated <code>doi</code> key or by including it as an entry in the
+<code>identifiers:</code> array. Both methods are valid according to the
+CFF specification. We can also add the <code>version</code> field to
+<code>CITATION.cff</code>, which corresponds to the version number of
+the software related to the DOI we are adding.</p>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
   <h3 class="accordion-header" id="headingInstructor2">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Optional challenge: add a DOI and ORCID to the citation file (5 min)
+  Optional challenge: add a DOI and software version to the citation file (5 min)
   </h3>
 </button>
 <div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>You can choose to do the following as an exercise or by live coding
 based on what you think the learners would prefer. You can copy the the
-detailed instructions below to give them it as an exercise.</p>
+detailed instructions below to give it as an exercise.</p>
 </div>
 </div>
 </div>
@@ -719,12 +745,12 @@ left of the GitHub page for the repository. Click on this and then click
 on the green “New Issue” button on the right hand side of the screen. We
 can then enter a title and description of our issue.</p>
 <p>A feature request should include a short title, the key features of
-the new feature, and a more detailed description of the feature. -
-Title: Add summary table of EVA time by astronaut - Description: A
-summary table split by astronaut would be helpful for individual level
-analysis.</p>
-<!--- SCREENSHOT NEEDED: of example feature request -->
-<p>After the issue is created it will be assigned a sequential ID
+the new feature, and a more detailed description of the feature,
+e.g.:</p>
+<ul><li>Title: Add summary table of EVA time by astronaut</li>
+<li>Description: A summary table split by astronaut would be helpful for
+individual level analysis.</li>
+</ul><!--- SCREENSHOT NEEDED: of example feature request --><p>After the issue is created it will be assigned a sequential ID
 number.</p>
 </div>
 <div class="section level3">
@@ -798,7 +824,8 @@ the branch name. For example:</p>
 <code>git switch</code> with the <code>-c</code> option (or
 <code>git checkout</code> with the <code>-b</code> option). Note that
 <code>git switch</code> command is only available in more recent
-versions of Git.</p>
+versions of Git. For example (learners do not have to execute this
+command):</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1275,7 +1302,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/08-open-collaboration.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/08-open-collaboration.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-19",
+  "dateModified": "2025-11-20",
   "datePublished": "2025-11-20"
 }
 
