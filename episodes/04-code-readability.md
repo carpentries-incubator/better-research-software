@@ -447,7 +447,7 @@ Commit changes:
 A [linter](https://glosario.carpentries.org/en/#linter) can be very helpful with tasks like this.
 The linter will identify unused variables and unused imports among other useful tasks for formatting and making your code readable.
 
-Some common linters in python include PyLint, Black, Ruff.
+Some common linters in Python include PyLint, Black, Ruff and Flake8.
 
 ::::::::::::::::::::::::::::::::::::::::
 
