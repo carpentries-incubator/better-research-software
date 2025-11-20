@@ -7,16 +7,17 @@ exercises: 30
 ::::::::::::::::::::::::::::::::::::: objectives
 After completing this episode, participants should be able to:
 
-- Archive code to Zenodo and create a digital object identifier (DOI) for a software project (and include that info in CITATION.cff).
-- Track issues with code in GitHub.
-- Use Git branches to work on code in parallel and merge code back using pull requests.
-- Apply issue tracking, branching and pull requests together to fix bugs while allowing other developers to work on the same code.
+- Create a digital object identifier (DOI) for a software project and archive it on Zenodo.
+- Track the work needed to be done on code (such as bugs and new features) using issues in GitHub.
+- Use Git branches to work on code in parallel with other team members.
+- Merge code changes from separate development branches into the main branch using pull requests.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do I ensure my code is citable?
+- How do can we create unique identifiers for our code so others can cite it?
+- How do we archive our code for future preservation?
 - How do we track issues with code in GitHub?
 - How can we ensure that multiple developers can work on the same files simultaneously?
 
@@ -55,10 +56,11 @@ $ source venv_spacewalks/Scripts/activate # Windows
 
 ### Making the code public
 
-By default repositories created on GitHub are private and only their creator can see them. 
-Since we added an open source license to our repository we probably want to make sure people can actually access it. 
+By default repositories created on GitHub are private and only their creator can see them.
+This prevents sensitive information from being unintentionally made public.
+In our case - we added an open source license to our repository and want to make sure people can actually access and use it. 
 
-To make your repository public, if it is not public already:
+To make your repository public (if it is not public already):
 
 1. Go to your repository on GitHub and click on the `Settings` link near the top right corner. 
 2. Scroll down to the bottom of the page and the "Danger Zone" settings. 
@@ -69,19 +71,30 @@ As a security measure, you will then have to put in your GitHub password.
 
 ### Transferring to an organisation
 
-Currently our repository is under the GitHub "namespace" of our individual user. 
-This is OK for individual projects where we are the sole or at least the main code author, but for bigger and more complex projects it is common to use a GitHub organisation named after our project. 
-If we are a member of an organisation and have the appropriate permissions then we can transfer a repository from our personal namespace to the organisation's. 
-This can be done with another option in the "Danger Zone" settings, the "Transfer ownership" button. 
-Pressing this will then prompt us as to which organisation we want to transfer the repository to. 
+At the moment, our repository sits under an individual GitHub user account. 
+This is fine for smaller projects where one person is the main contributor. 
+However, larger or more complex projects are typically hosted under a dedicated GitHub organisation. 
+A GitHub organisation can group multiple repositories, manage contributor access through GitHub teams, and keep all project-related work in one place.
+You can create a GitHub organisation to centrally manage all repositories for a single organisation or a multi-institution project."
 
-### Archiving code to Zenodo and obtaining a DOI
+If we are a member of a GitHub organisation and have the appropriate permissions then we can transfer a repository from our personal namespace to the organisation's. 
+This can be done with another option in the "Danger Zone" settings - the "Transfer ownership" button. 
+Pressing this will then prompt us as to which organisation we want to transfer the repository to (if we have access to multiple GitHub organisations). 
 
-[Zenodo][zenodo] is a data archive run by CERN. 
-Anybody can upload datasets up to 50GB to it and receive a Digital Object Identifier (DOI). 
-Zenodo's definition of a dataset is quite broad and can include code - which gives us a way to obtain a DOI for our software. 
+### Getting an identifier and archiving code
 
-Let us now look into how we can archive a GitHub repository to Zenodo. 
+Putting code on GitHub or GitLab (or any similar code hosting service) is good practice for code sharing, versioning and even code packaging, it is not enough for long-term software archiving. 
+This is because these are commercial services - if they change their policies, remove repositories (e.g. for inactivity, or security reasons), or even shut down (which has happened to code sharing platforms in the past), your code could disappear.
+Archival means long-term preservation independent of any one platform.
+
+Several archival solutions for research software are emerging.
+[Zenodo][zenodo] is a data archive run by CERN which allows anyone to upload data up to 50GB for free and receive a Digital Object Identifier (DOI).
+Zenodo's definition of "data" is quite broad and can include code - so it also supports DOI-backed software archiving linked to publications, ensuring persistent citation and access.
+
+DOIs provide globally unique, citable references for a data or a software artefact (both software as a whole and its different releases) that integrates with various academic and research systems. 
+Archival of and unique identifiers for software are important as they aid reproducibility, proper citation, and long-term accessibility of software.
+
+Let us now look into how we can archive a GitHub repository to Zenodo and get a DOI for our software project at the same time. 
 Note that, instead of using the real Zenodo website, we will practice using [Zenodo Sandbox](https://sandbox.zenodo.org/).
 
 ::: callout
@@ -125,7 +138,7 @@ This means that even if we delete it from GitHub or even if GitHub were ever to 
 Zenodo will allow people to download the entire repository (more accurately, its state at the time it was tagged for release) as a single `zip` file. 
 
 Zenodo will have actually created two DOIs for you. 
-One represents the latest version of the software and will always link to the latest (most recent) release if you make more releases. 
+One represents the identifier for your software as a whole and will always link to the latest (most recent) release if you make more releases. 
 The other is specific to the release you made and will always point to that version. 
 We can see both of these by clicking on the DOI link in the Zenodo page for the repository.
 
@@ -150,18 +163,20 @@ If this happens try disabling the extra privacy features/extensions or using ano
 
 :::
 
-### Adding a DOI and ORCID to the citation file
+### Adding a DOI to the citation file
 
-Now that we have our DOI it is good practice to include this information in our citation file.
-Earlier we created a `CITATION.cff` file with information about how to cite our code.
-There are a few fields we can add now which are related to the DOI; one of these is the `version` file which covers the version number of the software.
+Now that we have our DOI it is good practice to include this information in our software's citation file.
+Earlier we created a `CITATION.cff` file with information about how to cite our software.
+A DOI can be added to the `CITATION.cff` file using the dedicated `doi` key or by including it as an entry in the `identifiers:` array. 
+Both methods are valid according to the CFF specification.
+We can also add the `version` field to `CITATION.cff`, which corresponds to the version number of the software related to the DOI we are adding.
 
 ::::::::::: instructor
 
-#### Optional challenge: add a DOI and ORCID to the citation file (5 min)
+#### Optional challenge: add a DOI and software version to the citation file (5 min)
 
 You can choose to do the following as an exercise or by live coding based on what you think the learners would prefer.
-You can copy the the detailed instructions below to give them it as an exercise.
+You can copy the the detailed instructions below to give it as an exercise.
 
 ::::::::::::::::::::::
 
@@ -231,7 +246,8 @@ We can find the issue tracker on the "Issues" tab in the top left of the GitHub 
 Click on this and then click on the green "New Issue" button on the right hand side of the screen. 
 We can then enter a title and description of our issue.
 
-A feature request should include a short title, the key features of the new feature, and a more detailed description of the feature.
+A feature request should include a short title, the key features of the new feature, and a more detailed description of the feature, e.g.:
+
   - Title: Add summary table of EVA time by astronaut
   - Description: A summary table split by astronaut would be helpful for individual level analysis.
 
@@ -295,6 +311,7 @@ use the `git switch` or `git checkout` command followed by the branch name. For 
 To create a branch and change to it in a single command we can use `git switch` with the `-c` option 
 (or `git checkout` with the `-b` option). 
 Note that `git switch` command is only available in more recent versions of Git.
+For example (learners do not have to execute this command):
 
 ```bash
 (venv_spacewalks) $ git switch -c 03-summarize-categorical-bug
