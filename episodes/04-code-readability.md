@@ -466,7 +466,7 @@ First, we need to install this dependency into our virtual environment.
 (venv_spacewalks) $ python3 -m pip install pandas
 ```
 
-Then we will edit the code to use `pandas`. 
+Then we will edit the code to use `pandas`.
 For the sake of time in the workshop, we will give you the updated code.
 The code should now look like:
 
@@ -498,25 +498,21 @@ plt.show()
 
 ```
 
-Once we have replaced the  code in our Python script `eva_data_analysis.py` with the above code, we need to commit the
-changes. Remember to use an informative commit message.
-
-```bash
-(venv_spacewalks) $ git add eva_data_analysis.py
-(venv_spacewalks) $ git commit -m "Refactor code to use standard libraries"
-(venv_spacewalks) $ git push origin main
-```
-
-Make sure to capture the changes to your virtual development environment too.
+Once we have replaced the  code in our Python script `eva_data_analysis.py` with the above code, we need to make sure that we capture the changes in our virtual development environment too.
 
 ```bash
 (venv_spacewalks) $ python3 -m pip freeze > requirements.txt
-(venv_spacewalks) $ git add requirements.txt
-(venv_spacewalks) $ git commit -m "Added Pandas library."
+```
+
+Now, we need to commit the changes we have made. We can add multiple files to the same commit by listing all of them. Remember to use an informative commit message.
+
+```bash
+(venv_spacewalks) $ git add eva_data_analysis.py requirements.txt
+(venv_spacewalks) $ git commit -m "Refactor code and add Pandas to venv"
 (venv_spacewalks) $ git push origin main
 ```
 
-Note, we could have committed the code and the environment changes together since they are related and form one logical unit of change.
+We have committed the code and the environment changes together since they are related and form one logical unit of change.
 
 ## Use comments to explain functionality
 
