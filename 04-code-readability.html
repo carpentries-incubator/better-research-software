@@ -963,27 +963,26 @@ should now look like:</p>
 <span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <p>Once we have replaced the code in our Python script
-<code>eva_data_analysis.py</code> with the above code, we need to commit
-the changes. Remember to use an informative commit message.</p>
+<code>eva_data_analysis.py</code> with the above code, we need to make
+sure that we capture the changes in our virtual development environment
+too.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Refactor code to use standard libraries"</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span></code></pre>
 </div>
-<p>Make sure to capture the changes to your virtual development
-environment too.</p>
+<p>Now, we need to commit the changes we have made. We can add multiple
+files to the same commit by listing all of them. Remember to use an
+informative commit message.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add requirements.txt</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Added Pandas library."</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py requirements.txt</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Refactor code and add Pandas to venv"</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
 </div>
-<p>Note, we could have committed the code and the environment changes
-together since they are related and form one logical unit of change.</p>
+<p>We have committed the code and the environment changes together since
+they are related and form one logical unit of change.</p>
 </section><section><h2 class="section-heading" id="use-comments-to-explain-functionality">Use comments to explain functionality<a class="anchor" aria-label="anchor" href="#use-comments-to-explain-functionality"></a></h2>
 <hr class="half-width"><p>Commenting is a very useful practice to help convey the context of
 the code. It can be helpful as a reminder for your future self or your
