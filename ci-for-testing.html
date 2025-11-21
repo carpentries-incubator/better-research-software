@@ -406,7 +406,7 @@ environment from the root of the software project directory:</p>
 </div>
 </div>
 <p>So far in this course, we have run our tests locally from our
-software’s root directory using:</p>
+software’s root directory using, e.g.:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -420,90 +420,315 @@ repository. This means that each time we (or our colleagues) make a
 change, this will trigger the execution of the test suite to verify that
 our tests still pass.</p>
 <p>GitHub provides the Continuous Integration service called GitHub
-Actions for this purpose. Before we setup GitHub Actions up, let’s make
-sure we have committed all our latest code with tests, including our
-dependencies in <code>requirements.txt</code> which should now contain
-<code>pytest</code> and <code>pytest-cov</code>.</p>
+Actions for this purpose.</p>
+<div class="section level3">
+<h3 id="how-to-describe-a-workflow">How to Describe a Workflow?<a class="anchor" aria-label="anchor" href="#how-to-describe-a-workflow"></a></h3>
+<p>Now before we move on to defining our workflow in GitHub Actions,
+we’ll take a very brief look at a language used to describe its
+workflows, called YAML.</p>
+<p>Originally, the acronym stood for <em>Yet Another Markup
+Language</em>, but since it’s not actually used for document markup,
+it’s acronym meaning was changed to <em>YAML Aint Markup
+Language</em>.</p>
+<p>Essentially, YAML is based around key value pairs, for example:</p>
 <div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 <span class="at">-m</span> pip freeze <span class="op">&gt;</span> requirements.txt</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add requirements.txt</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py tests/ </span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Adding test suite"</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Kilimanjaro</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">height_metres</span><span class="kw">:</span><span class="at"> </span><span class="dv">5892</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">first_scaled_by</span><span class="kw">:</span><span class="at"> Hans Meyer</span></span></code></pre>
 </div>
-<p>Setting GitHub Actions on your code repository requires define the CI
-integration workflow <code>main.yml</code> in a new<br>
-folder called <code>.github/workflows</code> off your project root
-(locally on your machine):</p>
+<p>Now we can also define more complex data structures too. Using YAML
+arrays, for example, we could define more than one entry for
+<code>first_scaled_by</code>, by replacing it with:</p>
 <div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> mkdir <span class="at">-p</span> .github/workflows</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> touch .github/workflows/main.yml</span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">first_scaled_by</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Hans Meyer</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> Ludwig Purtscheller</span></span></code></pre>
 </div>
-<p>Next, populate the CI workflow file <code>main.yml</code> with GitHub
-Actions commands.</p>
+<p>Note that similarly to languages like Python, YAML uses spaces for
+indentation (2 spaces is recommended). Also, in YAML, arrays are
+sequences, where the order is preserved.</p>
+<p>There’s also a short form for arrays:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> CI</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># We can specify which Github events will trigger a CI build</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> push</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co"># now define a single job 'build' (but could define more)</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="at">  </span><span class="fu">build</span><span class="kw">:</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">    # we can also specify the OS to run tests on</span></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">    # a job is a sequence of steps</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">      # Next we need to checkout our repository, and set up Python</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">      # A 'name' is just an optional label shown in the log - helpful to clarify progress - and can be anything</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python 3.12</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v4</span></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="at">          </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.12"</span></span>
-<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python dependencies</span></span>
-<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a>          python3 -m pip install --upgrade pip</span>
-<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a>          python3 -m pip install -r requirements.txt</span>
-<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Test with PyTest</span></span>
-<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a>          python3 -m pytest --cov</span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">first_scaled_by</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Hans Meyer</span><span class="kw">,</span><span class="at"> Ludwig Purtscheller</span><span class="kw">]</span></span></code></pre>
 </div>
-<p>This workflow definition file instructs GitHub Actions to run our
-unit tests using Python version 3.12 each time code is pushed to our
-repository.</p>
-<p>Finally, push these changes to your code repository to initiate
-running of tests on GitHub.</p>
+<p>We can also define nested, hierarchical structures too, using YAML
+<em>maps</em>. For example:</p>
 <div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Kilimanjaro</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">height</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="at">  </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="dv">5892</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="at">  </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> metres</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="at">  </span><span class="fu">measured</span><span class="kw">:</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="at">    </span><span class="fu">year</span><span class="kw">:</span><span class="at"> </span><span class="dv">2008</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="at">    </span><span class="fu">by</span><span class="kw">:</span><span class="at"> Kilimanjaro 2008 Precise Height Measurement Expedition</span></span></code></pre>
+</div>
+<p>We are also able to combine maps and arrays, for example:</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">first_scaled_by</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Hans Meyer</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="at">    </span><span class="fu">date_of_birth</span><span class="kw">:</span><span class="at"> 22-03-1858</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="at">    </span><span class="fu">nationality</span><span class="kw">:</span><span class="at"> German</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Ludwig Purtscheller</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="at">    </span><span class="fu">date_of_birth</span><span class="kw">:</span><span class="at"> 22-03-1858</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="at">    </span><span class="fu">nationality</span><span class="kw">:</span><span class="at"> Austrian</span></span></code></pre>
+</div>
+<p>So that’s a very brief tour of YAML, which demonstrates what we need
+to know to write GitHub Actions workflows.</p>
+</div>
+<div class="section level3">
+<h3 id="defining-our-workflow">Defining our Workflow<a class="anchor" aria-label="anchor" href="#defining-our-workflow"></a></h3>
+<p>Setting up GitHub Actions on our code repository requires us to
+define the CI integration workflow file <code>main.yml</code> in a
+new<br>
+folder called <code>.github/workflows</code> off your project root
+(locally on your machine):</p>
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add .github/workflows/main.yml</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add GitHub actions workflow"</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> mkdir <span class="at">-p</span> .github/workflows</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> touch .github/workflows/main.yml</span></code></pre>
 </div>
-<p>To check if the workflow has run, navigate to the following page in
-your browser:</p>
-<pre><code>    https://github.com/YOUR-REPOSITORY/actions</code></pre>
+<p>Now let’s populate the <code>main.yml</code> file with our GitHub
+Actions workflow.</p>
+</div>
+<div class="section level3">
+<h3 id="specify-workflow-name-and-when-it-runs">Specify Workflow Name and When it Runs<a class="anchor" aria-label="anchor" href="#specify-workflow-name-and-when-it-runs"></a></h3>
+<p>So first let’s specify a name for our workflow that will appear under
+GitHub Actions build reports, and add the conditions that will trigger
+the workflow to run:</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> CI</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> push</span></span></code></pre>
+</div>
+<p>So here our workflow will run when changes are pushed to the
+repository. There are <a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows" class="external-link">other
+events</a> we might specify instead (or as well) if we wanted, but this
+one is the most common.</p>
+</div>
+<div class="section level3">
+<h3 id="specify-structure-to-contain-steps-to-run-on-which-platform">Specify Structure to Contain Steps to Run on which Platform<a class="anchor" aria-label="anchor" href="#specify-structure-to-contain-steps-to-run-on-which-platform"></a></h3>
+<p>GitHub Actions are described as a sequence of jobs (such as building
+our code, or running some tests), and each job contains a sequence of
+steps which each represent a specific “action” (such as running a
+command, or obtaining code from a repository).</p>
+<p>Let’s define the start of a workflow job we’ll name
+<code>build-and-test</code> (which we could name anything we like):</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="at">  </span><span class="fu">build-and-test</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span></code></pre>
+</div>
+<p>We only have one job in this workflow, but we may have many. We also
+specify the operating systems on which we want this job to run. In this
+case, only the latest version of Linux Ubuntu, but we could supply
+others too (such as Windows, or Mac OS) which we’ll see later.</p>
+<p>When the workflow is triggered, our job will run within a
+<code>runner</code>, which you can think of as a freshly installed
+instance of a machine running the operating system we indicate (in this
+case Ubuntu).</p>
+</div>
+<section><h2 class="section-heading" id="specify-the-steps-to-run">Specify the Steps to Run<a class="anchor" aria-label="anchor" href="#specify-the-steps-to-run"></a></h2>
+<hr class="half-width"><p>Let’s now supply the concrete things we want to do in our workflow.
+We can think of this as the things we need to set up and run on a fresh
+machine. So within our workflow, we’ll need to:</p>
+<ul><li>Check out our code repository</li>
+<li>Install Python</li>
+<li>Install our Python dependencies (which is just <code>pytest</code>
+in this case)</li>
+<li>Run <code>pytest</code> over our set of tests</li>
+</ul><p>We can define these as follows:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python 3.12</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="st">"3.12"</span></span></code></pre>
+</div>
+<p>We first use GitHub Actions (indicated by
+<code>uses: actions/</code>), which are small tools we use to perform
+something specific. In this case, we use:</p>
+<ul><li>
+<code>checkout</code> - to checkout the repository into our
+runner</li>
+<li>
+<code>setup-python</code> - to set up a specific version of
+Python</li>
+</ul><p>Note that the <code>name</code> entries are descriptive text and can
+be anything, but it’s good to make them meaningful since they are what
+will appear in our build reports as we’ll see later.</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python dependencies</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>        python3 -m pip install --upgrade pip</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>        python3 -m pip install -r requirements.txt</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Test with pytest</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>        python3 -m pytest -v --cov</span></code></pre>
+</div>
+<p>So overall, this workflow definition file instructs GitHub Actions to
+run our unit tests using Python version 3.12 each time code is pushed to
+our repository.</p>
+<p>Note that:</p>
+<ul><li>The <code>|</code> indicates a multi-line entry in YAML, and is
+typically used in Actions workflows when we want to specify a number of
+commands in a <code>run</code> task</li>
+<li>We’ve added a flag <code>-v</code> to <code>pytest</code>, which
+will give us a full list of the names of tests that have been run,
+instead of a <code>.</code> for each one</li>
+</ul><p>Finally, push these changes to your code repository to initiate
+running of tests on GitHub.</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add .github/workflows/main.yml</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add GitHub actions workflow"</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin main</span></code></pre>
+</div>
+<p>We’ve committed our workflow, so how do we know its actually running?
+Since the workflow is triggered on each <code>git push</code>, if we go
+back to our main repository page, we should see an orange circle next to
+the most recent commit displayed just above the directory contents.</p>
 <p>On the left of this page a sidebar titled “Actions” lists all the
 workflows that are active in our repository. You should see “CI” here
 (which is the <code>name</code> of the workflow we just added to our
 repository). The body of the page lists the outcome of all historic
 workflow runs. If the workflow was triggered successfully when we pushed
 to the repository, you should see one workflow run listed here.</p>
+<p>When this workflow is complete, it will display either a green tick
+for success, or a red cross if the workflow encountered an error. You
+can also see a history of the past workflow runs’ failures or successes
+for each workflow run triggered on the commits page, by selecting
+<code>Commits</code> on the right of this most recent commit
+display.</p>
+<p>For more detail we can check the progress of a running workflow by
+selecting <code>Actions</code> in the top navigation bar, e.g.</p>
+<pre><code>    https://github.com/YOUR-REPOSITORY/actions</code></pre>
+<p>We can see here that a new run has started, titled with our commit
+message. This page also shows a historical log of any other previous
+workflow runs too.</p>
+<p>We can also view a complete log of the output from workflow runs, by
+selecting the first (and only) entry at the top of the list. This will
+then display a list of our <code>job</code>s (in this case only
+<code>build-and-test</code>). If we select <code>build-and-test</code>
+we’ll see an in-progress log of our workflow run, separated into
+separate collapsed steps that we may expand to view further detail. Each
+of the steps is named from the <code>name</code> labels we gave each
+step. Note that the workflow may still be running at this point, so not
+all steps may be complete yet.</p>
+<p>If we drill down by selecting the <code>Test with pytest</code>
+entry, we’ll get a breakdown of the thing we’re really interested in,
+which covers the output from running the <code>pytest</code> command in
+the workflow.</p>
+<p>Now if we make a change to our code, our workflow will be triggered
+and these tests will run, so let’s make a change.</p>
+</section><section><h2 class="section-heading" id="optional-build-matrices">(Optional) Build Matrices<a class="anchor" aria-label="anchor" href="#optional-build-matrices"></a></h2>
+<hr class="half-width"><p>Now we have our CI configured and building, we can use a feature
+called <strong>build matrices</strong> which really shows the value of
+using CI to test at scale.</p>
+<p>Suppose the intended users of our software use either Ubuntu, Mac OS,
+or Windows, and have Python versions 3.11 through 3.13 installed, and we
+want to support all of these. Assuming we have a suitable test suite, it
+would take a considerable amount of time to set up testing platforms to
+run our tests across all these platform combinations. Fortunately, CI
+can do the hard work for us very easily.</p>
+<p>Using a build matrix we can specify testing environments and
+parameters (such as operating system, Python version, etc.) and new jobs
+will be created that run our tests for each permutation of these.</p>
+<p>Let us see how this is done using GitHub Actions. To support this, we
+define a <code>strategy</code> in our workflow as a <code>matrix</code>
+of operating systems and Python versions within our
+<code>build-and-test</code> job. We then use workflow variables to
+reference these configuration possibilities instead of using hardcoded
+values - replacing the fixed parameters we used before, to refer to the
+values from the matrix.</p>
+<p>So our <code>.github/workflows/main.yml</code> should look like the
+following:</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Same key-value pairs as in "Defining Our Workflow" section</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> CI</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span><span class="at"> push</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="at">  </span><span class="fu">build-and-test</span><span class="kw">:</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">    # Here we add the matrices definition:</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="at">    </span><span class="fu">strategy</span><span class="kw">:</span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="at">      </span><span class="fu">matrix</span><span class="kw">:</span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="at">        </span><span class="fu">os</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"ubuntu-latest"</span><span class="kw">,</span><span class="at"> </span><span class="st">"macos-latest"</span><span class="kw">,</span><span class="at"> </span><span class="st">"windows-latest"</span><span class="kw">]</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">"3.11"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.12"</span><span class="kw">,</span><span class="at"> </span><span class="st">"3.13"</span><span class="kw">]</span></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a><span class="co">    # Here we add the reference to the os matrix values</span></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ${{ matrix.os }}</span></span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a><span class="co">    # Same key-value pairs as in "Defining Our Workflow" section</span></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout repository</span></span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Python ${{ matrix.python-version }}</span></span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a><span class="at">      </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-python@v5</span></span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a><span class="at">      </span><span class="fu">with</span><span class="kw">:</span></span>
+<span id="cb15-28"><a href="#cb15-28" tabindex="-1"></a><span class="co">        # Here we add the reference to the python-version matrix values</span></span>
+<span id="cb15-29"><a href="#cb15-29" tabindex="-1"></a><span class="at">        </span><span class="fu">python-version</span><span class="kw">:</span><span class="at"> ${{ matrix.python-version }}</span></span>
+<span id="cb15-30"><a href="#cb15-30" tabindex="-1"></a></span>
+<span id="cb15-31"><a href="#cb15-31" tabindex="-1"></a><span class="co">    # Same steps as in "Defining Our Workflow" section</span></span>
+<span id="cb15-32"><a href="#cb15-32" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Install Python dependencies</span></span>
+<span id="cb15-33"><a href="#cb15-33" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb15-34"><a href="#cb15-34" tabindex="-1"></a>        python3 -m pip install --upgrade pip</span>
+<span id="cb15-35"><a href="#cb15-35" tabindex="-1"></a>        python3 -m pip install -r requirements.txt .</span>
+<span id="cb15-36"><a href="#cb15-36" tabindex="-1"></a></span>
+<span id="cb15-37"><a href="#cb15-37" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Test with pytest</span></span>
+<span id="cb15-38"><a href="#cb15-38" tabindex="-1"></a><span class="fu">      run</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb15-39"><a href="#cb15-39" tabindex="-1"></a>        python3 -m pytest -v --cov</span></code></pre>
+</div>
+<p>The <code>{{ }}</code> are used as a means to reference configuration
+values from the matrix. This way, every possible permutation of Python
+versions 3.10 through 3.12 with the latest versions of Ubuntu, Mac OS
+and Windows operating systems will be tested, and we can expect 9 build
+jobs in total. We can also use this in the <code>name</code> key of the
+step to accurately reflect what it is doing (e.g. which Python version
+is being setup). This will be reflected in the GitHub Action output,
+making parsing those logs easier.</p>
+<p>Let us commit and push this change and see what happens:</p>
+</section><section><h2 class="section-heading" id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a></h2>
+<hr class="half-width"><p>Our workflow will now be triggered every time a change to our code is
+pushed to our GitHub repository, which means that our code is now always
+being checked against our tests. Although we must remember to check the
+workflow log for this to have value. We also need to be sure that our
+tests sufficiently verify the behaviour of our code as it evolves, so we
+should ensure we update our tests as necessary, and adding new tests as
+required to verify new functionality.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -519,6 +744,8 @@ repository.</li>
 do for a build.</li>
 <li>We can run - and get reports from - different CI infrastructure
 builds simultaneously.</li>
+<li>We should ensure our tests sufficiently verify code behaviour as it
+changes, and update them accordingly.</li>
 </ul></div>
 </div>
 </div>
@@ -526,10 +753,7 @@ builds simultaneously.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
