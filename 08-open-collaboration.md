@@ -235,25 +235,29 @@ They also allow us to track problems with that code, for multiple developers to 
 
 ### Tracking issues with code
 
-As we discussed earlier, a key feature of GitHub (as opposed to Git itself) is the issue tracker. 
-This provides us with a place to keep track of any problems or bugs in the code and to discuss them with other developers. 
-Sometimes advanced users will also use issue trackers of public projects to report problems they are having 
-(and sometimes this is understandably misused by users seeking help using documented features of the program). 
+As [mentioned before in episode on version control systems](./02-better-start-version-control.html#keeping-track-of-issues-and-planned-work-in-github), a key feature of GitHub (as opposed to Git itself) is the issue tracker. 
+
+GitHub issues is a place for keeping track of any problems or bugs in the code, feature requests, and lists of future work. 
+They provide a record of all the problems with the code, and improvements that could be made, along with solutions and discussions around them.
+This helps the team to keep track of what they are working on now or need to work on later, and reduces the chance of receiving redundant reports of issues you already know about.
+Sometimes advanced users will also use issue trackers of public projects to report problems they are having (and sometimes this is understandably misused by users seeking help using documented features of the program). 
 
 To practice making an issue, we will file a "feature request", where we describe new functionality that may improve the codebase.
-Let's go ahead and create a new issue in our GitHub repository for a feature request to create a table of total EVA/spacewalk time for each astronaut.
-We can find the issue tracker on the "Issues" tab in the top left of the GitHub page for the repository. 
+Let's say we want to implement additional functionality in our code to create a summary table for the total/cumulative EVA/spacewalk time for each astronaut.
+
+Before we start working on the implementation - we will create a new issue in our GitHub repository for this feature request track the work on it.
+Recall that we can find the issue tracker on the "Issues" tab in the top left of the GitHub home page for the repository. 
 Click on this and then click on the green "New Issue" button on the right hand side of the screen. 
 We can then enter a title and description of our issue.
 
-A feature request should include a short title, the key features of the new feature, and a more detailed description of the feature, e.g.:
+An issue should include a short title, e.g. the key features of the new code, and a more detailed description of the feature, e.g.:
 
-  - Title: Add summary table of EVA time by astronaut
-  - Description: A summary table split by astronaut would be helpful for individual level analysis.
+  - Title: Add a summary table of total EVA time by astronaut
+  - Description: A summary table of total EVA time split by astronaut would be helpful for individual level analysis.
 
 <!--- SCREENSHOT NEEDED: of example feature request -->
 
-After the issue is created it will be assigned a sequential ID number.
+After the issue is created it will be assigned a sequential ID number - because we have already created one issue on our repository, for this issue it should be `02`.
 
 
 ### Discussing an issue
@@ -267,17 +271,18 @@ This is sometimes used to identify related issues or if an issue is a duplicate.
 ### Working in parallel with Git branches
 
 Next, we will learn how to suggest this change back to the repository.
-So far, we've been working on our own making changes in main.
-However, when we start to have collaborators, we may need to adopt a workflow such as [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) that facilitates simultaneous editing on the project and quality control on the changes made.
+So far, we've been working on our own making changes and directly committing to the main branch.
+When we start to have collaborators, we may want to adopt a development workflow such as [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) (aka feature branch workflow) that facilitates simultaneous editing on the project and quality control on the changes made.
 
 Branching is a feature of Git that allows two or more parallel streams of work. 
 Commits can be made to one branch without interfering with another. 
 Branches are commonly used as a way for one developer to work on a new feature or a bug fix while other developers work on other features.
-When those new features or bug fixes are complete, the branch will be merged back with the `main` (sometimes called the `master`) branch.
+When those new features or bug fixes are complete, the branch will be merged back with the `main` branch.
 
 #### Creating a new branch
 
-New Git branches are created with the `git branch` command. This should be followed by the name of the branch to create. 
+New Git branches are created with the `git branch` command. 
+This should be followed by the name of the branch to create. 
 It is common practice when the bug we are fixing or feature we are adding has a corresponding issue to name the branch after the issue number and name. 
 For example, we might call the branch `02-sum-by-astro-feat` instead of something less descriptive like `feature-request` or `bugfix`. 
 
@@ -309,13 +314,8 @@ use the `git switch` or `git checkout` command followed by the branch name. For 
 ```
 
 To create a branch and change to it in a single command we can use `git switch` with the `-c` option 
-(or `git checkout` with the `-b` option). 
+(or `git checkout` with the `-b` option) - e.g. `git switch -c switch 02-sum-by-astro-feat`. 
 Note that `git switch` command is only available in more recent versions of Git.
-For example (learners do not have to execute this command):
-
-```bash
-(venv_spacewalks) $ git switch -c 03-summarize-categorical-bug
-```
 
 #### Committing to a branch
 
@@ -324,54 +324,263 @@ When we run a `git commit` command we will see the name of the
 branch we are committing to in the output of `git commit`.
 Let's add the following function to our code to implement the requested feature.
 
-Copy and paste this function to add it to your code
+Copy and paste this function to `eva_data_analysis.py`:
 
 ```python
-def sum_duration_by_astronaut(df, output_csv):
+def summary_duration_by_astronaut(df):
     """
     Summarizes the duration data by each astronaut and saves resulting table to a CSV file
 
     Args: 
         df (pd.DataFrame): The input dataframe to be summarized
-        output_csv (str): Path to save the output csv of the table generated
 
     
     Returns:
         sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column 
     """
+    print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
     subset = add_duration_hours_variable(subset) # need duration_hours for easier calcs
     subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
     subset = subset.groupby('crew').sum() 
-    print(f'Saving to CSV file {output_csv}')
-    subset.to_csv(output_csv) # writing new table to specified location
     return subset
 ```
 
-Then add the following to your main function, after the `eva_data` variable is created
+Then add the following line after the `graph_file` variable is created:
 
 ```python
-dur_by_astro = sum_duration_by_astronaut(eva_data, dur_by_astro_csv)
+duration_by_astronaut_output_file = 'results/duration_by_astronaut.csv'
 ```
 
-And we will add this line in our code to run if main, before or after we define the `graph_file` variable.
+And also change the invocation of the `main()` function to (to pass the new file as a parameter):
+
 ```python
-dur_by_astro_csv = 'results/duration_by_astronaut.csv'
+main(input_file, output_file, duration_by_astronaut_output_file, graph_file)
 ```
+
+Finally, in the `main()` function, add the invocation of the new function (e.g. after converting and exporting data to CSV file line):
+
+```python
+# Calculate summary table for total EVA per astronaut
+duration_by_astronaut_df = summary_duration_by_astronaut(eva_data)
+# Save summary duration data by each astronaut to CSV file
+write_dataframe_to_csv(duration_by_astronaut_df, duration_by_astronaut_output_file)
+```
+
+Finally, our whole script `eva_data_analysis.py` may look like:
+
+```python
+import matplotlib.pyplot as plt
+import pandas as pd
+import sys
+import re
+
+
+def main(input_file, output_file, duration_by_astronaut_output_file, graph_file):
+    print("--START--")
+
+    # Read the data from JSON file
+    eva_data = read_json_to_dataframe(input_file)
+
+    # Convert and export data to CSV file
+    write_dataframe_to_csv(eva_data, output_file)
+
+    # Calculate summary table for total EVA per astronaut
+    duration_by_astronaut_df = summary_duration_by_astronaut(eva_data)
+    # Save summary duration data by each astronaut to CSV file
+    write_dataframe_to_csv(duration_by_astronaut_df, duration_by_astronaut_output_file)
+
+    # Sort dataframe by date ready to be plotted (date values are on x-axis)
+    eva_data.sort_values('date', inplace=True)
+
+    # Plot cumulative time spent in space over years
+    plot_cumulative_time_in_space(eva_data, graph_file)
+
+    print("--END--")
+
+
+def read_json_to_dataframe(input_file):
+    """
+    Read the data from a JSON file into a Pandas dataframe.
+    Clean the data by removing any rows where the 'duration' value is missing.
+
+    Args:
+        input_file (file or str): The file object or path to the JSON file.
+
+    Returns:
+         eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure
+    """
+    print(f'Reading JSON file {input_file}')
+    # Read the data from a JSON file into a Pandas dataframe
+    eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
+    eva_df['eva'] = eva_df['eva'].astype(float)
+    # Clean the data by removing any rows where duration is missing
+    eva_df.dropna(axis=0, inplace=True)
+    return eva_df
+
+
+def write_dataframe_to_csv(df, output_file):
+    """
+    Write the dataframe to a CSV file.
+
+    Args:
+        df (pd.DataFrame): The input dataframe.
+        output_file (file or str): The file object or path to the output CSV file.
+
+    Returns:
+        None
+    """
+    print(f'Saving to CSV file {output_file}')
+    # Save dataframe to CSV file for later analysis
+    df.to_csv(output_file, index=False, encoding='utf-8')
+
+def plot_cumulative_time_in_space(df, graph_file):
+    """
+    Plot the cumulative time spent in space over years.
+
+    Convert the duration column from strings to number of hours
+    Calculate cumulative sum of durations
+    Generate a plot of cumulative time spent in space over years and
+    save it to the specified location
+
+    Args:
+        df (pd.DataFrame): The input dataframe.
+        graph_file (file or str): The file object or path to the output graph file.
+
+    Returns:
+        None
+    """
+    print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
+    df = add_duration_hours_variable(df)
+    df['cumulative_time'] = df['duration_hours'].cumsum()
+    plt.plot(df['date'], df['cumulative_time'], 'ko-')
+    plt.xlabel('Year')
+    plt.ylabel('Total time spent in space to date (hours)')
+    plt.tight_layout()
+    plt.savefig(graph_file)
+    plt.show()
+
+
+def text_to_duration(duration):
+    """
+    Convert a text format duration "HH:MM" to duration in hours
+
+    Args:
+        duration (str): The text format duration
+
+    Returns:
+        duration_hours (float): The duration in hours
+    """
+    hours, minutes = duration.split(":")
+    duration_hours = int(hours) + int(minutes)/60
+    return duration_hours
+
+
+def add_duration_hours_variable(df):
+    """
+    Add duration in hours (duration_hours) variable to the dataset
+
+    Args:
+        df (pd.DataFrame): The input dataframe.
+
+    Returns:
+        df_copy (pd.DataFrame): A copy of df with the new duration_hours variable added
+    """
+    df_copy = df.copy()
+    df_copy["duration_hours"] = df_copy["duration"].apply(
+        text_to_duration
+    )
+    return df_copy
+
+
+def calculate_crew_size(crew):
+    """
+    Calculate the size of the crew for a single crew entry
+
+    Args:
+        crew (str): The text entry in the crew column containing a list of crew member names
+
+    Returns:
+        (int): The crew size
+    """
+    if crew.split() == []:
+        return None
+    else:
+        return len(re.split(r';', crew))-1
+
+def add_crew_size_column(df):
+    """
+    Add crew_size column to the dataset containing the value of the crew size
+
+    Args:
+        df (pd.DataFrame): The input data frame.
+
+    Returns:
+        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added
+    """
+    print('Adding crew size variable (crew_size) to dataset')
+    df_copy = df.copy()
+    df_copy["crew_size"] = df_copy["crew"].apply(
+        calculate_crew_size
+    )
+    return df_copy
+
+
+def summary_duration_by_astronaut(df):
+    """
+    Summarizes the duration data by each astronaut and saves resulting table to a CSV file
+
+    Args: 
+        df (pd.DataFrame): The input dataframe to be summarized
+
+    
+    Returns:
+        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column 
+    """
+    print(f'Calculating summary of total EVA time by astronaut')
+    subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
+    subset = add_duration_hours_variable(subset) # need duration_hours for easier calcs
+    subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
+    subset = subset.groupby('crew').sum() 
+    return subset
+
+
+if __name__ == "__main__":
+
+    if len(sys.argv) < 3:
+        input_file = 'data/eva-data.json'
+        output_file = 'results/eva-data.csv'
+        print(f'Using default input and output filenames')
+    else:
+        input_file = sys.argv[1]
+        output_file = sys.argv[2]
+        print('Using custom input and output filenames')
+
+    graph_file = './cumulative_eva_graph.png'
+    duration_by_astronaut_output_file = 'results/duration_by_astronaut.csv'
+
+    main(input_file, output_file, duration_by_astronaut_output_file, graph_file)
+```
+
 
 Now, let's test run our script, to make sure we do not get any errors.
+
 ```bash
 (venv_spacewalks) $ python3 eva_data_analysis.py
 ```
 
 If we do:
+```bash
+(venv_spacewalks) $ ls results
 ```
-venv_spacewalks) $ ls results
-```
-we can see the new result CSV file listed.
+we should see the new result CSV file with EVA durations summary listed.
 
 Let's add and commit the new version of the code to our `02-sum-by-astro-feat` branch.
 First we will check that we are on the right branch using either `git branch` or `git status`.
+
+```bash
+(venv_spacewalks) $ git status
+```
 
 ### Closing an issue
 
@@ -381,13 +590,13 @@ This can be done either by pressing the "Close" button in the GitHub web interfa
 ```bash
 (venv_spacewalks) $ git branch
 (venv_spacewalks) $ git add eva_data_analysis.py
-(venv_spacewalks) $ git commit -m "added duration by astronaut functionality, closes #2"
+(venv_spacewalks) $ git commit -m "Add duration by astronaut functionality. Fixes #2."
 ```
 
-In the output of `git commit -m` the first part of the output line will show the name of the branch we just made the commit to.
+In the output of `git commit -m` command - the first part of the output line will show the name of the branch we just made the commit to.
 
 ```output
-[02-sum-by-astro-feat 330a2b1] added duration by astronaut functionality, closes #2
+[02-sum-by-astro-feat 330a2b1] Add duration by astronaut functionality. Fixes #2.
 ```
 
 If we now switch back to the `main` branch our new commit will no longer be there in the source file or the output of `git log`.
@@ -402,22 +611,21 @@ And if we go back to the `02-sum-by-astro-feat` branch it will re-appear.
 (venv_spacewalks) $ git switch 02-sum-by-astro-feat
 ```
 
-If we want to push our changes to a remote such as GitHub we have to tell the `git push` command which branch to push to. If the branch doesn't exist on the remote (as it currently won't)
-then it will be created. 
+If we want to push our changes to a remote such as GitHub we have to tell the `git push` command which branch to push to. 
+If the branch doesn't exist on the remote (as it currently won't) then it will be created. 
+We need to use the `-u` switch to the `git push` command to tell GitHub to create the enw remote branch for us (which will be also linked to our local branch).
+The `-u` switch is only needed the first time we push to a new remote branch that is being created - next time we just do a normal `git push`.
 
 ```bash
-(venv_spacewalks) $ git push origin 02-sum-by-astro-feat
+(venv_spacewalks) $ git push -u origin 02-sum-by-astro-feat
 ```
 
-If we now refresh the GitHub webpage for this repository we should see the `02-sum-by-astro-feat` branch has appeared in the list of branches.
-
+If we now refresh the GitHub home page for our repository we should see the `02-sum-by-astro-feat` branch appear in the list of branches.
 
 ::: spoiler 
 
 #### How to pull changes from a remote branch 
-If we needed to pull changes from a branch on a remote 
-(for example if we have made changes on another computer or via GitHub's web based editor), 
-then we can specify a branch on a `git pull` command.
+If we needed to pull changes from a branch on a remote (for example if we have made changes on another computer or via GitHub's web based editor), then we can specify a branch on a `git pull` command.
 
 ```bash
 git pull origin 02-sum-by-astro-feat
@@ -497,7 +705,8 @@ Using this we can request that the changes on our fork are incorporated by the u
 
 ### Practice with Issues and PRs (20 min)
 
-We have a bug in our code!  If we look at the results in `results/duration_by_astronaut.csv`, the crew column has groups of crew and we wanted to calculate this per astronaut. 
+We have a bug in our code! 
+If we look at the results in `results/duration_by_astronaut.csv`, the crew column has groups of crew and we wanted to calculate this per astronaut. 
 
 1. Create an issue in GitHub to report this bug. A good issue description for a bug should include:
 
@@ -522,13 +731,12 @@ We might also reference the previous issue in the description, to provide even m
 #### Updated function to copy-paste
 
 ```python
-def sum_duration_by_astronaut(df, output_csv):
+def summary_duration_by_astronaut(df):
     """
     Summarize the duration data by each astronaut and saves resulting table to a CSV file
 
     Args: 
         df (pd.DataFrame): The input dataframe to be summarized
-        output_csv (str): Path to save the output csv of the table generated
 
     
     Returns:
@@ -538,10 +746,8 @@ def sum_duration_by_astronaut(df, output_csv):
     subset.crew = subset.crew.str.split(';').apply(lambda x: [i for i in x if i.strip()]) # splitting the crew into individuals and removing blank string splits from ending ;
     subset = subset.explode('crew') # separating lists of crew into individual rows
     subset = add_duration_hours_variable(subset) # need duration_hours for easier calcs
-    subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
+    subset = subset.drop('duration', axis=1) # dropping extra duration column as those don't calculate correctly
     subset = subset.groupby('crew').sum() 
-    print(f'Saving to CSV file {output_csv}')
-    subset.to_csv(output_csv) # writing new table to specified location
     return subset
 ```
 
