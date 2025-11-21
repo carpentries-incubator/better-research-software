@@ -116,9 +116,20 @@ VS Code integrates many of these tools and functionalities (e.g. file and projec
 It is a popular choice among many researchers, but it is not the only one.
 Outside of this course, you will make a choice which IDE or code editor to use based on your and your team's preferences.
 
-To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
+As part of setup, we have installed a few extensions for VS Code to make our software development experience easier.
+
+::: instructor
+
+Check that learners have installed the following extensions for working with Python in VS Code:
+
+- Microsoft Python extension for Visual Studio Code - provides support for Python language and entry point for other Python extensions 
+- Microsoft Pylance (IntelliSense) - additional and performant language support
+
+:::
 
 ### Inspecting the project
+
+To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
 
 The first thing you may want to do is inspect the content of the code and data you received to learn more about what it does. 
 
