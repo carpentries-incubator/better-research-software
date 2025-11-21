@@ -68,7 +68,7 @@ The practices we will cover for building better research software fall into thre
 ### 2. Things you can do to improve the source code of the software itself
 
 * Organising and structuring your code and project directory keeps your software clean, modular, and reusable, enhancing its readability, extensibility, and reusability.
-* Following coding conventions for your programming language ensures that others find it easy to read your code, reuse or extend it in their own examples and applications.
+* Following coding conventions for your programming language produces consistently formatted code that others find it easy to read, reuse or extend in their own examples and applications.
 * Writing structured documentation strings and comments within your code will make it more understandable to others who wish to use or extend it. 
 * Testing can save time spent on debugging and ensures that your code is correct and does what it is set out to do, giving you and others confidence in your code and the results it produces.
 
