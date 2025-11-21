@@ -80,7 +80,7 @@ The practices we will cover for building better research software fall into thre
 
 :::::::::::::::::: challenge
 
-### Tools and practices you use (10 min)
+### Tools and practices you use (5 min)
 
 Individually,
 
