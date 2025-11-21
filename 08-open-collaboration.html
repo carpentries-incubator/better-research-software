@@ -856,6 +856,9 @@ line):</p>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co"># Save summary duration data by each astronaut to CSV file</span></span>
 <span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>write_dataframe_to_csv(duration_by_astronaut_df, duration_by_astronaut_output_file)</span></code></pre>
 </div>
+<p>Note how we reused our old <code>write_dataframe_to_csv</code>
+function to write the new data to a different CSV file and did not have
+to repeat that code again.</p>
 <p>Finally, our whole script <code>eva_data_analysis.py</code> may look
 like:</p>
 <div class="codewrapper sourceCode" id="cb12">
