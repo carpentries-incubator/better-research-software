@@ -220,8 +220,13 @@ but it's good to make them meaningful since they are what will appear in our bui
         python3 -m pytest -v --cov
 ```
 
-This workflow definition file instructs GitHub Actions to run our unit tests using Python version 3.12 each time code 
+So overall, this workflow definition file instructs GitHub Actions to run our unit tests using Python version 3.12 each time code 
 is pushed to our repository.
+
+Note that:
+
+- The `|` indicates a multi-line entry in YAML, and is typically used in Actions workflows when we want to specify a number of commands in a `run` task
+- We've added a flag `-v` to `pytest`, which will give us a full list of the names of tests that have been run, instead of a `.` for each one
 
 Finally, push these changes to your code repository to initiate running of tests on GitHub.
 
@@ -272,6 +277,87 @@ which covers the output from running the `pytest` command in the workflow.
 
 Now if we make a change to our code, our workflow will be triggered and these tests will run,
 so let’s make a change.
+
+## (Optional) Build Matrices
+
+Now we have our CI configured and building,
+we can use a feature called **build matrices**
+which really shows the value of using CI to test at scale.
+
+Suppose the intended users of our software use either Ubuntu, Mac OS, or Windows,
+and have Python versions 3.11 through 3.13 installed,
+and we want to support all of these.
+Assuming we have a suitable test suite,
+it would take a considerable amount of time to set up testing platforms
+to run our tests across all these platform combinations.
+Fortunately, CI can do the hard work for us very easily.
+
+Using a build matrix we can specify testing environments and parameters
+(such as operating system, Python version, etc.)
+and new jobs will be created that run our tests for each permutation of these.
+
+Let us see how this is done using GitHub Actions.
+To support this, we define a `strategy` in our workflow as
+a `matrix` of operating systems and Python versions within our `build-and-test` job.
+We then use workflow variables to reference these configuration possibilities
+instead of using hardcoded values -
+replacing the fixed parameters we used before,
+to refer to the values from the matrix.
+
+So our `.github/workflows/main.yml` should look like the following:
+
+```yaml
+# Same key-value pairs as in "Defining Our Workflow" section
+name: CI
+
+on: push
+
+jobs:
+
+  build-and-test:
+
+    # Here we add the matrices definition:
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        python-version: ["3.11", "3.12", "3.13"]
+
+    # Here we add the reference to the os matrix values
+    runs-on: ${{ matrix.os }}
+
+    # Same key-value pairs as in "Defining Our Workflow" section
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        # Here we add the reference to the python-version matrix values
+        python-version: ${{ matrix.python-version }}
+
+    # Same steps as in "Defining Our Workflow" section
+    - name: Install Python dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install -r requirements.txt .
+
+    - name: Test with pytest
+      run: |
+        python3 -m pytest -v --cov
+```
+
+The `{{ }}` are used
+as a means to reference configuration values from the matrix.
+This way, every possible permutation of Python versions 3.10 through 3.12
+with the latest versions of Ubuntu, Mac OS and Windows operating systems
+will be tested, and we can expect 9 build jobs in total.
+We can also use this in the `name` key of the step to accurately reflect what it is doing
+(e.g. which Python version is being setup).
+This will be reflected in the GitHub Action output, making parsing those logs easier.
+
+Let us commit and push this change and see what happens:
 
 ## Summary
 
