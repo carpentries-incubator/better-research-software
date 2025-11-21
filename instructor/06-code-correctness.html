@@ -1130,9 +1130,9 @@ assertion <code>actual == pytest.approx(expected)</code> evaluated to
 <code>test_mean_duration</code> failed because there is a syntax
 error in <code>calculate_mean_duration</code>. Our colleague has used
 the command <code>length</code> (not a python command) instead of
-<code>len</code>. As a result, running the function returns a
-<code>NameError</code> rather than a calculated value and the test
-assertion evaluates to <code>False</code>.</li>
+<code>len</code>. As a result, running the function raises a
+<code>NameError</code> rather than returning a calculated value causing
+the function to be interrupted prematurely and the test to fail.</li>
 </ol></div>
 </div>
 </div>
