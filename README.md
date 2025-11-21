@@ -13,7 +13,8 @@ The course finishes with a [**better version of the software**](https://github.c
 
 The course can be delivered over 2 full or 4 half days.
 
-The accompanying [slides](https://docs.google.com/presentation/d/1KahaD7EGxJWXaCDKWAG6Wva4a9zo9Lp-qFyyofgM0vw/edit?usp=sharing) to aid with course delivery are also available.
+The accompanying [slides](https://docs.google.com/presentation/d/1Ouv_mc1xnPUF2-k8H0Sldylhn66Cg84kIwoYwdsOyMQ/edit?usp=sharing) to aid with course delivery are also available.
+There is also a [previous version of the slides](https://docs.google.com/presentation/d/1KahaD7EGxJWXaCDKWAG6Wva4a9zo9Lp-qFyyofgM0vw/edit?usp=sharing).
 
 Launch this lesson on myBinder! 👉 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/carpentries-incubator/better-research-software/HEAD?urlpath=rstudio)
 
