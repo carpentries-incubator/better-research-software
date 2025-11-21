@@ -367,6 +367,8 @@ duration_by_astronaut_df = summary_duration_by_astronaut(eva_data)
 write_dataframe_to_csv(duration_by_astronaut_df, duration_by_astronaut_output_file)
 ```
 
+Note how we reused our old `write_dataframe_to_csv` function to write the new data to a different CSV file and did not have to repeat that code again.
+
 Finally, our whole script `eva_data_analysis.py` may look like:
 
 ```python
