@@ -111,7 +111,7 @@ At the core of an IDE is a code editor, and it combines several tools that devel
 IDEs are extremely useful and modern software development would be very hard without them.
 Some of IDEs also provide graphical interface to a version control system which typically contains a subset of all available version control commands.
 
-VS Code integrates many of these tools and functionalities (e.g. running code in terminal, viewing different file types, running a testing framework or a debugger, version control system, etc.) either natively or via a large number of extensions.
+VS Code integrates many of these tools and functionalities (e.g. file and project exploring, running code in terminal, viewing different file types, running a testing framework or a debugger, version control system, etc.) either natively or via a large number of extensions.
 It is a popular choice among many researchers, but it is not the only one.
 Outside of this course, you will make a choice which IDE or code editor to use based on your and your team's preferences.
 
