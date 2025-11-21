@@ -1,5 +1,5 @@
 ---
-title: Open software management & collaboration
+title: Software management & collaboration
 teaching: 60
 exercises: 30
 ---
