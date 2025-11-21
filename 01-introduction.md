@@ -106,7 +106,7 @@ Save the `spacewalks.zip` archive to your home directory and extract it - you sh
 
 We will use VS Code IDE (Integrated Development Environment) for software development.
 
-IDEs are graphical application that provide a comprehensive workspace for writing, editing, testing, and debugging code—-all in one place. 
+IDEs are graphical application that provide a comprehensive workspace for writing, editing, testing, and debugging code - all in one place. 
 At the core of an IDE is a code editor, and it combines several tools that developers need into a single interface to streamline the code development process. 
 IDEs are extremely useful and modern software development would be very hard without them.
 Some of IDEs also provide graphical interface to a version control system which typically contains a subset of all available version control commands.
