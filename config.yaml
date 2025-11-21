@@ -72,12 +72,12 @@ episodes:
 
 # Information for Learners
 learners:
+- installation-instructions.md
+- reproducible-research-discussion.md
 - test-suite-exercise.md
 - ci-for-testing.md
 - licensing.md
 - ethical-environmental-considerations.md
-- installation-instructions.md
-- reproducible-research-discussion.md
 
 # Information for Instructors
 instructors: 
