@@ -17,8 +17,7 @@ After completing this episode, participants should be able to:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-This extra episode provides additional exercises on writing tests and should be followed after the [episode 
-on code correctness](../episodes/06-code-correctness.md) and with [the starter code from the end of that episode](https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation).
+This extra episode provides additional exercises on writing tests and could be followed after the [episode on code correctness](../episodes/06-code-correctness.md) and with [the starter code from the end of that episode](https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation).
 
 A member of our research team shares the following code with us to add to our existing codebase:
 
