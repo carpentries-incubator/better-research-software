@@ -521,7 +521,7 @@ rootdir: /Users/user/work/SSI/lessons/astronaut-data-analysis-not-so-good
 plugins: cov-5.0.0
 collected 2 items                                                                                                                                                                                                                                                                                                     
 
-tests/test_code.py F.                                                                                                                                                                                                                                                                                           [100%]
+tests/test_eva_analysis.py F.                                                                                                                                                                                                                                                                                           [100%]
 
 ================================================ FAILURES ================================================
 ________________________________________ test_text_to_duration_float _____________________________________
@@ -534,9 +534,9 @@ E         comparison failed
 E         Obtained: 13.333333333333334
 E         Expected: 10.33333333 ± 1.0e-05
 
-tests/test_code.py:5: AssertionError
+tests/test_eva_analysis.py:5: AssertionError
 =========================================== short test summary info =======================================
-FAILED tests/test_code.py::test_text_to_duration_float - assert 13.333333333333334 == 10.33333333 ± 1.0e-05
+FAILED tests/test_eva_analysis.py::test_text_to_duration_float - assert 13.333333333333334 == 10.33333333 ± 1.0e-05
 ========================================= 1 failed, 1 passed in 0.67s =====================================
 
 ```
@@ -557,12 +557,12 @@ rootdir: /Users/user/work/SSI/lessons/astronaut-data-analysis-not-so-good
 plugins: cov-5.0.0
 collected 2 items                                                                                                                                                                                                                                                                                                     
 
-tests/test_code.py ..                                                                                                                                                                                                                                                                                           [100%]
+tests/test_eva_analysis.py ..                                                                                                                                                                                                                                                                                           [100%]
 
 =========================================== 2 passed in 0.63s =============================================
 ```
 
-This time, all out tests passed.
+This time, all our tests passed.
 
 ::: challenge
 
@@ -669,11 +669,8 @@ def main(input_file, output_file, graph_file):
     print("--START--")
 
     eva_data = read_json_to_dataframe(input_file)
-
     eva_data = add_crew_size_column(eva_data) # added this line
-
     write_dataframe_to_csv(eva_data, output_file)
-
     plot_cumulative_time_in_space(eva_data, graph_file)
 
     print("--END--")
@@ -757,7 +754,7 @@ def test_MYFUNCTION (): # FIXME
 
 ::: solution
 
-We can add the following test functions to out test suite.
+We can add the following test functions to our test suite.
 
 ```python
 import pytest
@@ -768,17 +765,16 @@ from eva_data_analysis import (
 
 ...
 
-def test_calculate_crew_size():
+@pytest.mark.parametrize("input_value, expected_result", [
+    ("Valentina Tereshkova;", 1),
+    ("Judith Resnik; Sally Ride;", 2),
+])
+def test_calculate_crew_size(input_value, expected_result):
     """
     Test that calculate_crew_size returns expected ground truth values
     for typical crew values
     """
-    actual_result = calculate_crew_size("Valentina Tereshkova;")
-    expected_result = 1
-    assert actual_result == expected_result
-
-    actual_result = calculate_crew_size("Judith Resnik; Sally Ride;")
-    expected_result = 2
+    actual_result = calculate_crew_size(input_value)
     assert actual_result == expected_result
 
 # Edge cases
@@ -792,7 +788,7 @@ def test_calculate_crew_size_edge_cases():
 
 ```
 
-Let's run out tests:
+Let's run our tests:
 
 ```bash
 (venv_spacewalks) $ python3 -m pytest
@@ -804,7 +800,7 @@ Let's run out tests:
 
 ### Parameterising tests
 
-Looking at out new test functions, we may notice that they do not follow the [“Don't Repeat Yourself (DRY) principle”][dry-principle] which prevents software - including testing code - from becoming repetitive and too long.
+Looking at our new test functions, we may notice that they do not follow the [“Don't Repeat Yourself (DRY) principle”][dry-principle] which prevents software - including testing code - from becoming repetitive and too long.
 In our test code, a small block of code is repeated twice with different input values:
 
 ```python
@@ -856,12 +852,13 @@ In Python, a decorator is a function that can modify the behaviour of another fu
 function by running it multiple times - once for each set of inputs. 
 This decorator takes two main arguments:
 
--   Parameter names: a string with the names of the parameters that the
-    test function will accept, separated by commas – in this case
-    “input_value” and “expected_value”
+- Parameter names: a string with the names of the parameters that the
+test function will accept, separated by commas – in this case
+“input_value” and “expected_value”
 
--   Parameter values: a list of tuples, where each tuple contains the
-    values for the parameters specified in the first argument.
+- Parameter values: a list of tuples, where each tuple contains the
+values for the parameters specified in the first argument.
+
 :::
 
 As you can see, the parameterised version of our test function is shorter, more readable and easier to maintain.
