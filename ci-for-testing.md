@@ -21,8 +21,7 @@ After completing this episode, participants should be able to:
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-This extra episode should be followed after the [episode
-on code correctness](../episodes/06-code-correctness.md) and with [the starter code from the end of that episode](https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation).
+This extra episode could be followed after the [episode on code correctness](../episodes/06-code-correctness.md) and with [the starter code from the end of that episode](https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation).
 
 ::: callout
 
