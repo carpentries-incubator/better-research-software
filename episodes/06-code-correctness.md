@@ -1,5 +1,5 @@
 ---
-title: "Code correctness"
+title: "Code correctness & testing"
 teaching: 60
 exercises: 30
 ---
