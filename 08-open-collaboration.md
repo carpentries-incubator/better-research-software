@@ -329,14 +329,14 @@ Copy and paste this function to `eva_data_analysis.py`:
 ```python
 def summary_duration_by_astronaut(df):
     """
-    Summarizes the duration data by each astronaut and saves resulting table to a CSV file
+    Summarise the duration data by each astronaut and saves resulting table to a CSV file
 
     Args: 
-        df (pd.DataFrame): The input dataframe to be summarized
+        df (pd.DataFrame): Input dataframe to be summarised
 
     
     Returns:
-        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column 
+        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column 
     """
     print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
@@ -528,14 +528,14 @@ def add_crew_size_column(df):
 
 def summary_duration_by_astronaut(df):
     """
-    Summarizes the duration data by each astronaut and saves resulting table to a CSV file
+    Summarise the duration data by each astronaut and saves resulting table to a CSV file
 
     Args: 
-        df (pd.DataFrame): The input dataframe to be summarized
+        df (pd.DataFrame): Input dataframe to be summarised
 
     
     Returns:
-        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column 
+        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column 
     """
     print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
@@ -733,14 +733,14 @@ We might also reference the previous issue in the description, to provide even m
 ```python
 def summary_duration_by_astronaut(df):
     """
-    Summarize the duration data by each astronaut and saves resulting table to a CSV file
+    Summarise the duration data by each astronaut and saves resulting table to a CSV file
 
     Args: 
-        df (pd.DataFrame): The input dataframe to be summarized
+        df (pd.DataFrame): Input dataframe to be summarised
 
     
     Returns:
-        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column 
+        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column 
     """
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
     subset.crew = subset.crew.str.split(';').apply(lambda x: [i for i in x if i.strip()]) # splitting the crew into individuals and removing blank string splits from ending ;
