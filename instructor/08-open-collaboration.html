@@ -422,7 +422,7 @@ consider which we will cover here.</p>
   Code state
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration</a></p>
@@ -438,7 +438,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
   Activate your virtual environment
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -547,7 +547,7 @@ meant to exist forever).</p>
   Optional challenge: archive our GitHub repository to Zenodo (5 min)
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>You can choose to do the following as an exercise or by live coding
 based on what you think the learners would prefer. You can copy the
@@ -614,7 +614,7 @@ repository and the corresponding Markdown:</p>
   Problems with GitHub and Zenodo integration
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>The integration between GitHub and Zenodo does not interact well with
 some browsers’ privacy features and extensions. Firefox can be
@@ -647,7 +647,7 @@ the software related to the DOI we are adding.</p>
   Optional challenge: add a DOI and software version to the citation file (5 min)
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>You can choose to do the following as an exercise or by live coding
 based on what you think the learners would prefer. You can copy the the
@@ -849,14 +849,14 @@ implement the requested feature.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
 <span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">    Summarizes the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">    Summarise the duration data by each astronaut and saves resulting table to a CSV file</span></span>
 <span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">    Args: </span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): Input dataframe to be summarised</span></span>
 <span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a></span>
 <span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">    </span></span>
 <span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column </span></span>
 <span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
 <span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
@@ -1053,14 +1053,14 @@ like:</p>
 <span id="cb12-156"><a href="#cb12-156" tabindex="-1"></a></span>
 <span id="cb12-157"><a href="#cb12-157" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
 <span id="cb12-158"><a href="#cb12-158" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-159"><a href="#cb12-159" tabindex="-1"></a><span class="co">    Summarizes the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb12-159"><a href="#cb12-159" tabindex="-1"></a><span class="co">    Summarise the duration data by each astronaut and saves resulting table to a CSV file</span></span>
 <span id="cb12-160"><a href="#cb12-160" tabindex="-1"></a></span>
 <span id="cb12-161"><a href="#cb12-161" tabindex="-1"></a><span class="co">    Args: </span></span>
-<span id="cb12-162"><a href="#cb12-162" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
+<span id="cb12-162"><a href="#cb12-162" tabindex="-1"></a><span class="co">        df (pd.DataFrame): Input dataframe to be summarised</span></span>
 <span id="cb12-163"><a href="#cb12-163" tabindex="-1"></a></span>
 <span id="cb12-164"><a href="#cb12-164" tabindex="-1"></a><span class="co">    </span></span>
 <span id="cb12-165"><a href="#cb12-165" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-166"><a href="#cb12-166" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
+<span id="cb12-166"><a href="#cb12-166" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column </span></span>
 <span id="cb12-167"><a href="#cb12-167" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb12-168"><a href="#cb12-168" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
 <span id="cb12-169"><a href="#cb12-169" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
@@ -1174,7 +1174,7 @@ branches.</p>
   How to pull changes from a remote branch
   </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
 <div class="accordion-body">
 <p>If we needed to pull changes from a branch on a remote (for example
 if we have made changes on another computer or via GitHub’s web based
@@ -1197,7 +1197,7 @@ command.</p>
   Merging branches
   </h3>
 </button>
-<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
+<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
 <div class="accordion-body">
 <p>If we are working alone, when we have completed working on a branch
 (for example adding a feature or fixing a bug) then we can merge our
@@ -1343,21 +1343,21 @@ computer and in GitHub.</li>
   Updated function to copy-paste
   </h3>
 </button>
-<div id="collapseSpoiler6" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler6" aria-labelledby="headingSpoiler6">
+<div id="collapseSpoiler6" class="accordion-collapse collapse" aria-labelledby="headingSpoiler6" data-bs-parent="#accordionSpoiler6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
 <span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="co">    Summarize the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="co">    Summarise the duration data by each astronaut and saves resulting table to a CSV file</span></span>
 <span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a></span>
 <span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co">    Args: </span></span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): Input dataframe to be summarised</span></span>
 <span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a></span>
 <span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="co">    </span></span>
 <span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column </span></span>
 <span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
 <span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>    subset.crew <span class="op">=</span> subset.crew.<span class="bu">str</span>.split(<span class="st">';'</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: [i <span class="cf">for</span> i <span class="kw">in</span> x <span class="cf">if</span> i.strip()]) <span class="co"># splitting the crew into individuals and removing blank string splits from ending ;</span></span>
@@ -1405,7 +1405,7 @@ community-driven development.</p>
   Code state
   </h3>
 </button>
-<div id="collapseSpoiler7" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler7" aria-labelledby="headingSpoiler7">
+<div id="collapseSpoiler7" class="accordion-collapse collapse" aria-labelledby="headingSpoiler7" data-bs-parent="#accordionSpoiler7">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/final" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/final</a></p>
