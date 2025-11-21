@@ -1282,7 +1282,7 @@ made changes and/or what their impact will be.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Choose how you teach version control steps from here </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>At this point in the lesson, you may choose to demonstrate how the
 same steps of staging and committing changes can also be achieved with
@@ -1450,7 +1450,7 @@ plot(<code>cumulative_eva_graph.png</code>).</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Firstly, let’s update the file names in our Python script from VS
 Code:</p>
@@ -1742,7 +1742,7 @@ includes ourselves on a different machine or operating system).</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment</a></p>
@@ -7576,7 +7576,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-08-open-collaboration"><p>Content from <a href="08-open-collaboration.html">Open software management &amp; collaboration</a></p>
 <hr>
-<p>Last updated on 2025-11-20 |
+<p>Last updated on 2025-11-21 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/08-open-collaboration.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 90 minutes</p>
@@ -7959,31 +7959,40 @@ changes before they are accepted.</p>
 <div class="section level3">
 <h3 id="tracking-issues-with-code">Tracking issues with code<a class="anchor" aria-label="anchor" href="#tracking-issues-with-code"></a>
 </h3>
-<p>As we discussed earlier, a key feature of GitHub (as opposed to Git
-itself) is the issue tracker. This provides us with a place to keep
-track of any problems or bugs in the code and to discuss them with other
-developers. Sometimes advanced users will also use issue trackers of
-public projects to report problems they are having (and sometimes this
-is understandably misused by users seeking help using documented
-features of the program).</p>
+<p>As <a href="./02-better-start-version-control.html#keeping-track-of-issues-and-planned-work-in-github">mentioned
+before in episode on version control systems</a>, a key feature of
+GitHub (as opposed to Git itself) is the issue tracker.</p>
+<p>GitHub issues is a place for keeping track of any problems or bugs in
+the code, feature requests, and lists of future work. They provide a
+record of all the problems with the code, and improvements that could be
+made, along with solutions and discussions around them. This helps the
+team to keep track of what they are working on now or need to work on
+later, and reduces the chance of receiving redundant reports of issues
+you already know about. Sometimes advanced users will also use issue
+trackers of public projects to report problems they are having (and
+sometimes this is understandably misused by users seeking help using
+documented features of the program).</p>
 <p>To practice making an issue, we will file a “feature request”, where
-we describe new functionality that may improve the codebase. Let’s go
-ahead and create a new issue in our GitHub repository for a feature
-request to create a table of total EVA/spacewalk time for each
-astronaut. We can find the issue tracker on the “Issues” tab in the top
-left of the GitHub page for the repository. Click on this and then click
-on the green “New Issue” button on the right hand side of the screen. We
-can then enter a title and description of our issue.</p>
-<p>A feature request should include a short title, the key features of
-the new feature, and a more detailed description of the feature,
-e.g.:</p>
+we describe new functionality that may improve the codebase. Let’s say
+we want to implement additional functionality in our code to create a
+summary table for the total/cumulative EVA/spacewalk time for each
+astronaut.</p>
+<p>Before we start working on the implementation - we will create a new
+issue in our GitHub repository for this feature request track the work
+on it. Recall that we can find the issue tracker on the “Issues” tab in
+the top left of the GitHub home page for the repository. Click on this
+and then click on the green “New Issue” button on the right hand side of
+the screen. We can then enter a title and description of our issue.</p>
+<p>An issue should include a short title, e.g. the key features of the
+new code, and a more detailed description of the feature, e.g.:</p>
 <ul>
-<li>Title: Add summary table of EVA time by astronaut</li>
-<li>Description: A summary table split by astronaut would be helpful for
-individual level analysis.</li>
+<li>Title: Add a summary table of total EVA time by astronaut</li>
+<li>Description: A summary table of total EVA time split by astronaut
+would be helpful for individual level analysis.</li>
 </ul>
-<!--- SCREENSHOT NEEDED: of example feature request --><p>After the issue is created it will be assigned a sequential ID
-number.</p>
+<!--- SCREENSHOT NEEDED: of example feature request --><p>After the issue is created it will be assigned a sequential ID number
+- because we have already created one issue on our repository, for this
+issue it should be <code>02</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="discussing-an-issue">Discussing an issue<a class="anchor" aria-label="anchor" href="#discussing-an-issue"></a>
@@ -8001,18 +8010,17 @@ issue is a duplicate.</p>
 <h3 id="working-in-parallel-with-git-branches">Working in parallel with Git branches<a class="anchor" aria-label="anchor" href="#working-in-parallel-with-git-branches"></a>
 </h3>
 <p>Next, we will learn how to suggest this change back to the
-repository. So far, we’ve been working on our own making changes in
-main. However, when we start to have collaborators, we may need to adopt
-a workflow such as <a href="https://docs.github.com/en/get-started/using-github/github-flow" class="external-link">GitHub
-flow</a> that facilitates simultaneous editing on the project and
-quality control on the changes made.</p>
+repository. So far, we’ve been working on our own making changes and
+directly committing to the main branch. When we start to have
+collaborators, we may want to adopt a development workflow such as <a href="https://docs.github.com/en/get-started/using-github/github-flow" class="external-link">GitHub
+flow</a> (aka feature branch workflow) that facilitates simultaneous
+editing on the project and quality control on the changes made.</p>
 <p>Branching is a feature of Git that allows two or more parallel
 streams of work. Commits can be made to one branch without interfering
 with another. Branches are commonly used as a way for one developer to
 work on a new feature or a bug fix while other developers work on other
 features. When those new features or bug fixes are complete, the branch
-will be merged back with the <code>main</code> (sometimes called the
-<code>master</code>) branch.</p>
+will be merged back with the <code>main</code> branch.</p>
 <div class="section level4">
 <h4 id="creating-a-new-branch">Creating a new branch<a class="anchor" aria-label="anchor" href="#creating-a-new-branch"></a>
 </h4>
@@ -8057,15 +8065,10 @@ the branch name. For example:</p>
 </div>
 <p>To create a branch and change to it in a single command we can use
 <code>git switch</code> with the <code>-c</code> option (or
-<code>git checkout</code> with the <code>-b</code> option). Note that
+<code>git checkout</code> with the <code>-b</code> option) -
+e.g. <code>git switch -c switch 02-sum-by-astro-feat</code>. Note that
 <code>git switch</code> command is only available in more recent
-versions of Git. For example (learners do not have to execute this
-command):</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch <span class="at">-c</span> 03-summarize-categorical-bug</span></code></pre>
-</div>
+versions of Git.</p>
 </div>
 <div class="section level4">
 <h4 id="committing-to-a-branch">Committing to a branch<a class="anchor" aria-label="anchor" href="#committing-to-a-branch"></a>
@@ -8075,58 +8078,274 @@ will go to that branch. When we run a <code>git commit</code> command we
 will see the name of the branch we are committing to in the output of
 <code>git commit</code>. Let’s add the following function to our code to
 implement the requested feature.</p>
-<p>Copy and paste this function to add it to your code</p>
+<p>Copy and paste this function to
+<code>eva_data_analysis.py</code>:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">    Summarizes the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">    Args: </span></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
+</div>
+<p>Then add the following line after the <code>graph_file</code>
+variable is created:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="kw">def</span> sum_duration_by_astronaut(df, output_csv):</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="co">    Summarizes the duration data by each astronaut and saves resulting table to a CSV file</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co">    Args: </span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co">        output_csv (str): Path to save the output csv of the table generated</span></span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Saving to CSV file </span><span class="sc">{</span>output_csv<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>    subset.to_csv(output_csv) <span class="co"># writing new table to specified location</span></span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>duration_by_astronaut_output_file <span class="op">=</span> <span class="st">'results/duration_by_astronaut.csv'</span></span></code></pre>
 </div>
-<p>Then add the following to your main function, after the
-<code>eva_data</code> variable is created</p>
+<p>And also change the invocation of the <code>main()</code> function to
+(to pass the new file as a parameter):</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>dur_by_astro <span class="op">=</span> sum_duration_by_astronaut(eva_data, dur_by_astro_csv)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>main(input_file, output_file, duration_by_astronaut_output_file, graph_file)</span></code></pre>
 </div>
-<p>And we will add this line in our code to run if main, before or after
-we define the <code>graph_file</code> variable.</p>
+<p>Finally, in the <code>main()</code> function, add the invocation of
+the new function (e.g. after converting and exporting data to CSV file
+line):</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>dur_by_astro_csv <span class="op">=</span> <span class="st">'results/duration_by_astronaut.csv'</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Calculate summary table for total EVA per astronaut</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>duration_by_astronaut_df <span class="op">=</span> summary_duration_by_astronaut(eva_data)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co"># Save summary duration data by each astronaut to CSV file</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>write_dataframe_to_csv(duration_by_astronaut_df, duration_by_astronaut_output_file)</span></code></pre>
+</div>
+<p>Finally, our whole script <code>eva_data_analysis.py</code> may look
+like:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="kw">def</span> main(input_file, output_file, duration_by_astronaut_output_file, graph_file):</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--START--"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>    <span class="co"># Read the data from JSON file</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>    eva_data <span class="op">=</span> read_json_to_dataframe(input_file)</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>    <span class="co"># Convert and export data to CSV file</span></span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>    write_dataframe_to_csv(eva_data, output_file)</span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a>    <span class="co"># Calculate summary table for total EVA per astronaut</span></span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a>    duration_by_astronaut_df <span class="op">=</span> summary_duration_by_astronaut(eva_data)</span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>    <span class="co"># Save summary duration data by each astronaut to CSV file</span></span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>    write_dataframe_to_csv(duration_by_astronaut_df, duration_by_astronaut_output_file)</span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>    <span class="co"># Sort dataframe by date ready to be plotted (date values are on x-axis)</span></span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>    eva_data.sort_values(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>    <span class="co"># Plot cumulative time spent in space over years</span></span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a>    plot_cumulative_time_in_space(eva_data, graph_file)</span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--END--"</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a><span class="kw">def</span> read_json_to_dataframe(input_file):</span>
+<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a><span class="co">    Read the data from a JSON file into a Pandas dataframe.</span></span>
+<span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a><span class="co">    Clean the data by removing any rows where the 'duration' value is missing.</span></span>
+<span id="cb12-34"><a href="#cb12-34" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-36"><a href="#cb12-36" tabindex="-1"></a><span class="co">        input_file (file or str): The file object or path to the JSON file.</span></span>
+<span id="cb12-37"><a href="#cb12-37" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-39"><a href="#cb12-39" tabindex="-1"></a><span class="co">         eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure</span></span>
+<span id="cb12-40"><a href="#cb12-40" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-41"><a href="#cb12-41" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Reading JSON file </span><span class="sc">{</span>input_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-42"><a href="#cb12-42" tabindex="-1"></a>    <span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
+<span id="cb12-43"><a href="#cb12-43" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
+<span id="cb12-44"><a href="#cb12-44" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb12-45"><a href="#cb12-45" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
+<span id="cb12-46"><a href="#cb12-46" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-47"><a href="#cb12-47" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
+<span id="cb12-48"><a href="#cb12-48" tabindex="-1"></a></span>
+<span id="cb12-49"><a href="#cb12-49" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" tabindex="-1"></a><span class="kw">def</span> write_dataframe_to_csv(df, output_file):</span>
+<span id="cb12-51"><a href="#cb12-51" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-52"><a href="#cb12-52" tabindex="-1"></a><span class="co">    Write the dataframe to a CSV file.</span></span>
+<span id="cb12-53"><a href="#cb12-53" tabindex="-1"></a></span>
+<span id="cb12-54"><a href="#cb12-54" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-55"><a href="#cb12-55" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb12-56"><a href="#cb12-56" tabindex="-1"></a><span class="co">        output_file (file or str): The file object or path to the output CSV file.</span></span>
+<span id="cb12-57"><a href="#cb12-57" tabindex="-1"></a></span>
+<span id="cb12-58"><a href="#cb12-58" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-59"><a href="#cb12-59" tabindex="-1"></a><span class="co">        None</span></span>
+<span id="cb12-60"><a href="#cb12-60" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-61"><a href="#cb12-61" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Saving to CSV file </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-62"><a href="#cb12-62" tabindex="-1"></a>    <span class="co"># Save dataframe to CSV file for later analysis</span></span>
+<span id="cb12-63"><a href="#cb12-63" tabindex="-1"></a>    df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
+<span id="cb12-64"><a href="#cb12-64" tabindex="-1"></a></span>
+<span id="cb12-65"><a href="#cb12-65" tabindex="-1"></a><span class="kw">def</span> plot_cumulative_time_in_space(df, graph_file):</span>
+<span id="cb12-66"><a href="#cb12-66" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-67"><a href="#cb12-67" tabindex="-1"></a><span class="co">    Plot the cumulative time spent in space over years.</span></span>
+<span id="cb12-68"><a href="#cb12-68" tabindex="-1"></a></span>
+<span id="cb12-69"><a href="#cb12-69" tabindex="-1"></a><span class="co">    Convert the duration column from strings to number of hours</span></span>
+<span id="cb12-70"><a href="#cb12-70" tabindex="-1"></a><span class="co">    Calculate cumulative sum of durations</span></span>
+<span id="cb12-71"><a href="#cb12-71" tabindex="-1"></a><span class="co">    Generate a plot of cumulative time spent in space over years and</span></span>
+<span id="cb12-72"><a href="#cb12-72" tabindex="-1"></a><span class="co">    save it to the specified location</span></span>
+<span id="cb12-73"><a href="#cb12-73" tabindex="-1"></a></span>
+<span id="cb12-74"><a href="#cb12-74" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-75"><a href="#cb12-75" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb12-76"><a href="#cb12-76" tabindex="-1"></a><span class="co">        graph_file (file or str): The file object or path to the output graph file.</span></span>
+<span id="cb12-77"><a href="#cb12-77" tabindex="-1"></a></span>
+<span id="cb12-78"><a href="#cb12-78" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-79"><a href="#cb12-79" tabindex="-1"></a><span class="co">        None</span></span>
+<span id="cb12-80"><a href="#cb12-80" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-81"><a href="#cb12-81" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Plotting cumulative spacewalk duration and saving to </span><span class="sc">{</span>graph_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-82"><a href="#cb12-82" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours_variable(df)</span>
+<span id="cb12-83"><a href="#cb12-83" tabindex="-1"></a>    df[<span class="st">'cumulative_time'</span>] <span class="op">=</span> df[<span class="st">'duration_hours'</span>].cumsum()</span>
+<span id="cb12-84"><a href="#cb12-84" tabindex="-1"></a>    plt.plot(df[<span class="st">'date'</span>], df[<span class="st">'cumulative_time'</span>], <span class="st">'ko-'</span>)</span>
+<span id="cb12-85"><a href="#cb12-85" tabindex="-1"></a>    plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb12-86"><a href="#cb12-86" tabindex="-1"></a>    plt.ylabel(<span class="st">'Total time spent in space to date (hours)'</span>)</span>
+<span id="cb12-87"><a href="#cb12-87" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb12-88"><a href="#cb12-88" tabindex="-1"></a>    plt.savefig(graph_file)</span>
+<span id="cb12-89"><a href="#cb12-89" tabindex="-1"></a>    plt.show()</span>
+<span id="cb12-90"><a href="#cb12-90" tabindex="-1"></a></span>
+<span id="cb12-91"><a href="#cb12-91" tabindex="-1"></a></span>
+<span id="cb12-92"><a href="#cb12-92" tabindex="-1"></a><span class="kw">def</span> text_to_duration(duration):</span>
+<span id="cb12-93"><a href="#cb12-93" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-94"><a href="#cb12-94" tabindex="-1"></a><span class="co">    Convert a text format duration "HH:MM" to duration in hours</span></span>
+<span id="cb12-95"><a href="#cb12-95" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="#cb12-96" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-97"><a href="#cb12-97" tabindex="-1"></a><span class="co">        duration (str): The text format duration</span></span>
+<span id="cb12-98"><a href="#cb12-98" tabindex="-1"></a></span>
+<span id="cb12-99"><a href="#cb12-99" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-100"><a href="#cb12-100" tabindex="-1"></a><span class="co">        duration_hours (float): The duration in hours</span></span>
+<span id="cb12-101"><a href="#cb12-101" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-102"><a href="#cb12-102" tabindex="-1"></a>    hours, minutes <span class="op">=</span> duration.split(<span class="st">":"</span>)</span>
+<span id="cb12-103"><a href="#cb12-103" tabindex="-1"></a>    duration_hours <span class="op">=</span> <span class="bu">int</span>(hours) <span class="op">+</span> <span class="bu">int</span>(minutes)<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb12-104"><a href="#cb12-104" tabindex="-1"></a>    <span class="cf">return</span> duration_hours</span>
+<span id="cb12-105"><a href="#cb12-105" tabindex="-1"></a></span>
+<span id="cb12-106"><a href="#cb12-106" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" tabindex="-1"></a><span class="kw">def</span> add_duration_hours_variable(df):</span>
+<span id="cb12-108"><a href="#cb12-108" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-109"><a href="#cb12-109" tabindex="-1"></a><span class="co">    Add duration in hours (duration_hours) variable to the dataset</span></span>
+<span id="cb12-110"><a href="#cb12-110" tabindex="-1"></a></span>
+<span id="cb12-111"><a href="#cb12-111" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-112"><a href="#cb12-112" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb12-113"><a href="#cb12-113" tabindex="-1"></a></span>
+<span id="cb12-114"><a href="#cb12-114" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-115"><a href="#cb12-115" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new duration_hours variable added</span></span>
+<span id="cb12-116"><a href="#cb12-116" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-117"><a href="#cb12-117" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
+<span id="cb12-118"><a href="#cb12-118" tabindex="-1"></a>    df_copy[<span class="st">"duration_hours"</span>] <span class="op">=</span> df_copy[<span class="st">"duration"</span>].<span class="bu">apply</span>(</span>
+<span id="cb12-119"><a href="#cb12-119" tabindex="-1"></a>        text_to_duration</span>
+<span id="cb12-120"><a href="#cb12-120" tabindex="-1"></a>    )</span>
+<span id="cb12-121"><a href="#cb12-121" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
+<span id="cb12-122"><a href="#cb12-122" tabindex="-1"></a></span>
+<span id="cb12-123"><a href="#cb12-123" tabindex="-1"></a></span>
+<span id="cb12-124"><a href="#cb12-124" tabindex="-1"></a><span class="kw">def</span> calculate_crew_size(crew):</span>
+<span id="cb12-125"><a href="#cb12-125" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-126"><a href="#cb12-126" tabindex="-1"></a><span class="co">    Calculate the size of the crew for a single crew entry</span></span>
+<span id="cb12-127"><a href="#cb12-127" tabindex="-1"></a></span>
+<span id="cb12-128"><a href="#cb12-128" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-129"><a href="#cb12-129" tabindex="-1"></a><span class="co">        crew (str): The text entry in the crew column containing a list of crew member names</span></span>
+<span id="cb12-130"><a href="#cb12-130" tabindex="-1"></a></span>
+<span id="cb12-131"><a href="#cb12-131" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-132"><a href="#cb12-132" tabindex="-1"></a><span class="co">        (int): The crew size</span></span>
+<span id="cb12-133"><a href="#cb12-133" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-134"><a href="#cb12-134" tabindex="-1"></a>    <span class="cf">if</span> crew.split() <span class="op">==</span> []:</span>
+<span id="cb12-135"><a href="#cb12-135" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb12-136"><a href="#cb12-136" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-137"><a href="#cb12-137" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(re.split(<span class="vs">r';'</span>, crew))<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb12-138"><a href="#cb12-138" tabindex="-1"></a></span>
+<span id="cb12-139"><a href="#cb12-139" tabindex="-1"></a><span class="kw">def</span> add_crew_size_column(df):</span>
+<span id="cb12-140"><a href="#cb12-140" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-141"><a href="#cb12-141" tabindex="-1"></a><span class="co">    Add crew_size column to the dataset containing the value of the crew size</span></span>
+<span id="cb12-142"><a href="#cb12-142" tabindex="-1"></a></span>
+<span id="cb12-143"><a href="#cb12-143" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-144"><a href="#cb12-144" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input data frame.</span></span>
+<span id="cb12-145"><a href="#cb12-145" tabindex="-1"></a></span>
+<span id="cb12-146"><a href="#cb12-146" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-147"><a href="#cb12-147" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added</span></span>
+<span id="cb12-148"><a href="#cb12-148" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-149"><a href="#cb12-149" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Adding crew size variable (crew_size) to dataset'</span>)</span>
+<span id="cb12-150"><a href="#cb12-150" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
+<span id="cb12-151"><a href="#cb12-151" tabindex="-1"></a>    df_copy[<span class="st">"crew_size"</span>] <span class="op">=</span> df_copy[<span class="st">"crew"</span>].<span class="bu">apply</span>(</span>
+<span id="cb12-152"><a href="#cb12-152" tabindex="-1"></a>        calculate_crew_size</span>
+<span id="cb12-153"><a href="#cb12-153" tabindex="-1"></a>    )</span>
+<span id="cb12-154"><a href="#cb12-154" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
+<span id="cb12-155"><a href="#cb12-155" tabindex="-1"></a></span>
+<span id="cb12-156"><a href="#cb12-156" tabindex="-1"></a></span>
+<span id="cb12-157"><a href="#cb12-157" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
+<span id="cb12-158"><a href="#cb12-158" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-159"><a href="#cb12-159" tabindex="-1"></a><span class="co">    Summarizes the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb12-160"><a href="#cb12-160" tabindex="-1"></a></span>
+<span id="cb12-161"><a href="#cb12-161" tabindex="-1"></a><span class="co">    Args: </span></span>
+<span id="cb12-162"><a href="#cb12-162" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
+<span id="cb12-163"><a href="#cb12-163" tabindex="-1"></a></span>
+<span id="cb12-164"><a href="#cb12-164" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb12-165"><a href="#cb12-165" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-166"><a href="#cb12-166" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
+<span id="cb12-167"><a href="#cb12-167" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-168"><a href="#cb12-168" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
+<span id="cb12-169"><a href="#cb12-169" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
+<span id="cb12-170"><a href="#cb12-170" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb12-171"><a href="#cb12-171" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
+<span id="cb12-172"><a href="#cb12-172" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
+<span id="cb12-173"><a href="#cb12-173" tabindex="-1"></a>    <span class="cf">return</span> subset</span>
+<span id="cb12-174"><a href="#cb12-174" tabindex="-1"></a></span>
+<span id="cb12-175"><a href="#cb12-175" tabindex="-1"></a></span>
+<span id="cb12-176"><a href="#cb12-176" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb12-177"><a href="#cb12-177" tabindex="-1"></a></span>
+<span id="cb12-178"><a href="#cb12-178" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb12-179"><a href="#cb12-179" tabindex="-1"></a>        input_file <span class="op">=</span> <span class="st">'data/eva-data.json'</span></span>
+<span id="cb12-180"><a href="#cb12-180" tabindex="-1"></a>        output_file <span class="op">=</span> <span class="st">'results/eva-data.csv'</span></span>
+<span id="cb12-181"><a href="#cb12-181" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Using default input and output filenames'</span>)</span>
+<span id="cb12-182"><a href="#cb12-182" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-183"><a href="#cb12-183" tabindex="-1"></a>        input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb12-184"><a href="#cb12-184" tabindex="-1"></a>        output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
+<span id="cb12-185"><a href="#cb12-185" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using custom input and output filenames'</span>)</span>
+<span id="cb12-186"><a href="#cb12-186" tabindex="-1"></a></span>
+<span id="cb12-187"><a href="#cb12-187" tabindex="-1"></a>    graph_file <span class="op">=</span> <span class="st">'./cumulative_eva_graph.png'</span></span>
+<span id="cb12-188"><a href="#cb12-188" tabindex="-1"></a>    duration_by_astronaut_output_file <span class="op">=</span> <span class="st">'results/duration_by_astronaut.csv'</span></span>
+<span id="cb12-189"><a href="#cb12-189" tabindex="-1"></a></span>
+<span id="cb12-190"><a href="#cb12-190" tabindex="-1"></a>    main(input_file, output_file, duration_by_astronaut_output_file, graph_file)</span></code></pre>
 </div>
 <p>Now, let’s test run our script, to make sure we do not get any
 errors.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 eva_data_analysis.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> python3 eva_data_analysis.py</span></code></pre>
 </div>
 <p>If we do:</p>
-<pre><code>venv_spacewalks) $ ls results</code></pre>
-<p>we can see the new result CSV file listed.</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> ls results</span></code></pre>
+</div>
+<p>we should see the new result CSV file with EVA durations summary
+listed.</p>
 <p>Let’s add and commit the new version of the code to our
 <code>02-sum-by-astro-feat</code> branch. First we will check that we
 are on the right branch using either <code>git branch</code> or
 <code>git status</code>.</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git status</span></code></pre>
+</div>
 </div>
 </div>
 <div class="section level3">
@@ -8137,48 +8356,53 @@ either by pressing the “Close” button in the GitHub web interface (as we
 did before) or by making a commit which includes the word “fixes”,
 “fixed”, “close”, “closed” or “closes” followed by a # symbol and the
 issue number in the commit message.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git branch</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"added duration by astronaut functionality, closes #2"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git branch</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git add eva_data_analysis.py</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add duration by astronaut functionality. Fixes #2."</span></span></code></pre>
 </div>
-<p>In the output of <code>git commit -m</code> the first part of the
-output line will show the name of the branch we just made the commit
-to.</p>
+<p>In the output of <code>git commit -m</code> command - the first part
+of the output line will show the name of the branch we just made the
+commit to.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>[02-sum-by-astro-feat 330a2b1] added duration by astronaut functionality, closes #2</code></pre>
+<pre class="output" tabindex="0"><code>[02-sum-by-astro-feat 330a2b1] Add duration by astronaut functionality. Fixes #2.</code></pre>
 </div>
 <p>If we now switch back to the <code>main</code> branch our new commit
 will no longer be there in the source file or the output of
 <code>git log</code>.</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch main</span></code></pre>
 </div>
 <p>And if we go back to the <code>02-sum-by-astro-feat</code> branch it
 will re-appear.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch 02-sum-by-astro-feat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch 02-sum-by-astro-feat</span></code></pre>
 </div>
 <p>If we want to push our changes to a remote such as GitHub we have to
 tell the <code>git push</code> command which branch to push to. If the
 branch doesn’t exist on the remote (as it currently won’t) then it will
-be created.</p>
-<div class="codewrapper sourceCode" id="cb18">
+be created. We need to use the <code>-u</code> switch to the
+<code>git push</code> command to tell GitHub to create the enw remote
+branch for us (which will be also linked to our local branch). The
+<code>-u</code> switch is only needed the first time we push to a new
+remote branch that is being created - next time we just do a normal
+<code>git push</code>.</p>
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push origin 02-sum-by-astro-feat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git push <span class="at">-u</span> origin 02-sum-by-astro-feat</span></code></pre>
 </div>
-<p>If we now refresh the GitHub webpage for this repository we should
-see the <code>02-sum-by-astro-feat</code> branch has appeared in the
-list of branches.</p>
+<p>If we now refresh the GitHub home page for our repository we should
+see the <code>02-sum-by-astro-feat</code> branch appear in the list of
+branches.</p>
 <div id="accordionSpoiler4" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
@@ -8193,10 +8417,10 @@ list of branches.</p>
 if we have made changes on another computer or via GitHub’s web based
 editor), then we can specify a branch on a <code>git pull</code>
 command.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">git</span> pull origin 02-sum-by-astro-feat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">git</span> pull origin 02-sum-by-astro-feat</span></code></pre>
 </div>
 </div>
 </div>
@@ -8218,17 +8442,17 @@ branch back into the main one (or any other branch). This is done with
 the <code>git merge</code> command.</p>
 <p>This must be run on the <em>TARGET</em> branch of the merge, so we
 will have to use a <code>git switch</code> command to set this.</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch main</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git switch main</span></code></pre>
 </div>
 <p>Now we are back on the main branch we can go ahead and merge the
 changes from the bugfix branch:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git merge 02-sum-by-astro-feat</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv_spacewalks</span><span class="kw">)</span> <span class="ex">$</span> git merge 02-sum-by-astro-feat</span></code></pre>
 </div>
 </div>
 </div>
@@ -8369,30 +8593,27 @@ computer and in GitHub.</li>
 </button>
 <div id="collapseSpoiler6" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler6" aria-labelledby="headingSpoiler6">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="kw">def</span> sum_duration_by_astronaut(df, output_csv):</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="co">    Summarize the duration data by each astronaut and saves resulting table to a CSV file</span></span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="co">    Args: </span></span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a><span class="co">        output_csv (str): Path to save the output csv of the table generated</span></span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
-<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
-<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a>    subset.crew <span class="op">=</span> subset.crew.<span class="bu">str</span>.split(<span class="st">';'</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: [i <span class="cf">for</span> i <span class="kw">in</span> x <span class="cf">if</span> i.strip()]) <span class="co"># splitting the crew into individuals and removing blank string splits from ending ;</span></span>
-<span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a>    subset <span class="op">=</span> subset.explode(<span class="st">'crew'</span>) <span class="co"># separating lists of crew into individual rows</span></span>
-<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
-<span id="cb22-17"><a href="#cb22-17" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
-<span id="cb22-18"><a href="#cb22-18" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
-<span id="cb22-19"><a href="#cb22-19" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Saving to CSV file </span><span class="sc">{</span>output_csv<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb22-20"><a href="#cb22-20" tabindex="-1"></a>    subset.to_csv(output_csv) <span class="co"># writing new table to specified location</span></span>
-<span id="cb22-21"><a href="#cb22-21" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="co">    Summarize the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co">    Args: </span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe to be summarized</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarized column </span></span>
+<span id="cb24-11"><a href="#cb24-11" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
+<span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>    subset.crew <span class="op">=</span> subset.crew.<span class="bu">str</span>.split(<span class="st">';'</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: [i <span class="cf">for</span> i <span class="kw">in</span> x <span class="cf">if</span> i.strip()]) <span class="co"># splitting the crew into individuals and removing blank string splits from ending ;</span></span>
+<span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>    subset <span class="op">=</span> subset.explode(<span class="st">'crew'</span>) <span class="co"># separating lists of crew into individual rows</span></span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration column as those don't calculate correctly</span></span>
+<span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
+<span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
 </div>
 </div>
 </div>
