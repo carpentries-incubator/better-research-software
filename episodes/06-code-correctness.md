@@ -641,7 +641,7 @@ c.  Two tests failed: the first and second test in the test file `test_analyse.p
 d.  `test_total_duration` failed because the calculated total duration differs from the expected value by a factor of 10 i.e. the assertion `actual == pytest.approx(expected)` evaluated to `False`
 e.  `test_mean_duration` failed because there is a syntax error in `calculate_mean_duration`. 
 Our colleague has used the command `length` (not a python command) instead of `len`. 
-As a result, running the function returns a `NameError` rather than a calculated value and the test assertion evaluates to `False`.
+As a result, running the function raises a `NameError` rather than returning a calculated value causing the function to be interrupted prematurely and the test to fail.
 :::
 :::
 
