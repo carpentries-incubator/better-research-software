@@ -3,6 +3,7 @@ title: "Authors"
 ---
 
 Authors listed in alphabetical order by their surname:
+- [Steve Crouch](https://github.com/steve-crouch)
 - [Sarah Gibson](https://github.com/sgibson91)
 - [Aman Goel](https://github.com/amangoel185)
 - [Sarah Jaffa](https://github.com/sjaffa)
