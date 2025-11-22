@@ -977,6 +977,28 @@ At this point, now is a good time to commit our test suite to our codebase and p
 (venv_spacewalks) $ git push origin main
 ```
 
+::: callout
+
+## Support for `pytest` in VSCode
+
+VSCode supports the running of unit tests within its IDE, including tests written in `pytest`.
+To enable this support, you will first need to configure the `pytest` framework in VS Code.
+Open the `Test Explorer` view by clicking on the test beaker icon on the VS Code Activity Bar on the left hand side.
+
+You should see a `Configure Python Tests` button if a test framework is not enabled. 
+Clicking on it prompts you to select a test framework and a folder containing your tests (which in this project, is the `tests` subfolder). Tests can also be configured anytime by using the `Python: Configure Tests` command from the Command Palette.
+
+Configuration for the built-in `unittest` unit testing framework is also supported; see the specific settings as described in the [Test configuration settings of the VS Code documentation for Python](https://code.visualstudio.com/docs/python/testing#_test-configuration-settings).
+
+Once you have configured the test framework to use, you can run tests either from the `Project Explorer` or `Test Explorer` in the VS Code Activity Bar:
+
+- From the `Project Explorer`, right-click on the test folder and select `Run Tests`.
+- Alternatively, from the `Test Explorer` view in VS Code (click on the test beaker icon on the VS Code Activity Bar on the left hand side), locate `eva_data_analysis` and hover over it. You will see a few “run” buttons next to it. Click either the play button `Run Test` or the play button with the little check `Run Test with Coverage`.
+
+In either case, you should get the test results on the test results pane at the bottom of the window.
+
+:::
+
 ### (Optional) More practice with a test suite
 
 There is an [optional exercise](../learners/test-suite-exercise.md) to implement additional tests and practice writing tests some more.
