@@ -207,6 +207,33 @@ $ python3 -m venv ./venv_spacewalks
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
+### Adding a Python Interpreter in VS Code
+
+We can create a new or activate an existing virtual environment for our project to work in. Since we have already created a virtual environment, we just need to activate it within a terminal environment in VS Code.
+
+It is also a good idea to check and set the Python interpreter manually in VS Code to make sure things are configured correctly for your project.
+
+You can do that as follows:
+
+- Navigate to the location of the Python binary within the virtual environment using the file browser. The Python binary will be located in, e.g. `venv_spacewalks/bin/python3` within the project directory.
+
+![](fig/vscode-select-interpreter.png){alt='Select python interpreter in VS Code' .image-with-shadow width="800px"}
+
+- Right-click on the binary and select Copy Path.
+- Use the keyboard shortcut `CTRL-SHIFT-P` (Windows, Linux) or `CMD-SHIFT-P` (macOS) or to bring up the VS Code **Command Palette**, then search for `Python: Select Interpreter`.
+- Click `Enter interpreter path...`, and paste the path you copied followed by Enter.
+
+![](fig/vscode-interpreter-path.png){alt='Set interpreter path in VS Code' .image-with-shadow width="800px"}
+
+If everything is setup correctly, when you select a Python file in the file explorer you should see the interpreter and virtual environment stated in the information bar at the bottom of VS Code.
+Any new terminal you open now will start with the activated virtual environment.
+
+![](fig/vscode-interpreter-venv.png){alt='Showing interpreter status in VS Code status bar' .image-with-shadow width="800px"}
+
+:::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
 ### Naming Virtual Environments
 
 What is a good name to use for a virtual environment?
