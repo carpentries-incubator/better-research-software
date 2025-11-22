@@ -358,7 +358,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Reproducible software environments</h1>
-        <p>Last updated on 2025-11-18 |
+        <p>Last updated on 2025-11-22 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/03-reproducible-dev-environment.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -666,6 +666,40 @@ virtual environment for the project:</p>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="ex">$</span> python3 <span class="at">-m</span> venv ./venv_spacewalks</span></code></pre>
 </div>
 </div>
+</div>
+</div>
+<div id="adding-a-python-interpreter-in-vs-code" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="adding-a-python-interpreter-in-vs-code" class="callout-inner">
+<h3 class="callout-title">Adding a Python Interpreter in VS Code</h3>
+<div class="callout-content">
+<p>We can create a new or activate an existing virtual environment for
+our project to work in. Since we have already created a virtual
+environment, we just need to activate it within a terminal environment
+in VS Code.</p>
+<p>It is also a good idea to check and set the Python interpreter
+manually in VS Code to make sure things are configured correctly for
+your project.</p>
+<p>You can do that as follows:</p>
+<ul><li>Navigate to the location of the Python binary within the virtual
+environment using the file browser. The Python binary will be located
+in, e.g. <code>venv_spacewalks/bin/python3</code> within the project
+directory.</li>
+</ul><figure><img src="../fig/vscode-select-interpreter.png" class="image-with-shadow figure mx-auto d-block" alt="Select python interpreter in VS Code" width="800"></figure><ul><li>Right-click on the binary and select Copy Path.</li>
+<li>Use the keyboard shortcut <code>CTRL-SHIFT-P</code> (Windows, Linux)
+or <code>CMD-SHIFT-P</code> (macOS) or to bring up the VS Code
+<strong>Command Palette</strong>, then search for
+<code>Python: Select Interpreter</code>.</li>
+<li>Click <code>Enter interpreter path...</code>, and paste the path you
+copied followed by Enter.</li>
+</ul><figure><img src="../fig/vscode-interpreter-path.png" class="image-with-shadow figure mx-auto d-block" alt="Set interpreter path in VS Code" width="800"></figure><p>If everything is setup correctly, when you select a Python file in
+the file explorer you should see the interpreter and virtual environment
+stated in the information bar at the bottom of VS Code. Any new terminal
+you open now will start with the activated virtual environment.</p>
+<figure><img src="../fig/vscode-interpreter-venv.png" class="image-with-shadow figure mx-auto d-block" alt="Showing interpreter status in VS Code status bar" width="800"></figure></div>
 </div>
 </div>
 <div id="naming-virtual-environments" class="callout">
@@ -1184,8 +1218,8 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/03-reproducible-dev-environment.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/03-reproducible-dev-environment.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-18",
-  "datePublished": "2025-11-21"
+  "dateModified": "2025-11-22",
+  "datePublished": "2025-11-22"
 }
 
   </script><script>
