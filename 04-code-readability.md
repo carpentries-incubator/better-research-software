@@ -444,11 +444,27 @@ Commit changes:
 
 :::::::::::::::::::::::::::::::: callout
 
-A [linter](https://glosario.carpentries.org/en/#linter) can be very helpful with tasks like this.
-The linter will identify unused variables and unused imports among other useful tasks for formatting and making your code readable.
+[Linters](https://glosario.carpentries.org/en/#linter) (static analysis tools) can be very helpful with tasks like this.
+Linters identify unused variables and unused imports among other useful tasks for formatting and making your code readable.
 
-Some common linters in Python include PyLint, Black, Ruff and Flake8.
+Some common linters for Python include PyLint, Black, Ruff and Flake8.
 
+::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::: callout
+
+IDEs can significantly help developers enhance code readability.
+They use built-in linters that automatically identify and flag issues in real-time as you write code. 
+This process improves readability in several ways:
+
+- **enforcing coding standards**: check for consistent style, formatting, and conventions, e.g. flagging inconsistent indentation, incorrect naming conventions, and excessive line length violations, which helps ensure a consistent look and feel across the entire codebase, making it easier for any developer to read and understand.
+- **syntax highlighting and error detection**: use different colors and font styles for different parts of the code (keywords, variables, comments, etc.), providing visual cues that make the code easier to parse and read. 
+For example, flagging syntax errors (e.g., missing brackets, semicolons, or misspelled keywords) with visual indicators like wavy red underlines ("squigglies"), allowing for immediate correction and preventing errors from becoming entrenched.
+- **highlighting "code smells" and inefficiencies**: beyond simple syntax, advanced IDEs and their extensions can identify "code smells" and potential inefficiencies, such as unused variables, overly complex functions, or duplicate code blocks. 
+This encourages developers to refactor the code into smaller, more meaningful functions and classes, which improves clarity and maintainability.
+- **providing contextual guidance**: many IDEs provide rich, contextual help and suggestions on how to fix an issue and why it is a problem, helping developers learn and apply best practices for writing high-quality, readable code.
+- **facilitating code navigation and refactoring**: features like intelligent code completion, symbol resolution, and automated refactoring support (e.g., renaming variables or extracting methods) allow developers to restructure code to be more efficient and readable without changing its core functionality. 
+The IDE understands the underlying structure of the code, which makes these complex operations simple and safe.
 ::::::::::::::::::::::::::::::::::::::::
 
 
@@ -1062,10 +1078,14 @@ Do not forget to commit any uncommitted changes you may have and then push your 
 
 ## Summary
 
-Good code readability brings many benefits to software development. It makes code easier to understand, maintain, and 
-debug. This benefits collaborators and future developers as well as the original author. Readable code reduces the 
-risk of errors, speeds up onboarding of new team members, and simplifies code reviews. It also supports long-term 
-sustainability, as clear code is more adaptable and easier to extend or refactor over time.
+Good code readability brings many benefits to software development. 
+It makes code easier to understand, maintain, and debug. 
+This benefits collaborators and future developers as well as the original author. 
+Readable code reduces the risk of errors, speeds up onboarding of new team members, and simplifies code reviews. 
+It also supports long-term sustainability, as clear code is more adaptable and easier to extend or refactor over time.
+
+Integrated Development Environments (IDEs) significantly enhance code readability by using built-in static analysis tools (linters) that automatically identify and flag issues in real-time as you write code.
+This proactive approach allows developers to identify and fix many issues as they write code, rather than later in the development cycle.
 
 :::::: spoiler
 
