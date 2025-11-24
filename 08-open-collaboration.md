@@ -417,7 +417,7 @@ def read_json_to_dataframe(input_file):
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration is missing
-    eva_df.dropna(axis=0, inplace=True)
+    eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
     return eva_df
 
 
