@@ -340,7 +340,7 @@ def summary_duration_by_astronaut(df):
     """
     print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
-    subset = add_duration_hours_variable(subset) # need duration_hours for easier calcs
+    subset = add_duration_hours(subset) # need duration_hours for easier calcs
     subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
     subset = subset.groupby('crew').sum() 
     return subset
@@ -453,7 +453,7 @@ def plot_cumulative_time_in_space(df, graph_file):
         None
     """
     print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
-    df = add_duration_hours_variable(df)
+    df = add_duration_hours(df)
     df['cumulative_time'] = df['duration_hours'].cumsum()
     plt.plot(df['date'], df['cumulative_time'], 'ko-')
     plt.xlabel('Year')
@@ -478,7 +478,7 @@ def text_to_duration(duration):
     return duration_hours
 
 
-def add_duration_hours_variable(df):
+def add_duration_hours(df):
     """
     Add duration in hours (duration_hours) variable to the dataset
 
@@ -541,7 +541,7 @@ def summary_duration_by_astronaut(df):
     """
     print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
-    subset = add_duration_hours_variable(subset) # need duration_hours for easier calcs
+    subset = add_duration_hours(subset) # need duration_hours for easier calcs
     subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
     subset = subset.groupby('crew').sum() 
     return subset
@@ -747,7 +747,7 @@ def summary_duration_by_astronaut(df):
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
     subset.crew = subset.crew.str.split(';').apply(lambda x: [i for i in x if i.strip()]) # splitting the crew into individuals and removing blank string splits from ending ;
     subset = subset.explode('crew') # separating lists of crew into individual rows
-    subset = add_duration_hours_variable(subset) # need duration_hours for easier calcs
+    subset = add_duration_hours(subset) # need duration_hours for easier calcs
     subset = subset.drop('duration', axis=1) # dropping extra duration column as those don't calculate correctly
     subset = subset.groupby('crew').sum() 
     return subset
