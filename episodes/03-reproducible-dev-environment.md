@@ -363,7 +363,7 @@ What is the difference?
 `python3 -m pip install` uses Python to run the Pip module that comes with the Python distribution using the Python interpreter.
 So `/usr/bin/python3.12 -m pip` means you are executing Pip for your Python interpreter located at `/usr/bin/python3.12`.
 
-`pip3 install` runs the Pip module as an executable program with the same name - it may pick up whatever pip3 your PATH settings tell it to. 
+`pip3 install` runs the Pip module as an executable program with the same name - it may pick up whatever `pip3` your PATH settings tell it to. 
 And it may not be for the same Python version your expect - especially if you have several Python distributions (and Pips) installed (which is very common).
 There are [edge cases](https://snarky.ca/why-you-should-use-python-m-pip/) when the two commands may produce different results, so be warned.
 
