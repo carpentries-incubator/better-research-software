@@ -456,20 +456,20 @@ Let's push our **local repository** to [GitHub](https://github.com) and share it
    there is a menu labelled "+" with a dropdown.
    Click the dropdown and select "New repository" from the options:
 
-   ![*Creating a new GitHub repository*](fig/ep02_fig01-create_new_repo.png){alt="Selecting the 'New repository' option from GitHub's dropdown menu labelled '+'" .image-with-shadow }
+   ![*Creating a new GitHub repository*](fig/github-create-new-repo.png){alt="Selecting the 'New repository' option from GitHub's dropdown menu labelled '+'" .image-with-shadow }
 
 3. You will be presented with some options to fill in or select while creating your repository.
    In the "Repository Name" field, type "spacewalks".
    This is the name of your project and matches the name of your local folder.
 
-   ![*Naming the GitHub repository*](fig/ep02_fig02-repository_name.png){alt="Setting the name of the repository on GitHub through the 'Repository Name' text field" .image-with-shadow }
+   ![*Naming the GitHub repository*](fig/github-repository-name.png){alt="Setting the name of the repository on GitHub through the 'Repository Name' text field" .image-with-shadow }
 
    Ensure the visibility of the repository is "Public" and leave all other options blank.
    Since this repository will be connected to a local repository,
    it needs to be empty which is why we chose not to initialise with a README or add a license or `.gitignore` file.
    Click "Create repository" at the bottom of the page:
 
-   ![*Complete GitHub repository creation*](fig/ep02_fig03-create_repository.png){alt="Completing the creation of the GitHub repository by clicking on the 'Create repository' button" .image-with-shadow }
+   ![*Complete GitHub repository creation*](fig/github-create-repository.png){alt="Completing the creation of the GitHub repository by clicking on the 'Create repository' button" .image-with-shadow }
 
 4. Now we have a  **remote repository** on GitHub's servers,
    you need to send it the files and history from your **local repository**.
@@ -491,7 +491,7 @@ Let's push our **local repository** to [GitHub](https://github.com) and share it
    You can copy these commands using the button that looks like two overlapping squares to the right-hand side of the commands.
    Paste them into your terminal and run them.
 
-  ![*Copy the commands to sync the local and remote repositories*](fig/ep02_fig04-copy_commands.png){alt="Copying the commands to sync the local and remote repositories from the remote repository's home page on GitHub" .image-with-shadow }
+  ![*Copy the commands to sync the local and remote repositories*](fig/github-copy-commands.png){alt="Copying the commands to sync the local and remote repositories from the remote repository's home page on GitHub" .image-with-shadow }
 
 5. If you refresh your browser window,
    you should now see the two files `eva_data_analysis.py` and `eva-data.json` visible in the GitHub repository,
