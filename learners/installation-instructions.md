@@ -11,6 +11,7 @@ To go through the course material on your own or at a workshop, you will need th
 
 You will also need to [create a GitHub account](#github-account) if you do not have one already, make sure that you are able to log into it, and download the [Spacewalks data and analysis code](#spacewalks) which we will be used for exercises in the course.
 
+We also provide ["all in one setup check"](./installation-instructions.html#setup-check) to test everything works as expected.
 
 ## Command line terminal
 
@@ -378,7 +379,7 @@ The archive contains [NASA's open data on spacewalks](https://data.nasa.gov/Raw-
 Save the `spacewalks.zip` archive to your home directory and extract it - you should get a directory called `spacewalks`.
 
 
-## Setup check (all in one)
+## Setup check (all in one) {#setup-check}
 
 Let's check your setup now to make sure you are ready for the rest of this course.
 
@@ -412,7 +413,7 @@ Checking Git and GitHub:
 Checking VS Code:
 
 12. `$ code`
-13. `$ code --list-extensions`
+13. `$ code --list-extensions --show-versions` 
 
 ::: solution
 
@@ -429,8 +430,9 @@ The expected out put of each command is:
 9. The help message explaining how to use the `git` command.
 10. You should have `user.name`, `user.email` and `core.editor` set in your Git configuration. Check that the editor listed is one you know how to use.
 11. This checks if you have set up your connection to GitHub correctly. If is says `permission denied` you may need to look at the instructions for setting up SSH keys again on the Setup page.
-12. This should open VS Code in your current working directory. macOS users may need to first open VS Code and [add it to the PATH](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
-13. If you installed the [VS Code extensions during setup](./installation-instructions#vs-code-extensions-for-python), you should see the extensions GitLens, Git Graph, Python, JSON and Excel Viewer in the output list.
+12. This should open VS Code in your current working directory. 
+macOS users may need to first open VS Code and [add it to the PATH](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line).
+13. You should see the [extensions for VS Code you installed during setup](./installation-instructions.html#extensions) or previously.
 
 :::
 
