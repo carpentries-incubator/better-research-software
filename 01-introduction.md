@@ -118,9 +118,10 @@ Outside of this course, you will make a choice which IDE or code editor to use b
 
 As part of setup, we have installed a few extensions for VS Code to make our software development experience easier.
 
-::: instructor
+::: callout
 
 Orient the users and navigate around VS Code.
+
 * Explorer - the top one is a file navigator, or explorer - we can use this to open existing folders containing program files.
 * Search - the next one down is a search capability, so you can search for things (and replace them with other text) over your code files.
 * Source control - this gives you access to source code control, which includes Git version control functionality. This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
