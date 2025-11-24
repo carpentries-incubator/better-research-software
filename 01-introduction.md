@@ -171,7 +171,7 @@ drwxrwxr-x@  4 mbassan2  staff     128  4 Apr  2025 astronaut-data-analysis-old
 
 :::::: challenge
 
-### Assess the software project (15 min)
+### Assess the software project (10 min)
 
 Individually inspect the code and data.
 Try and see if you can understand what the code is doing and how it is organised.
