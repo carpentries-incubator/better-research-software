@@ -351,7 +351,7 @@ any more as Git will keep track of that for us.
 
 :::::::::::::::::::::::::::: challenge
 
-#### Update the filenames (5 min)
+#### Update filenames (5 min)
 
 Try to make these changes yourself.
 
