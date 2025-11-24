@@ -810,7 +810,7 @@ as new contributors can more easily find what they need, and it enables smoother
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correcteness>
+<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correctness>
 
 
 ::::::
