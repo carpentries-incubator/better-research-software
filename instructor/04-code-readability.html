@@ -361,7 +361,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Code readability</h1>
-        <p>Last updated on 2025-11-20 |
+        <p>Last updated on 2025-11-24 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/04-code-readability.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -430,7 +430,7 @@ we can follow to help create more readable code.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability</a></p>
@@ -443,7 +443,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Activate your virtual environment </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -620,7 +620,7 @@ informative commit message.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha"><li>Updated code after renaming <code>data_f</code>, <code>data_t</code>
 and <code>g_file</code>:</li>
@@ -818,7 +818,7 @@ updated code to the git repo.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Variable <code>fieldnames</code> (containing column names for CSV
 data file) is defined but never used in the code - it should be
@@ -906,13 +906,63 @@ deleted.</p>
 <span class="callout-header">Callout</span>
 <div class="callout-inner">
 <div class="callout-content">
-<p>A <a href="https://glosario.carpentries.org/en/#linter" class="external-link">linter</a>
-can be very helpful with tasks like this. The linter will identify
-unused variables and unused imports among other useful tasks for
-formatting and making your code readable.</p>
-<p>Some common linters in Python include PyLint, Black, Ruff and
+<p><a href="https://glosario.carpentries.org/en/#linter" class="external-link">Linters</a>
+(static analysis tools) can be very helpful with tasks like this.
+Linters identify unused variables and unused imports among other useful
+tasks for formatting and making your code readable.</p>
+<p>Some common linters for Python include PyLint, Black, Ruff and
 Flake8.</p>
 </div>
+</div>
+</div>
+<div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>IDEs can significantly help developers enhance code readability. They
+use built-in linters that automatically identify and flag issues in
+real-time as you write code. This process improves readability in
+several ways:</p>
+<ul><li>
+<strong>enforcing coding standards</strong>: check for consistent
+style, formatting, and conventions, e.g. flagging inconsistent
+indentation, incorrect naming conventions, and excessive line length
+violations, which helps ensure a consistent look and feel across the
+entire codebase, making it easier for any developer to read and
+understand.</li>
+<li>
+<strong>syntax highlighting and error detection</strong>: use
+different colors and font styles for different parts of the code
+(keywords, variables, comments, etc.), providing visual cues that make
+the code easier to parse and read. For example, flagging syntax errors
+(e.g., missing brackets, semicolons, or misspelled keywords) with visual
+indicators like wavy red underlines (“squigglies”), allowing for
+immediate correction and preventing errors from becoming
+entrenched.</li>
+<li>
+<strong>highlighting “code smells” and inefficiencies</strong>:
+beyond simple syntax, advanced IDEs and their extensions can identify
+“code smells” and potential inefficiencies, such as unused variables,
+overly complex functions, or duplicate code blocks. This encourages
+developers to refactor the code into smaller, more meaningful functions
+and classes, which improves clarity and maintainability.</li>
+<li>
+<strong>providing contextual guidance</strong>: many IDEs provide
+rich, contextual help and suggestions on how to fix an issue and why it
+is a problem, helping developers learn and apply best practices for
+writing high-quality, readable code.</li>
+<li>
+<strong>facilitating code navigation and refactoring</strong>:
+features like intelligent code completion, symbol resolution, and
+automated refactoring support (e.g., renaming variables or extracting
+methods) allow developers to restructure code to be more efficient and
+readable without changing its core functionality. The IDE understands
+the underlying structure of the code, which makes these complex
+operations simple and safe.</li>
+</ul></div>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="use-third-party-libraries">Use third-party libraries<a class="anchor" aria-label="anchor" href="#use-third-party-libraries"></a></h2>
@@ -1079,7 +1129,7 @@ informative commit message.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Some good comments may look like the example below.</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -1153,7 +1203,7 @@ future episode, testing code also becomes simpler when code is written
 in functions. Each function can be individually checked to ensure it is
 doing what is intended, which improves confidence in the software as a
 whole.</p>
-<div id="callout2" class="callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -1185,7 +1235,7 @@ steps. We will continue to work on steps 3 and 4 above later on.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>You will need to share the code below with the learners via
 copy-and-paste either in shared notes or chat in a virtual training.
@@ -1283,7 +1333,7 @@ save the plot.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>After extracting the code to plot a graph into a separate function,
 our code may look something like the following:</p>
@@ -1463,7 +1513,7 @@ docstring may look like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Our <code>write_dataframe_to_csv</code> function fully described by a
 docstring may look like:</p>
@@ -1627,12 +1677,18 @@ Readable code reduces the risk of errors, speeds up onboarding of new
 team members, and simplifies code reviews. It also supports long-term
 sustainability, as clear code is more adaptable and easier to extend or
 refactor over time.</p>
+<p>Integrated Development Environments (IDEs) significantly enhance code
+readability by using built-in static analysis tools (linters) that
+automatically identify and flag issues in real-time as you write code.
+This proactive approach allows developers to identify and fix many
+issues as they write code, rather than later in the development
+cycle.</p>
 <div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure</a></p>
@@ -1741,7 +1797,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/04-code-readability.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/04-code-readability.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-20",
+  "dateModified": "2025-11-24",
   "datePublished": "2025-11-24"
 }
 
