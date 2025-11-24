@@ -633,10 +633,11 @@ project_name/
 └── ...
 ```
 
-:::::: challenge (10 min)
+:::::: challenge 
 
-Refactor your software project so that input data is stored in `data/` directory and results (the graph and CSV 
-data files) saved in `results/` directory off the project root. 
+### Project restructuring (10 min)
+
+Restructure your software project so that input data is stored in `data/` directory and results (the graph and CSV data files) saved in `results/` directory off the project root. 
 
 Remove current result files `eva-data.csv` and `cumulative_eva_graph.png` from the project root (if they exist) as they will be recreated by re-running the code.
 
