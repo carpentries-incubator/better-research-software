@@ -669,6 +669,8 @@ def main(input_file, output_file, graph_file):
 
     # Read the data from JSON file
     eva_data = read_json_to_dataframe(input_file)
+    # Calculate and add crew size to data
+    eva_data = add_crew_size_column(eva_data) # added this line
 
     # Convert and export data to CSV file
     write_dataframe_to_csv(eva_data, output_file)
