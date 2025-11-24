@@ -497,7 +497,7 @@ graph_file = './cumulative_eva_graph.png'
 
 eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
 eva_df['eva'] = eva_df['eva'].astype(float)
-eva_df.dropna(axis=0, subset=['duration'], inplace=True)
+eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
 
 eva_df.to_csv(output_file, index=False, encoding='utf-8')
 
@@ -621,7 +621,7 @@ print(f'Reading JSON file {input_file}')
 eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
 eva_df['eva'] = eva_df['eva'].astype(float)
 # Clean the data by removing any rows where duration is missing
-eva_df.dropna(axis=0, subset=['duration'], inplace=True)
+eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
 
 print(f'Saving to CSV file {output_file}')
 # Save dataframe to CSV file for later analysis
@@ -629,6 +629,7 @@ eva_df.to_csv(output_file, index=False, encoding='utf-8')
 
 # Sort dataframe by date ready to be plotted (date values are on x-axis)
 eva_df.sort_values('date', inplace=True)
+
 # Plot cumulative time spent in space over years
 print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
 eva_df['duration_hours'] = eva_df['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60)
@@ -709,7 +710,7 @@ def read_json_to_dataframe(input_file):
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration is missing
-    eva_df.dropna(axis=0, subset=['duration'], inplace=True)
+    eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
     return eva_df
 
 
@@ -735,6 +736,7 @@ write_dataframe_to_csv(eva_data, output_file)
 
 # Sort dataframe by date ready to be plotted (date values are on x-axis)
 eva_data.sort_values('date', inplace=True)
+
 # Plot cumulative time spent in space over years
 print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
 eva_data['duration_hours'] = eva_data['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60)
@@ -781,7 +783,7 @@ def read_json_to_dataframe(input_file):
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration is missing
-    eva_df.dropna(axis=0, subset=['duration'], inplace=True)
+    eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
     return eva_df
 
 
@@ -912,7 +914,7 @@ def read_json_to_dataframe(input_file):
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration is missing
-    eva_df.dropna(axis=0, subset=['duration'], inplace=True)
+    eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
     return eva_df
 ```
 
@@ -1000,7 +1002,7 @@ def read_json_to_dataframe(input_file):
     eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
     eva_df['eva'] = eva_df['eva'].astype(float)
     # Clean the data by removing any rows where duration is missing
-    eva_df.dropna(axis=0, inplace=True)
+    eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
     return eva_df
 
 

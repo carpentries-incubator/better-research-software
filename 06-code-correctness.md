@@ -460,8 +460,7 @@ def test_text_to_duration_integer():
 
 ```
 
-Let's also add some inline comments to clarify what each test is doing
-and expand our syntax to highlight the logic behind our approach:
+Let's also add some inline comments to clarify what each test is doing and expand our syntax to highlight the logic behind our approach:
 
 ```python
 import pytest
@@ -668,9 +667,18 @@ import re # added this line
 def main(input_file, output_file, graph_file):
     print("--START--")
 
+    # Read the data from JSON file
     eva_data = read_json_to_dataframe(input_file)
+    # Calculate and add crew size to data
     eva_data = add_crew_size_column(eva_data) # added this line
+
+    # Convert and export data to CSV file
     write_dataframe_to_csv(eva_data, output_file)
+
+    # Sort dataframe by date ready to be plotted (date values are on x-axis)
+    eva_data.sort_values('date', inplace=True)
+
+    # Plot cumulative time spent in space over years
     plot_cumulative_time_in_space(eva_data, graph_file)
 
     print("--END--")
