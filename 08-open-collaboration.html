@@ -826,7 +826,7 @@ implement the requested feature.</p>
 <span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
 <span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
 <span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
 <span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
 <span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
@@ -945,7 +945,7 @@ like:</p>
 <span id="cb12-79"><a href="#cb12-79" tabindex="-1"></a><span class="co">        None</span></span>
 <span id="cb12-80"><a href="#cb12-80" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb12-81"><a href="#cb12-81" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Plotting cumulative spacewalk duration and saving to </span><span class="sc">{</span>graph_file<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb12-82"><a href="#cb12-82" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours_variable(df)</span>
+<span id="cb12-82"><a href="#cb12-82" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours(df)</span>
 <span id="cb12-83"><a href="#cb12-83" tabindex="-1"></a>    df[<span class="st">'cumulative_time'</span>] <span class="op">=</span> df[<span class="st">'duration_hours'</span>].cumsum()</span>
 <span id="cb12-84"><a href="#cb12-84" tabindex="-1"></a>    plt.plot(df[<span class="st">'date'</span>], df[<span class="st">'cumulative_time'</span>], <span class="st">'ko-'</span>)</span>
 <span id="cb12-85"><a href="#cb12-85" tabindex="-1"></a>    plt.xlabel(<span class="st">'Year'</span>)</span>
@@ -970,7 +970,7 @@ like:</p>
 <span id="cb12-104"><a href="#cb12-104" tabindex="-1"></a>    <span class="cf">return</span> duration_hours</span>
 <span id="cb12-105"><a href="#cb12-105" tabindex="-1"></a></span>
 <span id="cb12-106"><a href="#cb12-106" tabindex="-1"></a></span>
-<span id="cb12-107"><a href="#cb12-107" tabindex="-1"></a><span class="kw">def</span> add_duration_hours_variable(df):</span>
+<span id="cb12-107"><a href="#cb12-107" tabindex="-1"></a><span class="kw">def</span> add_duration_hours(df):</span>
 <span id="cb12-108"><a href="#cb12-108" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb12-109"><a href="#cb12-109" tabindex="-1"></a><span class="co">    Add duration in hours (duration_hours) variable to the dataset</span></span>
 <span id="cb12-110"><a href="#cb12-110" tabindex="-1"></a></span>
@@ -1033,7 +1033,7 @@ like:</p>
 <span id="cb12-167"><a href="#cb12-167" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb12-168"><a href="#cb12-168" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
 <span id="cb12-169"><a href="#cb12-169" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
-<span id="cb12-170"><a href="#cb12-170" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb12-170"><a href="#cb12-170" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
 <span id="cb12-171"><a href="#cb12-171" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
 <span id="cb12-172"><a href="#cb12-172" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
 <span id="cb12-173"><a href="#cb12-173" tabindex="-1"></a>    <span class="cf">return</span> subset</span>
@@ -1331,7 +1331,7 @@ computer and in GitHub.</li>
 <span id="cb24-12"><a href="#cb24-12" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
 <span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>    subset.crew <span class="op">=</span> subset.crew.<span class="bu">str</span>.split(<span class="st">';'</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: [i <span class="cf">for</span> i <span class="kw">in</span> x <span class="cf">if</span> i.strip()]) <span class="co"># splitting the crew into individuals and removing blank string splits from ending ;</span></span>
 <span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>    subset <span class="op">=</span> subset.explode(<span class="st">'crew'</span>) <span class="co"># separating lists of crew into individual rows</span></span>
-<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours_variable(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
 <span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration column as those don't calculate correctly</span></span>
 <span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
 <span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
