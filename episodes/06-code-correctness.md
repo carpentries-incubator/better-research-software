@@ -966,7 +966,7 @@ b.  You can find this information on the "Functions" tab of the HTML report.
 The following functions in our code base are currently untested:
     -   read_json_to_dataframe
     -   write_dataframe_to_csv
-    -   add_duration_hours_variable
+    -   add_duration_hours
     -   plot_cumulative_time_in_space
     -   add_crew_size_variable
 :::
