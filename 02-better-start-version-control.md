@@ -544,7 +544,7 @@ Here's a brief explanation of them:
 - **Issues** - used to track bugs, tasks, feature requests, or any work that needs to be done.
 - **Pull requests** - where contributors submit changes to the code. These are reviewed and discussed before being merged.
 - **Actions** - automated workflows (like tests or deployments) that run on the project using GitHub Actions.
-- **Projects** - offers a Kanban-style board to manage tasks and plan work (e.g., using cards and columns).
+- **Projects** - adaptable table, board, and roadmap view of the project that integrates with your issues and pull requests to help you plan and track work effectively at the user or organisation level. 
 - **Wiki** – lets you create structured documentation for your project.
 - **Security** – helps identify, manage, and fix vulnerabilities in your code and dependencies.
 - **Insights** – provides analytics on project activity, contributions, and community health.
