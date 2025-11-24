@@ -342,7 +342,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Installation instructions</h1>
-        <p>Last updated on 2025-11-14 |
+        <p>Last updated on 2025-11-24 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/learners/installation-instructions.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -374,6 +374,8 @@ account</a> if you do not have one already, make sure that you are able
 to log into it, and download the <a href="#spacewalks">Spacewalks data
 and analysis code</a> which we will be used for exercises in the
 course.</p>
+<p>We also provide <a href="./installation-instructions.html#setup-check">“all in one setup
+check”</a> to test everything works as expected.</p>
 <section><h2 class="section-heading" id="command-line-terminal">Command line terminal<a class="anchor" aria-label="anchor" href="#command-line-terminal"></a></h2>
 <hr class="half-width"><p>You will need a command line terminal (also referred to as a shell)
 in order to run Python scripts and various command like tools (such as
@@ -734,16 +736,49 @@ separately so far).</p>
 <p>Please make sure to <a href="https://code.visualstudio.com/Download" class="external-link">download VS Code</a> for
 your platform.</p>
 <div class="section level3">
-<h3 id="command-line-terminal-git-integration-in-vs-code">Command line terminal &amp; Git integration in VS Code<a class="anchor" aria-label="anchor" href="#command-line-terminal-git-integration-in-vs-code"></a></h3>
+<h3 id="extensions">Extensions<a class="anchor" aria-label="anchor" href="#extensions"></a></h3>
+<div class="section level4">
+<h4 id="python-extensions-for-vs-code">Python extensions for VS Code<a class="anchor" aria-label="anchor" href="#python-extensions-for-vs-code"></a></h4>
+<p>You will need to install the <strong>Microsoft Python extension for
+Visual Studio Code</strong> (from <code>View &gt; Extensions</code>
+top-level menu), which provides support for Python language.</p>
+<p>This extension will automatically install the following extensions
+too by default to provide the best Python development experience in VS
+Code:</p>
+<ul><li>Pylance – performant Python language support (IntelliSense)</li>
+<li>Python Debugger – improved debugging experience</li>
+</ul><figure><img src="../fig/vscode-python-extension.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of Extension Marketplace View in VS Code showing the search results for the term 'python' in the search result list on the left with the 'Python by Microsoft' extension selected and details of this extension showing in the pane on the right with a button to install it"><div class="figcaption"><em>Python extension for VS Code by
+Microsoft</em></div>
+</figure></div>
+<div class="section level4">
+<h4 id="command-line-terminal-git-integration-in-vs-code">Command line terminal &amp; Git integration in VS Code<a class="anchor" aria-label="anchor" href="#command-line-terminal-git-integration-in-vs-code"></a></h4>
+<div class="tabs">
+<nav><div id="nav-tab-3" class="nav nav-tabs" role="tablist">
+<button class="nav-link active" id="nav-tab-3-1" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-1" type="button" role="tab" aria-controls="nav-tabpanel-3-1" aria-selected="true">
+  <h3 class="tab-header" id="nav-tab-heading-3-1">
+  Linux/macOS
+  </h3>
+</button>
+<button class="nav-link" id="nav-tab-3-2" data-bs-toggle="tab" data-bs-target="#nav-tabpanel-3-2" type="button" role="tab" aria-controls="nav-tabpanel-3-2" aria-selected="false">
+  <h3 class="tab-header" id="nav-tab-heading-3-2">
+  Windows
+  </h3>
+</button>
+</div>
+</nav><div id="nav-tabContent-3" class="tab-content">
+<div id="nav-tabpanel-3-1" class="tab-pane show active" aria-labelledby="nav-tab-3-1" role="tabpanel">
 <p>On macOS and Linux systems, VS Code will typically recognise a
 command line terminal you already have on your system (along with all
-programs/commands such as Git you can run from it) and you will not need
-to do anything and it will be available as a “Terminal” in VS Code.</p>
+programs/commands such as Git you can run from it). You do not have to
+install or configure anything additionally - it will be available as a
+“Terminal” in VS Code.</p>
+</div>
+<div id="nav-tabpanel-3-2" class="tab-pane" aria-labelledby="nav-tab-3-2" role="tabpanel">
 <p>On Windows, if VS Code does not automatically recognise Git Bash as a
 command line terminal to be used as a “Terminal”, installing VS Code
-extension “Start git-bash” should help (to view available and installed
+extension “Start git-bash” should help. To view available and installed
 extensions, go to <code>View &gt; Extensions</code> from the top-level
-menu).</p>
+menu.</p>
 <figure><img src="../fig/vscode-gitbash-extension.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of Extension Marketplace View in VS Code showing the 'Start git-bash' extension selected in the search result list on the left and the extension details in the pane on the right with a button to install it"><div class="figcaption"><em>Git Bash extension for VS Code</em></div>
 </figure><p>To check the command line integration and that VS Code knows about
 different command line terminal(s) installed on your system select
@@ -755,16 +790,19 @@ of the current terminal is indicated towards the right of the window
 installed on your machine). This can be changed (provided you have
 several command line terminal programmes installed on your machine) by
 clicking the “+” drop-down menu button next to the command line terminal
-indicator. Windows users may have “Powershell” selected by default here
-- you should select “Git Bash” from the list.</p>
+indicator. Windows users may have”Powershell” selected by default here -
+you should select “Git Bash” from the list.</p>
 <p>You can also change the default command line terminal from the same
 drop down menu by using the option “Select Default Profile” (so it will
 use that one next time you open a terminal window).</p>
 <figure><img src="../fig/vscode-terminal.png" alt="Screenshot of the terminal pane in VS Code highlighting the current terminal type and dropdown menu to open a new terminal with 'Select Default Profile' option highlighted in the menu" class="figure mx-auto d-block"><div class="figcaption"><em>Terminal window in VS Code</em></div>
 </figure></div>
-<div class="section level3">
-<h3 id="vs-code-extensions-for-git">VS Code extensions for Git<a class="anchor" aria-label="anchor" href="#vs-code-extensions-for-git"></a></h3>
-<p>You could also install the following VS Code extensions (from
+</div>
+</div>
+</div>
+<div class="section level4">
+<h4 id="vs-code-extensions-for-git-optional">VS Code extensions for Git (optional)<a class="anchor" aria-label="anchor" href="#vs-code-extensions-for-git-optional"></a></h4>
+<p>You can optionally install the following VS Code extensions (from
 <code>View &gt; Extensions</code> top-level menu) to make your Git
 experience in VS Code better:</p>
 <ul><li>GitLens - Git Supercharged (adds a few nice additions to Git support
@@ -773,33 +811,24 @@ in VS Code)</li>
 repository in VS Code)</li>
 </ul><figure><img src="../fig/vscode-git-extensions.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of Extension Marketplace View in VS Code showing the GitLens and Git Graph extensions under installed extensions on the left with the GitLens extension selected and details of GitLens extension in the pane on the right with buttons to uninstall and disable it"><div class="figcaption"><em>GitLens and Git Graph extensions for VS
 Code</em></div>
-</figure></div>
-<div class="section level3">
-<h3 id="python-integration-in-vs-code">Python integration in VS Code<a class="anchor" aria-label="anchor" href="#python-integration-in-vs-code"></a></h3>
-<p>If you open an existing Python file or create a new blank one (with
-extension “.py”) from VS Code - it should recognise it as a Python file
-already. VS Code may ask you to select a Python interpreter if you try
-to run the file, at which point you should select the Python 3 you
-installed.</p>
+</figure><p>While the above extension may be very useful for your future work, we
+will not be using them in the course as we will type Git commands from
+the command line.</p>
 </div>
-<div class="section level3">
-<h3 id="vs-code-extensions-for-python">VS Code extensions for Python<a class="anchor" aria-label="anchor" href="#vs-code-extensions-for-python"></a></h3>
-<p>You should also install the Python extension for VS Code by Microsoft
-(from <code>View &gt; Extensions</code> top-level menu) to make your
-Python experience in VS Code better.</p>
-<figure><img src="../fig/vscode-python-extension.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of Extension Marketplace View in VS Code showing the search results for the term 'python' in the search result list on the left with the 'Python by Microsoft' extension selected and details of this extension showing in the pane on the right with a button to install it"><div class="figcaption"><em>Python extension for VS Code by
-Microsoft</em></div>
-</figure></div>
-<div class="section level3">
-<h3 id="vs-code-extensions-for-viewing-data">VS Code extensions for viewing data<a class="anchor" aria-label="anchor" href="#vs-code-extensions-for-viewing-data"></a></h3>
-<p>You should install the following extensions for viewing and editing
-data in VS Code:</p>
+<div class="section level4">
+<h4 id="vs-code-extensions-for-viewing-data-optional">VS Code extensions for viewing data (optional)<a class="anchor" aria-label="anchor" href="#vs-code-extensions-for-viewing-data-optional"></a></h4>
+<p>You can optionally install the following extensions for additional
+support for viewing and editing different data formats in VS Code:</p>
 <ul><li>Excel Viewer - custom editor and previewer for CSV files and Excel
 spreadsheets</li>
 <li>JSON - custom editor and previewer for JSON files</li>
 </ul><figure><img src="../fig/vscode-data-viewer-extensions.png" class="image-with-shadow figure mx-auto d-block" alt="Screenshot of Extension Marketplace View in VS Code showing the CSV and JSON data editor and viewer extensions among the installed extensions on the left with the JSON extension selected and details of this extension showing in the pane on the right with buttons to uninstall and disable it"><div class="figcaption"><em>CSV and JSON data editor and viewer
 extensions for VS Code</em></div>
-</figure></div>
+</figure><p>While the above extension may be very useful for your future work, we
+will not be using them in the course and the default support for these
+data formats in VS Code will be sufficient.</p>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="spacewalks">Spacewalks data and analysis code<a class="anchor" aria-label="anchor" href="#spacewalks"></a></h2>
 <hr class="half-width"><p>As part of the course, you may receive the
 <code>spacewalks.zip</code> archive from your instructors via email,
@@ -813,7 +842,7 @@ script to analyse and plot this data.</p>
 <p>Save the <code>spacewalks.zip</code> archive to your home directory
 and extract it - you should get a directory called
 <code>spacewalks</code>.</p>
-</section><section><h2 class="section-heading" id="setup-check-all-in-one">Setup check (all in one)<a class="anchor" aria-label="anchor" href="#setup-check-all-in-one"></a></h2>
+</section><section><h2 class="section-heading" id="setup-check">Setup check (all in one)<a class="anchor" aria-label="anchor" href="#setup-check"></a></h2>
 <hr class="half-width"><p>Let’s check your setup now to make sure you are ready for the rest of
 this course.</p>
 <div id="check-your-setup-5-min" class="callout challenge">
@@ -844,7 +873,7 @@ page</a> and that are functioning correctly.</p>
 <li><code>$ ssh -T git@github.com</code></li>
 </ol><p>Checking VS Code:</p>
 <ol start="12" style="list-style-type: decimal"><li><code>$ code</code></li>
-<li><code>$ code --list-extensions</code></li>
+<li><code>$ code --list-extensions --show-versions</code></li>
 </ol></div>
 </div>
 </div>
@@ -885,9 +914,8 @@ instructions for setting up SSH keys again on the Setup page.</li>
 <li>This should open VS Code in your current working directory. macOS
 users may need to first open VS Code and <a href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line" class="external-link">add
 it to the PATH</a>.</li>
-<li>If you installed the <a href="./installation-instructions#vs-code-extensions-for-python">VS Code
-extensions during setup</a>, you should see the extensions GitLens, Git
-Graph, Python, JSON and Excel Viewer in the output list.</li>
+<li>You should see the <a href="./installation-instructions.html#extensions">extensions for VS
+Code you installed during setup</a> or previously.</li>
 </ol></div>
 </div>
 </div>
@@ -954,7 +982,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/installation-instructions.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/installation-instructions.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-14",
+  "dateModified": "2025-11-24",
   "datePublished": "2025-11-24"
 }
 
