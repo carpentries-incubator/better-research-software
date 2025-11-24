@@ -120,11 +120,8 @@ As part of setup, we have installed a few extensions for VS Code to make our sof
 
 ::: instructor
 
-Check that learners have installed the following extensions for working with Python in VS Code:
-
-- Microsoft Python extension for Visual Studio Code - provides support for Python language and entry point for other Python extensions 
-- Microsoft Pylance (IntelliSense) - additional and performant language support
-
+Check that learners have installed **Microsoft Python extension for Visual Studio Code**. 
+This extension provides support for Python language and will also automatically install Microsoft Pylance (IntelliSense, performant Python language support) and Microsoft Python Debugger extensions.
 :::
 
 ### Inspecting the project
