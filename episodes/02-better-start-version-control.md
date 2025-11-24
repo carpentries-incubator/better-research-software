@@ -23,14 +23,8 @@ exercises: 30
 In this episode, we will set up our new research software project using some good practices from the start. 
 This will lay the foundation for long-term sustainability of our code, collaboration, and reproducibility. 
 
-This starts with following naming conventions for files, employing version control, and (in the next episode) 
-setting up a virtual development environment with software dependencies to ensure the project can be more easily and 
-reliably run, shared and maintained. Next (over the rest of the course) - adding tests, setting up automation (e.g. continuous integration), 
-documenting software and including metadata such as licensing, authorship and citation will ensure the results our software 
-produces can be trusted and others can build upon it with confidence.
-
-Let's begin by creating a new software project from our existing code,
-and start tracking changes to it with version control.
+Let's begin by creating a new software project from our existing code, and start tracking changes to it with version control.
+We will also add our software project to GitHub - so we can back it up, share our code with our team and collaborators, and start project managing issues and work needed to be done. 
 
 ## From script to software project
 
