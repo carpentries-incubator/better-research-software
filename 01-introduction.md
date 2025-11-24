@@ -120,6 +120,13 @@ As part of setup, we have installed a few extensions for VS Code to make our sof
 
 ::: instructor
 
+Orient the users and navigate around VS Code.
+* Explorer - the top one is a file navigator, or explorer - we can use this to open existing folders containing program files.
+* Search - the next one down is a search capability, so you can search for things (and replace them with other text) over your code files.
+* Source control - this gives you access to source code control, which includes Git version control functionality. This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
+* Run and Debug - this allows you to run programs you write in a special way with a debugger, which allows you to check the state of your program as it is running, which is very useful and we’ll look into later.
+* Extensions - this allows you to install extensions to VS Code to extend its functionality in some way.
+
 Check that learners have installed **Microsoft Python extension for Visual Studio Code**. 
 This extension provides support for Python language and will also automatically install Microsoft Pylance (IntelliSense, performant Python language support) and Microsoft Python Debugger extensions.
 :::
