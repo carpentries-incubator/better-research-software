@@ -121,7 +121,7 @@ Git stores files in **repositories** - directories where changes to the files ca
 The diagram below shows the different parts of a Git repository,
 and the most common commands used to work with one.
 
-![Foundational software development workflow with Git](fig/ep02_fig05-git-lifecycle.svg){alt='Diagram for foundational software development workflow with Git showing Git commands and flow of data between components of a Git system, including working directory, staging area, local and remote repository'}
+![Foundational software development workflow with Git](fig/git-tracking-changes-lifecycle.svg){alt='Diagram for foundational software development workflow with Git showing Git commands and flow of data between components of a Git system, including working directory, staging area, local and remote repository'}
 
 - **Working directory** - a local directory (including any subdirectories) where your project files live,
   and where you are currently working.
