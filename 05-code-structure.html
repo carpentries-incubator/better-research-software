@@ -507,7 +507,7 @@ following:</p>
 <span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
 <span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
-<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>, <span class="st">'date'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
 <span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a></span>
 <span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a></span>
@@ -728,7 +728,7 @@ following:</p>
 <span id="cb9-36"><a href="#cb9-36" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb9-37"><a href="#cb9-37" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
 <span id="cb9-38"><a href="#cb9-38" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
-<span id="cb9-39"><a href="#cb9-39" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-39"><a href="#cb9-39" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>, <span class="st">'date'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-40"><a href="#cb9-40" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
 <span id="cb9-41"><a href="#cb9-41" tabindex="-1"></a></span>
 <span id="cb9-42"><a href="#cb9-42" tabindex="-1"></a></span>
@@ -873,7 +873,7 @@ list - remember to import this library first.</p>
 <span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
 <span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
 <span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
-<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>, <span class="st">'date'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
 <span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a></span>
 <span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a></span>
@@ -1111,119 +1111,126 @@ Create an empty <code>results</code> folder too.</p>
 <span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="kw">def</span> main(input_file, output_file, graph_file):</span>
 <span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--START--"</span>)</span>
 <span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>    eva_data <span class="op">=</span> read_json_to_dataframe(input_file)</span>
-<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a>    write_dataframe_to_csv(eva_data, output_file)</span>
-<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>    plot_cumulative_time_in_space(eva_data, graph_file)</span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a>    <span class="co"># Read the data from JSON file</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a>    eva_data <span class="op">=</span> read_json_to_dataframe(input_file)</span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a>    <span class="co"># Convert and export data to CSV file</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a>    write_dataframe_to_csv(eva_data, output_file)</span>
 <span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a></span>
-<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--END--"</span>)</span>
-<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a></span>
-<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a><span class="kw">def</span> read_json_to_dataframe(input_file):</span>
-<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="co">    Read the data from a JSON file into a Pandas dataframe.</span></span>
-<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="co">    Clean the data by removing any rows where the 'duration' value is missing.</span></span>
-<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a></span>
-<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a><span class="co">        input_file (str): The path to the JSON file.</span></span>
-<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a></span>
-<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a><span class="co">         eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure</span></span>
-<span id="cb15-28"><a href="#cb15-28" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb15-29"><a href="#cb15-29" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Reading JSON file </span><span class="sc">{</span>input_file<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb15-30"><a href="#cb15-30" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>])</span>
-<span id="cb15-31"><a href="#cb15-31" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb15-32"><a href="#cb15-32" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-33"><a href="#cb15-33" tabindex="-1"></a>    eva_df.sort_values(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-34"><a href="#cb15-34" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
-<span id="cb15-35"><a href="#cb15-35" tabindex="-1"></a></span>
-<span id="cb15-36"><a href="#cb15-36" tabindex="-1"></a></span>
-<span id="cb15-37"><a href="#cb15-37" tabindex="-1"></a><span class="kw">def</span> write_dataframe_to_csv(df, output_file):</span>
-<span id="cb15-38"><a href="#cb15-38" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb15-39"><a href="#cb15-39" tabindex="-1"></a><span class="co">    Write the dataframe to a CSV file.</span></span>
-<span id="cb15-40"><a href="#cb15-40" tabindex="-1"></a></span>
-<span id="cb15-41"><a href="#cb15-41" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb15-42"><a href="#cb15-42" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
-<span id="cb15-43"><a href="#cb15-43" tabindex="-1"></a><span class="co">        output_file (str): The path to the output CSV file.</span></span>
-<span id="cb15-44"><a href="#cb15-44" tabindex="-1"></a></span>
-<span id="cb15-45"><a href="#cb15-45" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb15-46"><a href="#cb15-46" tabindex="-1"></a><span class="co">        (None):</span></span>
-<span id="cb15-47"><a href="#cb15-47" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb15-48"><a href="#cb15-48" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Saving to CSV file </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb15-49"><a href="#cb15-49" tabindex="-1"></a>    df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb15-50"><a href="#cb15-50" tabindex="-1"></a></span>
-<span id="cb15-51"><a href="#cb15-51" tabindex="-1"></a><span class="kw">def</span> text_to_duration(duration):</span>
-<span id="cb15-52"><a href="#cb15-52" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb15-53"><a href="#cb15-53" tabindex="-1"></a><span class="co">    Convert a text format duration "HH:MM" to duration in hours</span></span>
-<span id="cb15-54"><a href="#cb15-54" tabindex="-1"></a></span>
-<span id="cb15-55"><a href="#cb15-55" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb15-56"><a href="#cb15-56" tabindex="-1"></a><span class="co">        duration (str): The text format duration</span></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a>    <span class="co"># Sort dataframe by date ready to be plotted (date values are on x-axis)</span></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a>    eva_data.sort_values(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a>    <span class="co"># Plot cumulative time spent in space over years</span></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a>    plot_cumulative_time_in_space(eva_data, graph_file)</span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--END--"</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1"></a><span class="kw">def</span> read_json_to_dataframe(input_file):</span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1"></a><span class="co">    Read the data from a JSON file into a Pandas dataframe.</span></span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1"></a><span class="co">    Clean the data by removing any rows where the 'duration' value is missing.</span></span>
+<span id="cb15-28"><a href="#cb15-28" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb15-30"><a href="#cb15-30" tabindex="-1"></a><span class="co">        input_file (file or str): The file object or path to the JSON file.</span></span>
+<span id="cb15-31"><a href="#cb15-31" tabindex="-1"></a></span>
+<span id="cb15-32"><a href="#cb15-32" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb15-33"><a href="#cb15-33" tabindex="-1"></a><span class="co">         eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure</span></span>
+<span id="cb15-34"><a href="#cb15-34" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb15-35"><a href="#cb15-35" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Reading JSON file </span><span class="sc">{</span>input_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb15-36"><a href="#cb15-36" tabindex="-1"></a>    <span class="co"># Read the data from a JSON file into a Pandas dataframe</span></span>
+<span id="cb15-37"><a href="#cb15-37" tabindex="-1"></a>    eva_df <span class="op">=</span> pd.read_json(input_file, convert_dates<span class="op">=</span>[<span class="st">'date'</span>], encoding<span class="op">=</span><span class="st">'ascii'</span>)</span>
+<span id="cb15-38"><a href="#cb15-38" tabindex="-1"></a>    eva_df[<span class="st">'eva'</span>] <span class="op">=</span> eva_df[<span class="st">'eva'</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb15-39"><a href="#cb15-39" tabindex="-1"></a>    <span class="co"># Clean the data by removing any rows where duration is missing</span></span>
+<span id="cb15-40"><a href="#cb15-40" tabindex="-1"></a>    eva_df.dropna(axis<span class="op">=</span><span class="dv">0</span>, subset<span class="op">=</span>[<span class="st">'duration'</span>, <span class="st">'date'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-41"><a href="#cb15-41" tabindex="-1"></a>    <span class="cf">return</span> eva_df</span>
+<span id="cb15-42"><a href="#cb15-42" tabindex="-1"></a></span>
+<span id="cb15-43"><a href="#cb15-43" tabindex="-1"></a></span>
+<span id="cb15-44"><a href="#cb15-44" tabindex="-1"></a><span class="kw">def</span> write_dataframe_to_csv(df, output_file):</span>
+<span id="cb15-45"><a href="#cb15-45" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb15-46"><a href="#cb15-46" tabindex="-1"></a><span class="co">    Write the dataframe to a CSV file.</span></span>
+<span id="cb15-47"><a href="#cb15-47" tabindex="-1"></a></span>
+<span id="cb15-48"><a href="#cb15-48" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb15-49"><a href="#cb15-49" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb15-50"><a href="#cb15-50" tabindex="-1"></a><span class="co">        output_file (str): The path to the output CSV file.</span></span>
+<span id="cb15-51"><a href="#cb15-51" tabindex="-1"></a></span>
+<span id="cb15-52"><a href="#cb15-52" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb15-53"><a href="#cb15-53" tabindex="-1"></a><span class="co">        (None):</span></span>
+<span id="cb15-54"><a href="#cb15-54" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb15-55"><a href="#cb15-55" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Saving to CSV file </span><span class="sc">{</span>output_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb15-56"><a href="#cb15-56" tabindex="-1"></a>    df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb15-57"><a href="#cb15-57" tabindex="-1"></a></span>
-<span id="cb15-58"><a href="#cb15-58" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb15-59"><a href="#cb15-59" tabindex="-1"></a><span class="co">        duration_hours (float): The duration in hours</span></span>
-<span id="cb15-60"><a href="#cb15-60" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb15-61"><a href="#cb15-61" tabindex="-1"></a>    hours, minutes <span class="op">=</span> duration.split(<span class="st">":"</span>)</span>
-<span id="cb15-62"><a href="#cb15-62" tabindex="-1"></a>    duration_hours <span class="op">=</span> <span class="bu">int</span>(hours) <span class="op">+</span> <span class="bu">int</span>(minutes)<span class="op">/</span><span class="dv">6</span>  <span class="co"># there is an intentional bug on this line (should divide by 60 not 6)</span></span>
-<span id="cb15-63"><a href="#cb15-63" tabindex="-1"></a>    <span class="cf">return</span> duration_hours</span>
+<span id="cb15-58"><a href="#cb15-58" tabindex="-1"></a><span class="kw">def</span> text_to_duration(duration):</span>
+<span id="cb15-59"><a href="#cb15-59" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb15-60"><a href="#cb15-60" tabindex="-1"></a><span class="co">    Convert a text format duration "HH:MM" to duration in hours</span></span>
+<span id="cb15-61"><a href="#cb15-61" tabindex="-1"></a></span>
+<span id="cb15-62"><a href="#cb15-62" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb15-63"><a href="#cb15-63" tabindex="-1"></a><span class="co">        duration (str): The text format duration</span></span>
 <span id="cb15-64"><a href="#cb15-64" tabindex="-1"></a></span>
-<span id="cb15-65"><a href="#cb15-65" tabindex="-1"></a></span>
-<span id="cb15-66"><a href="#cb15-66" tabindex="-1"></a><span class="kw">def</span> add_duration_hours_variable(df):</span>
-<span id="cb15-67"><a href="#cb15-67" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb15-68"><a href="#cb15-68" tabindex="-1"></a><span class="co">    Add duration in hours (duration_hours) variable to the dataset</span></span>
-<span id="cb15-69"><a href="#cb15-69" tabindex="-1"></a></span>
-<span id="cb15-70"><a href="#cb15-70" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb15-71"><a href="#cb15-71" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb15-65"><a href="#cb15-65" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb15-66"><a href="#cb15-66" tabindex="-1"></a><span class="co">        duration_hours (float): The duration in hours</span></span>
+<span id="cb15-67"><a href="#cb15-67" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb15-68"><a href="#cb15-68" tabindex="-1"></a>    hours, minutes <span class="op">=</span> duration.split(<span class="st">":"</span>)</span>
+<span id="cb15-69"><a href="#cb15-69" tabindex="-1"></a>    duration_hours <span class="op">=</span> <span class="bu">int</span>(hours) <span class="op">+</span> <span class="bu">int</span>(minutes)<span class="op">/</span><span class="dv">6</span>  <span class="co"># there is an intentional bug on this line (should divide by 60 not 6)</span></span>
+<span id="cb15-70"><a href="#cb15-70" tabindex="-1"></a>    <span class="cf">return</span> duration_hours</span>
+<span id="cb15-71"><a href="#cb15-71" tabindex="-1"></a></span>
 <span id="cb15-72"><a href="#cb15-72" tabindex="-1"></a></span>
-<span id="cb15-73"><a href="#cb15-73" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb15-74"><a href="#cb15-74" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df_ with the new duration_hours variable added</span></span>
-<span id="cb15-75"><a href="#cb15-75" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb15-76"><a href="#cb15-76" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
-<span id="cb15-77"><a href="#cb15-77" tabindex="-1"></a>    df_copy[<span class="st">"duration_hours"</span>] <span class="op">=</span> df_copy[<span class="st">"duration"</span>].<span class="bu">apply</span>(</span>
-<span id="cb15-78"><a href="#cb15-78" tabindex="-1"></a>        text_to_duration</span>
-<span id="cb15-79"><a href="#cb15-79" tabindex="-1"></a>    )</span>
-<span id="cb15-80"><a href="#cb15-80" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
-<span id="cb15-81"><a href="#cb15-81" tabindex="-1"></a></span>
-<span id="cb15-82"><a href="#cb15-82" tabindex="-1"></a></span>
-<span id="cb15-83"><a href="#cb15-83" tabindex="-1"></a><span class="kw">def</span> plot_cumulative_time_in_space(df, graph_file):</span>
-<span id="cb15-84"><a href="#cb15-84" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb15-85"><a href="#cb15-85" tabindex="-1"></a><span class="co">    Plot the cumulative time spent in space over years</span></span>
-<span id="cb15-86"><a href="#cb15-86" tabindex="-1"></a></span>
-<span id="cb15-87"><a href="#cb15-87" tabindex="-1"></a><span class="co">    Convert the duration column from strings to number of hours</span></span>
-<span id="cb15-88"><a href="#cb15-88" tabindex="-1"></a><span class="co">    Calculate cumulative sum of durations</span></span>
-<span id="cb15-89"><a href="#cb15-89" tabindex="-1"></a><span class="co">    Generate a plot of cumulative time spent in space over years and</span></span>
-<span id="cb15-90"><a href="#cb15-90" tabindex="-1"></a><span class="co">    save it to the specified location</span></span>
-<span id="cb15-91"><a href="#cb15-91" tabindex="-1"></a></span>
-<span id="cb15-92"><a href="#cb15-92" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb15-93"><a href="#cb15-93" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
-<span id="cb15-94"><a href="#cb15-94" tabindex="-1"></a><span class="co">        graph_file (str): The path to the output graph file.</span></span>
-<span id="cb15-95"><a href="#cb15-95" tabindex="-1"></a></span>
-<span id="cb15-96"><a href="#cb15-96" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb15-97"><a href="#cb15-97" tabindex="-1"></a><span class="co">        (None):</span></span>
-<span id="cb15-98"><a href="#cb15-98" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb15-99"><a href="#cb15-99" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Plotting cumulative spacewalk duration and saving to </span><span class="sc">{</span>graph_file<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb15-100"><a href="#cb15-100" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours_variable(df)</span>
-<span id="cb15-101"><a href="#cb15-101" tabindex="-1"></a>    df[<span class="st">'cumulative_time'</span>] <span class="op">=</span> df[<span class="st">'duration_hours'</span>].cumsum()</span>
-<span id="cb15-102"><a href="#cb15-102" tabindex="-1"></a>    plt.plot(df.date, df.cumulative_time, <span class="st">'ko-'</span>)</span>
-<span id="cb15-103"><a href="#cb15-103" tabindex="-1"></a>    plt.xlabel(<span class="st">'Year'</span>)</span>
-<span id="cb15-104"><a href="#cb15-104" tabindex="-1"></a>    plt.ylabel(<span class="st">'Total time spent in space to date (hours)'</span>)</span>
-<span id="cb15-105"><a href="#cb15-105" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb15-106"><a href="#cb15-106" tabindex="-1"></a>    plt.savefig(graph_file)</span>
-<span id="cb15-107"><a href="#cb15-107" tabindex="-1"></a>    plt.show()</span>
-<span id="cb15-108"><a href="#cb15-108" tabindex="-1"></a></span>
-<span id="cb15-109"><a href="#cb15-109" tabindex="-1"></a></span>
-<span id="cb15-110"><a href="#cb15-110" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb15-111"><a href="#cb15-111" tabindex="-1"></a></span>
-<span id="cb15-112"><a href="#cb15-112" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb15-113"><a href="#cb15-113" tabindex="-1"></a>        input_file <span class="op">=</span> <span class="st">'data/eva-data.json'</span></span>
-<span id="cb15-114"><a href="#cb15-114" tabindex="-1"></a>        output_file <span class="op">=</span> <span class="st">'results/eva-data.csv'</span></span>
-<span id="cb15-115"><a href="#cb15-115" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Using default input and output filenames'</span>)</span>
-<span id="cb15-116"><a href="#cb15-116" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb15-117"><a href="#cb15-117" tabindex="-1"></a>        input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
-<span id="cb15-118"><a href="#cb15-118" tabindex="-1"></a>        output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
-<span id="cb15-119"><a href="#cb15-119" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using custom input and output filenames'</span>)</span>
-<span id="cb15-120"><a href="#cb15-120" tabindex="-1"></a></span>
-<span id="cb15-121"><a href="#cb15-121" tabindex="-1"></a>    graph_file <span class="op">=</span> <span class="st">'results/cumulative_eva_graph.png'</span></span>
-<span id="cb15-122"><a href="#cb15-122" tabindex="-1"></a>    main(input_file, output_file, graph_file)</span></code></pre>
+<span id="cb15-73"><a href="#cb15-73" tabindex="-1"></a><span class="kw">def</span> add_duration_hours_variable(df):</span>
+<span id="cb15-74"><a href="#cb15-74" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb15-75"><a href="#cb15-75" tabindex="-1"></a><span class="co">    Add duration in hours (duration_hours) variable to the dataset</span></span>
+<span id="cb15-76"><a href="#cb15-76" tabindex="-1"></a></span>
+<span id="cb15-77"><a href="#cb15-77" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb15-78"><a href="#cb15-78" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb15-79"><a href="#cb15-79" tabindex="-1"></a></span>
+<span id="cb15-80"><a href="#cb15-80" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb15-81"><a href="#cb15-81" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df_ with the new duration_hours variable added</span></span>
+<span id="cb15-82"><a href="#cb15-82" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb15-83"><a href="#cb15-83" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
+<span id="cb15-84"><a href="#cb15-84" tabindex="-1"></a>    df_copy[<span class="st">"duration_hours"</span>] <span class="op">=</span> df_copy[<span class="st">"duration"</span>].<span class="bu">apply</span>(</span>
+<span id="cb15-85"><a href="#cb15-85" tabindex="-1"></a>        text_to_duration</span>
+<span id="cb15-86"><a href="#cb15-86" tabindex="-1"></a>    )</span>
+<span id="cb15-87"><a href="#cb15-87" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
+<span id="cb15-88"><a href="#cb15-88" tabindex="-1"></a></span>
+<span id="cb15-89"><a href="#cb15-89" tabindex="-1"></a></span>
+<span id="cb15-90"><a href="#cb15-90" tabindex="-1"></a><span class="kw">def</span> plot_cumulative_time_in_space(df, graph_file):</span>
+<span id="cb15-91"><a href="#cb15-91" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb15-92"><a href="#cb15-92" tabindex="-1"></a><span class="co">    Plot the cumulative time spent in space over years</span></span>
+<span id="cb15-93"><a href="#cb15-93" tabindex="-1"></a></span>
+<span id="cb15-94"><a href="#cb15-94" tabindex="-1"></a><span class="co">    Convert the duration column from strings to number of hours</span></span>
+<span id="cb15-95"><a href="#cb15-95" tabindex="-1"></a><span class="co">    Calculate cumulative sum of durations</span></span>
+<span id="cb15-96"><a href="#cb15-96" tabindex="-1"></a><span class="co">    Generate a plot of cumulative time spent in space over years and</span></span>
+<span id="cb15-97"><a href="#cb15-97" tabindex="-1"></a><span class="co">    save it to the specified location</span></span>
+<span id="cb15-98"><a href="#cb15-98" tabindex="-1"></a></span>
+<span id="cb15-99"><a href="#cb15-99" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb15-100"><a href="#cb15-100" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb15-101"><a href="#cb15-101" tabindex="-1"></a><span class="co">        graph_file (str): The path to the output graph file.</span></span>
+<span id="cb15-102"><a href="#cb15-102" tabindex="-1"></a></span>
+<span id="cb15-103"><a href="#cb15-103" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb15-104"><a href="#cb15-104" tabindex="-1"></a><span class="co">        (None):</span></span>
+<span id="cb15-105"><a href="#cb15-105" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb15-106"><a href="#cb15-106" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Plotting cumulative spacewalk duration and saving to </span><span class="sc">{</span>graph_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb15-107"><a href="#cb15-107" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours_variable(df)</span>
+<span id="cb15-108"><a href="#cb15-108" tabindex="-1"></a>    df[<span class="st">'cumulative_time'</span>] <span class="op">=</span> df[<span class="st">'duration_hours'</span>].cumsum()</span>
+<span id="cb15-109"><a href="#cb15-109" tabindex="-1"></a>    plt.plot(df.date, df.cumulative_time, <span class="st">'ko-'</span>)</span>
+<span id="cb15-110"><a href="#cb15-110" tabindex="-1"></a>    plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb15-111"><a href="#cb15-111" tabindex="-1"></a>    plt.ylabel(<span class="st">'Total time spent in space to date (hours)'</span>)</span>
+<span id="cb15-112"><a href="#cb15-112" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb15-113"><a href="#cb15-113" tabindex="-1"></a>    plt.savefig(graph_file)</span>
+<span id="cb15-114"><a href="#cb15-114" tabindex="-1"></a>    plt.show()</span>
+<span id="cb15-115"><a href="#cb15-115" tabindex="-1"></a></span>
+<span id="cb15-116"><a href="#cb15-116" tabindex="-1"></a></span>
+<span id="cb15-117"><a href="#cb15-117" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb15-118"><a href="#cb15-118" tabindex="-1"></a></span>
+<span id="cb15-119"><a href="#cb15-119" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb15-120"><a href="#cb15-120" tabindex="-1"></a>        input_file <span class="op">=</span> <span class="st">'data/eva-data.json'</span></span>
+<span id="cb15-121"><a href="#cb15-121" tabindex="-1"></a>        output_file <span class="op">=</span> <span class="st">'results/eva-data.csv'</span></span>
+<span id="cb15-122"><a href="#cb15-122" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Using default input and output filenames'</span>)</span>
+<span id="cb15-123"><a href="#cb15-123" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-124"><a href="#cb15-124" tabindex="-1"></a>        input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb15-125"><a href="#cb15-125" tabindex="-1"></a>        output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
+<span id="cb15-126"><a href="#cb15-126" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using custom input and output filenames'</span>)</span>
+<span id="cb15-127"><a href="#cb15-127" tabindex="-1"></a></span>
+<span id="cb15-128"><a href="#cb15-128" tabindex="-1"></a>    graph_file <span class="op">=</span> <span class="st">'results/cumulative_eva_graph.png'</span></span>
+<span id="cb15-129"><a href="#cb15-129" tabindex="-1"></a>    main(input_file, output_file, graph_file)</span></code></pre>
 </div>
 <p>You can now run the code as:</p>
 <div class="codewrapper sourceCode" id="cb16">

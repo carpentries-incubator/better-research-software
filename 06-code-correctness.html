@@ -361,7 +361,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Code correctness &amp; testing</h1>
-        <p>Last updated on 2025-11-22 |
+        <p>Last updated on 2025-11-24 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/06-code-correctness.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -1159,48 +1159,57 @@ new code.</p>
 <span id="cb29-8"><a href="#cb29-8" tabindex="-1"></a><span class="kw">def</span> main(input_file, output_file, graph_file):</span>
 <span id="cb29-9"><a href="#cb29-9" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--START--"</span>)</span>
 <span id="cb29-10"><a href="#cb29-10" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="#cb29-11" tabindex="-1"></a>    eva_data <span class="op">=</span> read_json_to_dataframe(input_file)</span>
-<span id="cb29-12"><a href="#cb29-12" tabindex="-1"></a>    eva_data <span class="op">=</span> add_crew_size_column(eva_data) <span class="co"># added this line</span></span>
-<span id="cb29-13"><a href="#cb29-13" tabindex="-1"></a>    write_dataframe_to_csv(eva_data, output_file)</span>
-<span id="cb29-14"><a href="#cb29-14" tabindex="-1"></a>    plot_cumulative_time_in_space(eva_data, graph_file)</span>
+<span id="cb29-11"><a href="#cb29-11" tabindex="-1"></a>    <span class="co"># Read the data from JSON file</span></span>
+<span id="cb29-12"><a href="#cb29-12" tabindex="-1"></a>    eva_data <span class="op">=</span> read_json_to_dataframe(input_file)</span>
+<span id="cb29-13"><a href="#cb29-13" tabindex="-1"></a>    <span class="co"># Calculate and add crew size to data</span></span>
+<span id="cb29-14"><a href="#cb29-14" tabindex="-1"></a>    eva_data <span class="op">=</span> add_crew_size_column(eva_data) <span class="co"># added this line</span></span>
 <span id="cb29-15"><a href="#cb29-15" tabindex="-1"></a></span>
-<span id="cb29-16"><a href="#cb29-16" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--END--"</span>)</span>
-<span id="cb29-17"><a href="#cb29-17" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" tabindex="-1"></a>... </span>
-<span id="cb29-19"><a href="#cb29-19" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" tabindex="-1"></a><span class="kw">def</span> calculate_crew_size(crew):</span>
-<span id="cb29-21"><a href="#cb29-21" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb29-22"><a href="#cb29-22" tabindex="-1"></a><span class="co">    Calculate the size of the crew for a single crew entry</span></span>
-<span id="cb29-23"><a href="#cb29-23" tabindex="-1"></a></span>
-<span id="cb29-24"><a href="#cb29-24" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb29-25"><a href="#cb29-25" tabindex="-1"></a><span class="co">        crew (str): The text entry in the crew column containing a list of crew member names</span></span>
+<span id="cb29-16"><a href="#cb29-16" tabindex="-1"></a>    <span class="co"># Convert and export data to CSV file</span></span>
+<span id="cb29-17"><a href="#cb29-17" tabindex="-1"></a>    write_dataframe_to_csv(eva_data, output_file)</span>
+<span id="cb29-18"><a href="#cb29-18" tabindex="-1"></a></span>
+<span id="cb29-19"><a href="#cb29-19" tabindex="-1"></a>    <span class="co"># Sort dataframe by date ready to be plotted (date values are on x-axis)</span></span>
+<span id="cb29-20"><a href="#cb29-20" tabindex="-1"></a>    eva_data.sort_values(<span class="st">'date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-21"><a href="#cb29-21" tabindex="-1"></a></span>
+<span id="cb29-22"><a href="#cb29-22" tabindex="-1"></a>    <span class="co"># Plot cumulative time spent in space over years</span></span>
+<span id="cb29-23"><a href="#cb29-23" tabindex="-1"></a>    plot_cumulative_time_in_space(eva_data, graph_file)</span>
+<span id="cb29-24"><a href="#cb29-24" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"--END--"</span>)</span>
 <span id="cb29-26"><a href="#cb29-26" tabindex="-1"></a></span>
-<span id="cb29-27"><a href="#cb29-27" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb29-28"><a href="#cb29-28" tabindex="-1"></a><span class="co">        (int): The crew size</span></span>
-<span id="cb29-29"><a href="#cb29-29" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb29-30"><a href="#cb29-30" tabindex="-1"></a>    <span class="cf">if</span> crew.split() <span class="op">==</span> []:</span>
-<span id="cb29-31"><a href="#cb29-31" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb29-32"><a href="#cb29-32" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb29-33"><a href="#cb29-33" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(re.split(<span class="vs">r';'</span>, crew))<span class="op">-</span><span class="dv">1</span></span>
-<span id="cb29-34"><a href="#cb29-34" tabindex="-1"></a></span>
-<span id="cb29-35"><a href="#cb29-35" tabindex="-1"></a><span class="kw">def</span> add_crew_size_column(df):</span>
-<span id="cb29-36"><a href="#cb29-36" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb29-37"><a href="#cb29-37" tabindex="-1"></a><span class="co">    Add crew_size column to the dataset containing the value of the crew size</span></span>
-<span id="cb29-38"><a href="#cb29-38" tabindex="-1"></a></span>
-<span id="cb29-39"><a href="#cb29-39" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb29-40"><a href="#cb29-40" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input data frame.</span></span>
-<span id="cb29-41"><a href="#cb29-41" tabindex="-1"></a></span>
-<span id="cb29-42"><a href="#cb29-42" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb29-43"><a href="#cb29-43" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added</span></span>
-<span id="cb29-44"><a href="#cb29-44" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb29-45"><a href="#cb29-45" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Adding crew size variable (crew_size) to dataset'</span>)</span>
-<span id="cb29-46"><a href="#cb29-46" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
-<span id="cb29-47"><a href="#cb29-47" tabindex="-1"></a>    df_copy[<span class="st">"crew_size"</span>] <span class="op">=</span> df_copy[<span class="st">"crew"</span>].<span class="bu">apply</span>(</span>
-<span id="cb29-48"><a href="#cb29-48" tabindex="-1"></a>        calculate_crew_size</span>
-<span id="cb29-49"><a href="#cb29-49" tabindex="-1"></a>    )</span>
-<span id="cb29-50"><a href="#cb29-50" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
-<span id="cb29-51"><a href="#cb29-51" tabindex="-1"></a>...</span>
-<span id="cb29-52"><a href="#cb29-52" tabindex="-1"></a>    </span></code></pre>
+<span id="cb29-27"><a href="#cb29-27" tabindex="-1"></a>... </span>
+<span id="cb29-28"><a href="#cb29-28" tabindex="-1"></a></span>
+<span id="cb29-29"><a href="#cb29-29" tabindex="-1"></a><span class="kw">def</span> calculate_crew_size(crew):</span>
+<span id="cb29-30"><a href="#cb29-30" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb29-31"><a href="#cb29-31" tabindex="-1"></a><span class="co">    Calculate the size of the crew for a single crew entry</span></span>
+<span id="cb29-32"><a href="#cb29-32" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="#cb29-33" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb29-34"><a href="#cb29-34" tabindex="-1"></a><span class="co">        crew (str): The text entry in the crew column containing a list of crew member names</span></span>
+<span id="cb29-35"><a href="#cb29-35" tabindex="-1"></a></span>
+<span id="cb29-36"><a href="#cb29-36" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb29-37"><a href="#cb29-37" tabindex="-1"></a><span class="co">        (int): The crew size</span></span>
+<span id="cb29-38"><a href="#cb29-38" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb29-39"><a href="#cb29-39" tabindex="-1"></a>    <span class="cf">if</span> crew.split() <span class="op">==</span> []:</span>
+<span id="cb29-40"><a href="#cb29-40" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb29-41"><a href="#cb29-41" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-42"><a href="#cb29-42" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(re.split(<span class="vs">r';'</span>, crew))<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb29-43"><a href="#cb29-43" tabindex="-1"></a></span>
+<span id="cb29-44"><a href="#cb29-44" tabindex="-1"></a><span class="kw">def</span> add_crew_size_column(df):</span>
+<span id="cb29-45"><a href="#cb29-45" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb29-46"><a href="#cb29-46" tabindex="-1"></a><span class="co">    Add crew_size column to the dataset containing the value of the crew size</span></span>
+<span id="cb29-47"><a href="#cb29-47" tabindex="-1"></a></span>
+<span id="cb29-48"><a href="#cb29-48" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb29-49"><a href="#cb29-49" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input data frame.</span></span>
+<span id="cb29-50"><a href="#cb29-50" tabindex="-1"></a></span>
+<span id="cb29-51"><a href="#cb29-51" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb29-52"><a href="#cb29-52" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added</span></span>
+<span id="cb29-53"><a href="#cb29-53" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb29-54"><a href="#cb29-54" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Adding crew size variable (crew_size) to dataset'</span>)</span>
+<span id="cb29-55"><a href="#cb29-55" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
+<span id="cb29-56"><a href="#cb29-56" tabindex="-1"></a>    df_copy[<span class="st">"crew_size"</span>] <span class="op">=</span> df_copy[<span class="st">"crew"</span>].<span class="bu">apply</span>(</span>
+<span id="cb29-57"><a href="#cb29-57" tabindex="-1"></a>        calculate_crew_size</span>
+<span id="cb29-58"><a href="#cb29-58" tabindex="-1"></a>    )</span>
+<span id="cb29-59"><a href="#cb29-59" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
+<span id="cb29-60"><a href="#cb29-60" tabindex="-1"></a>...</span>
+<span id="cb29-61"><a href="#cb29-61" tabindex="-1"></a>    </span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="writing-good-tests">Writing good tests<a class="anchor" aria-label="anchor" href="#writing-good-tests"></a></h3>
@@ -1711,7 +1720,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/06-code-correctness.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/06-code-correctness.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-22",
+  "dateModified": "2025-11-24",
   "datePublished": "2025-11-24"
 }
 
