@@ -23,4 +23,4 @@
 "learners/ethical-environmental-considerations.md" "a21d2780d9d1fc86bd1104a214edbd26" "site/built/ethical-environmental-considerations.md" "2025-09-18"
 "learners/setup.md" "fcb13f6b1e101811f3bb2e924e4e9660" "site/built/setup.md" "2025-08-21"
 "profiles/learner-profiles.md" "8fb91d65843f75b9b4aa60783eb65389" "site/built/learner-profiles.md" "2024-07-05"
-"renv/profiles/lesson-requirements/renv.lock" NA "site/built/renv.lock" "2025-11-24"
+"renv/profiles/lesson-requirements/renv.lock" NA "site/built/renv.lock" "2025-11-25"
