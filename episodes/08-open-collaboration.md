@@ -352,13 +352,13 @@ Then add the following line after the `graph_file` variable is created:
 duration_by_astronaut_output_file = 'results/duration_by_astronaut.csv'
 ```
 
-And also change the invocation of the `main()` function to (to pass the new file as a parameter):
+Next, change the signature of the `main()` function to `main(input_file, output_file, duration_by_astronaut_output_file, graph_file)` and also its invocation (in order to pass the new CSV file as an argument):
 
 ```python
 main(input_file, output_file, duration_by_astronaut_output_file, graph_file)
 ```
 
-Finally, in the `main()` function, add the invocation of the new function (e.g. after converting and exporting data to CSV file line):
+Finally, in the `main()` function, add the invocation of the new function (e.g. after converting and exporting original data to CSV file):
 
 ```python
 # Calculate summary table for total EVA per astronaut
