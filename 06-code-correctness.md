@@ -708,7 +708,7 @@ def add_crew_size_column(df):
         df (pd.DataFrame): The input data frame.
 
     Returns:
-        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added
+        df_copy (pd.DataFrame): A copy of the dataframe df with the new crew_size variable added
     """
     print('Adding crew size variable (crew_size) to dataset')
     df_copy = df.copy()
@@ -1125,7 +1125,7 @@ def add_duration_hours(df):
         df (pd.DataFrame): The input dataframe.
 
     Returns:
-        df_copy (pd.DataFrame): A copy of df with the new duration_hours variable added
+        df_copy (pd.DataFrame): A copy of the dataframe df with the new crew_size variable added
     """
     df_copy = df.copy()
     df_copy["duration_hours"] = df_copy["duration"].apply(
