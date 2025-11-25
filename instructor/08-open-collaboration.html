@@ -356,7 +356,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Software management &amp; collaboration</h1>
-        <p>Last updated on 2025-11-24 |
+        <p>Last updated on 2025-11-25 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/08-open-collaboration.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -861,7 +861,7 @@ implement the requested feature.</p>
 <span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
 <span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
 <span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping the extra 'duration' column as it contains string values not suitable for calulations</span></span>
 <span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
 <span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
 </div>
@@ -872,16 +872,18 @@ variable is created:</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>duration_by_astronaut_output_file <span class="op">=</span> <span class="st">'results/duration_by_astronaut.csv'</span></span></code></pre>
 </div>
-<p>And also change the invocation of the <code>main()</code> function to
-(to pass the new file as a parameter):</p>
+<p>Next, change the signature of the <code>main()</code> function to
+<code>main(input_file, output_file, duration_by_astronaut_output_file, graph_file)</code>
+and also its invocation (in order to pass the new CSV file as an
+argument):</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>main(input_file, output_file, duration_by_astronaut_output_file, graph_file)</span></code></pre>
 </div>
 <p>Finally, in the <code>main()</code> function, add the invocation of
-the new function (e.g. after converting and exporting data to CSV file
-line):</p>
+the new function (e.g. after converting and exporting original data to
+CSV file):</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -962,132 +964,133 @@ like:</p>
 <span id="cb12-62"><a href="#cb12-62" tabindex="-1"></a>    <span class="co"># Save dataframe to CSV file for later analysis</span></span>
 <span id="cb12-63"><a href="#cb12-63" tabindex="-1"></a>    df.to_csv(output_file, index<span class="op">=</span><span class="va">False</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>)</span>
 <span id="cb12-64"><a href="#cb12-64" tabindex="-1"></a></span>
-<span id="cb12-65"><a href="#cb12-65" tabindex="-1"></a><span class="kw">def</span> plot_cumulative_time_in_space(df, graph_file):</span>
-<span id="cb12-66"><a href="#cb12-66" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-67"><a href="#cb12-67" tabindex="-1"></a><span class="co">    Plot the cumulative time spent in space over years.</span></span>
-<span id="cb12-68"><a href="#cb12-68" tabindex="-1"></a></span>
-<span id="cb12-69"><a href="#cb12-69" tabindex="-1"></a><span class="co">    Convert the duration column from strings to number of hours</span></span>
-<span id="cb12-70"><a href="#cb12-70" tabindex="-1"></a><span class="co">    Calculate cumulative sum of durations</span></span>
-<span id="cb12-71"><a href="#cb12-71" tabindex="-1"></a><span class="co">    Generate a plot of cumulative time spent in space over years and</span></span>
-<span id="cb12-72"><a href="#cb12-72" tabindex="-1"></a><span class="co">    save it to the specified location</span></span>
-<span id="cb12-73"><a href="#cb12-73" tabindex="-1"></a></span>
-<span id="cb12-74"><a href="#cb12-74" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb12-75"><a href="#cb12-75" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
-<span id="cb12-76"><a href="#cb12-76" tabindex="-1"></a><span class="co">        graph_file (file or str): The file object or path to the output graph file.</span></span>
-<span id="cb12-77"><a href="#cb12-77" tabindex="-1"></a></span>
-<span id="cb12-78"><a href="#cb12-78" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-79"><a href="#cb12-79" tabindex="-1"></a><span class="co">        None</span></span>
-<span id="cb12-80"><a href="#cb12-80" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-81"><a href="#cb12-81" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Plotting cumulative spacewalk duration and saving to </span><span class="sc">{</span>graph_file<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb12-82"><a href="#cb12-82" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours(df)</span>
-<span id="cb12-83"><a href="#cb12-83" tabindex="-1"></a>    df[<span class="st">'cumulative_time'</span>] <span class="op">=</span> df[<span class="st">'duration_hours'</span>].cumsum()</span>
-<span id="cb12-84"><a href="#cb12-84" tabindex="-1"></a>    plt.plot(df[<span class="st">'date'</span>], df[<span class="st">'cumulative_time'</span>], <span class="st">'ko-'</span>)</span>
-<span id="cb12-85"><a href="#cb12-85" tabindex="-1"></a>    plt.xlabel(<span class="st">'Year'</span>)</span>
-<span id="cb12-86"><a href="#cb12-86" tabindex="-1"></a>    plt.ylabel(<span class="st">'Total time spent in space to date (hours)'</span>)</span>
-<span id="cb12-87"><a href="#cb12-87" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb12-88"><a href="#cb12-88" tabindex="-1"></a>    plt.savefig(graph_file)</span>
-<span id="cb12-89"><a href="#cb12-89" tabindex="-1"></a>    plt.show()</span>
-<span id="cb12-90"><a href="#cb12-90" tabindex="-1"></a></span>
+<span id="cb12-65"><a href="#cb12-65" tabindex="-1"></a></span>
+<span id="cb12-66"><a href="#cb12-66" tabindex="-1"></a><span class="kw">def</span> plot_cumulative_time_in_space(df, graph_file):</span>
+<span id="cb12-67"><a href="#cb12-67" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-68"><a href="#cb12-68" tabindex="-1"></a><span class="co">    Plot the cumulative time spent in space over years.</span></span>
+<span id="cb12-69"><a href="#cb12-69" tabindex="-1"></a></span>
+<span id="cb12-70"><a href="#cb12-70" tabindex="-1"></a><span class="co">    Convert the duration column from strings to number of hours</span></span>
+<span id="cb12-71"><a href="#cb12-71" tabindex="-1"></a><span class="co">    Calculate cumulative sum of durations</span></span>
+<span id="cb12-72"><a href="#cb12-72" tabindex="-1"></a><span class="co">    Generate a plot of cumulative time spent in space over years and</span></span>
+<span id="cb12-73"><a href="#cb12-73" tabindex="-1"></a><span class="co">    save it to the specified location</span></span>
+<span id="cb12-74"><a href="#cb12-74" tabindex="-1"></a></span>
+<span id="cb12-75"><a href="#cb12-75" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-76"><a href="#cb12-76" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb12-77"><a href="#cb12-77" tabindex="-1"></a><span class="co">        graph_file (file or str): The file object or path to the output graph file.</span></span>
+<span id="cb12-78"><a href="#cb12-78" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-80"><a href="#cb12-80" tabindex="-1"></a><span class="co">        None</span></span>
+<span id="cb12-81"><a href="#cb12-81" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-82"><a href="#cb12-82" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Plotting cumulative spacewalk duration and saving to </span><span class="sc">{</span>graph_file<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-83"><a href="#cb12-83" tabindex="-1"></a>    df <span class="op">=</span> add_duration_hours(df)</span>
+<span id="cb12-84"><a href="#cb12-84" tabindex="-1"></a>    df[<span class="st">'cumulative_time'</span>] <span class="op">=</span> df[<span class="st">'duration_hours'</span>].cumsum()</span>
+<span id="cb12-85"><a href="#cb12-85" tabindex="-1"></a>    plt.plot(df[<span class="st">'date'</span>], df[<span class="st">'cumulative_time'</span>], <span class="st">'ko-'</span>)</span>
+<span id="cb12-86"><a href="#cb12-86" tabindex="-1"></a>    plt.xlabel(<span class="st">'Year'</span>)</span>
+<span id="cb12-87"><a href="#cb12-87" tabindex="-1"></a>    plt.ylabel(<span class="st">'Total time spent in space to date (hours)'</span>)</span>
+<span id="cb12-88"><a href="#cb12-88" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb12-89"><a href="#cb12-89" tabindex="-1"></a>    plt.savefig(graph_file)</span>
+<span id="cb12-90"><a href="#cb12-90" tabindex="-1"></a>    plt.show()</span>
 <span id="cb12-91"><a href="#cb12-91" tabindex="-1"></a></span>
-<span id="cb12-92"><a href="#cb12-92" tabindex="-1"></a><span class="kw">def</span> text_to_duration(duration):</span>
-<span id="cb12-93"><a href="#cb12-93" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-94"><a href="#cb12-94" tabindex="-1"></a><span class="co">    Convert a text format duration "HH:MM" to duration in hours</span></span>
-<span id="cb12-95"><a href="#cb12-95" tabindex="-1"></a></span>
-<span id="cb12-96"><a href="#cb12-96" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb12-97"><a href="#cb12-97" tabindex="-1"></a><span class="co">        duration (str): The text format duration</span></span>
-<span id="cb12-98"><a href="#cb12-98" tabindex="-1"></a></span>
-<span id="cb12-99"><a href="#cb12-99" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-100"><a href="#cb12-100" tabindex="-1"></a><span class="co">        duration_hours (float): The duration in hours</span></span>
-<span id="cb12-101"><a href="#cb12-101" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-102"><a href="#cb12-102" tabindex="-1"></a>    hours, minutes <span class="op">=</span> duration.split(<span class="st">":"</span>)</span>
-<span id="cb12-103"><a href="#cb12-103" tabindex="-1"></a>    duration_hours <span class="op">=</span> <span class="bu">int</span>(hours) <span class="op">+</span> <span class="bu">int</span>(minutes)<span class="op">/</span><span class="dv">60</span></span>
-<span id="cb12-104"><a href="#cb12-104" tabindex="-1"></a>    <span class="cf">return</span> duration_hours</span>
-<span id="cb12-105"><a href="#cb12-105" tabindex="-1"></a></span>
+<span id="cb12-92"><a href="#cb12-92" tabindex="-1"></a></span>
+<span id="cb12-93"><a href="#cb12-93" tabindex="-1"></a><span class="kw">def</span> text_to_duration(duration):</span>
+<span id="cb12-94"><a href="#cb12-94" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-95"><a href="#cb12-95" tabindex="-1"></a><span class="co">    Convert a text format duration "HH:MM" to duration in hours</span></span>
+<span id="cb12-96"><a href="#cb12-96" tabindex="-1"></a></span>
+<span id="cb12-97"><a href="#cb12-97" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-98"><a href="#cb12-98" tabindex="-1"></a><span class="co">        duration (str): The text format duration</span></span>
+<span id="cb12-99"><a href="#cb12-99" tabindex="-1"></a></span>
+<span id="cb12-100"><a href="#cb12-100" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-101"><a href="#cb12-101" tabindex="-1"></a><span class="co">        duration_hours (float): The duration in hours</span></span>
+<span id="cb12-102"><a href="#cb12-102" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-103"><a href="#cb12-103" tabindex="-1"></a>    hours, minutes <span class="op">=</span> duration.split(<span class="st">":"</span>)</span>
+<span id="cb12-104"><a href="#cb12-104" tabindex="-1"></a>    duration_hours <span class="op">=</span> <span class="bu">int</span>(hours) <span class="op">+</span> <span class="bu">int</span>(minutes)<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb12-105"><a href="#cb12-105" tabindex="-1"></a>    <span class="cf">return</span> duration_hours</span>
 <span id="cb12-106"><a href="#cb12-106" tabindex="-1"></a></span>
-<span id="cb12-107"><a href="#cb12-107" tabindex="-1"></a><span class="kw">def</span> add_duration_hours(df):</span>
-<span id="cb12-108"><a href="#cb12-108" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-109"><a href="#cb12-109" tabindex="-1"></a><span class="co">    Add duration in hours (duration_hours) variable to the dataset</span></span>
-<span id="cb12-110"><a href="#cb12-110" tabindex="-1"></a></span>
-<span id="cb12-111"><a href="#cb12-111" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb12-112"><a href="#cb12-112" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
-<span id="cb12-113"><a href="#cb12-113" tabindex="-1"></a></span>
-<span id="cb12-114"><a href="#cb12-114" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-115"><a href="#cb12-115" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new duration_hours variable added</span></span>
-<span id="cb12-116"><a href="#cb12-116" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-117"><a href="#cb12-117" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
-<span id="cb12-118"><a href="#cb12-118" tabindex="-1"></a>    df_copy[<span class="st">"duration_hours"</span>] <span class="op">=</span> df_copy[<span class="st">"duration"</span>].<span class="bu">apply</span>(</span>
-<span id="cb12-119"><a href="#cb12-119" tabindex="-1"></a>        text_to_duration</span>
-<span id="cb12-120"><a href="#cb12-120" tabindex="-1"></a>    )</span>
-<span id="cb12-121"><a href="#cb12-121" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
-<span id="cb12-122"><a href="#cb12-122" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" tabindex="-1"></a></span>
+<span id="cb12-108"><a href="#cb12-108" tabindex="-1"></a><span class="kw">def</span> add_duration_hours(df):</span>
+<span id="cb12-109"><a href="#cb12-109" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-110"><a href="#cb12-110" tabindex="-1"></a><span class="co">    Add duration in hours (duration_hours) variable to the dataset</span></span>
+<span id="cb12-111"><a href="#cb12-111" tabindex="-1"></a></span>
+<span id="cb12-112"><a href="#cb12-112" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-113"><a href="#cb12-113" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input dataframe.</span></span>
+<span id="cb12-114"><a href="#cb12-114" tabindex="-1"></a></span>
+<span id="cb12-115"><a href="#cb12-115" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-116"><a href="#cb12-116" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new duration_hours variable added</span></span>
+<span id="cb12-117"><a href="#cb12-117" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-118"><a href="#cb12-118" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
+<span id="cb12-119"><a href="#cb12-119" tabindex="-1"></a>    df_copy[<span class="st">"duration_hours"</span>] <span class="op">=</span> df_copy[<span class="st">"duration"</span>].<span class="bu">apply</span>(</span>
+<span id="cb12-120"><a href="#cb12-120" tabindex="-1"></a>        text_to_duration</span>
+<span id="cb12-121"><a href="#cb12-121" tabindex="-1"></a>    )</span>
+<span id="cb12-122"><a href="#cb12-122" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
 <span id="cb12-123"><a href="#cb12-123" tabindex="-1"></a></span>
-<span id="cb12-124"><a href="#cb12-124" tabindex="-1"></a><span class="kw">def</span> calculate_crew_size(crew):</span>
-<span id="cb12-125"><a href="#cb12-125" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-126"><a href="#cb12-126" tabindex="-1"></a><span class="co">    Calculate the size of the crew for a single crew entry</span></span>
-<span id="cb12-127"><a href="#cb12-127" tabindex="-1"></a></span>
-<span id="cb12-128"><a href="#cb12-128" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb12-129"><a href="#cb12-129" tabindex="-1"></a><span class="co">        crew (str): The text entry in the crew column containing a list of crew member names</span></span>
-<span id="cb12-130"><a href="#cb12-130" tabindex="-1"></a></span>
-<span id="cb12-131"><a href="#cb12-131" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-132"><a href="#cb12-132" tabindex="-1"></a><span class="co">        (int): The crew size</span></span>
-<span id="cb12-133"><a href="#cb12-133" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-134"><a href="#cb12-134" tabindex="-1"></a>    <span class="cf">if</span> crew.split() <span class="op">==</span> []:</span>
-<span id="cb12-135"><a href="#cb12-135" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb12-136"><a href="#cb12-136" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb12-137"><a href="#cb12-137" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(re.split(<span class="vs">r';'</span>, crew))<span class="op">-</span><span class="dv">1</span></span>
-<span id="cb12-138"><a href="#cb12-138" tabindex="-1"></a></span>
-<span id="cb12-139"><a href="#cb12-139" tabindex="-1"></a><span class="kw">def</span> add_crew_size_column(df):</span>
-<span id="cb12-140"><a href="#cb12-140" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-141"><a href="#cb12-141" tabindex="-1"></a><span class="co">    Add crew_size column to the dataset containing the value of the crew size</span></span>
-<span id="cb12-142"><a href="#cb12-142" tabindex="-1"></a></span>
-<span id="cb12-143"><a href="#cb12-143" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb12-144"><a href="#cb12-144" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input data frame.</span></span>
-<span id="cb12-145"><a href="#cb12-145" tabindex="-1"></a></span>
-<span id="cb12-146"><a href="#cb12-146" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-147"><a href="#cb12-147" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added</span></span>
-<span id="cb12-148"><a href="#cb12-148" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-149"><a href="#cb12-149" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Adding crew size variable (crew_size) to dataset'</span>)</span>
-<span id="cb12-150"><a href="#cb12-150" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
-<span id="cb12-151"><a href="#cb12-151" tabindex="-1"></a>    df_copy[<span class="st">"crew_size"</span>] <span class="op">=</span> df_copy[<span class="st">"crew"</span>].<span class="bu">apply</span>(</span>
-<span id="cb12-152"><a href="#cb12-152" tabindex="-1"></a>        calculate_crew_size</span>
-<span id="cb12-153"><a href="#cb12-153" tabindex="-1"></a>    )</span>
-<span id="cb12-154"><a href="#cb12-154" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
-<span id="cb12-155"><a href="#cb12-155" tabindex="-1"></a></span>
+<span id="cb12-124"><a href="#cb12-124" tabindex="-1"></a></span>
+<span id="cb12-125"><a href="#cb12-125" tabindex="-1"></a><span class="kw">def</span> calculate_crew_size(crew):</span>
+<span id="cb12-126"><a href="#cb12-126" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-127"><a href="#cb12-127" tabindex="-1"></a><span class="co">    Calculate the size of the crew for a single crew entry</span></span>
+<span id="cb12-128"><a href="#cb12-128" tabindex="-1"></a></span>
+<span id="cb12-129"><a href="#cb12-129" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-130"><a href="#cb12-130" tabindex="-1"></a><span class="co">        crew (str): The text entry in the crew column containing a list of crew member names</span></span>
+<span id="cb12-131"><a href="#cb12-131" tabindex="-1"></a></span>
+<span id="cb12-132"><a href="#cb12-132" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-133"><a href="#cb12-133" tabindex="-1"></a><span class="co">        (int): The crew size</span></span>
+<span id="cb12-134"><a href="#cb12-134" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-135"><a href="#cb12-135" tabindex="-1"></a>    <span class="cf">if</span> crew.split() <span class="op">==</span> []:</span>
+<span id="cb12-136"><a href="#cb12-136" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb12-137"><a href="#cb12-137" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-138"><a href="#cb12-138" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(re.split(<span class="vs">r';'</span>, crew))<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb12-139"><a href="#cb12-139" tabindex="-1"></a></span>
+<span id="cb12-140"><a href="#cb12-140" tabindex="-1"></a><span class="kw">def</span> add_crew_size_column(df):</span>
+<span id="cb12-141"><a href="#cb12-141" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-142"><a href="#cb12-142" tabindex="-1"></a><span class="co">    Add crew_size column to the dataset containing the value of the crew size</span></span>
+<span id="cb12-143"><a href="#cb12-143" tabindex="-1"></a></span>
+<span id="cb12-144"><a href="#cb12-144" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb12-145"><a href="#cb12-145" tabindex="-1"></a><span class="co">        df (pd.DataFrame): The input data frame.</span></span>
+<span id="cb12-146"><a href="#cb12-146" tabindex="-1"></a></span>
+<span id="cb12-147"><a href="#cb12-147" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-148"><a href="#cb12-148" tabindex="-1"></a><span class="co">        df_copy (pd.DataFrame): A copy of the dataframe df with the new crew_size variable added</span></span>
+<span id="cb12-149"><a href="#cb12-149" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-150"><a href="#cb12-150" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Adding crew size variable (crew_size) to dataset'</span>)</span>
+<span id="cb12-151"><a href="#cb12-151" tabindex="-1"></a>    df_copy <span class="op">=</span> df.copy()</span>
+<span id="cb12-152"><a href="#cb12-152" tabindex="-1"></a>    df_copy[<span class="st">"crew_size"</span>] <span class="op">=</span> df_copy[<span class="st">"crew"</span>].<span class="bu">apply</span>(</span>
+<span id="cb12-153"><a href="#cb12-153" tabindex="-1"></a>        calculate_crew_size</span>
+<span id="cb12-154"><a href="#cb12-154" tabindex="-1"></a>    )</span>
+<span id="cb12-155"><a href="#cb12-155" tabindex="-1"></a>    <span class="cf">return</span> df_copy</span>
 <span id="cb12-156"><a href="#cb12-156" tabindex="-1"></a></span>
-<span id="cb12-157"><a href="#cb12-157" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
-<span id="cb12-158"><a href="#cb12-158" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-159"><a href="#cb12-159" tabindex="-1"></a><span class="co">    Summarise the duration data by each astronaut and saves resulting table to a CSV file</span></span>
-<span id="cb12-160"><a href="#cb12-160" tabindex="-1"></a></span>
-<span id="cb12-161"><a href="#cb12-161" tabindex="-1"></a><span class="co">    Args: </span></span>
-<span id="cb12-162"><a href="#cb12-162" tabindex="-1"></a><span class="co">        df (pd.DataFrame): Input dataframe to be summarised</span></span>
-<span id="cb12-163"><a href="#cb12-163" tabindex="-1"></a></span>
-<span id="cb12-164"><a href="#cb12-164" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb12-165"><a href="#cb12-165" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb12-166"><a href="#cb12-166" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column </span></span>
-<span id="cb12-167"><a href="#cb12-167" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb12-168"><a href="#cb12-168" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
-<span id="cb12-169"><a href="#cb12-169" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
-<span id="cb12-170"><a href="#cb12-170" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
-<span id="cb12-171"><a href="#cb12-171" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration file as those don't calculate correctly</span></span>
-<span id="cb12-172"><a href="#cb12-172" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
-<span id="cb12-173"><a href="#cb12-173" tabindex="-1"></a>    <span class="cf">return</span> subset</span>
-<span id="cb12-174"><a href="#cb12-174" tabindex="-1"></a></span>
+<span id="cb12-157"><a href="#cb12-157" tabindex="-1"></a></span>
+<span id="cb12-158"><a href="#cb12-158" tabindex="-1"></a><span class="kw">def</span> summary_duration_by_astronaut(df):</span>
+<span id="cb12-159"><a href="#cb12-159" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-160"><a href="#cb12-160" tabindex="-1"></a><span class="co">    Summarise the duration data by each astronaut and saves resulting table to a CSV file</span></span>
+<span id="cb12-161"><a href="#cb12-161" tabindex="-1"></a></span>
+<span id="cb12-162"><a href="#cb12-162" tabindex="-1"></a><span class="co">    Args: </span></span>
+<span id="cb12-163"><a href="#cb12-163" tabindex="-1"></a><span class="co">        df (pd.DataFrame): Input dataframe to be summarised</span></span>
+<span id="cb12-164"><a href="#cb12-164" tabindex="-1"></a></span>
+<span id="cb12-165"><a href="#cb12-165" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb12-166"><a href="#cb12-166" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb12-167"><a href="#cb12-167" tabindex="-1"></a><span class="co">        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column </span></span>
+<span id="cb12-168"><a href="#cb12-168" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-169"><a href="#cb12-169" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Calculating summary of total EVA time by astronaut'</span>)</span>
+<span id="cb12-170"><a href="#cb12-170" tabindex="-1"></a>    subset <span class="op">=</span> df.loc[:,[<span class="st">'crew'</span>, <span class="st">'duration'</span>]] <span class="co"># subset to work with only relevant columns</span></span>
+<span id="cb12-171"><a href="#cb12-171" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
+<span id="cb12-172"><a href="#cb12-172" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping the extra 'duration' column as it contains string values not suitable for calulations</span></span>
+<span id="cb12-173"><a href="#cb12-173" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
+<span id="cb12-174"><a href="#cb12-174" tabindex="-1"></a>    <span class="cf">return</span> subset</span>
 <span id="cb12-175"><a href="#cb12-175" tabindex="-1"></a></span>
-<span id="cb12-176"><a href="#cb12-176" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb12-177"><a href="#cb12-177" tabindex="-1"></a></span>
-<span id="cb12-178"><a href="#cb12-178" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb12-179"><a href="#cb12-179" tabindex="-1"></a>        input_file <span class="op">=</span> <span class="st">'data/eva-data.json'</span></span>
-<span id="cb12-180"><a href="#cb12-180" tabindex="-1"></a>        output_file <span class="op">=</span> <span class="st">'results/eva-data.csv'</span></span>
-<span id="cb12-181"><a href="#cb12-181" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Using default input and output filenames'</span>)</span>
-<span id="cb12-182"><a href="#cb12-182" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb12-183"><a href="#cb12-183" tabindex="-1"></a>        input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
-<span id="cb12-184"><a href="#cb12-184" tabindex="-1"></a>        output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
-<span id="cb12-185"><a href="#cb12-185" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using custom input and output filenames'</span>)</span>
-<span id="cb12-186"><a href="#cb12-186" tabindex="-1"></a></span>
-<span id="cb12-187"><a href="#cb12-187" tabindex="-1"></a>    graph_file <span class="op">=</span> <span class="st">'./cumulative_eva_graph.png'</span></span>
-<span id="cb12-188"><a href="#cb12-188" tabindex="-1"></a>    duration_by_astronaut_output_file <span class="op">=</span> <span class="st">'results/duration_by_astronaut.csv'</span></span>
-<span id="cb12-189"><a href="#cb12-189" tabindex="-1"></a></span>
-<span id="cb12-190"><a href="#cb12-190" tabindex="-1"></a>    main(input_file, output_file, duration_by_astronaut_output_file, graph_file)</span></code></pre>
+<span id="cb12-176"><a href="#cb12-176" tabindex="-1"></a></span>
+<span id="cb12-177"><a href="#cb12-177" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb12-178"><a href="#cb12-178" tabindex="-1"></a></span>
+<span id="cb12-179"><a href="#cb12-179" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(sys.argv) <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb12-180"><a href="#cb12-180" tabindex="-1"></a>        input_file <span class="op">=</span> <span class="st">'data/eva-data.json'</span></span>
+<span id="cb12-181"><a href="#cb12-181" tabindex="-1"></a>        output_file <span class="op">=</span> <span class="st">'results/eva-data.csv'</span></span>
+<span id="cb12-182"><a href="#cb12-182" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Using default input and output filenames'</span>)</span>
+<span id="cb12-183"><a href="#cb12-183" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb12-184"><a href="#cb12-184" tabindex="-1"></a>        input_file <span class="op">=</span> sys.argv[<span class="dv">1</span>]</span>
+<span id="cb12-185"><a href="#cb12-185" tabindex="-1"></a>        output_file <span class="op">=</span> sys.argv[<span class="dv">2</span>]</span>
+<span id="cb12-186"><a href="#cb12-186" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Using custom input and output filenames'</span>)</span>
+<span id="cb12-187"><a href="#cb12-187" tabindex="-1"></a></span>
+<span id="cb12-188"><a href="#cb12-188" tabindex="-1"></a>    graph_file <span class="op">=</span> <span class="st">'results/cumulative_eva_graph.png'</span></span>
+<span id="cb12-189"><a href="#cb12-189" tabindex="-1"></a>    duration_by_astronaut_output_file <span class="op">=</span> <span class="st">'results/duration_by_astronaut.csv'</span></span>
+<span id="cb12-190"><a href="#cb12-190" tabindex="-1"></a></span>
+<span id="cb12-191"><a href="#cb12-191" tabindex="-1"></a>    main(input_file, output_file, duration_by_astronaut_output_file, graph_file)</span></code></pre>
 </div>
 <p>Now, let’s test run our script, to make sure we do not get any
 errors.</p>
@@ -1366,7 +1369,7 @@ computer and in GitHub.</li>
 <span id="cb24-13"><a href="#cb24-13" tabindex="-1"></a>    subset.crew <span class="op">=</span> subset.crew.<span class="bu">str</span>.split(<span class="st">';'</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: [i <span class="cf">for</span> i <span class="kw">in</span> x <span class="cf">if</span> i.strip()]) <span class="co"># splitting the crew into individuals and removing blank string splits from ending ;</span></span>
 <span id="cb24-14"><a href="#cb24-14" tabindex="-1"></a>    subset <span class="op">=</span> subset.explode(<span class="st">'crew'</span>) <span class="co"># separating lists of crew into individual rows</span></span>
 <span id="cb24-15"><a href="#cb24-15" tabindex="-1"></a>    subset <span class="op">=</span> add_duration_hours(subset) <span class="co"># need duration_hours for easier calcs</span></span>
-<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping extra duration column as those don't calculate correctly</span></span>
+<span id="cb24-16"><a href="#cb24-16" tabindex="-1"></a>    subset <span class="op">=</span> subset.drop(<span class="st">'duration'</span>, axis<span class="op">=</span><span class="dv">1</span>) <span class="co"># dropping the extra 'duration' column as it contains string values not suitable for calulations</span></span>
 <span id="cb24-17"><a href="#cb24-17" tabindex="-1"></a>    subset <span class="op">=</span> subset.groupby(<span class="st">'crew'</span>).<span class="bu">sum</span>() </span>
 <span id="cb24-18"><a href="#cb24-18" tabindex="-1"></a>    <span class="cf">return</span> subset</span></code></pre>
 </div>
@@ -1526,7 +1529,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/08-open-collaboration.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/08-open-collaboration.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-11-24",
+  "dateModified": "2025-11-25",
   "datePublished": "2025-11-25"
 }
 
