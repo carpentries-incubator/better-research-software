@@ -662,13 +662,13 @@ import pandas as pd
 import sys
 import re # added this line
 
-# https://data.nasa.gov/resource/eva.json (with modifications)
 
 def main(input_file, output_file, graph_file):
     print("--START--")
 
     # Read the data from JSON file
     eva_data = read_json_to_dataframe(input_file)
+
     # Calculate and add crew size to data
     eva_data = add_crew_size_column(eva_data) # added this line
 
