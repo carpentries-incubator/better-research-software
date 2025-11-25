@@ -341,7 +341,7 @@ def summary_duration_by_astronaut(df):
     print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
     subset = add_duration_hours(subset) # need duration_hours for easier calcs
-    subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
+    subset = subset.drop('duration', axis=1) # dropping the extra 'duration' column as it contains string values not suitable for calulations
     subset = subset.groupby('crew').sum() 
     return subset
 ```
@@ -352,13 +352,13 @@ Then add the following line after the `graph_file` variable is created:
 duration_by_astronaut_output_file = 'results/duration_by_astronaut.csv'
 ```
 
-And also change the invocation of the `main()` function to (to pass the new file as a parameter):
+Next, change the signature of the `main()` function to `main(input_file, output_file, duration_by_astronaut_output_file, graph_file)` and also its invocation (in order to pass the new CSV file as an argument):
 
 ```python
 main(input_file, output_file, duration_by_astronaut_output_file, graph_file)
 ```
 
-Finally, in the `main()` function, add the invocation of the new function (e.g. after converting and exporting data to CSV file line):
+Finally, in the `main()` function, add the invocation of the new function (e.g. after converting and exporting original data to CSV file):
 
 ```python
 # Calculate summary table for total EVA per astronaut
@@ -435,6 +435,7 @@ def write_dataframe_to_csv(df, output_file):
     print(f'Saving to CSV file {output_file}')
     # Save dataframe to CSV file for later analysis
     df.to_csv(output_file, index=False, encoding='utf-8')
+
 
 def plot_cumulative_time_in_space(df, graph_file):
     """
@@ -518,7 +519,7 @@ def add_crew_size_column(df):
         df (pd.DataFrame): The input data frame.
 
     Returns:
-        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added
+        df_copy (pd.DataFrame): A copy of the dataframe df with the new crew_size variable added
     """
     print('Adding crew size variable (crew_size) to dataset')
     df_copy = df.copy()
@@ -542,7 +543,7 @@ def summary_duration_by_astronaut(df):
     print(f'Calculating summary of total EVA time by astronaut')
     subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
     subset = add_duration_hours(subset) # need duration_hours for easier calcs
-    subset = subset.drop('duration', axis=1) # dropping extra duration file as those don't calculate correctly
+    subset = subset.drop('duration', axis=1) # dropping the extra 'duration' column as it contains string values not suitable for calulations
     subset = subset.groupby('crew').sum() 
     return subset
 
@@ -558,7 +559,7 @@ if __name__ == "__main__":
         output_file = sys.argv[2]
         print('Using custom input and output filenames')
 
-    graph_file = './cumulative_eva_graph.png'
+    graph_file = 'results/cumulative_eva_graph.png'
     duration_by_astronaut_output_file = 'results/duration_by_astronaut.csv'
 
     main(input_file, output_file, duration_by_astronaut_output_file, graph_file)
@@ -748,7 +749,7 @@ def summary_duration_by_astronaut(df):
     subset.crew = subset.crew.str.split(';').apply(lambda x: [i for i in x if i.strip()]) # splitting the crew into individuals and removing blank string splits from ending ;
     subset = subset.explode('crew') # separating lists of crew into individual rows
     subset = add_duration_hours(subset) # need duration_hours for easier calcs
-    subset = subset.drop('duration', axis=1) # dropping extra duration column as those don't calculate correctly
+    subset = subset.drop('duration', axis=1) # dropping the extra 'duration' column as it contains string values not suitable for calulations
     subset = subset.groupby('crew').sum() 
     return subset
 ```
