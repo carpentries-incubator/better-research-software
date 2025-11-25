@@ -1277,26 +1277,28 @@ function. Cover typical cases and edge cases.</p>
 <span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a></span>
 <span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a>...</span>
 <span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a></span>
-<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(<span class="st">"input_value, expected_result"</span>, [</span>
-<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a>    (<span class="st">"Valentina Tereshkova;"</span>, <span class="dv">1</span>),</span>
-<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a>    (<span class="st">"Judith Resnik; Sally Ride;"</span>, <span class="dv">2</span>),</span>
-<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a>])</span>
-<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a><span class="kw">def</span> test_calculate_crew_size(input_value, expected_result):</span>
-<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a><span class="co">    Test that calculate_crew_size returns expected ground truth values</span></span>
-<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a><span class="co">    for typical crew values</span></span>
-<span id="cb31-17"><a href="#cb31-17" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb31-18"><a href="#cb31-18" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(input_value)</span>
-<span id="cb31-19"><a href="#cb31-19" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="op">==</span> expected_result</span>
-<span id="cb31-20"><a href="#cb31-20" tabindex="-1"></a></span>
-<span id="cb31-21"><a href="#cb31-21" tabindex="-1"></a><span class="co"># Edge cases</span></span>
-<span id="cb31-22"><a href="#cb31-22" tabindex="-1"></a><span class="kw">def</span> test_calculate_crew_size_edge_cases():</span>
-<span id="cb31-23"><a href="#cb31-23" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb31-24"><a href="#cb31-24" tabindex="-1"></a><span class="co">    Test that calculate_crew_size returns expected ground truth values</span></span>
-<span id="cb31-25"><a href="#cb31-25" tabindex="-1"></a><span class="co">    for edge case where crew is an empty string</span></span>
-<span id="cb31-26"><a href="#cb31-26" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb31-27"><a href="#cb31-27" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(<span class="st">""</span>)</span>
-<span id="cb31-28"><a href="#cb31-28" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="kw">is</span> <span class="va">None</span></span></code></pre>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a><span class="kw">def</span> test_calculate_crew_size():</span>
+<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a><span class="co">    Test that calculate_crew_size returns expected ground truth values</span></span>
+<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a><span class="co">    for typical crew values</span></span>
+<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(<span class="st">"Valentina Tereshkova;"</span>)</span>
+<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a>    expected_result <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="op">==</span> expected_result</span>
+<span id="cb31-17"><a href="#cb31-17" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(<span class="st">"Judith Resnik; Sally Ride;"</span>)</span>
+<span id="cb31-19"><a href="#cb31-19" tabindex="-1"></a>    expected_result <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb31-20"><a href="#cb31-20" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="op">==</span> expected_result</span>
+<span id="cb31-21"><a href="#cb31-21" tabindex="-1"></a></span>
+<span id="cb31-22"><a href="#cb31-22" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="#cb31-23" tabindex="-1"></a><span class="co"># Edge cases</span></span>
+<span id="cb31-24"><a href="#cb31-24" tabindex="-1"></a><span class="kw">def</span> test_calculate_crew_size_edge_cases():</span>
+<span id="cb31-25"><a href="#cb31-25" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb31-26"><a href="#cb31-26" tabindex="-1"></a><span class="co">    Test that calculate_crew_size returns expected ground truth values</span></span>
+<span id="cb31-27"><a href="#cb31-27" tabindex="-1"></a><span class="co">    for edge case where crew is an empty string</span></span>
+<span id="cb31-28"><a href="#cb31-28" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb31-29"><a href="#cb31-29" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(<span class="st">""</span>)</span>
+<span id="cb31-30"><a href="#cb31-30" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="kw">is</span> <span class="va">None</span></span></code></pre>
 </div>
 <p>Let’s run our tests:</p>
 <div class="codewrapper sourceCode" id="cb32">
@@ -1340,17 +1342,20 @@ can rewrite is as follows:</p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(<span class="st">"input_value, expected_result"</span>, [</span>
-<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>    (<span class="st">"Valentina Tereshkova;"</span>, <span class="dv">1</span>),</span>
-<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a>    (<span class="st">"Judith Resnik; Sally Ride;"</span>, <span class="dv">2</span>),</span>
-<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>])</span>
-<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a><span class="kw">def</span> test_calculate_crew_size(input_value, expected_result):</span>
-<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb34-7"><a href="#cb34-7" tabindex="-1"></a><span class="co">    Test that calculate_crew_size returns expected ground truth values</span></span>
-<span id="cb34-8"><a href="#cb34-8" tabindex="-1"></a><span class="co">    for typical crew values</span></span>
-<span id="cb34-9"><a href="#cb34-9" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb34-10"><a href="#cb34-10" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(input_value)</span>
-<span id="cb34-11"><a href="#cb34-11" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="op">==</span> expected_result</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>...</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(<span class="st">"input_value, expected_result"</span>, [</span>
+<span id="cb34-4"><a href="#cb34-4" tabindex="-1"></a>    (<span class="st">"Valentina Tereshkova;"</span>, <span class="dv">1</span>),</span>
+<span id="cb34-5"><a href="#cb34-5" tabindex="-1"></a>    (<span class="st">"Judith Resnik; Sally Ride;"</span>, <span class="dv">2</span>),</span>
+<span id="cb34-6"><a href="#cb34-6" tabindex="-1"></a>])</span>
+<span id="cb34-7"><a href="#cb34-7" tabindex="-1"></a><span class="kw">def</span> test_calculate_crew_size(input_value, expected_result):</span>
+<span id="cb34-8"><a href="#cb34-8" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb34-9"><a href="#cb34-9" tabindex="-1"></a><span class="co">    Test that calculate_crew_size returns expected ground truth values</span></span>
+<span id="cb34-10"><a href="#cb34-10" tabindex="-1"></a><span class="co">    for typical crew values</span></span>
+<span id="cb34-11"><a href="#cb34-11" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb34-12"><a href="#cb34-12" tabindex="-1"></a>    actual_result <span class="op">=</span> calculate_crew_size(input_value)</span>
+<span id="cb34-13"><a href="#cb34-13" tabindex="-1"></a>    <span class="cf">assert</span> actual_result <span class="op">==</span> expected_result</span>
+<span id="cb34-14"><a href="#cb34-14" tabindex="-1"></a>...</span></code></pre>
 </div>
 <p>Notice the following key changes to our code:</p>
 <ul><li>The unparameterised version of <code>test_calculate_crew_size</code>
