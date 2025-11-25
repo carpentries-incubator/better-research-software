@@ -254,7 +254,7 @@ We will try to make this research software project a "bit better" for future use
 
 ### Running the code
 
-Let's try to run the code and see if we reproduce the results.
+Let's try to run the code and see if we can reproduce the results.
 
 Open the terminal in VS Code (unless you have already done it) and type the following command.
 
