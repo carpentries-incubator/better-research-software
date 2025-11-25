@@ -436,6 +436,7 @@ def write_dataframe_to_csv(df, output_file):
     # Save dataframe to CSV file for later analysis
     df.to_csv(output_file, index=False, encoding='utf-8')
 
+
 def plot_cumulative_time_in_space(df, graph_file):
     """
     Plot the cumulative time spent in space over years.
@@ -518,7 +519,7 @@ def add_crew_size_column(df):
         df (pd.DataFrame): The input data frame.
 
     Returns:
-        df_copy (pd.DataFrame): A copy of df with the new crew_size variable added
+        df_copy (pd.DataFrame): A copy of the dataframe df with the new crew_size variable added
     """
     print('Adding crew size variable (crew_size) to dataset')
     df_copy = df.copy()
@@ -558,7 +559,7 @@ if __name__ == "__main__":
         output_file = sys.argv[2]
         print('Using custom input and output filenames')
 
-    graph_file = './cumulative_eva_graph.png'
+    graph_file = 'results/cumulative_eva_graph.png'
     duration_by_astronaut_output_file = 'results/duration_by_astronaut.csv'
 
     main(input_file, output_file, duration_by_astronaut_output_file, graph_file)
