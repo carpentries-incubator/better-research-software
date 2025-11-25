@@ -773,17 +773,19 @@ from eva_data_analysis import (
 
 ...
 
-@pytest.mark.parametrize("input_value, expected_result", [
-    ("Valentina Tereshkova;", 1),
-    ("Judith Resnik; Sally Ride;", 2),
-])
-def test_calculate_crew_size(input_value, expected_result):
+def test_calculate_crew_size():
     """
     Test that calculate_crew_size returns expected ground truth values
     for typical crew values
     """
-    actual_result = calculate_crew_size(input_value)
+    actual_result = calculate_crew_size("Valentina Tereshkova;")
+    expected_result = 1
     assert actual_result == expected_result
+
+    actual_result = calculate_crew_size("Judith Resnik; Sally Ride;")
+    expected_result = 2
+    assert actual_result == expected_result
+
 
 # Edge cases
 def test_calculate_crew_size_edge_cases():
@@ -831,6 +833,8 @@ This allows us to apply our test function to a list of input/expected output pai
 To parameterise the `test_calculate_crew_size` function, we can rewrite is as follows:
 
 ```python
+...
+
 @pytest.mark.parametrize("input_value, expected_result", [
     ("Valentina Tereshkova;", 1),
     ("Judith Resnik; Sally Ride;", 2),
@@ -842,17 +846,14 @@ def test_calculate_crew_size(input_value, expected_result):
     """
     actual_result = calculate_crew_size(input_value)
     assert actual_result == expected_result
+...
 ```
 
 Notice the following key changes to our code:
 
-- The unparameterised version of `test_calculate_crew_size` function did not have any arguments and our input/expected values 
-were all defined in the body of our test function.
-- In the parameterised version of `test_calculate_crew_size`, the body of our test function has been rewritten as a 
-parameterised block of code that uses the variables `input_value` and `expected_result` which are now arguments of the
-test function.
-- A Python decorator `@pytest.mark.parametrize` is placed immediately before the test function and indicates that 
-it should be run once for each set of parameters provided.
+- The unparameterised version of `test_calculate_crew_size` function did not have any arguments and our input/expected values were all defined in the body of our test function.
+- In the parameterised version of `test_calculate_crew_size`, the body of our test function has been rewritten as a parameterised block of code that uses the variables `input_value` and `expected_result` which are now arguments of the test function.
+- A Python decorator `@pytest.mark.parametrize` is placed immediately before the test function and indicates that it should be run once for each set of parameters provided.
 
 ::: callout
 In Python, a decorator is a function that can modify the behaviour of another function. 
