@@ -630,7 +630,7 @@ project_name/
 │   ├── main_script.py    # main script/code entry point
 │   └── ...
 ├── doc/                  # documentation for your project
-├── index.rst             # entry point into the documentation website    
+├── index.html            # entry point into the documentation website    
 └── ...
 ```
 
