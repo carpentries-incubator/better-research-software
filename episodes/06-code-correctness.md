@@ -354,7 +354,7 @@ Let's tests for this.
 from eva_data_analysis import text_to_duration
 
 def test_text_to_duration_float():
-    assert text_to_duration("10:20") == 10.333333
+    assert text_to_duration("10:20") == 10.33333333
 
 def test_text_to_duration_integer():
     assert text_to_duration("10:00") == 10
@@ -370,7 +370,7 @@ Traceback (most recent call last):
   File "/Users/user/work/SSI/lessons/astronaut-data-analysis/test_code.py", line 17, in <module>
     test_text_to_duration_float()
   File "/Users/user/work/SSI/lessons/astronaut-data-analysis/test_code.py", line 9, in test_text_to_duration_float
-    assert text_to_duration("10:20") == 10.333333
+    assert text_to_duration("10:20") == 10.33333333
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError
 ```
