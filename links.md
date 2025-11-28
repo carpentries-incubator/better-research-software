@@ -62,6 +62,7 @@ any links that you are not going to use.
 [figshare]: https://figshare.com/
 [forrt-resources]: https://forrt.org/resources/
 [free-software]: https://www.gnu.org/philosophy/free-sw.en.html
+[fair-software-episode]:  ./fair-software.html
 
 [github]: https://github.com/
 [github-copilot]: https://github.com/features/copilot
@@ -147,6 +148,7 @@ any links that you are not going to use.
 [ttw-illustrations]: https://doi.org/10.5281/zenodo.3332807
 [ttw-reproducibility-def]: https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions
 [turing-way-citation]: https://book.the-turing-way.org/communication/citable/citable-cff.html
+[ttw-reproducible-definition-grid]: https://raw.githubusercontent.com/the-turing-way/the-turing-way/refs/heads/main/book/figures/reproducible-definition-grid.svg
 
 [wiki-open-research-def]: https://en.wikipedia.org/wiki/Open_research
 [wiki-reproducibility-def]: https://en.wikipedia.org/wiki/Reproducibility

@@ -1202,14 +1202,9 @@ to manage and run our tests using the `pytest` framework and how identify
 which parts of our code require additional testing using test coverage
 reports.
 
-These skills reduce the probability that there will be a mistake in our
-code and support reproducible research by giving us the confidence to
-engage in open research practices. 
-Tests also document the intended behaviour of our code for other developers and mean that we can
-experiment with changes to our code knowing that our tests will let us
-know if we break any existing functionality. 
-In other words, software testing supports the [FAIR software principles][fair-principles-research-software] by making our code more **accessible** and
-**reusable**.
+These skills reduce the probability that there will be a mistake in our code and support reproducible research by giving us the confidence to engage in open research practices. 
+Tests also document the intended behaviour of our code for other developers and mean that we can experiment with changes to our code knowing that our tests will let us know if we break any existing functionality. 
+In other words, software testing supports building better software by making our code more **accessible** and **reusable**.
 
 :::::: spoiler
 
@@ -1246,15 +1241,10 @@ the course.
 
 ::: keypoints
 
-1.  Code testing supports the FAIR principles by improving the
-    accessibility and re-usability of research code.
-2.  Unit testing is crucial as it ensures each functions works
-    correctly.
-3.  Using the `pytest` framework, you can write basic unit tests for
-    Python functions to verify their correctness.
-4.  Identifying and handling edge cases in unit tests is essential to
-    ensure your code performs correctly under a variety of conditions.
-5.  Test coverage can help you to identify parts of your code that
-    require additional testing.
+1.  Code testing supports building better software by improving the accessibility and re-usability of research code.
+2.  Unit testing is crucial as it ensures each functions works correctly.
+3.  Using the `pytest` framework, you can write basic unit tests for Python functions to verify their correctness.
+4.  Identifying and handling edge cases in unit tests is essential to ensure your code performs correctly under a variety of conditions.
+5.  Test coverage can help you to identify parts of your code that require additional testing.
 
 :::
