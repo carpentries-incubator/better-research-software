@@ -1048,7 +1048,7 @@ def read_json_to_dataframe(input_file):
         input_file (file or str): The file object or path to the JSON file.
 
     Returns:
-         eva_df (pd.DataFrame): The cleaned and sorted data as a dataframe structure
+         eva_df (pd.DataFrame): The cleaned data as a dataframe structure
     """
     print(f'Reading JSON file {input_file}')
     # Read the data from a JSON file into a Pandas dataframe
