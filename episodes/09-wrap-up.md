@@ -15,7 +15,7 @@ exercises: 0
 After completing this episode, participants should be able to:
 
 - Reflect on the good research software development principles we covered in the course and their relevance in supporting reproducible research
-- Start making changes to own software development practices to implement some of the principles we covered
+- Start making changes to their own software development practices to implement some of the principles we covered
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
