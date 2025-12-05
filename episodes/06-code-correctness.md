@@ -1203,7 +1203,7 @@ which parts of our code require additional testing using test coverage
 reports.
 
 These skills reduce the probability that there will be a mistake in our code and support reproducible research by giving us the confidence to engage in open research practices. 
-Tests also document the intended behaviour of our code for other developers and mean that we can experiment with changes to our code knowing that our tests will let us know if we break any existing functionality. 
+Tests also document the intended behaviour of our code for other developers and allow us to safely experiment with changes to our code, knowing that our tests will tell us if we break any existing functionality. 
 In other words, software testing supports building better software by making our code more **accessible** and **reusable**.
 
 :::::: spoiler
