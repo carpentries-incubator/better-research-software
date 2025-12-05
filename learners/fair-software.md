@@ -1,9 +1,11 @@
-## FAIR Research Software
+---
+title: FAIR Research Software
+---
 
 One framework that can help you evaluate the alignment of a piece of research software with best practices in reproducibility are the _FAIR Principles for Research Software_.
 The practices taught here fall within this framework and it can be a good place to find out what else you can start doing to improve even further.
 
-### What is FAIR?
+## What is FAIR?
 
 FAIR stands for Findable, Accessible, Interoperable, and Reusable and comprises a set of principles designed to
 increase the visibility and usefulness of your research to others.
@@ -22,7 +24,7 @@ This is not an exact science, and by all means the list below is not exhaustive,
 but any of the practices that you employ in your research software workflow will bring you
 closer to the gold standard of fully reproducible research.
 
-#### Findable
+### Findable
 
 - Create a description of your software to make it discoverable by search engines and other search tools
 - Use standards (such as [CodeMeta][codemeta]) to describe interoperable metadata for your software (see [Research Software Metadata Guidelines][rsmd-g1])
@@ -31,17 +33,17 @@ closer to the gold standard of fully reproducible research.
   which is also useful for citations - note that depositing your data/code on GitHub and similar software repositories
   may not be enough as they may change their open access model or disappear completely in the future, so archiving your code means it stands a better chance at being preserved
 
-#### Accessible
+### Accessible
 
 - Make sure people can obtain get a copy of your software using standard communication protocols (e.g. HTTP(S), (S)FTP, etc.)
 - The code and its description (metadata) has to be available even when the software is no longer actively developed (this includes earlier versions of the software)
 
-#### Interoperable
+### Interoperable
 
 - Use community-agreed standard formats for inputs and outputs of your software and its metadata
 - Communicate with other software and tools via standard protocols and APIs
 
-#### Reusable
+### Reusable
 
 - Document your software (including its functionality, how to install and run it) so it is both usable (can be executed)
   and reusable (can be understood, modified, built upon, or incorporated into other software)
@@ -94,7 +96,7 @@ Here are some questions to help you assess where on the FAIR spectrum your softw
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-### FAIR Software is Better Software
+## FAIR Software is Better Software
 
 You may or may not find the FAIR Research Software Principles a helpful way of framing good practices.
 The important thing is to focus on **how adopting these individual ways of working contributes to making your software better**.
