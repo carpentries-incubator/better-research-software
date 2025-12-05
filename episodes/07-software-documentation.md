@@ -61,7 +61,7 @@ However, like software testing, documenting our software help us produce **bette
 - Good documentation can help us return to a project seamlessly after time away 
 - Documentation can facilitate collaborations by helping us onboard new project members quickly and more easily
 - Good documentation can save us time by answering frequently asked questions (FAQs) about our code for us
-- Software documentation supports the [FAIR research software principles][fair-principles-research-software] by improving the re-usability of our code. 
+- Software documentation improves reusability of our code
   - Good documentation can make our software more understandable and reusable by others, and can bring us some citations and credit
   - How-to guides and tutorials ensure that users can install our software independently and make use of its basic features
   - Reference guides and background information can help developers understand our code sufficiently to modify/extend/repurpose it.

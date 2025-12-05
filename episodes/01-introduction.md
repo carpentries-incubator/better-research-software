@@ -92,6 +92,16 @@ Write your reflections in the shared collaborative document.
 
 ::::::::::::::::::
 
+::: callout
+
+###  FAIR software
+
+Some of the practices covered here also align with the [FAIR Research Software Principles][fair-principles-research-software] and are explored further in the [additional episode on FAIR software][fair-software-episode]. 
+However, FAIR is just one of several frameworks that can guide the development of high-quality research software. 
+What matters most is recognising how each of these individual practices—whether or not they come from FAIR—helps you produce software that is more reliable, maintainable, and useful to others.
+
+:::
+
 ## Our research software project
 
 You are going to follow a fairly typical experience of a new researcher (e.g. a PhD student or a postdoc) joining a research group.
