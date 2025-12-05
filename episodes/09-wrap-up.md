@@ -21,7 +21,7 @@ After completing this episode, participants should be able to:
 
 In this course, we explored some core practices that help researchers build high-quality, sustainable, and reusable software to support reproducible computational research. 
 
-We learned how to structure a project and track changes to it from the start, work with reproducible environments, write readable and well-organised code, test it for correctness, document it clearly, and share it for collaboration and reuse.
+You learned how to structure a project and track changes to it from the start, work with reproducible environments, write readable and well-organised code, test it for correctness, document it clearly, and share it for collaboration and reuse.
 By putting these skills together, you now have a toolkit for developing research software that is more robust, more transparent, and easier for both you and others to use and maintain.
 
 As you continue your work, remember that small, consistent improvements in your practices make a big difference over time. 
