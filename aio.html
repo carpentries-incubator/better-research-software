@@ -125,6 +125,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 <li><a class="dropdown-item" href="installation-instructions.html">Installation instructions</a></li>
 <li><a class="dropdown-item" href="reproducible-research-discussion.html">Reproducible Research Discussion</a></li>
+<li><a class="dropdown-item" href="fair-software.html"></a></li>
 <li><a class="dropdown-item" href="test-suite-exercise.html">Implementing a test suite</a></li>
 <li><a class="dropdown-item" href="ci-for-testing.html">Continuous Integration for automated testing</a></li>
 <li><a class="dropdown-item" href="licensing.html">Software licensing</a></li>
@@ -380,6 +381,7 @@
                       </li>
                       <li><a href="installation-instructions.html">Installation instructions</a></li>
 <li><a href="reproducible-research-discussion.html">Reproducible Research Discussion</a></li>
+<li><a href="fair-software.html"></a></li>
 <li><a href="test-suite-exercise.html">Implementing a test suite</a></li>
 <li><a href="ci-for-testing.html">Continuous Integration for automated testing</a></li>
 <li><a href="licensing.html">Software licensing</a></li>
@@ -415,7 +417,7 @@
         
 <section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Course introduction</a></p>
 <hr>
-<p>Last updated on 2025-11-25 |
+<p>Last updated on 2025-12-05 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -599,6 +601,24 @@ employing or using.</li>
 </div>
 </div>
 </div>
+<div id="fair-software" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="fair-software" class="callout-inner">
+<h3 class="callout-title">FAIR software</h3>
+<div class="callout-content">
+<p>Some of the practices covered here also align with the <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">FAIR Research
+Software Principles</a> and are explored further in the <a href="./fair-software.html">additional episode on FAIR software</a>.
+However, FAIR is just one of several frameworks that can guide the
+development of high-quality research software. What matters most is
+recognising how each of these individual practices—whether or not they
+come from FAIR—helps you produce software that is more reliable,
+maintainable, and useful to others.</p>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="our-research-software-project">Our research software project<a class="anchor" aria-label="anchor" href="#our-research-software-project"></a>
 </h2>
@@ -638,7 +658,7 @@ Outside of this course, you will make a choice which IDE or code editor
 to use based on your and your team’s preferences.</p>
 <p>As part of setup, we have installed a few extensions for VS Code to
 make our software development experience easier.</p>
-<div id="callout2" class="callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -1852,7 +1872,7 @@ contribute to it. We now want to start developing the code further.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment</a></p>
@@ -2555,7 +2575,7 @@ see how we can improve it further.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability</a></p>
@@ -2667,7 +2687,7 @@ we can follow to help create more readable code.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability</a></p>
@@ -2680,7 +2700,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Activate your virtual environment </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -2869,7 +2889,7 @@ informative commit message.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha">
 <li>Updated code after renaming <code>data_f</code>, <code>data_t</code>
@@ -3077,7 +3097,7 @@ updated code to the git repo.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Variable <code>fieldnames</code> (containing column names for CSV
 data file) is defined but never used in the code - it should be
@@ -3402,7 +3422,7 @@ informative commit message.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Some good comments may look like the example below.</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -3601,7 +3621,7 @@ save the plot.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>After extracting the code to plot a graph into a separate function,
 our code may look something like the following:</p>
@@ -3803,7 +3823,7 @@ docstring may look like:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Our <code>write_dataframe_to_csv</code> function fully described by a
 docstring may look like:</p>
@@ -3980,7 +4000,7 @@ cycle.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure</a></p>
@@ -5071,7 +5091,7 @@ a piece of code meet our expectations, i.e. are correct.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correctness" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correctness</a></p>
@@ -5084,7 +5104,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Activate your virtual environment </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -5177,7 +5197,7 @@ working together correctly.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>End-to-end tests compare the actual output of a program to the
@@ -5299,7 +5319,7 @@ verify that a piece of code is behaving as expected?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>It can be tempting to test our code informally because this
 approach:</p>
@@ -5792,7 +5812,7 @@ FAILED tests/test_analyse.py::test_mean_duration - NameError: name 'length' is n
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha">
 <li>Nine tests were detected in the test suite</li>
@@ -5954,7 +5974,7 @@ function. Cover typical cases and edge cases.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>We can add the following test functions to our test suite.</p>
 <div class="codewrapper sourceCode" id="cb31">
@@ -6206,7 +6226,7 @@ test suite?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: lower-alpha">
 <li>You can find this information on the “Files” tab of the HTML report
@@ -6484,18 +6504,17 @@ testing using test coverage reports.</p>
 <p>These skills reduce the probability that there will be a mistake in
 our code and support reproducible research by giving us the confidence
 to engage in open research practices. Tests also document the intended
-behaviour of our code for other developers and mean that we can
-experiment with changes to our code knowing that our tests will let us
-know if we break any existing functionality. In other words, software
-testing supports the <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">FAIR software
-principles</a> by making our code more <strong>accessible</strong> and
-<strong>reusable</strong>.</p>
+behaviour of our code for other developers and allow us to safely
+experiment with changes to our code, knowing that our tests will tell us
+if we break any existing functionality. In other words, software testing
+supports building better software by making our code more
+<strong>accessible</strong> and <strong>reusable</strong>.</p>
 <div id="accordionSpoiler3" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation</a>.</p>
@@ -6545,9 +6564,9 @@ for the course.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ol style="list-style-type: decimal">
-<li>Code testing supports the FAIR principles by improving the
+<li>Code testing supports building better software by improving the
 accessibility and re-usability of research code.</li>
-<li>Unit testing is crucial as it ensures each functions works
+<li>Unit testing is crucial as it ensures each function works
 correctly.</li>
 <li>Using the <code>pytest</code> framework, you can write basic unit
 tests for Python functions to verify their correctness.</li>
@@ -6565,7 +6584,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-07-software-documentation"><p>Content from <a href="07-software-documentation.html">Software documentation</a></p>
 <hr>
-<p>Last updated on 2025-11-20 |
+<p>Last updated on 2025-12-05 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/07-software-documentation.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -6619,7 +6638,7 @@ the people who need it – both users and developers.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation</a></p>
@@ -6632,7 +6651,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Activate your virtual environment </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -6664,8 +6683,7 @@ time away</li>
 new project members quickly and more easily</li>
 <li>Good documentation can save us time by answering frequently asked
 questions (FAQs) about our code for us</li>
-<li>Software documentation supports the <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">FAIR research
-software principles</a> by improving the re-usability of our code.
+<li>Software documentation improves reusability of our code
 <ul>
 <li>Good documentation can make our software more understandable and
 reusable by others, and can bring us some citations and credit</li>
@@ -6818,7 +6836,7 @@ and which are good to have but <strong>optional</strong>?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To support the FAIR principles (Findability, Accessibility,
 Interoperability, and Reusability), certain sections in a README file
@@ -6931,7 +6949,7 @@ installed. You will also need the following libraries (minimum versions in brack
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Installation instructions:</p>
 <p>NB: In the solution below the back ticks of each code block have been
@@ -7042,7 +7060,7 @@ your code repository.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Licence can be done in either of the following two ways:
@@ -7390,7 +7408,7 @@ deploying our documentation to a hosting service.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Some options for hosting documentation </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="github-pages">GitHub Pages<a class="anchor" aria-label="anchor" href="#github-pages"></a>
@@ -7529,7 +7547,7 @@ dataset generated by the Spacewalks software.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>An effective how-to guide should:</p>
 <ul>
@@ -7585,7 +7603,7 @@ dataset when running the analysis script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>Here is what an example tutorial may look like.</p>
 <pre><code>## Introduction
@@ -7711,7 +7729,7 @@ our example how-to guide?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>In terms of content:</p>
 <ul>
@@ -7756,7 +7774,7 @@ framework for structuring documentation effectively.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler4" aria-expanded="false" aria-controls="collapseSpoiler4">
   <h3 class="accordion-header" id="headingSpoiler4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Code state </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration</a></p>
@@ -7884,7 +7902,7 @@ consider which we will cover here.</p>
   Code state
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration</a></p>
@@ -7900,7 +7918,7 @@ should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software
   Activate your virtual environment
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <p>If it is not already active, make sure to activate your virtual
 environment from the root of the software project directory:</p>
@@ -8069,7 +8087,7 @@ repository and the corresponding Markdown:</p>
   Problems with GitHub and Zenodo integration
   </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
 <div class="accordion-body">
 <p>The integration between GitHub and Zenodo does not interact well with
 some browsers’ privacy features and extensions. Firefox can be
@@ -8630,7 +8648,7 @@ branches.</p>
   How to pull changes from a remote branch
   </h3>
 </button>
-<div id="collapseSpoiler4" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler4" aria-labelledby="headingSpoiler4">
+<div id="collapseSpoiler4" class="accordion-collapse collapse" aria-labelledby="headingSpoiler4" data-bs-parent="#accordionSpoiler4">
 <div class="accordion-body">
 <p>If we needed to pull changes from a branch on a remote (for example
 if we have made changes on another computer or via GitHub’s web based
@@ -8653,7 +8671,7 @@ command.</p>
   Merging branches
   </h3>
 </button>
-<div id="collapseSpoiler5" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler5" aria-labelledby="headingSpoiler5">
+<div id="collapseSpoiler5" class="accordion-collapse collapse" aria-labelledby="headingSpoiler5" data-bs-parent="#accordionSpoiler5">
 <div class="accordion-body">
 <p>If we are working alone, when we have completed working on a branch
 (for example adding a feature or fixing a bug) then we can merge our
@@ -8810,7 +8828,7 @@ computer and in GitHub.</li>
   Updated function to copy-paste
   </h3>
 </button>
-<div id="collapseSpoiler6" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler6" aria-labelledby="headingSpoiler6">
+<div id="collapseSpoiler6" class="accordion-collapse collapse" aria-labelledby="headingSpoiler6" data-bs-parent="#accordionSpoiler6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8874,7 +8892,7 @@ community-driven development.</p>
   Code state
   </h3>
 </button>
-<div id="collapseSpoiler7" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler7" aria-labelledby="headingSpoiler7">
+<div id="collapseSpoiler7" class="accordion-collapse collapse" aria-labelledby="headingSpoiler7" data-bs-parent="#accordionSpoiler7">
 <div class="accordion-body">
 <p>At this point, the code in your local software project’s directory
 should be as in: <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/final" class="external-link uri">https://github.com/carpentries-incubator/bbrs-software-project/tree/final</a></p>
@@ -8942,7 +8960,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-09-wrap-up"><p>Content from <a href="09-wrap-up.html">Wrap-up</a></p>
 <hr>
-<p>Last updated on 2025-07-31 |
+<p>Last updated on 2025-12-05 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/09-wrap-up.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -8956,11 +8974,8 @@ any links that you are not going to use.
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What are the FAIR principles?</li>
-<li>How can FAIR principles help us develop better research
-software?</li>
-<li>What are the wider research software development principles in the
-context of you team, peers and the world?</li>
+<li>What changes are you going to start implementing in your software
+development routine?</li>
 </ul>
 </div>
 </div>
@@ -8971,226 +8986,59 @@ context of you team, peers and the world?</li>
 <h3 class="card-title">Objectives</h3>
 <p>After completing this episode, participants should be able to:</p>
 <ul>
-<li>Explain the FAIR research principles in the context of research
-software</li>
-<li>Explain why these principles are of value in the research
-community</li>
-<li>Reflect on the wider research software development principles and
-their relevance to research</li>
+<li>Reflect on the good research software development principles we
+covered in the course and their relevance in supporting reproducible
+research</li>
+<li>Start making changes to their own software development practices to
+implement some of the principles we covered</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>The good development practices taught in this lesson will help you
-build better research software. The <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/final" class="external-link">final
-branch</a> of the software project repository contains an improved
-version of the example code after good practices have been applied. Some
-may require time and perseverance to implement and embed in your
-routine. Others are small changes you can start practicing today.</p>
+<p>In this course, we explored some core practices that help researchers
+build high-quality, sustainable, and reusable software to support
+reproducible computational research.</p>
+<p>You learned how to structure a project and track changes to it from
+the start, work with reproducible environments, write readable and
+well-organised code, test it for correctness, document it clearly, and
+share it for collaboration and reuse. By putting these skills together,
+you now have a toolkit for developing research software that is more
+robust, more transparent, and easier for both you and others to use and
+maintain.</p>
+<p>As you continue your work, remember that small, consistent
+improvements in your practices make a big difference over time. Some
+practices may require time and persistence to implement and embed in
+your routine. Others are small changes you can start practicing
+today.</p>
 <figure><img src="fig/plant-a-tree.jpg" alt="Chinese proverb 'The best time to plant a tree was 20 years ago. The second best time is now'" class="figure mx-auto d-block"><div class="figcaption">Image by CCNULL, used under a CC-BY 2.0
 licence</div>
-</figure><section><h2 class="section-heading" id="fair-research-software">FAIR Research Software<a class="anchor" aria-label="anchor" href="#fair-research-software"></a>
+</figure><div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Code state
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<p>The <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/final" class="external-link">final
+branch</a> of the software project repository contains an improved
+version of the example code after good practices have been applied.</p>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="summary-of-tools-and-practices-for-building-better-research-software">Summary of tools and practices for building better research
+software<a class="anchor" aria-label="anchor" href="#summary-of-tools-and-practices-for-building-better-research-software"></a>
 </h2>
 <hr class="half-width">
-<p>One framework that can help you evaluate the alignment of a piece of
-research software with best practices in reproducibility are the
-<em>FAIR Principles for Research Software</em>. The practices taught
-here fall within this framework and it can be a good place to find out
-what else you can start doing to improve even further.</p>
-<div class="section level3">
-<h3 id="what-is-fair">What is FAIR?<a class="anchor" aria-label="anchor" href="#what-is-fair"></a>
-</h3>
-<p>FAIR stands for Findable, Accessible, Interoperable, and Reusable and
-comprises a set of principles designed to increase the visibility and
-usefulness of your research to others. The <a href="https://www.nature.com/articles/sdata201618" class="external-link">FAIR data
-principles</a>, first published in 2016, are widely known and applied
-today. Similar <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">FAIR
-principles for software</a> have now been defined too. In general, they
-mean:</p>
-<ul>
-<li>
-<strong>Findable</strong> - software and its associated metadata
-must be easy to discover by humans and machines.</li>
-<li>
-<strong>Accessible</strong> - in order to reuse software, the
-software and its metadata must be retrievable by standard protocols,
-free and legally usable.</li>
-<li>
-<strong>Interoperable</strong> - when interacting with other
-software it must be done by exchanging data and/or metadata through
-standardised protocols and application programming interfaces
-(APIs).</li>
-<li>
-<strong>Reusable</strong> - software should be usable (can be
-executed) and reusable (can be understood, modified, built upon, or
-incorporated into other software).</li>
-</ul>
-<p>Each of the above principles can be achieved by a number of practices
-listed below. This is not an exact science, and by all means the list
-below is not exhaustive, but any of the practices that you employ in
-your research software workflow will bring you closer to the gold
-standard of fully reproducible research.</p>
-<div class="section level4">
-<h4 id="findable">Findable<a class="anchor" aria-label="anchor" href="#findable"></a>
-</h4>
-<ul>
-<li>Create a description of your software to make it discoverable by
-search engines and other search tools</li>
-<li>Use standards (such as <a href="https://codemeta.github.io/" class="external-link">CodeMeta</a>) to describe
-interoperable metadata for your software (see <a href="https://fair-impact.github.io/RSMD-guidelines/1.General/" class="external-link">Research
-Software Metadata Guidelines</a>)</li>
-<li>Place your software in a public software repository (and ideally
-register it in a <a href="https://github.com/NLeSC/awesome-research-software-registries" class="external-link">general-purpose
-or domain-specific software registry</a>)</li>
-<li>Use a unique and persistent identifier (DOI) for your software
-(e.g. by depositing your code on <a href="https://zenodo.org/" class="external-link">Zenodo</a>), which is also useful for
-citations - note that depositing your data/code on GitHub and similar
-software repositories may not be enough as they may change their open
-access model or disappear completely in the future, so archiving your
-code means it stands a better chance at being preserved</li>
-</ul>
-</div>
-<div class="section level4">
-<h4 id="accessible">Accessible<a class="anchor" aria-label="anchor" href="#accessible"></a>
-</h4>
-<ul>
-<li>Make sure people can obtain get a copy of your software using
-standard communication protocols (e.g. HTTP(S), (S)FTP, etc.)</li>
-<li>The code and its description (metadata) has to be available even
-when the software is no longer actively developed (this includes earlier
-versions of the software)</li>
-</ul>
-</div>
-<div class="section level4">
-<h4 id="interoperable">Interoperable<a class="anchor" aria-label="anchor" href="#interoperable"></a>
-</h4>
-<ul>
-<li>Use community-agreed standard formats for inputs and outputs of your
-software and its metadata</li>
-<li>Communicate with other software and tools via standard protocols and
-APIs</li>
-</ul>
-</div>
-<div class="section level4">
-<h4 id="reusable">Reusable<a class="anchor" aria-label="anchor" href="#reusable"></a>
-</h4>
-<ul>
-<li>Document your software (including its functionality, how to install
-and run it) so it is both usable (can be executed) and reusable (can be
-understood, modified, built upon, or incorporated into other
-software)</li>
-<li>Give a licence to your software clearly stating how it can be
-reused</li>
-</ul>
-<div id="fair-is-a-process-not-a-perfect-metric" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="fair-is-a-process-not-a-perfect-metric" class="callout-inner">
-<h3 class="callout-title">FAIR is a process, not a perfect metric</h3>
-<div class="callout-content">
-<p>FAIR is not a binary metric - there is no such thing as “FAIR or”not
-FAIR”.</p>
-<p>FAIR is not a perfect metric, nor does it provide a full and
-exhaustive software quality checklist - there are other good software
-quality practices not covered by FAIR. Conversely, software may be FAIR
-but still not very good in terms of its functionality.</p>
-<p>FAIR is <strong>not meant</strong> to criticise or discredit
-work.</p>
-<p>FAIR refers to the specific <strong>values</strong> of and describes
-a set of <strong>principles</strong> to aid open and reproducible
-research that can be a helpful guide for researchers who want to improve
-their practices (by helping them see where they are on the <strong>FAIR
-spectrum</strong> and help them on a <strong>journey</strong> to make
-their software more FAIR).</p>
-</div>
-</div>
-</div>
-<div id="assessing-the-fairness-of-your-research-software" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
-</div>
-<span class="callout-header">Checklist</span>
-<div id="assessing-the-fairness-of-your-research-software" class="callout-inner">
-<h3 class="callout-title">Assessing the FAIRness of your Research
-Software</h3>
-<div class="callout-content">
-<p>Here are some questions to help you assess where on the FAIR spectrum
-your software is.</p>
-<ol style="list-style-type: decimal">
-<li><strong>Findable</strong></li>
-</ol>
-<ul>
-<li>If these files were emailed to you, or sent on a chat platform, or
-handed to you on a memory stick, how easy would it be to find them again
-in 6 months, or 3 years?</li>
-<li>If you asked your collaborator to give you the files again later on,
-how would you describe them? Do they have a clear name?</li>
-<li>If more data was added to the data set later, could you explain
-exactly which data you used in the original analysis?</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Accessible</strong></li>
-</ol>
-<ul>
-<li>If the person who gave you the files left your institution, how
-would you get access to the files again?</li>
-<li>Once you have the files, can you understand the code? Does it make
-sense to you?</li>
-<li>Do you need to log into anything to use this? Does it require
-purchase or subscription to a service, platform or tool?</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>Interoperable</strong></li>
-</ol>
-<ul>
-<li>Is it clear what kind of input data it can read and what kind of
-output data is produced? Will you be able to create the input files and
-read the output files with the tools your community generally uses?</li>
-<li>If you wanted to use this tool as part of a larger data processing
-pipeline, does it allow you to link it with other tools in standard ways
-such as an API or command-line interface?</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Reusable</strong></li>
-</ol>
-<ul>
-<li>Can you run the code on your platform/operating system (is there
-documentation that covers installation instructions)? What programs or
-libraries do you need to install to make it work (and which versions)?
-Are these commonly used tools in your field?</li>
-<li>Do you have explicit permission to use your collaborators code in
-your own research and do they expect credit of some form (paper
-authorship, citation or acknowledgement)? Are you allowed to edit,
-publish or share the files with others?</li>
-<li>Is the language used familiar to you and people in your research
-field? Can you read the variable names in the code and the column names
-in the data file and understand what they mean?</li>
-<li>Is the code written in a way that allows you to easily modify or
-extend it? Can you easily see what parameters to change to make it
-calculate a different statistic, or run on a different input file?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="fair-software-is-better-software">FAIR Software is Better Software<a class="anchor" aria-label="anchor" href="#fair-software-is-better-software"></a>
-</h3>
-<p>You may or may not find the FAIR Research Software Principles a
-helpful way of framing good practices. The important thing is to focus
-on how <strong>adopting these individual ways of working contributes to
-making your software better</strong>. Many of the practices taught here
-– and advocated for in the FAIR framework – will make your improve your
-life as a researcher and software developer.</p>
 <p>The table below provides a summary of some good practices for
 developing research software, together with different tools that can
-help with such practices and how they contribute to the the FAIR and
-other good software principles.</p>
+help with such practices and how they contribute to the the <a href="./fair-software.html">FAIR</a> and other good software
+principles.</p>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="27%">
@@ -9356,7 +9204,6 @@ the FAIR principles</a></li>
 </div>
 </div>
 </div>
-</div>
 </section><section><h2 class="section-heading" id="wider-research-software-development-principles">Wider research software development principles<a class="anchor" aria-label="anchor" href="#wider-research-software-development-principles"></a>
 </h2>
 <hr class="half-width">
@@ -9393,37 +9240,8 @@ under CC BY 4.0</div>
 </section><section><h2 class="section-heading" id="further-reading">Further reading<a class="anchor" aria-label="anchor" href="#further-reading"></a>
 </h2>
 <hr class="half-width">
-<p>We recommend the following resources for some additional reading on
-FAIR Research Software:</p>
-<ul>
-<li><a href="https://fair-software.eu/" class="external-link">“Five recommendations for FAIR
-software”</a></li>
-<li><a href="https://librarycarpentry.org/Top-10-FAIR/files/poster_10things_FAIRsoftware.pdf" class="external-link">“10
-easy things to make your research software FAIR”</a></li>
-<li><a href="https://doi.org/10.1371/journal.pcbi.1012410" class="external-link">“Ten simple
-rules for training scientists to make better software”</a></li>
-<li><a href="https://zenodo.org/records/11096498" class="external-link">Automating assessment
-of the FAIR Principles for Research Software (FAIR4RS)</a></li>
-<li>
-<a href="https://esciencecenter-digital-skills.github.io/software-support-essentials/" class="external-link">Short
-online courses</a> on various aspects of research software (including <a href="https://esciencecenter-digital-skills.github.io/software-support-essentials/fairsoftware" class="external-link">FAIR
-research software</a> and data), by the NeSC Research Software
-Support</li>
-<li>
-<a href="https://coderefinery.org/" class="external-link">CodeRefinery</a> - training and
-e-Infrastructure for research software development</li>
-<li>A <a href="https://fairsoftwarechecklist.net/" class="external-link">self-assessment
-checklist for FAIR research software</a>, by the Netherlands eScience
-Center and Australian Research Data Commons</li>
-<li>
-<a href="https://github.com/NLeSC/awesome-research-software-registries" class="external-link">Awesome
-Research Software Registries</a> - a list of research software
-registries (by country, organisation, domain and programming language)
-where research software can be registered to help promote its
-discovery</li>
-</ul>
-<p>Also check out <a href="reference.html#litref">the full reference set
-for this course</a>.</p>
+<p>Check out <a href="reference.html#litref">the full reference set for
+the course</a>.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -9432,11 +9250,9 @@ for this course</a>.</p>
 <div class="callout-inner">
 <div class="callout-content">
 <ul>
-<li>FAIR software and data is Findable, Accessible, Interoperable,
-Reusable and provide one framework for improving software and data
-practices in research.</li>
-<li>FAIR and other good research software principles, practices and
-tools support research and researchers by saving time, reducing barriers
+<li>The principles, practices and tools promoted in this course
+(including the FAIR principles for research software) support
+computational research and researchers by saving time, reducing barriers
 to discovery, and increasing impact of the research output.</li>
 <li>When developing software for your research, think about how it will
 help you and your team, your peers and domain/community and the

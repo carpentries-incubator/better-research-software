@@ -100,7 +100,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr><li><a class="dropdown-item" href="installation-instructions.html">Installation instructions</a></li><li><a class="dropdown-item" href="reproducible-research-discussion.html">Reproducible Research Discussion</a></li><li><a class="dropdown-item" href="test-suite-exercise.html">Implementing a test suite</a></li><li><a class="dropdown-item" href="ci-for-testing.html">Continuous Integration for automated testing</a></li><li><a class="dropdown-item" href="licensing.html">Software licensing</a></li><li><a class="dropdown-item" href="ethical-environmental-considerations.html">Ethical &amp; environmental considerations around research software</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><hr><li><a class="dropdown-item" href="installation-instructions.html">Installation instructions</a></li><li><a class="dropdown-item" href="reproducible-research-discussion.html">Reproducible Research Discussion</a></li><li><a class="dropdown-item" href="fair-software.html"></a></li><li><a class="dropdown-item" href="test-suite-exercise.html">Implementing a test suite</a></li><li><a class="dropdown-item" href="ci-for-testing.html">Continuous Integration for automated testing</a></li><li><a class="dropdown-item" href="licensing.html">Software licensing</a></li><li><a class="dropdown-item" href="ethical-environmental-considerations.html">Ethical &amp; environmental considerations around research software</a></li>
           </ul></li>
       </ul></div>
     <!--
@@ -289,7 +289,8 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#fair-research-software">FAIR Research Software</a></li>
+        <ul><li><a href="#summary-of-tools-and-practices-for-building-better-research-software">Summary of tools and practices for building better research
+software</a></li>
 <li><a href="#wider-research-software-development-principles">Wider research software development principles</a></li>
 <li><a href="#further-reading">Further reading</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -320,7 +321,7 @@
                       <li>
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
-                      <hr><li><a class="dropdown-item" href="installation-instructions.html">Installation instructions</a></li><li><a class="dropdown-item" href="reproducible-research-discussion.html">Reproducible Research Discussion</a></li><li><a class="dropdown-item" href="test-suite-exercise.html">Implementing a test suite</a></li><li><a class="dropdown-item" href="ci-for-testing.html">Continuous Integration for automated testing</a></li><li><a class="dropdown-item" href="licensing.html">Software licensing</a></li><li><a class="dropdown-item" href="ethical-environmental-considerations.html">Ethical &amp; environmental considerations around research software</a></li>
+                      <hr><li><a class="dropdown-item" href="installation-instructions.html">Installation instructions</a></li><li><a class="dropdown-item" href="reproducible-research-discussion.html">Reproducible Research Discussion</a></li><li><a class="dropdown-item" href="fair-software.html"></a></li><li><a class="dropdown-item" href="test-suite-exercise.html">Implementing a test suite</a></li><li><a class="dropdown-item" href="ci-for-testing.html">Continuous Integration for automated testing</a></li><li><a class="dropdown-item" href="licensing.html">Software licensing</a></li><li><a class="dropdown-item" href="ethical-environmental-considerations.html">Ethical &amp; environmental considerations around research software</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -356,7 +357,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Wrap-up</h1>
-        <p>Last updated on 2025-07-31 |
+        <p>Last updated on 2025-12-05 |
 
         <a href="https://github.com/carpentries-incubator/better-research-software/edit/main/episodes/09-wrap-up.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -377,11 +378,8 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>What are the FAIR principles?</li>
-<li>How can FAIR principles help us develop better research
-software?</li>
-<li>What are the wider research software development principles in the
-context of you team, peers and the world?</li>
+<ul><li>What changes are you going to start implementing in your software
+development routine?</li>
 </ul></div>
 </div>
 </div>
@@ -390,191 +388,56 @@ context of you team, peers and the world?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <p>After completing this episode, participants should be able to:</p>
-<ul><li>Explain the FAIR research principles in the context of research
-software</li>
-<li>Explain why these principles are of value in the research
-community</li>
-<li>Reflect on the wider research software development principles and
-their relevance to research</li>
+<ul><li>Reflect on the good research software development principles we
+covered in the course and their relevance in supporting reproducible
+research</li>
+<li>Start making changes to their own software development practices to
+implement some of the principles we covered</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<p>The good development practices taught in this lesson will help you
-build better research software. The <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/final" class="external-link">final
-branch</a> of the software project repository contains an improved
-version of the example code after good practices have been applied. Some
-may require time and perseverance to implement and embed in your
-routine. Others are small changes you can start practicing today.</p>
+<p>In this course, we explored some core practices that help researchers
+build high-quality, sustainable, and reusable software to support
+reproducible computational research.</p>
+<p>You learned how to structure a project and track changes to it from
+the start, work with reproducible environments, write readable and
+well-organised code, test it for correctness, document it clearly, and
+share it for collaboration and reuse. By putting these skills together,
+you now have a toolkit for developing research software that is more
+robust, more transparent, and easier for both you and others to use and
+maintain.</p>
+<p>As you continue your work, remember that small, consistent
+improvements in your practices make a big difference over time. Some
+practices may require time and persistence to implement and embed in
+your routine. Others are small changes you can start practicing
+today.</p>
 <figure><img src="../fig/plant-a-tree.jpg" alt="Chinese proverb 'The best time to plant a tree was 20 years ago. The second best time is now'" class="figure mx-auto d-block"><div class="figcaption">Image by CCNULL, used under a CC-BY 2.0
 licence</div>
-</figure><section><h2 class="section-heading" id="fair-research-software">FAIR Research Software<a class="anchor" aria-label="anchor" href="#fair-research-software"></a></h2>
-<hr class="half-width"><p>One framework that can help you evaluate the alignment of a piece of
-research software with best practices in reproducibility are the
-<em>FAIR Principles for Research Software</em>. The practices taught
-here fall within this framework and it can be a good place to find out
-what else you can start doing to improve even further.</p>
-<div class="section level3">
-<h3 id="what-is-fair">What is FAIR?<a class="anchor" aria-label="anchor" href="#what-is-fair"></a></h3>
-<p>FAIR stands for Findable, Accessible, Interoperable, and Reusable and
-comprises a set of principles designed to increase the visibility and
-usefulness of your research to others. The <a href="https://www.nature.com/articles/sdata201618" class="external-link">FAIR data
-principles</a>, first published in 2016, are widely known and applied
-today. Similar <a href="https://www.nature.com/articles/s41597-022-01710-x" class="external-link">FAIR
-principles for software</a> have now been defined too. In general, they
-mean:</p>
-<ul><li>
-<strong>Findable</strong> - software and its associated metadata
-must be easy to discover by humans and machines.</li>
-<li>
-<strong>Accessible</strong> - in order to reuse software, the
-software and its metadata must be retrievable by standard protocols,
-free and legally usable.</li>
-<li>
-<strong>Interoperable</strong> - when interacting with other
-software it must be done by exchanging data and/or metadata through
-standardised protocols and application programming interfaces
-(APIs).</li>
-<li>
-<strong>Reusable</strong> - software should be usable (can be
-executed) and reusable (can be understood, modified, built upon, or
-incorporated into other software).</li>
-</ul><p>Each of the above principles can be achieved by a number of practices
-listed below. This is not an exact science, and by all means the list
-below is not exhaustive, but any of the practices that you employ in
-your research software workflow will bring you closer to the gold
-standard of fully reproducible research.</p>
-<div class="section level4">
-<h4 id="findable">Findable<a class="anchor" aria-label="anchor" href="#findable"></a></h4>
-<ul><li>Create a description of your software to make it discoverable by
-search engines and other search tools</li>
-<li>Use standards (such as <a href="https://codemeta.github.io/" class="external-link">CodeMeta</a>) to describe
-interoperable metadata for your software (see <a href="https://fair-impact.github.io/RSMD-guidelines/1.General/" class="external-link">Research
-Software Metadata Guidelines</a>)</li>
-<li>Place your software in a public software repository (and ideally
-register it in a <a href="https://github.com/NLeSC/awesome-research-software-registries" class="external-link">general-purpose
-or domain-specific software registry</a>)</li>
-<li>Use a unique and persistent identifier (DOI) for your software
-(e.g. by depositing your code on <a href="https://zenodo.org/" class="external-link">Zenodo</a>), which is also useful for
-citations - note that depositing your data/code on GitHub and similar
-software repositories may not be enough as they may change their open
-access model or disappear completely in the future, so archiving your
-code means it stands a better chance at being preserved</li>
-</ul></div>
-<div class="section level4">
-<h4 id="accessible">Accessible<a class="anchor" aria-label="anchor" href="#accessible"></a></h4>
-<ul><li>Make sure people can obtain get a copy of your software using
-standard communication protocols (e.g. HTTP(S), (S)FTP, etc.)</li>
-<li>The code and its description (metadata) has to be available even
-when the software is no longer actively developed (this includes earlier
-versions of the software)</li>
-</ul></div>
-<div class="section level4">
-<h4 id="interoperable">Interoperable<a class="anchor" aria-label="anchor" href="#interoperable"></a></h4>
-<ul><li>Use community-agreed standard formats for inputs and outputs of your
-software and its metadata</li>
-<li>Communicate with other software and tools via standard protocols and
-APIs</li>
-</ul></div>
-<div class="section level4">
-<h4 id="reusable">Reusable<a class="anchor" aria-label="anchor" href="#reusable"></a></h4>
-<ul><li>Document your software (including its functionality, how to install
-and run it) so it is both usable (can be executed) and reusable (can be
-understood, modified, built upon, or incorporated into other
-software)</li>
-<li>Give a licence to your software clearly stating how it can be
-reused</li>
-</ul><div id="fair-is-a-process-not-a-perfect-metric" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="fair-is-a-process-not-a-perfect-metric" class="callout-inner">
-<h3 class="callout-title">FAIR is a process, not a perfect metric</h3>
-<div class="callout-content">
-<p>FAIR is not a binary metric - there is no such thing as “FAIR or”not
-FAIR”.</p>
-<p>FAIR is not a perfect metric, nor does it provide a full and
-exhaustive software quality checklist - there are other good software
-quality practices not covered by FAIR. Conversely, software may be FAIR
-but still not very good in terms of its functionality.</p>
-<p>FAIR is <strong>not meant</strong> to criticise or discredit
-work.</p>
-<p>FAIR refers to the specific <strong>values</strong> of and describes
-a set of <strong>principles</strong> to aid open and reproducible
-research that can be a helpful guide for researchers who want to improve
-their practices (by helping them see where they are on the <strong>FAIR
-spectrum</strong> and help them on a <strong>journey</strong> to make
-their software more FAIR).</p>
-</div>
-</div>
-</div>
-<div id="assessing-the-fairness-of-your-research-software" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
-</div>
-<span class="callout-header">Checklist</span>
-<div id="assessing-the-fairness-of-your-research-software" class="callout-inner">
-<h3 class="callout-title">Assessing the FAIRness of your Research
-Software</h3>
-<div class="callout-content">
-<p>Here are some questions to help you assess where on the FAIR spectrum
-your software is.</p>
-<ol style="list-style-type: decimal"><li><strong>Findable</strong></li>
-</ol><ul><li>If these files were emailed to you, or sent on a chat platform, or
-handed to you on a memory stick, how easy would it be to find them again
-in 6 months, or 3 years?</li>
-<li>If you asked your collaborator to give you the files again later on,
-how would you describe them? Do they have a clear name?</li>
-<li>If more data was added to the data set later, could you explain
-exactly which data you used in the original analysis?</li>
-</ul><ol start="2" style="list-style-type: decimal"><li><strong>Accessible</strong></li>
-</ol><ul><li>If the person who gave you the files left your institution, how
-would you get access to the files again?</li>
-<li>Once you have the files, can you understand the code? Does it make
-sense to you?</li>
-<li>Do you need to log into anything to use this? Does it require
-purchase or subscription to a service, platform or tool?</li>
-</ul><ol start="3" style="list-style-type: decimal"><li><strong>Interoperable</strong></li>
-</ol><ul><li>Is it clear what kind of input data it can read and what kind of
-output data is produced? Will you be able to create the input files and
-read the output files with the tools your community generally uses?</li>
-<li>If you wanted to use this tool as part of a larger data processing
-pipeline, does it allow you to link it with other tools in standard ways
-such as an API or command-line interface?</li>
-</ul><ol start="4" style="list-style-type: decimal"><li><strong>Reusable</strong></li>
-</ol><ul><li>Can you run the code on your platform/operating system (is there
-documentation that covers installation instructions)? What programs or
-libraries do you need to install to make it work (and which versions)?
-Are these commonly used tools in your field?</li>
-<li>Do you have explicit permission to use your collaborators code in
-your own research and do they expect credit of some form (paper
-authorship, citation or acknowledgement)? Are you allowed to edit,
-publish or share the files with others?</li>
-<li>Is the language used familiar to you and people in your research
-field? Can you read the variable names in the code and the column names
-in the data file and understand what they mean?</li>
-<li>Is the code written in a way that allows you to easily modify or
-extend it? Can you easily see what parameters to change to make it
-calculate a different statistic, or run on a different input file?</li>
-</ul></div>
+</figure><div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Code state
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<p>The <a href="https://github.com/carpentries-incubator/bbrs-software-project/tree/final" class="external-link">final
+branch</a> of the software project repository contains an improved
+version of the example code after good practices have been applied.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="fair-software-is-better-software">FAIR Software is Better Software<a class="anchor" aria-label="anchor" href="#fair-software-is-better-software"></a></h3>
-<p>You may or may not find the FAIR Research Software Principles a
-helpful way of framing good practices. The important thing is to focus
-on how <strong>adopting these individual ways of working contributes to
-making your software better</strong>. Many of the practices taught here
-– and advocated for in the FAIR framework – will make your improve your
-life as a researcher and software developer.</p>
-<p>The table below provides a summary of some good practices for
+<section><h2 class="section-heading" id="summary-of-tools-and-practices-for-building-better-research-software">Summary of tools and practices for building better research
+software<a class="anchor" aria-label="anchor" href="#summary-of-tools-and-practices-for-building-better-research-software"></a></h2>
+<hr class="half-width"><p>The table below provides a summary of some good practices for
 developing research software, together with different tools that can
-help with such practices and how they contribute to the the FAIR and
-other good software principles.</p>
+help with such practices and how they contribute to the the <a href="./fair-software.html">FAIR</a> and other good software
+principles.</p>
 <table style="width:100%;" class="table"><colgroup><col width="27%"><col width="46%"><col width="2%"><col width="8%"><col width="6%"><col width="8%"></colgroup><thead><tr class="header"><th>Practices</th>
 <th>Tools</th>
 <th>FAIR</th>
@@ -698,7 +561,6 @@ the FAIR principles</a></li>
 </ul></div>
 </div>
 </div>
-</div>
 </section><section><h2 class="section-heading" id="wider-research-software-development-principles">Wider research software development principles<a class="anchor" aria-label="anchor" href="#wider-research-software-development-principles"></a></h2>
 <hr class="half-width"><p>Software and people who develop it have significance within the
 research environment and a broader impact on society and the planet.
@@ -725,35 +587,8 @@ under CC BY 4.0</div>
 under CC BY 4.0</div>
 </figure></div>
 </section><section><h2 class="section-heading" id="further-reading">Further reading<a class="anchor" aria-label="anchor" href="#further-reading"></a></h2>
-<hr class="half-width"><p>We recommend the following resources for some additional reading on
-FAIR Research Software:</p>
-<ul><li><a href="https://fair-software.eu/" class="external-link">“Five recommendations for FAIR
-software”</a></li>
-<li><a href="https://librarycarpentry.org/Top-10-FAIR/files/poster_10things_FAIRsoftware.pdf" class="external-link">“10
-easy things to make your research software FAIR”</a></li>
-<li><a href="https://doi.org/10.1371/journal.pcbi.1012410" class="external-link">“Ten simple
-rules for training scientists to make better software”</a></li>
-<li><a href="https://zenodo.org/records/11096498" class="external-link">Automating assessment
-of the FAIR Principles for Research Software (FAIR4RS)</a></li>
-<li>
-<a href="https://esciencecenter-digital-skills.github.io/software-support-essentials/" class="external-link">Short
-online courses</a> on various aspects of research software (including <a href="https://esciencecenter-digital-skills.github.io/software-support-essentials/fairsoftware" class="external-link">FAIR
-research software</a> and data), by the NeSC Research Software
-Support</li>
-<li>
-<a href="https://coderefinery.org/" class="external-link">CodeRefinery</a> - training and
-e-Infrastructure for research software development</li>
-<li>A <a href="https://fairsoftwarechecklist.net/" class="external-link">self-assessment
-checklist for FAIR research software</a>, by the Netherlands eScience
-Center and Australian Research Data Commons</li>
-<li>
-<a href="https://github.com/NLeSC/awesome-research-software-registries" class="external-link">Awesome
-Research Software Registries</a> - a list of research software
-registries (by country, organisation, domain and programming language)
-where research software can be registered to help promote its
-discovery</li>
-</ul><p>Also check out <a href="reference.html#litref">the full reference set
-for this course</a>.</p>
+<hr class="half-width"><p>Check out <a href="reference.html#litref">the full reference set for
+the course</a>.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -761,11 +596,9 @@ for this course</a>.</p>
 <span class="callout-header">Key Points</span>
 <div class="callout-inner">
 <div class="callout-content">
-<ul><li>FAIR software and data is Findable, Accessible, Interoperable,
-Reusable and provide one framework for improving software and data
-practices in research.</li>
-<li>FAIR and other good research software principles, practices and
-tools support research and researchers by saving time, reducing barriers
+<ul><li>The principles, practices and tools promoted in this course
+(including the FAIR principles for research software) support
+computational research and researchers by saving time, reducing barriers
 to discovery, and increasing impact of the research output.</li>
 <li>When developing software for your research, think about how it will
 help you and your team, your peers and domain/community and the
@@ -837,7 +670,7 @@ any links that you are not going to use.
   "url": "https://carpentries-incubator.github.io/better-research-software/instructor/09-wrap-up.html",
   "identifier": "https://carpentries-incubator.github.io/better-research-software/instructor/09-wrap-up.html",
   "dateCreated": "2023-10-03",
-  "dateModified": "2025-07-31",
+  "dateModified": "2025-12-05",
   "datePublished": "2025-12-05"
 }
 
