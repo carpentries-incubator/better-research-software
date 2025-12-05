@@ -889,7 +889,7 @@ Remember, questions we want to answer when writing the docstring include:
 
 ### autoDocstring: VS Code Python Docstring Generator
 
-While we can write docstrings manually, [VS Code extension autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) can help create the scaffolding for docstrings and speed up the process immensely.
+While we can write docstrings manually, [VS Code extension autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) and other similar tools can help create the scaffolding for docstrings and speed up the process immensely.
 We highly recommend installing it for Python development.
 
 :::
