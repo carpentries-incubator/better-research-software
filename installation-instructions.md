@@ -344,6 +344,12 @@ You can also change the default command line terminal from the same drop down me
 ![*Terminal window in VS Code*](fig/vscode-terminal.png){alt="Screenshot of the terminal pane in VS Code highlighting the current terminal type and dropdown menu to open a new terminal with 'Select Default Profile' option highlighted in the menu"}
 :::
 
+#### autoDocstring - VS Code Python docstring generator extension (optional)
+
+You can optionally install [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) - VS Code extension to quickly generate docstrings for Python functions.
+It is a very useful extension that can impove and speed up your Python development.
+
+
 #### VS Code extensions for Git (optional)
 
 You can optionally install the following VS Code extensions (from `View > Extensions` top-level menu) to make your Git experience in VS Code better:

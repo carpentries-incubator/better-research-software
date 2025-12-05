@@ -832,20 +832,13 @@ print("--END--")
 
 ## Use docstrings to document functions
 
-Now that we have written some functions, it is time to document them so that we can quickly recall 
-(and others looking at our code in the future can understand) what the functions do without having to read
-the code.
+Now that we have written some functions, it is time to document them so that we can quickly recall (and others looking at our code in the future can understand) what the functions do without having to read the code.
 
 *Docstrings* are a specific type of documentation that are provided within functions and [Python classes][python-classes].
-A function docstring should explain what that particular code is doing, what parameters the function needs (inputs)
-and what form they should take, what the function outputs (you may see words like 'returns' or 'yields' here), 
-and errors (if any) that might be raised.
+A function docstring should explain what that particular code is doing, what parameters the function needs (inputs) and what form they should take, what the function outputs (you may see words like 'returns' or 'yields' here), and errors (if any) that might be raised.
 
-Providing these docstrings helps improve code readability since it makes the function code more transparent and aids 
-understanding.
-Particularly, docstrings that provide information on the input and output of functions makes it easier to reuse them 
-in other parts of the code, without having to read the full function to understand what needs to be provided and 
-what will be returned.
+Providing these docstrings helps improve code readability since it makes the function code more transparent and aids understanding.
+Particularly, docstrings that provide information on the input and output of functions makes it easier to reuse them in other parts of the code, without having to read the full function to understand what needs to be provided and what will be returned.
 
 Python docstrings are defined by enclosing the text with 3 double quotes (`"""`).
 This text is also indented to the same level as the code defined beneath it, which is 4 whitespaces by convention.
@@ -879,21 +872,27 @@ def divide(x, y):
 ```
 
 Some projects may have their own guidelines on how to write docstrings, such as [numpy][numpy-docstring].
-If you are contributing code to a wider project or community, try to follow the guidelines and standards they provide 
-for code style.
+If you are contributing code to a wider project or community, try to follow the guidelines and standards they provide for code style.
 
-As your code grows and becomes more complex, the docstrings can form the content of a reference guide allowing 
-developers to quickly look up how to use the APIs, functions, and classes defined in your codebase.
+As your code grows and becomes more complex, the docstrings can form the content of a reference guide allowing developers to quickly look up how to use the APIs, functions, and classes defined in your codebase.
 Hence, it is common to find tools that will automatically extract docstrings from your code and generate a website where people can learn about your code without downloading/installing and reading the code files - such as [MkDocs][mkdocs-org].
 
-Let's write a docstring for the function `read_json_to_dataframe` we introduced in the previous exercise using the 
-[Google Style Python Docstrings Convention][google-doc-string]. 
+Let's write a docstring for the function `read_json_to_dataframe` we introduced in the previous exercise using the [Google Style Python Docstrings Convention][google-doc-string]. 
 Remember, questions we want to answer when writing the docstring include:
 
 - What the function does?
 - What kind of inputs does the function take? Are they required or optional? Do they have default values?
 - What output will the function produce?
 - What exceptions/errors, if any, it can produce?
+
+::: callout
+
+### autoDocstring: VS Code Python Docstring Generator
+
+While we can write docstrings manually, [VS Code extension autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) and other similar tools can help create the scaffolding for docstrings and speed up the process immensely.
+We highly recommend installing it for Python development.
+
+:::
 
 Our `read_json_to_dataframe` function fully described by a docstring may look like:
 
