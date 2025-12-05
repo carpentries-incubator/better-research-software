@@ -97,7 +97,7 @@ Check out [the full reference set for the course](learners/reference.md#litref).
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Following the building better software principles, practices and tools (whether or not they come from FAIR) supports computational research and researchers by saving time, reducing barriers to discovery, and increasing impact of the research output.
+- The principles, practices and tools promoted in this course (including the FAIR principles for research software) support computational research and researchers by saving time, reducing barriers to discovery, and increasing impact of the research output.
 - When developing software for your research, think about how it will help you and your team, your peers and domain/community and the world.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
