@@ -1242,7 +1242,7 @@ the course.
 ::: keypoints
 
 1.  Code testing supports building better software by improving the accessibility and re-usability of research code.
-2.  Unit testing is crucial as it ensures each functions works correctly.
+2.  Unit testing is crucial as it ensures each function works correctly.
 3.  Using the `pytest` framework, you can write basic unit tests for Python functions to verify their correctness.
 4.  Identifying and handling edge cases in unit tests is essential to ensure your code performs correctly under a variety of conditions.
 5.  Test coverage can help you to identify parts of your code that require additional testing.
