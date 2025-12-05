@@ -17,7 +17,7 @@ is fully transparent ([definition][wiki-reproducibility-def] from Wikipedia)
 * **Open research** - research that is openly accessible by others; concerned with making research more transparent, 
 more collaborative, more wide-reaching, and more efficient 
 ([definition][wiki-open-research-def] from Wikipedia)
-* **FAIR** - an acronym that stands for Findable, Accessible, Interoperable, and Reusable
+* **FAIR** - an acronym that stands for Findable, Accessible, Interoperable, and Reusable (check out our extra episode on [FAIR software][fair-software-episode])
 * **Sustainable software development** - software development practice that takes into account longevity and 
 maintainability of code (e.g. beyond the lifetime of the project), environmental impact, societal responsibility and ethics in 
 our software practices. 
@@ -62,7 +62,7 @@ same research question and a qualitatively similar or identical answer is produc
 that are broadly applicable to different types of data or contexts.
   * For example, everything we drop - falls, therefore gravity exists.
 
-![*The Turing Way project illustration of aspects of reproducible research by Scriberia, used under a CC-BY 4.0 licence, [DOI: 10.5281/zenodo.3332807][ttw-illustrations]*](https://raw.githubusercontent.com/the-turing-way/the-turing-way/refs/heads/main/book/website/figures/reproducible-definition-grid.svg){alt='Four cartoon images depicting two researchers at two machines which take in data and output the same landscape image in 4 different ways. These visually describe the four scenarios listed above.'}
+![*The Turing Way project illustration of aspects of reproducible research by Scriberia, used under a CC-BY 4.0 licence, [DOI: 10.5281/zenodo.3332807][ttw-illustrations]*][ttw-reproducible-definition-grid]{alt='Four cartoon images depicting two researchers at two machines which take in data and output the same landscape image in 4 different ways. These visually describe the four scenarios listed above.'}
 
 In this course we mainly address the aspect of reproducibility - i.e. enabling others to run our code to obtain the same results.
 
