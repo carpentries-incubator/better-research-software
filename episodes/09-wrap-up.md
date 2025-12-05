@@ -25,7 +25,7 @@ You learned how to structure a project and track changes to it from the start, w
 By putting these skills together, you now have a toolkit for developing research software that is more robust, more transparent, and easier for both you and others to use and maintain.
 
 As you continue your work, remember that small, consistent improvements in your practices make a big difference over time. 
-Some practices may require time and perseverance to implement and embed in your routine.
+Some practices may require time and persistence to implement and embed in your routine.
 Others are small changes you can start practicing today.
 
 ![Image by CCNULL, used under a CC-BY 2.0 licence](fig/plant-a-tree.jpg){alt="Chinese proverb 'The best time to plant a tree was 20 years ago. The second best time is now'"}
