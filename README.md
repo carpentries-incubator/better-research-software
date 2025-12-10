@@ -41,7 +41,8 @@ Current maintainers of this lesson are:
 * [Toby Hodges](https://github.com/tobyhodges)
 
 ## Citation
-Gibson, S., Goel, A., Jaffa, S., Kopec-Harding, K., Nenadic, A., & Sauze, C. (2025). Software practices for open and reproducible research (beta-May-2025). Zenodo. https://doi.org/10.5281/zenodo.12666088
+
+Gibson, S., Goel, A., Hodges, T., Jaffa, S., Kopec-Harding, K., Nenadic, A., Sauze, C., & Stevens, S. (2025). Building Better Research Software (beta-Dec2025). Zenodo. https://doi.org/10.5281/zenodo.12666088
 
 Information on how to cite this work is also available in [CITATION.cff](CITATION.cff).
 
