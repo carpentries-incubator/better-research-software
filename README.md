@@ -36,7 +36,7 @@ The list of authors of the course is available in [CITATION.cff](CITATION.cff).
 
 Current maintainers of this lesson are:
 
-* [Aleksandra Nenadic](https://github.com/anenadic)
+* [Aleksandra Nenadic](https://github.com/anenadic) (lead)
 * [Aman Goel](https://github.com/amangoel185)
 * [Toby Hodges](https://github.com/tobyhodges)
 
