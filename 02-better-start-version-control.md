@@ -178,7 +178,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 This tells us that Git has noticed three files in our directory, but unlike Dropbox or OneDrive, it does not *automatically* track them. 
 We need to tell Git explicitly which files we want it to track.
-This is not a handicap, but rather helpful, since software projects can have vast input or output files we might not want Git to track and store (e.g. think of GBs to TBs of space telescope data) or require sensitive information we cannot share (for example, medical records).
+This is not a problem, but rather a helpful feature, since software projects can have vast input or output files we might not want Git to track and store (e.g. think of GBs to TBs of space telescope data) or require sensitive information we cannot share (for example, medical records).
 Or indeed contain hidden files that have nothing to do with the software project itself (e.g. `.DS_Store`) that we do not want to track or share.
 
 Let's still commit our files (even though we know the code is broken) - we will note that the code is broken in our commit message.
