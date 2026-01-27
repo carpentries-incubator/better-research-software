@@ -18,7 +18,7 @@ body:
       description: |
         Tell us about the workshop. 
         When and where is it taking place/where did it take place? Who will host/hosted it? Who were the Instructors? 
-        How many Learners were there? What the background of the Learners e.g. their career stage, domain, prior knowledge of the lesson topic, etc?
+        How many Learners were there? What was/is background of the Learners, e.g. their career stage, domain, prior knowledge of the lesson topics?
     validations:
       required: true
   - type: markdown
