@@ -33,7 +33,7 @@ Please also make sure you have [all the required software](./index.md#setup) ins
 After attending this training, you **will be able** to:
 
 - Explain key principles of open and reproducible research and their implications for research software development.
-- Analyse software for maintainability, reproducibility, and reuse, identifying risks and opportunities for improvement.
+- Analyse software for maintainability, reproducibility and reuse, identifying risks and opportunities for improvement.
 - Apply professional software development workflows for version control, collaboration and reproducible environment management.
 - Design modular and extensible software to support scalable and collaborative development and reuse.
 - Design and implement testing, documentation and quality assurance practices to support correct and reusable research software.
