@@ -26,6 +26,8 @@ This course teaches good practices and reproducible working methods that are agn
 It aims to provide researchers with the tools and knowledge to feel confident when writing **good quality and sustainable software** to support their research.
 Although the discussion will often focus on software developed in the context of research, most of the good practices introduced here are beneficial to software development more generally.
 
+## Reproducible research
+
 The lesson is particularly focused on one aspect of good (scientific) software development practice: improving software to enhance reproducibility.
 That is, enabling others to run our code and obtain the same results we did.
 
