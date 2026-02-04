@@ -162,7 +162,7 @@ go with the short version and use an inline comment to describe it further (more
 This guidance does not necessarily apply if your variable is a well-known constant in your domain - 
 for example, *c* represents the speed of light in physics.
 - Avoid overloading a variable (e.g. *f* could be Fahrenheit or for function or for file or something else)
-- Try to be descriptive where possible and avoid meaningless or funny names like `foo`, `bar`, `var`, `thing`, etc. If possible, aim for "self-documenting" code, where the names are meaningful enough that you don't need comments to describe them
+- Try to be descriptive where possible and avoid meaningless or funny names like `foo`, `bar`, `var`, `thing`, etc. If possible, aim for "self-documenting" code, where the names are meaningful enough that you don't need comments to describe them.
 - Avoid using references to cultural knowledge or popular culture or uncommon terms as this can confuse individuals who are not familiar with those references
 
 There are also some restrictions to consider when naming variables in Python:
