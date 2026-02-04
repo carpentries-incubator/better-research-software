@@ -32,16 +32,14 @@ Please also make sure you have [all the required software](./index.md#setup) ins
 
 After attending this training, you **will be able** to:
 
-- Describe the principles of open and repoducible research and apply those principles to make a software development project more reproducible.
-- Version control your software project with git and manage an open source project in GitHub
-- Create and use reproducible virtual environments for software development projects
-- Write or edit code based on coding best practices - using functions, informative variable names, existing packages, docstrings, etc.
-- Refector code into functions, including a main function, to create more modular and re-usable code
-- Write code to take arguments from the command line for improved flexiblity and reuse
-- Write and run tests using a testing suite library
-- Create automated documentation for code to enable use by others
-- Manage an open source or other collaborative software projects (including publishing and licensing)
-
+- Explain key principles of open and reproducible research and their implications for research software development.
+- Analyse software for maintainability, reproducibility, and reuse, identifying risks and opportunities for improvement.
+- Apply professional software development workflows for version control, collaboration and reproducible environment management.
+- Design modular and extensible software to support scalable and collaborative development and reuse.
+- Design and implement testing, documentation and quality assurance practices to support correct and reusable research software.
+- Evaluate software projects for openness, sustainability, reusablilty and collaborative practices.
+- Select appropriate tools and practices to support collaborative and open research software development.
+  
 ## Acknowledgements
 
 This course was originally developed by the [UK's Software Sustainability Institute][ssi] and funded by the [UK Reproducibility Network (UKRN)][ukrn].
