@@ -1,5 +1,5 @@
 ---
-title: "Course introduction"
+title: "Software for open and reproducible research"
 teaching: 10
 exercises: 10
 ---
