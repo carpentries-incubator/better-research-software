@@ -306,3 +306,10 @@ We recommend the following resources for some additional reading on reproducible
 ## Acknowledgements and references
 
 The content of this course borrows from or references [various work](learners/reference.md#litref).
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+* Reproducible research is a practice that ensures that researchers can repeat the same analysis multiple times with the same results.
+* Reproducible research practices support rigor, trustworthiness, openness and transparency in scientific research; increase the quality, efficiency and speed of research; facilitate reuse and citation of all research outputs and career development.
+* In the context of the software we write to support our research, reproducible practices mean others being able to obtain and install our software, run our code and obtain the same results we did.
+* This can mean a number of things, but a good place to start is sharing your software openely and collaborating with others; using version control to know who changed what and when; setting up reproducible software development environments that can be replicated across different machines, systems and platforms; testing your softwaer to ensure it produces correct results; documenting your software so others can understand and reuse it; following coding conventions and writing modular code so others can more easlity read, understand and reuse it.
+::::::::::::::::::::::::::::::::::::::::::::::::::
