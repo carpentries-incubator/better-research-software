@@ -282,6 +282,8 @@ Python 3.11.7
 
 ::: callout
 
+### Python command hangs on Windows
+
 If you are using Windows and invoking `python` command causes your Git Bash terminal to hang with no error message
 or output, you may need to create an alias for the Python executable `python.exe` like so:
 
@@ -293,6 +295,18 @@ This alias will be valid for the duration of the shell session. For a more perma
 ```bash
 $ echo "alias python='winpty python.exe'" >> ~/.bashrc
 ```
+:::
+
+::: callout
+
+### Python command opens Windows Store
+
+After installing Python, typing `python` command in a terminal opens Windows Store asking you to download Python.
+
+The solution is to fix the alias for `python.exe` and `python3.exe` under "Manage app execution aliases" setting.
+
+See a [more detailed solution](https://stackoverflow.com/questions/58754860/cmd-opens-windows-store-when-i-type-python).
+
 :::
 
 
