@@ -130,6 +130,8 @@ Outside of this course, you will make a choice which IDE or code editor to use b
 
 As part of setup, we have installed a few extensions for VS Code to make our software development experience easier.
 
+To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
+
 ::: callout
 
 Orient the users and navigate around VS Code.
@@ -145,8 +147,6 @@ This extension provides support for Python language and will also automatically 
 :::
 
 ### Inspecting the project
-
-To open our directory `spacewalks` in VS Code – go to **File -> Open Folder** and find `spacewalks`.
 
 The first thing you may want to do is inspect the content of the code and data you received to learn more about what it does. 
 
