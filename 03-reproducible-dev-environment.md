@@ -252,7 +252,7 @@ We used `venv_spacewalks` - this deviates a from the convention of calling them 
 Note that you can also set the command line prompt for the virtual environment:
 
 ```bash
-python -m venv --prompt spacewalks venv
+python3 -m venv --prompt spacewalks venv
 ```
 This will create a virtual environment in `venv` folder with a string "(spacewalks)" on the command line prompt.
 It gives a shorter, meaningful prompt and sticks to convention at the same time.
