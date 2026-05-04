@@ -283,13 +283,14 @@ This both stops our folders being cluttered with old versions, and *also* stops 
 You can see the hidden Git directory using the `-a` flag to show all files and folders:
 
 ```bash
-$ ls -a
+$ ls -la
 ```
 
 ```output
 .
 ..
 .git
+[snip]
 ```
 
 If you delete it, your directory will stop being a repository, and it will lose your history of changes.
