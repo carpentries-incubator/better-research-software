@@ -141,6 +141,7 @@ Orient the users and navigate around VS Code.
 * Source control - this gives you access to source code control, which includes Git version control functionality. This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
 * Run and Debug - this allows you to run programs you write in a special way with a debugger, which allows you to check the state of your program as it is running, which is very useful and we’ll look into later.
 * Extensions - this allows you to install extensions to VS Code to extend its functionality in some way.
+* Terminal - allows access to a command line terminal to type various commands (via Terminal -> New Terminal (Windows users need to make sure the new terminal is “GitBash”; not “PowerShell” or “cmd”)).
 
 Check that learners have installed **Microsoft Python extension for Visual Studio Code**. 
 This extension provides support for Python language and will also automatically install Microsoft Pylance (IntelliSense, performant Python language support) and Microsoft Python Debugger extensions.
