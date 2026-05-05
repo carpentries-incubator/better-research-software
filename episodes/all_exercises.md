@@ -1,188 +1,76 @@
-## Episode: "Course introduction"
+## Episode: "Software for open and reproducible research"
 
 ### Exercise: 
-### Motivation
-Think about the questions below. Your instructors may ask you to share your answers in a shared notes document and/or
-discuss them with other participants.
+### Tools and practices you use (5 min)
 
-- What motivated you to attend this course? Did you come by choice or were you advised to attend?
-- What do you hope to learn or change in your current research software practice? Describe how your knowledge,
-  work or attitude may be different afterwards.
-
-
-### Exercise: 
-### What does open and reproducible research mean to you?
-Think about the questions below. Your instructors may ask you to share your answers in a shared notes document and/or
-discuss them with other participants.
-
-- What do you understand by the words "open" and "reproducible" in the context of research?
-- How many people or groups can you list that might benefit from your work being open and reproducible?
-- How many times did you wish that someone else's work you came across was more open or accessible to you?
-  Can you provide some examples?
-
-
-### Exercise: 
-## Checking your setup
-
-Open a command line terminal and look at the prompt.
-Compare what you see in the terminal with your neighbour, does it look the same or different?
-What information is it telling you and why might this be useful?
-What other information might you want?
-
-Run the following commands in a terminal to check you have installed the tools listed in the Setup page.
-Compare the output with your neighbour and see if you can see any differences.
-
-Checking the command line terminal:
-
-1. `$ date`
-2. `$ echo $SHELL`
-3. `$ pwd`
-4. `$ whoami`
-
-Checking Python:
-
-5. `$ python3 --version`
-6. `$ python3 --version`
-7. `$ which python`
-8. `$ which python3`
-
-Checking Git and GitHub:
-
-9. `$ git --help`
-10. `$ git config --list`
-11. `$ ssh -T git@github.com`
-
-Checking VS Code:
-
-12. `$ code`
-13. `$ code --list-extensions`
-
-::: hint
-
-The prompt is the `$` character and any text that comes before it, that is shown on every new line before you type in
-commands.
-Type each of the commands one at a time and press enter.
-They should give you a result by printing some text in the terminal.
-
-## Episode: "FAIR research software"
-
-### Exercise: 
-Think of a piece of software you use in your research - any computational tool used for data gathering, modelling & simulation, processing & visualising results or others. 
-If you have a bit of code or software you wrote yourself, in any language, feel free to use that.
-
-Think where on the FAIR spectrum it fits, using the following scale as a guide for each principle:
-
-- 1 - requires loads of improvement
-- 2 - on a good path, but improvements still needed
-- 3 - decent, a few things could still be improved
-- 4 - very good, only tiny things to improve upon
-- 5 - excellent
-
-
-### Exercise: 
-Look at our software project compare its data and code to the software you chose earlier (or assess 
-it on its own).
-Do you think it is Findable, Accessible, Interoperable and Reusable? 
-Give it a score from 1 to 5 in each category, as in the previous exercise, and then we will discuss it together.
-
-## Episode: "Tools and good practices for research software"
-
-### Exercise: 
 Individually,
 
-- reflect on what practices (and tools) you are already using in your software development workflow,
-- list at least 3 new practices or tools that you would like to start employing or using.
+- reflect on what practices or tools you are already using in your software development workflow,
+- list some new practices or tools that you would like to start employing or using.
 
 Write your reflections in the shared collaborative document.
 
-## Episode: Version control
 
 ### Exercise: 
-### Add and commit the changed file
+### Assess the software project (10 min)
 
-Using the Git commands demonstrated so far, save the change you just made to the Python script.
+Individually inspect the code and data.
+Try and see if you can understand what the code is doing and how it is organised.
 
-Remember, commit messages should be descriptive and complete the sentence "If applied, this commit will...".
-You can also use `git status` to check the status of your project at any time.
+In the shared document, write down anything that you think is not "quite right", not clear, is missing, or could be done better.
 
+::: hint
 
-### Exercise: 
-### Good commit messages
+Below are some suggested questions to help you assess the code.
+These are not the only criteria on which you could evaluate the code and you may find other aspects to comment on.
 
-Read the two commit messages below.
-In pairs or small groups,
-discuss which messages help you understand more about what the commit author did.
-What about the commit messages do you find helpful or not?
+- If these files were emailed to you, or sent on a chat platform, or handed to you on a memory stick, how easy would it be to find them again in 6 months, or 3 years?
+- Can you understand the code? Does it make sense to you?
+- Could you run the code on your platform/operating system (is there documentation that covers installation instructions)? What programs or libraries do you need to install to make it work (and which versions)? Are these commonly used tools in your field?
+- Are you allowed to reuse this code in your own work? If you did, would the owner expect credit in some form (paper authorship, citation or acknowledgement)? Are you allowed to modify the files or share them with others?
+- Is the code written in a way that allows you to easily modify or extend it? How easy would it be to change its parameters to calculate a different statistic, or run the analysis on a different input file?
 
-1. ```output
-   [main 7cf85f6] Change variable
-     1 file changed, 1 insertion(+), 1 deletion(-)
-   ```
-2. ```output
-   [main 8baf69d] Change variable name from columns to column_headers
-    1 file changed, 1 insertion(+), 1 deletion(-)
-   ```
-
+## Episode: Better start with a software project
 
 ### Exercise: 
-### Understanding commit contents
+#### Update filenames (5 min)
 
-Below are the `diffs` of two commits.
-A `diff` shows what changed in one or more file(s) between two commits.
-Lines starting with `+`s are additions, while lines starting with `-`s are deletions.
-Compare the two `diff`s - can you understand what the commit author was trying to achieve in each commit?
-How many changes have they tried to make in each commit?
-Discuss in pairs or small groups.
+Try to make these changes yourself.
 
-1. ![Example Diff 1](fig/ex-diff-1.png)
-2. ![Example Diff 2](fig/ex-diff-2.png)
-
-
-To find out more about how to generate `diffs`,
-you can read the [Git documentation](git-diff-docs) or the [Tracking Changes episode][swc-git-lesson-track] from the [Software Carpentry Version control with Git lesson][swc-git-lesson].
-
-
-### Exercise: 
-### Terminology
-
-In pairs or small groups, discuss the difference between the terms `remote`
-and `origin`. What is the definition of each term?
+1. Give our Python script and input data file informative names - `eva_data_analysis.py` and `eva-data.json`, respectively.
+2. Update other file names and paths used in the script - output CSV data (`eva-data.csv` to match the new input data name) and plot(`cumulative_eva_graph.png`).
+3. Stage and commit these changes in the Git repository.
 
 ## Episode: Reproducible software environments
 ## Episode: Code readability
 
 ### Exercise: 
-### Give a descriptive name to a variable
-
-Below we have a variable called `var` being set the value of 9.81.
-`var` is not a very descriptive name here as it doesn't tell us what 9.81 means, yet it is a very common constant in physics!
-Go online and find out which constant 9.81 relates to and suggest a new name for this variable.
-
-Hint: the units are *metres per second squared*!
-
-```python
-var = 9.81
-```
-
-
-### Exercise: 
-### Rename our variables to be more descriptive
+### Rename our variables to be more descriptive (5 min)
 
 Let's apply this to `eva_data_analysis.py`.
 
-a. Edit the code as follows to use descriptive variable names:
+a. Edit the code as follows to use descriptive (and consistent) variable names:
 
-    - Change data_f to input_file
-    - Change data_t to output_file
-    - Change g_file to graph_file
-    
+    - Change `data_f` to `input_file`
+    - Change `data_t` to `output_file`
+    - Change `g_file` to `graph_file`
+
+    *Be sure to change all the occurrences of each variable name.*
 b. What other variable names in our code would benefit from renaming? 
+Rename these too. 
+Hint: variables `w`, `t`, `tt` and `ttt` could also be renamed to be more descriptive.
 c. Commit your changes to your repository. Remember to use an informative commit message.
 
 
 
 ### Exercise: 
-### Add comments to our code
+### Remove an unused variable (2 min)
+
+Find and remove an unused variable in our code. Then, commit the updated code to the git repo.
+
+
+### Exercise: 
+### Add comments to our code (10 min)
 
 a. Examine `eva_data_analysis.py`.
 Add as many comments as you think is required to help yourself and others understand what that code is doing.
@@ -190,50 +78,66 @@ b. Commit your changes to your repository. Remember to use an informative commit
 
 
 ### Exercise: 
-### Writing docstrings
+### Extract functionality into a function (5 min)
 
-Write a docstring for the function `write_dataframe_to_csv` we introduced earlier.
+Extract the code to plot a graph into a separate function `plot_cumulative_time_in_space(df, graph_file)`.
+The function should take the following two arguments: 
+
+1. a dataframe `df`, and 
+2. a file object or a file path string `graph_file` where to save the plot.
+
+Make sure to commit and push your changes.
+
+
+### Exercise: 
+### Writing docstrings (5 min)
+
+Write docstrings for the functions `write_dataframe_to_csv` and `plot_cumulative_time_in_space` we introduced earlier.
 
 ## Episode: Code structure
 
 ### Exercise: 
-Refactor your software project so that input data is stored in `data/` directory and results (the graph and CSV 
-data files) saved in `results/` directory. 
-Remember to create the `results/` directory or your code will fail.
+### Project restructuring (10 min)
+
+Restructure your software project so that input data is stored in `data/` directory and results (the graph and CSV data files) saved in `results/` directory off the project root. 
+
+Remove current result files `eva-data.csv` and `cumulative_eva_graph.png` from the project root (if they exist) as they will be recreated by re-running the code.
+
+Remember to create the `results/` empty directory before running the code or your code will fail.
 
 ## Episode: "Code correctness & testing"
 
-### Exercise: ### Types of software tests
+### Exercise: 
+### Types of software tests (3 min)
 
 Fill in the blanks in the sentences below:
 
--   \_\_\_\_\_\_\_\_\_\_ tests compare the \_\_\_\_\_\_ output of a
+- \_\_\_\_\_\_\_\_\_\_ tests compare the \_\_\_\_\_\_ output of a
     program to its \_\_\_\_\_\_\_\_ output to demonstrate correctness.
--   Unit tests compare the actual output of a \_\_\_\_\_\_
+- Unit tests compare the actual output of a \_\_\_\_\_\_
     \_\_\_\_\_\_\_\_ to the expected output to demonstrate correctness.
--   \_\_\_\_\_\_\_\_\_\_ tests check that results have not changed since
+- \_\_\_\_\_\_\_\_\_\_ tests check that results have not changed since
     the previous test run.
--   \_\_\_\_\_\_\_\_\_\_ tests check that two or more parts of a program
+- \_\_\_\_\_\_\_\_\_\_ tests check that two or more parts of a program
     are working together correctly.
 
 
 ### Exercise: 
-### What are the limitations of informally testing code? (5 minutes)
+### What are the limitations of informally testing code? (5 min)
 
 Think about the questions below. Your instructors may ask you to share
 your answers in a shared notes document and/or discuss them with other
 participants.
 
--   Why might we choose to test our code informally?
--   What are the limitations of relying solely on informal tests to
-    verify that a piece of code is behaving as expected?
+- Why might we choose to test our code informally?
+- What are the limitations of relying solely on informal tests to
+  verify that a piece of code is behaving as expected?
 
 
 ### Exercise: 
-### Interpreting pytest output
+### Interpreting pytest output (15 min)
 
-A colleague has asked you to conduct a pre-publication review of their code which analyses time spent in 
-space by various individual astronauts.
+A colleague has asked you to conduct a pre-publication review of their code which analyses time spent in space by various individual astronauts.
 
 You tested their code using `pytest`, and got the following output.
 Inspect it and answer the questions below.
@@ -294,21 +198,21 @@ FAILED tests/test_analyse.py::test_mean_duration - NameError: name 'length' is n
 ```
 
 a.  How many tests has our colleague included in the test suite?
-b.  The first test in test_prepare.py has a status of s; what does this
-    mean?
+b.  The first test in `test_prepare.py` has a status of `s`; what does this mean (search online to find out)?
 c.  How many tests failed?
-d.  Why did "test_total_duration" fail?
-e.  Why did "test_mean_duration" fail?
+d.  Why did `test_total_duration` fail?
+e.  Why did `test_mean_duration` fail?
 
 
 ### Exercise: 
-### Unit tests for calculate_crew_size
+### Unit tests for calculate_crew_size (10 min)
 
 Implement unit tests for the `calculate_crew_size` function. 
 Cover typical cases and edge cases.
 
 Hint - use the following template when writing tests:
-```         
+
+```python
 def test_MYFUNCTION (): # FIXME
     """
     Test that ...   #FIXME
@@ -328,11 +232,11 @@ def test_MYFUNCTION (): # FIXME
 
 
 ### Exercise: 
-### Evaluating code coverage
+### Evaluating code coverage (10 min)
 
 Generate the code coverage report for your software using the `python3 -m pytest --cov --cov-report=html` command.
 
-Inspect the `htmlcov` folder created by the above command in the root directory of your propject, then open the 
+Inspect the `htmlcov` folder created by the above command in the root directory of your project, then open the 
 `htmlcov/index.html` file in a Web browser and extract the following information:
 
 a.  What proportion of the code base is currently "not" exercised by the test suite?
@@ -341,29 +245,26 @@ b.  Which functions in our code base are currently untested?
 ## Episode: Software documentation
 
 ### Exercise: 
-### README and the FAIR principles
+### README and the FAIR principles  (10 min)
 
-Think about the question below. Your instructors may ask you to share your answer in a shared notes document and/or 
-discuss them with other participants.
+The following lists some of the major sections you may find in a typical README file.
+Which are **essential** to support the [FAIR software][fair-principles-research-software] (Findable, Accessible, Interoperable, Reusable) principles and which are good to have but **optional**?
 
-Here are some of the major sections you might find in a typical README. 
-Which are **essential** to support the FAIR principles? Which are optional?
-
-+ Purpose of the code
-+ Audience (who the code is intended for)
-+ Installation instructions
-+ Contribution guide
-+ How to get help
-+ License
-+ Software citation
-+ Usage example
-+ Dependencies and their versions
-+ FAQs
-+ Code of Conduct
+- Description and purpose of the code
+- Audience (who the code is intended for)
+- Installation instructions
+- Pointers to dependencies and their versions (e.g. `requirements.txt` or `pyproject.toml`)
+- Contribution guidelines
+- How to get help
+- License
+- Software citation
+- Usage examples
+- FAQs
+- Code of Conduct
 
 
 ### Exercise: 
-### Spacewalks README
+### Spacewalks README (10 min)
 
 Extend the README for Spacewalks by adding:
 
@@ -372,14 +273,14 @@ Extend the README for Spacewalks by adding:
 
 
 ### Exercise: 
-### Select a licence
+### Select a licence (10 min)
 
 Choose a license for your code. 
 Discuss with your neighbour or the group your choice of license and reason for choosing it.
 
 
 ### Exercise: 
-### Add a license to your code
+### Add a license to your code (5 min)
 
 Add a LICENSE file containing the full text of your chosen license to your code repository.
 
@@ -387,228 +288,93 @@ Add a LICENSE file containing the full text of your chosen license to your code 
 ## Episode: Spacewalks
 
 ### Exercise: 
-### Spacewalks software citation
+### Spacewalks software citation (5 min)
 
 Add the citation file for our Spacewalks software to the root folder of our repository on GitHub.
 You can either do it directly on GitHub or creating the file locally and the committing and pushing to GitHub from the 
 command line.
 
-### Exercise: ### Explore your documentation
+### Exercise: 
+### Explore your documentation (5 min)
 
 Explore documentation in `site/` folder built with MkDocs for your project, starting from the `index.html` file.
 
 Open `index.html` file in a Web browser to see how it renders. 
 
-Check `site/reference.html` to see how docstrings from your functions are 
-provided here as a reference manual.
+Check `site/reference.html` to see how docstrings from your functions are provided here as a reference manual.
+
 
 ### Exercise: 
-### Spacewalks how-to guide
+### Spacewalks how-to guide (15 min)
 
-a. Review the Diataxis guidance page on writing a How-to guide. Identify
-three features of an effective how-to guide.
+a. Review the Diataxis guidance page on writing a How-to guide. 
+Identify three features of an effective how-to guide.
 
-b. Following the Diataxis guidelines, add a how-to guide to the `docs/how-to-guides.md` file
-in your documentation folder to show users how to change the destination filename for the output 
-CSV dataset generated by the Spacewalks software.
+b. Following the Diataxis guidelines, add a how-to guide to the `docs/how-to-guides.md` file in your documentation folder to show users how to change the destination filename for the output CSV dataset generated by the Spacewalks software.
 
-::: spoiler
-### Discussion hints & solution
 
-An effective how-to guide should:
+### Exercise: 
+### Spacewalks tutorial (10 min)
 
-+ be goal oriented and focus on action.
-+ avoid teaching or explanation
-+ use appropriate language e.g. conditional imperatives
-+ have an informative title
-
-An example how-to guide for our project to the file `docs/how-to-guides.md`:
-
-```
-# How to change the file path of Spacewalk's output dataset
-
-This guide shows you how to set the file path for Spacewalk's output
-data set to a location of your choice.
-
-By default, the cleaned data set in CSV format, generated by the Spacewalk software, is saved to the `results/`
-folder within the working directory with file name `eva-data.csv`.
-
-If you would like to modify the name or location of the output dataset, set the
-second command line argument to your chosen file path. 
-For example, if you want to save the output data set to the subfolder `data/clean/` you can 
-invoke the script as:
-
-`(venv_spacewalks) $ python3 eva_data_analysis.py eva-data.json data/clean/eva-data-clean.csv`
-
-The specified destination folder `data/clean/` must exist before running spacewalks analysis script.
-```
-
-Remember to rebuild your documentation:
-
-```bash
-(venv_spacewalks) $ mkdocs build
-```
-
-### Exercise: ### Spacewalks tutorial
 Let's adapt the how-to guide from the previous challenge into a tutorial that explains 
 how to change the file path for the output dataset when running the analysis script.
 
-::: spoiler 
-### Solution
-
-Here is what an example tutorial may look like. 
-
-#### Introduction
-
-In this tutorial, we will learn how to change the file path for the output dataset generated by the Spacewalk software.
-By the end of this tutorial, you will be able to specify a custom file path for the cleaned dataset.
-
-#### Prerequisites
-
-Before you start, ensure you have the following:
-
-- Python installed on your system
-- The Spacewalk script (`eva_data_analysis.py`)
-- An input dataset (`eva-data.json`)
-
-####  Prepare the destination directory
-
-First, let us decide where we want to save the cleaned dataset and make sure the directory exists.
-
-For this tutorial, we will use `data/clean/` as the destination folder.
-
-Let's create the directory if it does not exist - e.g. from the command line do:
-
-```bash
-(venv_spacewalks) $ mkdir -p data/clean
-```
-
-#### Run the analysis script with a custom path
-
-Next, execute the Spacewalk script and specify the custom file path for the output dataset:
-```bash
-(venv_spacewalks) $ python3 eva_data_analysis.py <input-file> <output-file>
-```
-
-Replace <input-file> with your input dataset (`data/eva-data.json`) and <output-file> with your desired output path 
-(`data/clean/eva-data-clean.csv`).
-
-Here is the complete command:
-```bash
-(venv_spacewalks) $ python3 eva_data_analysis.py data/eva-data.json data/clean/eva-data-clean.csv
-```
-
-Notice how the output to the command line clearly indicates that we are using a custom output file path.
-
-```output
-Using custom input and output filenames
-Reading JSON file data/eva-data.json
-Saving to CSV file data/clean/eva-data-clean.csv
-Adding crew size variable (crew_size) to dataset
-Saving to CSV file data/clean/eva-data-clean.csv
-Plotting cumulative spacewalk duration and saving to results/cumulative_eva_graph.png
-```
-
-After running the script, let us check the `data/clean` directory to ensure the
-cleaned dataset has been saved correctly.
-
-```bash
-(venv_spacewalks) $ ls data/clean
-```
-You should see `eva-data-clean.csv` file listed in the `data/clean` folder.
-
-#### Exercise: custom output path
-
-+ Create a new directory named `output/data` in your working directory.
-+ Run the Spacewalk script to save the cleaned dataset in the newly created `output/data` directory with the filename `cleaned-eva-data.csv`.
-+ Verify that the dataset has been saved correctly.
-
-##### Solution
-
-```bash
-# Create the directory:
-(venv_spacewalks) $ mkdir -p output/data
-
-# Run the script:
-(venv_spacewalks) $ python3 eva_data_analysis.py data/eva-data.json output/data/cleaned-eva-data.csv
-
-# Verify the output:
-(venv_spacewalks) $ ls output/data
-
-# You should see cleaned-eva-data.csv listed
-```
-
-Congratulations! You have successfully changed the file path for Spacewalks output dataset
-and completed an exercise to practice the process. You can now customize the output location
-and filename according to your needs.
-
 
 ### Exercise: 
-### Tutorial vs. how-to guide
+### Tutorial vs. how-to guide - discussion (5 min)
 
 How does the content and language of our example tutorial differ from our example how-to guide?
 
-:::::::::::::::::::::::: spoiler
-### Discussion hints
-
-#### Content
-
-- The tutorial clearly signposts what will be covered
-- The tutorial includes a narrative of each step and the expected output
-- The tutorial highlights important behaviour the learner should notice
-- The tutorial includes an exercise to practice skills
-
-#### Language
-
-- The tutorial uses the "we" language
-- The tutorial uses imperative to provide clear instructions, e.g. "First do x, then do y"
-
-## Episode: Open software management & collaboration
+## Episode: Software management & collaboration
+## Episode: Spacewalks
 
 ### Exercise: 
-### Archive your repository to Zenodo (Sandbox)
+### Practice with Issues and PRs (20 min)
 
-Note: for this exercise, as demonstrated earlier, you should use the [Sandbox Zenodo](https://sandbox.zenodo.org/) (a version of 
-Zenodo for testing and playing with before minting a real DOI).
-For real software releases, you should use Zenodo.
+We have a bug in our code! 
+If we look at the results in `results/duration_by_astronaut.csv`, the crew column has groups of crew and we wanted to calculate this per astronaut. 
 
- * Create an account on Zenodo Sandbox that is linked to your GitHub account.
- * Use Zenodo Sandbox to create a release for your repository and obtain a DOI for it.
- * Get the link to the DOI badge for your repository and add a link to this image to your README file in 
-Markdown format. Check that this is the DOI for the latest version and not the DOI for a specific version, 
-if not you will be updating this every time you make a release.
+1. Create an issue in GitHub to report this bug. A good issue description for a bug should include:
 
-### Exercise: 
-### Add a DOI to your citation file
+ - What the problem is, including any error messages that are displayed.
+ - What version of the software it occurred with.
+ - Any relevant information about the system running it, for example the operating system being used.
+ - Versions of any dependent libraries.
+ - How to reproduce it.
+ - (Optionally) description of the expected behaviour, e.g. if there is not an error message but the user thinks the result or behaviour is not correct.
+ 
+We might also reference the previous issue in the description, to provide even more context (e.g. "related to #N" where N is the number of the feature request issue).
 
-Add the DOI you were allocated in the previous exercise to your `CITATION.cff` file and then commit and 
-push the updated version to your GitHub repository. 
-If you used the `commit` field in your `CITATION.cff` file before to point to a given version of the code - you can 
-now remove it as using the DOI field is better for this job.
+2. Create a pull request fix the code. You can try to create the code yourself or copy the test code below.
+    - Hint: Do not forget to make a new branch from the `main` branch, not your `02-sum-by-astro-feat` branch.
+3. (Optionally) Have a partner review your pull request.
+3. Merge your pull request
+4. Switch your local computer back to the `main` branch and pull the latest changes from the remote/origin `main` branch.
+5. (Bonus/optional) Delete your merged branches from your local computer and in GitHub.
 
+:::::: spoiler
 
-### Exercise: 
-### Write an issue to describe our bug
+#### Updated function to copy-paste
 
-Create a new issue in your repository's issue tracker by doing the following:
+```python
+def summary_duration_by_astronaut(df):
+    """
+    Summarise the duration data by each astronaut and saves resulting table to a CSV file
 
- - Go to the GitHub webpage for your code
- - Click on the Issues tab
- - Click on the "New issue" button
- - Enter a title and description for the issue
- - Click the "Submit Issue" button to create the issue.
+    Args: 
+        df (pd.DataFrame): Input dataframe to be summarised
 
-### Exercise: 
-### Practice pull requests
+    
+    Returns:
+        sum_by_astro (pd.DataFrame): Data frame with a row for each astronaut and a summarised column 
+    """
+    subset = df.loc[:,['crew', 'duration']] # subset to work with only relevant columns
+    subset.crew = subset.crew.str.split(';').apply(lambda x: [i for i in x if i.strip()]) # splitting the crew into individuals and removing blank string splits from ending ;
+    subset = subset.explode('crew') # separating lists of crew into individual rows
+    subset = add_duration_hours(subset) # need duration_hours for easier calcs
+    subset = subset.drop('duration', axis=1) # dropping the extra 'duration' column as it contains string values not suitable for calulations
+    subset = subset.groupby('crew').sum() 
+    return subset
+```
 
-Q: Work in pairs for this exercise. Share the GitHub link of your repository with your partner. 
-If you have set your repository to private, you will need to add them as a collaborator. Go to the settings page on your GitHub repository's webpage, click on Collaborators from 
-the left hand menu and then click the green "Add People" button and enter the GitHub username or email address of your partner. 
-They will get an email and an alert within GitHub to accept your invitation to work on this repository, without doing this they won't be able to access it.
-
- - Now make a fork of your partners repository. 
- - Edit the `CITATION.cff` file and add your name to it.
- - Commit these changes to your fork
- - Create a pull request back to the original repository
- - Your partner will now receive your pull request and can review 
 ## Episode: Wrap-up
