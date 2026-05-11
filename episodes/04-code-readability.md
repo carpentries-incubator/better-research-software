@@ -887,15 +887,6 @@ Remember, questions we want to answer when writing the docstring include:
 - What output will the function produce?
 - What exceptions/errors, if any, it can produce?
 
-::: callout
-
-### autoDocstring: VS Code Python Docstring Generator
-
-While we can write docstrings manually, [VS Code extension autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) and other similar tools can help create the scaffolding for docstrings and speed up the process immensely.
-We highly recommend installing it for Python development.
-
-:::
-
 Our `read_json_to_dataframe` function fully described by a docstring may look like:
 
 ```python
