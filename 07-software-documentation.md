@@ -467,7 +467,7 @@ site_name: Spacewalks Documentation
 use_directory_urls: false
 theme:
   name: "material"
-font: false
+  font: false
 nav:
   - Spacewalks Documentation: index.md
   - Tutorials: tutorials.md
@@ -487,7 +487,7 @@ site_name: Spacewalks Documentation
 use_directory_urls: false
 theme:
   name: "material"
-font: false
+  font: false
 nav:
   - Spacewalks Documentation: index.md
   - Tutorials: tutorials.md
