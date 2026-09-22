@@ -53,8 +53,8 @@ any links that you are not going to use.
 [fair4rs-working-group]: https://force11.org/groups/fair-4-research-software-fair4rs-working-group/
 [fair-cookbook]: https://faircookbook.elixir-europe.org/content/home.html
 [fair-cookbook-zenodo]: https://faircookbook.elixir-europe.org/content/recipes/findability/zenodo-deposition.html
-[fair-data-principles]: https://www.nature.com/articles/sdata201618
-[fair-principles-research-software]: https://www.nature.com/articles/s41597-022-01710-x
+[fair-data-principles]: https://doi.org/10.1038/sdata.2016.18
+[fair-principles-research-software]: https://doi.org/10.1038/s41597-022-01710-x
 [fair-python-cookiecutter]: https://github.com/Materials-Data-Science-and-Informatics/fair-python-cookiecutter 
 [fair-rs-checklist]: https://fairsoftwarechecklist.net/
 [fair-rs-evaluator]: https://openebench.bsc.es/observatory/Evaluation
@@ -122,8 +122,8 @@ any links that you are not going to use.
 
 [realpython-mkdocs]: https://realpython.com/python-project-documentation-with-mkdocs/
 [real-python-ides]: https://realpython.com/python-ides-code-editors-guide/
-[replication-crisis-errington]: https://elifesciences.org/articles/71601
-[replication-crisis-osc]: https://www.science.org/doi/10.1126/science.aac4716
+[replication-crisis-errington]: https://doi.org/10.7554/eLife.71601
+[replication-crisis-osc]: https://doi.org/10.1126/science.aac4716
 [reproducibility-crisis]: https://en.wikipedia.org/wiki/Replication_crisis
 [repro4everyone]: https://www.repro4everyone.org/
 [rsmd-g1]: https://fair-impact.github.io/RSMD-guidelines/1.General/
