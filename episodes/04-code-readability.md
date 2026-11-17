@@ -1,7 +1,7 @@
 ---
 title: Code readability
 teaching: 60
-exercises: 30
+exercises: 25
 ---
 
 ::: questions
