@@ -288,13 +288,6 @@ Here is a template `main` function you can start from:
 
 ```python
 def main(input_file, output_file, graph_file):
-    """Main function for the module.
-
-    Args:
-        input_file (str): Path to input JSON file.
-        output_file (str): Path to output CSV file.
-        graph_file (str): Path to output cumulative EVA graph file.
-    """
     # FIXME: Put your solution here.
 ```
 
