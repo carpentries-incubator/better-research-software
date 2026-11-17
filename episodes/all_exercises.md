@@ -78,23 +78,37 @@ b. Commit your changes to your repository. Remember to use an informative commit
 
 
 ### Exercise: 
-### Extract functionality into a function (5 min)
-
-Extract the code to plot a graph into a separate function `plot_cumulative_time_in_space(df, graph_file)`.
-The function should take the following two arguments: 
-
-1. a dataframe `df`, and 
-2. a file object or a file path string `graph_file` where to save the plot.
-
-Make sure to commit and push your changes.
-
-
-### Exercise: 
 ### Writing docstrings (5 min)
 
 Write docstrings for the functions `write_dataframe_to_csv` and `plot_cumulative_time_in_space` we introduced earlier.
 
 ## Episode: Code structure
+
+### Exercise: 
+### Extract main code into a function (10 min)
+
+Extract code into a function which represents the main purpose of the module.
+Here is a template `main` function you can start from:
+
+```python
+def main(input_file, output_file, graph_file):
+    # FIXME: Put your solution here.
+```
+
+At the end of file, replace the old code with:
+
+```python
+if __name__ == "__main__":
+    input_file = ...   # FIXME: add path to input file
+    output_file = ...  # FIXME: add path to output file
+    graph_file = ...   # FIXME: add path to graph file
+    main(input_file, output_file, graph_file)
+```
+
+Run the script to make sure it works and then commit and push your changes.
+
+::: hint
+Cut and paste the relevant code from the bottom of the file into your new main function.
 
 ### Exercise: 
 ### Project restructuring (10 min)
@@ -372,8 +386,9 @@ def summary_duration_by_astronaut(df):
     subset.crew = subset.crew.str.split(';').apply(lambda x: [i for i in x if i.strip()]) # splitting the crew into individuals and removing blank string splits from ending ;
     subset = subset.explode('crew') # separating lists of crew into individual rows
     subset = add_duration_hours(subset) # need duration_hours for easier calcs
-    subset = subset.drop('duration', axis=1) # dropping the extra 'duration' column as it contains string values not suitable for calulations
-    subset = subset.groupby('crew').sum() 
+    subset = subset.drop('duration', axis=1) # dropping the extra 'duration' column as it contains string values not suitable for calculations
+    subset = subset.groupby('crew').sum()
+    subset = subset.reset_index() # make group index a column in the dataframe
     return subset
 ```
 
