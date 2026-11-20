@@ -2,7 +2,7 @@
 site: sandpaper::sandpaper_site
 ---
 
-This short course teaches tools and practices for producing and sharing quality, sustainable and [FAIR (Findable, Accessible, Interoperable and Reusable) research software][fair-principles-research-software] to support **open and reproducible research**. 
+This workshop teaches tools and practices for producing and sharing quality, sustainable and [FAIR (Findable, Accessible, Interoperable and Reusable) research software][fair-principles-research-software] to support **open and reproducible research**. 
 The course can be delivered over 2 full or 4 half days.
 
 ## Target audience
@@ -43,9 +43,10 @@ After attending this training, you **will be able** to:
 ## Acknowledgements
 
 This course was originally developed by the [UK's Software Sustainability Institute][ssi] and funded by the [UK Reproducibility Network (UKRN)][ukrn].
+It was adopted by Software Carpentry in 2026.
 See [CITATION.cff][citation] for the full list of authors. 
 
 [ssi]: https:/www.software.ac.uk
 [ukrn]: https://www.ukrn.org/
-[citation]: https://github.com/carpentries-incubator/better-research-software/blob/main/CITATION.cff
+[citation]: https://github.com/swcarpentry/better-research-software/blob/main/CITATION.cff
 
