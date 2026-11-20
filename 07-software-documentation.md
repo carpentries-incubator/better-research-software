@@ -34,7 +34,7 @@ both users and developers.
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation>
+<https://github.com/swcarpentry/bbrs-software-project/tree/07-software-documentation>
 
 ::::::
 
@@ -870,7 +870,7 @@ structuring documentation effectively.
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration>
+<https://github.com/swcarpentry/bbrs-software-project/tree/08-open-collaboration>
 
 ::::::
 

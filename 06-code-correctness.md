@@ -36,7 +36,7 @@ produced by a piece of code meet our expectations, i.e. are correct.
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correctness>
+<https://github.com/swcarpentry/bbrs-software-project/tree/06-code-correctness>
 
 ::::::
 
@@ -1211,7 +1211,7 @@ In other words, software testing supports building better software by making our
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-https://github.com/carpentries-incubator/bbrs-software-project/tree/07-software-documentation.
+https://github.com/swcarpentry/bbrs-software-project/tree/07-software-documentation.
 
 ::::::
 

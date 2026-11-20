@@ -1,7 +1,7 @@
 ---
 title: Code structure
 teaching: 60
-exercises: 30
+exercises: 20
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions
@@ -33,7 +33,7 @@ reusability of our code, and will expand these practices on our (research or cod
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure>
+<https://github.com/swcarpentry/bbrs-software-project/tree/05-code-structure>
 
 ::::::
 
@@ -279,7 +279,37 @@ You will need to share the code below with the learners via copy-and-paste eithe
 
 :::::::::::::::::::::
 
-After creating the main function, your code may look like the following:
+::: challenge
+
+### Extract main code into a function (10 min)
+
+Extract code into a function which represents the main purpose of the module.
+Here is a template `main` function you can start from:
+
+```python
+def main(input_file, output_file, graph_file):
+    # FIXME: Put your solution here.
+```
+
+At the end of file, replace the old code with:
+
+```python
+if __name__ == "__main__":
+    input_file = ...   # FIXME: add path to input file
+    output_file = ...  # FIXME: add path to output file
+    graph_file = ...   # FIXME: add path to graph file
+    main(input_file, output_file, graph_file)
+```
+
+Run the script to make sure it works and then commit and push your changes.
+
+::: hint
+Cut and paste the relevant code from the bottom of the file into your new main function.
+:::
+
+::: solution
+
+After extracting the code to plot a graph into a separate function, our code may look something like the following:
 
 ```python
 import matplotlib.pyplot as plt
@@ -404,6 +434,9 @@ if __name__ == "__main__":
     graph_file = './cumulative_eva_graph.png'
     main(input_file, output_file, graph_file)
 ```
+:::
+
+:::
 
 ## Command-line interface to code
 
@@ -818,7 +851,7 @@ as new contributors can more easily find what they need, and it enables smoother
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correctness>
+<https://github.com/swcarpentry/bbrs-software-project/tree/06-code-correctness>
 
 
 ::::::
