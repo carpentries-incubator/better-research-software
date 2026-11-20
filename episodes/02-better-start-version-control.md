@@ -593,7 +593,7 @@ software (and this includes ourselves on a different machine or operating system
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment>
+<https://github.com/swcarpentry/bbrs-software-project/tree/03-reproducible-dev-environment>
 
 :::
 

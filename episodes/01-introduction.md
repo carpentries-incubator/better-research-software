@@ -112,7 +112,7 @@ member who worked on similar things but has since left. You need to be able to i
 machine, check you can understand it and then adapt it to your own project.
 
 As part of the [setup for this course](./installation-instructions.html#spacewalks), you may have downloaded or been emailed the `spacewalks.zip` archive. 
-If not, you can [download it](https://github.com/carpentries-incubator/better-research-software/raw/refs/heads/main/learners/spacewalks.zip) now.
+If not, you can [download it](https://github.com/swcarpentry/better-research-software/raw/refs/heads/main/learners/spacewalks.zip) now.
 Save the `spacewalks.zip` archive to your home directory and extract it - you should get a directory called `spacewalks`.
 
 ### Opening the project

@@ -5,10 +5,10 @@
 
 This short course is teaching tools and practices for producing and sharing quality and sustainable research software to support open and reproducible research (including [FAIR (Findable, Accessible, Interoperable and Reusable)](https://www.nature.com/articles/s41597-022-01710-x)). 
 
-The lesson uses the [example software project that **does not** follow good research software practices](https://github.com/carpentries-incubator/bbrs-software-project) and has no documentation which learners “inherit” from a pretend team member that has left the team/organisation. 
+The lesson uses the [example software project that **does not** follow good research software practices](https://github.com/swcarpentry/bbrs-software-project) and has no documentation which learners “inherit” from a pretend team member that has left the team/organisation. 
 Learners need to read, understand and run the software in order to be able to fix and improve it gradually over the course of this lesson following the good software practices the course teaches.
 These practices include (but are not limited to) using reproducible software environments and version control, improving code readability and structure, adding tests and documentation to the code and learning about open software management & collaboration.
-The course finishes with a [**better version of the software**](https://github.com/carpentries-incubator/bbrs-software-project/tree/final).
+The course finishes with a [**better version of the software**](https://github.com/swcarpentry/bbrs-software-project/tree/final).
 
 
 The course can be delivered over 2 full or 4 half days.
@@ -16,13 +16,13 @@ The course can be delivered over 2 full or 4 half days.
 The accompanying [slides](https://docs.google.com/presentation/d/1Ouv_mc1xnPUF2-k8H0Sldylhn66Cg84kIwoYwdsOyMQ/edit?usp=sharing) to aid with course delivery are also available.
 There is also a [previous version of the slides](https://docs.google.com/presentation/d/1KahaD7EGxJWXaCDKWAG6Wva4a9zo9Lp-qFyyofgM0vw/edit?usp=sharing).
 
-Launch this lesson on myBinder! 👉 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/carpentries-incubator/better-research-software/HEAD?urlpath=rstudio)
+Launch this lesson on myBinder! 👉 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/swcarpentry/better-research-software/HEAD?urlpath=rstudio)
 
 ## Contributing
 
 Please see the [CONTRIBUTING.md](CONTRIBUTING.md) for contributing guidelines and details on how to get involved with this project.
 
-Also see the current list of [issues](https://github.com/carpentries-incubator/better-research-software/issues) for ideas for contributing to this training curriculum. 
+Also see the current list of [issues](https://github.com/swcarpentry/better-research-software/issues) for ideas for contributing to this training curriculum. 
 Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg).
 This indicates that the issue does not require in-depth knowledge of the project and lesson infrastructure, and is a good opportunity for a new contributor to get involved.
 

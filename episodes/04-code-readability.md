@@ -44,7 +44,7 @@ In this episode, we will learn a few specific software best practices we can fol
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability>
+<https://github.com/swcarpentry/bbrs-software-project/tree/04-code-readability>
 
 :::
 
@@ -1022,7 +1022,7 @@ This proactive approach allows developers to identify and fix many issues as the
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure>
+<https://github.com/swcarpentry/bbrs-software-project/tree/05-code-structure>
 
 :::
 

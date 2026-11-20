@@ -34,7 +34,7 @@ Others are small changes you can start practicing today.
 
 ### Code state
 
-The [final branch](https://github.com/carpentries-incubator/bbrs-software-project/tree/final) of the software project repository contains an improved version of the example code after good practices have been applied.
+The [final branch](https://github.com/swcarpentry/bbrs-software-project/tree/final) of the software project repository contains an improved version of the example code after good practices have been applied.
 
 ::::::
 

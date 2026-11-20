@@ -25,7 +25,7 @@ to enable others to see and contribute to it. We now want to start developing th
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/03-reproducible-dev-environment>
+<https://github.com/swcarpentry/bbrs-software-project/tree/03-reproducible-dev-environment>
 
 ::::::
 
@@ -44,7 +44,7 @@ $ unset PYTHONHOME PYTHONPATH PYTHONSTARTUP
 $ python3 -m venv ./venv_spacewalks
 ```
 
-If you run into problems not mentioned here, please open an [issue in the lesson repository](https://github.com/carpentries-incubator/better-research-software/issues/) so we can track them and update the lesson material accordingly.
+If you run into problems not mentioned here, please open an [issue in the lesson repository](https://github.com/swcarpentry/better-research-software/issues/) so we can track them and update the lesson material accordingly.
 
 :::
 
@@ -559,7 +559,7 @@ In the next episode we will inspect our software in more detail and see how we c
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/04-code-readability>
+<https://github.com/swcarpentry/bbrs-software-project/tree/04-code-readability>
 
 ::::::
 

@@ -33,7 +33,7 @@ reusability of our code, and will expand these practices on our (research or cod
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/05-code-structure>
+<https://github.com/swcarpentry/bbrs-software-project/tree/05-code-structure>
 
 ::::::
 
@@ -851,7 +851,7 @@ as new contributors can more easily find what they need, and it enables smoother
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/06-code-correctness>
+<https://github.com/swcarpentry/bbrs-software-project/tree/06-code-correctness>
 
 
 ::::::

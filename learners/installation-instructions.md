@@ -391,7 +391,7 @@ While the above extension may be very useful for your future work, we will not b
 ## Spacewalks data and analysis code {#spacewalks}
 
 As part of the course, you may receive the `spacewalks.zip` archive from your instructors via email, which contains data and code to be used for 
-examples and exercises throughout the course. Alternatively, you can download the [`spacewalks.zip` archive](https://github.com/carpentries-incubator/better-research-software/raw/refs/heads/main/learners/spacewalks.zip) from GitHub.
+examples and exercises throughout the course. Alternatively, you can download the [`spacewalks.zip` archive](https://github.com/swcarpentry/better-research-software/raw/refs/heads/main/learners/spacewalks.zip) from GitHub.
 
 The archive contains [NASA's open data on spacewalks](https://data.nasa.gov/Raw-Data/Extra-vehicular-Activity-EVA-US-and-Russia/9kcy-zwvn/data_preview)
 (i.e. extravehicular activities - EVAs) undertaken by astronauts and cosmonauts from 1965 to 2013 and a Python script to analyse and plot this data.

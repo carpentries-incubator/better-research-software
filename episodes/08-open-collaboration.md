@@ -35,7 +35,7 @@ There are several other important steps to consider which we will cover here.
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/08-open-collaboration>
+<https://github.com/swcarpentry/bbrs-software-project/tree/08-open-collaboration>
 
 ::::::
 
@@ -784,7 +784,7 @@ The episode also highlights the ethos of open collaboration so that anyone can c
 ### Code state
 
 At this point, the code in your local software project's directory should be as in:
-<https://github.com/carpentries-incubator/bbrs-software-project/tree/final>
+<https://github.com/swcarpentry/bbrs-software-project/tree/final>
 
 ::::::
 
