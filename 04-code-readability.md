@@ -1,7 +1,7 @@
 ---
 title: Code readability
 teaching: 60
-exercises: 30
+exercises: 25
 ---
 
 ::: questions
@@ -722,79 +722,6 @@ def write_dataframe_to_csv(df, output_file):
     df.to_csv(output_file, index=False, encoding='utf-8')
 
 
-# Main code
-
-print("--START--")
-
-input_file = open('./eva-data.json', 'r', encoding='ascii')
-output_file = open('./eva-data.csv', 'w', encoding='utf-8')
-graph_file = './cumulative_eva_graph.png'
-
-# Read the data from JSON file
-eva_data = read_json_to_dataframe(input_file)
-
-# Convert and export data to CSV file
-write_dataframe_to_csv(eva_data, output_file)
-
-# Sort dataframe by date ready to be plotted (date values are on x-axis)
-eva_data.sort_values('date', inplace=True)
-
-# Plot cumulative time spent in space over years
-print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
-eva_data['duration_hours'] = eva_data['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60)
-eva_data['cumulative_time'] = eva_data['duration_hours'].cumsum()
-plt.plot(eva_data['date'], eva_data['cumulative_time'], 'ko-')
-plt.xlabel('Year')
-plt.ylabel('Total time spent in space to date (hours)')
-plt.tight_layout()
-plt.savefig(graph_file)
-plt.show()
-
-print("--END--")
-```
-
-We have chosen to create functions for reading in and writing out data files since this is a very common task within research software.
-While these functions do not contain that many lines of code due to using the `pandas` in-built methods that do all the complex data reading, converting and writing operations, it can be useful to package these steps together into reusable functions if you need to read in or write out a lot of similarly structured files and process them in the same way.
-
-We can further simplify the main part of our code by extracting the code to plot a graph into a separate function `plot_cumulative_time_in_space`.
-Let's do that as an exercise.
-
-::: challenge
-
-### Extract functionality into a function (5 min)
-
-Extract the code to plot a graph into a separate function `plot_cumulative_time_in_space(df, graph_file)`.
-The function should take the following two arguments: 
-
-1. a dataframe `df`, and 
-2. a file object or a file path string `graph_file` where to save the plot.
-
-Make sure to commit and push your changes.
-
-::: solution
-
-After extracting the code to plot a graph into a separate function, our code may look something like the following:
-
-```python
-import matplotlib.pyplot as plt
-import pandas as pd
-
-def read_json_to_dataframe(input_file):
-    print(f'Reading JSON file {input_file}')
-    # Read the data from a JSON file into a Pandas dataframe
-    eva_df = pd.read_json(input_file, convert_dates=['date'], encoding='ascii')
-    eva_df['eva'] = eva_df['eva'].astype(float)
-    # Clean the data by removing any rows where duration is missing
-    eva_df.dropna(axis=0, subset=['duration', 'date'], inplace=True)
-    return eva_df
-
-
-def write_dataframe_to_csv(df, output_file):
-    print(f'Saving to CSV file {output_file}')
-    # Save dataframe to CSV file for later analysis
-    df.to_csv(output_file, index=False, encoding='utf-8')
-
-
 def plot_cumulative_time_in_space(df, graph_file):
     print(f'Plotting cumulative spacewalk duration and saving to {graph_file}')
     df['duration_hours'] = df['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1])/60)
@@ -828,9 +755,9 @@ plot_cumulative_time_in_space(eva_data, graph_file)
 
 print("--END--")
 ```
-:::
 
-:::
+We have chosen to create functions for reading and writing data files and plotting data since these are a very common tasks within research software.
+While these functions do not contain that many lines of code due to using the `pandas` in-built methods that do all the complex data reading, converting and writing operations, it can be useful to package these steps together into reusable functions if you need to read in or write out a lot of similarly structured files and process them in the same way.
 
 ## Use docstrings to document functions
 
